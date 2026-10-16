@@ -58,8 +58,12 @@
       --gold: #f59e0b;
       --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
       --radius: 20px;
+   html, body {
+        overflow-x: hidden !important;
+        width: 100vw;
+        margin: 0;
+        padding: 0;
     }
-
     [data-theme="dark"] {
       --bg: #0b1120;
       --surface: #1e293b;
@@ -918,9 +922,16 @@
           <div class="step-num">2</div>
           <div>
             <strong style="font-size:0.92rem;">मेन्यू (⋮ या Share) पर टैप करें</strong>
-            <p style="font-size:0.82rem;color:var(--muted);margin-top:2px;">
-              Chrome में ऊपर दाईं तरफ <strong>3 डॉट्स (⋮)</strong> दबाएं, या iPhone Safari में नीचे <strong>Share बटन</strong> दबाएं।
-            </p>
+           <div class="download-container">
+    <span class="floating-money symbol-1">₹</span>
+    <span class="floating-money symbol-2">$</span>
+    <span class="floating-money symbol-3">₹</span>
+    <span class="floating-money symbol-4">$</span>
+    
+    <button class="super-download-btn" onclick="installAppNow()">
+        📲 Direct Install App
+    </button>
+</div>
           </div>
         </div>
 
@@ -953,7 +964,7 @@
     </button>
     <button class="nav-item" id="nav-install" onclick="switchView('install', this)">
       <span class="nav-icon">📲</span>
-      <span>फोन आइकन गाइड</span>
+      <span>फोन आइकन </span>
     </button>
   </nav>
 
@@ -1485,6 +1496,82 @@ function playSound(type) {
 @keyframes gentleBounce {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-6px); }
+}
+  /* Download Button & Floating Money CSS */
+.download-container {
+    position: relative;
+    text-align: center;
+    margin: 40px auto 20px auto;
+    padding: 30px 10px;
+    width: 100%;
+}
+
+.super-download-btn {
+    background: linear-gradient(90deg, #ffcc00 0%, #ff6600 100%);
+    border: 3px solid #ffffff;
+    border-radius: 50px;
+    padding: 16px 35px;
+    font-size: 20px;
+    font-weight: 900;
+    color: #fff;
+    text-transform: uppercase;
+    box-shadow: 0 0 15px rgba(255, 204, 0, 0.8), 0 0 30px rgba(255, 102, 0, 0.6);
+    animation: heartbeat 1.2s infinite;
+    position: relative;
+    z-index: 10;
+}
+
+.super-download-btn:active {
+    transform: scale(0.9);
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Floating symbols animation */
+.floating-money {
+    position: absolute;
+    font-size: 28px;
+    font-weight: bold;
+    opacity: 0;
+    animation: floatUp 2.5s infinite ease-in-out;
+    z-index: 1;
+}
+
+.symbol-1 { left: 25%; color: #ffd700; animation-delay: 0s; }
+.symbol-2 { left: 45%; color: #28a745; animation-delay: 0.6s; }
+.symbol-3 { left: 65%; color: #ffd700; animation-delay: 1.2s; }
+.symbol-4 { left: 85%; color: #28a745; animation-delay: 1.8s; }
+
+@keyframes floatUp {
+    0% { bottom: 10px; opacity: 1; transform: translateY(0) scale(1); }
+    100% { bottom: 120px; opacity: 0; transform: translateY(-80px) scale(1.5); }
+}
+  let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+});
+
+function installAppNow() {
+    // Button dabate hi pehle sikke ki aawaz aayegi
+    if(typeof playSound === 'function') {
+        playSound('income'); 
+    }
+    
+    // Install popup laane ka code
+    if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+            deferredPrompt = null;
+        });
+    } else {
+        // Agar browser direct support nahi karta to ye chalega
+        alert("🎉 App install karne ke liye:\n\n1. Apne browser ke menu (3-dots ⋮) par click karein.\n2. 'Add to Home screen' ya 'Install App' par click karein!");
+    }
 }
 </style>
 <!-- Smart Link / Magic Button End -->
