@@ -1448,6 +1448,46 @@ function playSound(type) {
     osc.stop(ctx.currentTime + 0.15);
 }
 </script>
+<!-- Smart Link / Magic Button Start -->
+<div style="text-align: center; margin: 40px 0 20px 0;">
+    <a href="https://arwf.org/4/28bea390be879b68d9caf067e1c0ffc8" target="_blank" class="magic-btn" onclick="playSound('income')">
+        🎁 आज का सरप्राइज़ (Tap Here) ✨
+    </a>
+    <p style="font-size: 12px; color: #888; margin-top: 8px;">Support the developer & unlock magic!</p>
+</div>
+
+<style>
+/* Magic Button Animation */
+.magic-btn {
+    display: inline-block;
+    background: linear-gradient(45deg, #ff007a, #ff8a00);
+    color: #ffffff !important;
+    font-size: 18px;
+    font-weight: 800;
+    padding: 15px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(255, 0, 122, 0.4);
+    animation: glowingPulse 1.5s infinite alternate, gentleBounce 2s infinite;
+    transition: transform 0.15s;
+    border: 2px solid white;
+}
+
+.magic-btn:active {
+    transform: scale(0.9) !important;
+}
+
+@keyframes glowingPulse {
+    0% { box-shadow: 0 0 10px rgba(255,0,122,0.5); }
+    100% { box-shadow: 0 0 25px rgba(255,138,0,0.9), 0 0 40px rgba(255,0,122,0.6); }
+}
+
+@keyframes gentleBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+</style>
+<!-- Smart Link / Magic Button End -->
   <script src="https://bicea.org/22/4708e5cb58f7a3a7ee6e8c46d62ce263"></script>
 </body>
 </html>
