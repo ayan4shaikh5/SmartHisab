@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
- <!-- OneSignal Push Notification SDK (Auto-Prompt on Load) -->
+<!-- OneSignal Push Notification SDK (Auto-Prompt on Load) -->
 <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
 <script>
   window.OneSignalDeferred = window.OneSignalDeferred || [];
@@ -12,8 +12,7 @@
         enable: false,
       },
     });
-
-    // Website khulte hi turant permission popup dikhane ke liye
+   // Website khulte hi turant permission popup dikhane ke liye
     try {
       await OneSignal.Notifications.requestPermission();
     } catch (e) {
