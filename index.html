@@ -1653,22 +1653,131 @@ function installAppNow() {
     }
 }
 </style>
-<!-- Smart Link / Magic Button End -->
-  <script src="https://bicea.org/22/4708e5cb58f7a3a7ee6e8c46d62ce263"></script>
-<!-- 🎁 FLOATING BOTTOM LOOT TAB BUTTON -->
-<button onclick="openLootStore()" style="position: fixed; bottom: 70px; right: 15px; z-index: 9998; background: linear-gradient(135deg, #ff007f, #ffaa00); color: #fff; border: 2px solid #fff; border-radius: 50px; padding: 10px 18px; font-weight: 900; font-size: 14px; box-shadow: 0 0 15px rgba(255,0,127,0.8); cursor: pointer; animation: pulseBtn 1.2s infinite;">
+<!-- 🎁 FLOATING BOTTOM LOOT BUTTON -->
+<button onclick="openLootStore()" style="position: fixed; bottom: 75px; right: 15px; z-index: 9998; background: linear-gradient(135deg, #ff007f, #ffaa00); color: #fff; border: 2px solid #fff; border-radius: 50px; padding: 10px 18px; font-weight: 900; font-size: 14px; box-shadow: 0 0 15px rgba(255,0,127,0.8); cursor: pointer; animation: pulseBtn 1.2s infinite;">
     🎁 ₹99 Loot Store
 </button>
 
-<!-- 🔥 FULL SCREEN LOOT STORE PAGE (Hidden by default) -->
+<!-- 🔥 FULL SCREEN LOOT STORE MODAL -->
 <div id="lootStoreModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 10, 20, 0.98); z-index: 9999; overflow-y: auto; padding: 20px; box-sizing: border-box; font-family: sans-serif;">
     
-    <!-- Top Header with Close Button -->
+    <!-- Top Header -->
     <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; padding-bottom: 12px; margin-bottom: 15px;">
         <h3 style="margin: 0; color: #00ffcc; font-size: 20px;">🔥 Student ₹99 Loot Store</h3>
         <button onclick="closeLootStore()" style="background: #ff4757; color: #fff; border: none; padding: 6px 14px; border-radius: 6px; font-weight: bold; cursor: pointer;">✖ Band Karein</button>
     </div>
 
-    <p style="color: #ffaa00; text-align: center; font-size: 13px; font-weight: bold; margin-bottom: 15
+    <p style="color: #ffaa00; text-align: center; font-size: 13px; font-weight: bold; margin-bottom: 15px;">
+        ⚡ Kisi bhi deal par tap karein — Pehle Sponsor Ad khulega, fir 3 second me Flipkart deal unlock ho jayegi!
+    </p>
+
+    <!-- 5 Products with Dedicated Ad Links + Flipkart Links -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+        
+        <!-- Button 1: Ad Link 1 + Flipkart Link 1 -->
+        <button onclick="startAdThenFlipkart('https://fktr.in/USkFso9', 'https://asiafilm.org/4/c5064e247fe2b7da30eb4003946c5f40')" class="loot-card">
+            <div style="font-size: 28px;">🎧</div>
+            <div style="margin-top: 5px;">TWS Earbuds</div>
+            <div class="loot-price">₹99 Only</div>
+        </button>
+
+        <!-- Button 2: Ad Link 2 + Flipkart Link 2 -->
+        <button onclick="startAdThenFlipkart('https://fktr.in/BakOoqi', 'https://asiafilm.org/4/c8adaff60d7b00056e516f39ce44b77c')" class="loot-card">
+            <div style="font-size: 28px;">👟</div>
+            <div style="margin-top: 5px;">Stylish Sneakers</div>
+            <div class="loot-price">₹149 Only</div>
+        </button>
+
+        <!-- Button 3: Ad Link 3 + Flipkart Link 3 -->
+        <button onclick="startAdThenFlipkart('https://fktr.in/057SbFG', 'https://asiafilm.org/4/29aae566767dfa0c40872316922d3ced')" class="loot-card">
+            <div style="font-size: 28px;">⌚</div>
+            <div style="margin-top: 5px;">Smartwatches</div>
+            <div class="loot-price">₹199 Only</div>
+        </button>
+
+        <!-- Button 4: Ad Link 4 + Flipkart Link 4 -->
+        <button onclick="startAdThenFlipkart('https://fktr.in/OMi2SKL', 'https://asiafilm.org/4/618f98aafe328a7d00b5e1953dc3c49f')" class="loot-card">
+            <div style="font-size: 28px;">🎒</div>
+            <div style="margin-top: 5px;">College Bags</div>
+            <div class="loot-price">₹129 Only</div>
+        </button>
+
+        <!-- Button 5: Ad Link 5 + Flipkart Link 5 -->
+        <button onclick="startAdThenFlipkart('https://fktr.in/agCxj0l', 'https://asiafilm.org/4/b6048dc25e2ae00de05b8cad8354bd17')" class="loot-card" style="grid-column: span 2; background: linear-gradient(90deg, #ff007f, #ff7700); border: none;">
+            <div style="font-size: 26px;">🎁 MEGA MYSTERY DEAL 🎁</div>
+            <div style="font-size: 13px; color: #fff; margin-top: 4px;">Tap to Unlock Secret 90% OFF Offer!</div>
+        </button>
+
+    </div>
+
+    <!-- ⏳ 3-Second Countdown Box -->
+    <div id="dealTimerBox" style="display: none; margin-top: 20px; background: #1e1e2f; border: 2px dashed #00ffcc; padding: 15px; border-radius: 10px; text-align: center; color: #fff;">
+        <h4 id="timerText" style="margin: 0; color: #ffcc00; font-size: 16px;">⏳ Ad dikhaya ja raha hai... Deal 3 second me khulegi!</h4>
+    </div>
+</div>
+
+<style>
+    .loot-card {
+        background: #1a1a2e;
+        border: 1px solid #00ffcc;
+        color: #fff;
+        padding: 15px 10px;
+        border-radius: 12px;
+        font-weight: bold;
+        font-size: 14px;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(0, 255, 204, 0.15);
+        transition: transform 0.15s ease;
+    }
+    .loot-card:active {
+        transform: scale(0.95);
+    }
+    .loot-price {
+        color: #ffcc00;
+        font-size: 16px;
+        margin-top: 4px;
+        font-weight: 900;
+    }
+    @keyframes pulseBtn {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.06); }
+        100% { transform: scale(1); }
+    }
+</style>
+
+<script>
+    function openLootStore() {
+        document.getElementById('lootStoreModal').style.display = 'block';
+    }
+
+    function closeLootStore() {
+        document.getElementById('lootStoreModal').style.display = 'none';
+    }
+
+    function startAdThenFlipkart(flipkartUrl, adUrl) {
+        // Step 1: Sabse pehle user ke samne us button ka specific Ad khulega
+        window.open(adUrl, '_blank');
+
+        // Step 2: 3 second ka timer chalega aur fir Flipkart par le jayega
+        const timerBox = document.getElementById('dealTimerBox');
+        const timerText = document.getElementById('timerText');
+        timerBox.style.display = 'block';
+
+        let secondsLeft = 3;
+        timerText.innerText = "⏳ Deal unlock ho rahi hai... " + secondsLeft + "s";
+
+        const countdown = setInterval(function() {
+            secondsLeft--;
+            if (secondsLeft > 0) {
+                timerText.innerText = "⏳ Deal unlock ho rahi hai... " + secondsLeft + "s";
+            } else {
+                clearInterval(countdown);
+                timerText.innerText = "✅ Redirecting to Flipkart...";
+                // Step 3: Seedha Flipkart deal khul jayegi
+                window.location.href = flipkartUrl;
+            }
+        }, 1000);
+    }
+</script>
 </body>
 </html>
