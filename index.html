@@ -1,8 +1,26 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
- <!-- OneSignal Push Notification SDK -->
+ <!-- OneSignal Push Notification SDK (Auto-Prompt on Load) -->
 <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
+      appId: "6c8928da-3cd5-4a6a-9ba0-28100912b3e5",
+      notifyButton: {
+        enable: false,
+      },
+    });
+
+    // Website khulte hi turant permission popup dikhane ke liye
+    try {
+      await OneSignal.Notifications.requestPermission();
+    } catch (e) {
+      console.log("Permission prompt error:", e);
+    }
+  });
+</script>
 <script>
   window.OneSignalDeferred = window.OneSignalDeferred || [];
   OneSignalDeferred.push(async function(OneSignal) {
