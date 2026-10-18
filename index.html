@@ -1,89 +1,52 @@
-<!DOCTYPE html>                
+<!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta name="google-site-verification" content="NJfuIJz2C8AggIvY0iuMZOxDwMUrhUZYhBkSqX2gKsM" />
-<!-- Google Search SEO Tags -->
-<title>SmartHisab - Free Expense Tracker & Daily Budget</title>
-<meta name="description" content="SmartHisab is the best free daily expense tracker. Apna roz ka hisab aur budget aasani se manage karein.">
-<meta name="keywords" content="SmartHisab, smart hisab, smarthisab, expense tracker, daily hisab app, budget tracker">
-<meta name="author" content="Ayan Shaikh">
-<meta name="robots" content="index, follow">
-<!-- OneSignal Push Notification SDK -->
-<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
-<script>
-  window.OneSignalDeferred = window.OneSignalDeferred || [];
-  OneSignalDeferred.push(async function(OneSignal) {
-    await OneSignal.init({
-      appId: "6c8928da-3cd5-4a6a-9ba0-28100912b3e5",
-    });
-  });
-</script>
-  <script>
-   // Website khulte hi turant permission popup dikhane ke liye
-    try {
-      await OneSignal.Notifications.requestPermission();
-    } catch (e) {
-      console.log("Permission prompt error:", e);
-    }
-  });
-</script>
-<script>
-  window.OneSignalDeferred = window.OneSignalDeferred || [];
-  OneSignalDeferred.push(async function(OneSignal) {
-    await OneSignal.init({
-      appId: "6c8928da-3cd5-4a6a-9ba0-28100912b3e5",
-      notifyButton: {
-        enable: false, // Hume custom look chahiye isliye default button hide rakha hai
-      },
-    });
-  });
-</script>
-  <link rel="manifest" href="manifest.json">
-<script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js');
-  }
-</script>
   <meta charset="UTF-8" />
- <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- यह टाइटल गूगल सर्च में दिखेगा -->
-    <title>Smart Hisab — Daily Income & Expense Tracker</title>
-    <!-- यह डिस्क्रिप्शन गूगल सर्च में आपके लिंक के नीचे दिखेगा -->
-    <meta name="description" content="Manage your daily earnings, expenses, and savings easily with Smart Hisab, a free and simple web app.">
-    <!-- यह कीवर्ड्स हैं जो लोग गूगल पर ढूंढते हैं -->
-    <meta name="keywords" content="Smart Hisab, Expense Tracker App, Mera Hisab, Kharcha Pani, Daily Income Tracker">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="google-site-verification" content="NJfuIJz2C8AggIvY0iuMZOxDwMUrhUZYhBkSqX2gKsM" />
+
+  <!-- Google Search SEO Tags -->
+  <title>SmartHisab — Free Expense Tracker & Daily Budget</title>
+  <meta name="description" content="SmartHisab is the best free daily expense tracker. Apna roz ka hisab aur budget aasani se manage karein." />
+  <meta name="keywords" content="SmartHisab, smart hisab, smarthisab, expense tracker, daily hisab app, budget tracker, Mera Hisab, Kharcha Pani" />
+  <meta name="author" content="Ayan Shaikh" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- PWA & Mobile Meta -->
   <meta name="theme-color" content="#059669" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="मेरा हिसाब" />
+  <link rel="manifest" href="manifest.json" />
+
+  <!-- App Icons -->
   <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAANcklEQVR4nO2dW4xVVxnH/3vOmTPMjRkuLUWw7UCLU7AlYFMakKJpw0ioGjXFSiCamphoatIHK6SJITQmyoMPYms1NRRrQ0xq1JIY5KFy0WkLEWigNNBWEUagCMMwF+bGzBwfyGkPwzlz9trrW3t9a63v99Qmwz777PX/re/ba19OBKY0796ct70PAi1X2jZFtvdhPCx2SMIeLralsPbhEnphPDZkSPUDJfRCXNKSIZUPkeALSTEtgtGNS/AFKkyJYGSjEnzBFNQiVFFuDJDwC2ahzhepTSbC37+jnXqTQsrUrV1Gvk2qSkCyEcrgS+D9h1IIXRG0BaAIv4Q+XChk0JFASwDd8EvwhQK6IiSVILEAOuGX4Avl0BEhiQSJBEgafgm+EJekIqhKoCxAkvBL8IWkJBFBRQKl6wASfiFtkuRHJaexBZDwC7YwKUGsUqEafgm+YArVlqhSO0R+K4SEXzAJdb4qCqAy+0v4hTRQyVml/E4ogIRf4AqVBGUFkPAL3KGQgPwcQBBcoqQAMvsLrqBbBbQqgIRf4IBODm8SIO7sL+EXOBE3j+PzLecAQtDcIIDM/oLLJKkCWWN7IwAAulboTxZT9tE/UytcR1kAmf1LQxF01W2LGDfTv6Nd6X6hj24UkvZHDZOBT4oIcZ24Alxp2xQpVYDQw88x9MUU71/IMqhUATkHqAD30JdDZIhHBMRrf0Kb/V0N/kSEJkKcKiAVoAgfQ1+MVIWbEQHgf/BLUfjOoYsQ60qwz+1PiOEvxufvHye3wVYAnwdelZCrQTa015nbCH6uZWbifzt86jzhnkxMiCIEVQFMh18n6KrbNClG14r2YCSIKlUAH/p/k8E3EXpVTMrggwgTLYd6XwFMhJ9D6Isp3h9qGXyvBl4LQBl+bqEvhwkZfJbASwFCDH4pCvtOIYKvJ8jePRFGFf5cy0ynw18M5XfxbfnYKwEoBsen4I+H6rv5JIE3AugOis/BHw/Fd/VFAi8EoAh/iIgEHgigMwghzfrl0D0GrkvgtAC64Rc+JlQJnBVAwk9PiBI4KUDSgy0tT2V0jpGLEjgngE74hfiEIoFTAkj40yUECZwSIAkSfj18P37OCJBkVvF98NIiyXF0pQo4IYCE3z6+SsBeAAk/H3yUgL0Aqkj4zeLb8WX9PIDq7GFycP7TncHw6IQ/Os6aTFUec5tHSbaVa5mp9IwB5wdq2ArAqXSe7ctg4fbpGBmzvSfJWdM6iJdWdVv7fK4SeNMCmZz9nztc53T4AeD7i/tJt+dLK8RSAE6tT99whJeO1RrbfhosmzWMxTOukW9X9bhzquoFWAqggumZaNuxWvQOu9v7A8CTxLN/Ma5XAnYCcJolRsaAXx6ps70bWrQ0jeLRuUO2d+MjOI0vwEwATq0PAPzxvUno6M0Y/QzTfHdRP6oMFzCXWyFWAqiQRun9+SG3Z//JNXl8c8FAKp/laivERgBOswIA7O/I4e3/VdveDS2+9ekBNOR4vvuYy3izvQ4wEWnMNnOaR7Hn8cux/jYPoHuoCl2DEd7tzGJ/Rw7//LAaY0TZa2kaxbYEa/itU0dodiAmqhfIOOCkAGkwu3EUsxuTXzk9eTmLze0NeO2DGu19OdWdwVgeePAT9EuZocOiBVIph670mp+aOoIdX7yCHy3tI9nec4fdOB9RGR8ObRALAXxm45KrWEdwIrr7VA2uOX41miPWBfBx9h/Plof6tE9G+0ciHL7gxkm5S1VAzgFi8t7lLAY1bqZ8+PZh7fOBP78/CbXZZCLlqoDWaemeFLuAMwLYnP3P9GRw/8vTMGp5RXHroTpsTXhtYu38QbzYlt7doK6sCFltgWyXv7g8f6TOevh1eXLRVdu7UBabObB+DsCdnqEI299x+27Q5bOHsfBWaX9K4YQANtuf3xytQ5/jd4NSPwsQFxcWLawJ4EL7c20MeOFtN9bfy3FX8yhWzeFzN2g5bOXBiQpgi1dPTMK5PrcP0fcWm78b1GXYj67NMrr1cL21z6agqSaPdfPTuRu0HNzbIPYC2OJvp3M4dtGZVeKSPHFvP+qrHV++MoyVEXah/58/fQRvrusk294rx2vxvObTZb9e2YP7bo1/Q9ycJprXoKSFjTdHsJ7ibJbP2+rHcFs93c03e87ktP59fXUea1oHkcu4N6NzvigmLVAK/O54Ld7t1JtrvnTXkJPh544IYJgTnVls2NeovZ3vLLSzlu87IoBB3jhbjZWvTkH3kN465BdahvDATHkYxgSszwFc5Oq1CO1nc9h+rJbkabD66jx+9vlegj0TSpG6AC6sABXT0ZvBU69P3MIUngnuHIhwuofuJbqZCNi2qht3Oraao0PaK0FsKwCXCyi9wxH+ekp/JlclAvCLR3pYvdRKB64rQWwFCJmmmjxebOvGak/CzxkRgBnLZw/jhZU9aAmo7bGJCMCE+dNG8Oxn+5y4c9MnRACLNFTn8ZV5g1i/YBDLZg3b3p0gkesAFhnLX189ujIYQa7x2kEEsEj/SISdH9Rgzc5mLH1lGo448toTnxABmHD0Yhaf+/1U53+PwDVEAEaMjAFP723Es2802N6VYBABGLLlQD1+5fizyK4gq0AVaKjO45E7Sq/QjOaB7qEIH17NkD87/MO9jbj3lhFZHTKMCFCB2yeP4rWvdlX8u0sDVdj17xpsO1aLg+f1T2ZH88C3d03GgfWdaKqRNSJTSAtExPTaMaxfMIA9j1/GtlXdJM/idvRm8Mx+/WcJhPKIAAb4eusgdj3WhUaCnyf67Ts0FUUojQhgiM/MuIaXV3cjo3lndB7AD/ZIFTAFWwE43jqryso7h/DU/fovpT10oZrk4RqbcB3P1AVI+7UXtnnmwau4e4r+nZ2b2xvIfnSPM2nng20F8IVJ2Tx+vFz/kcaTl7P4w8lJBHskFCMCpMCjc4dIfuFxy8H6IKpAmogAKbGJ4NciT3Rm8af3pQpQIgKkxEOfHMbSWQRV4EC93DpNCGsBuK4cJGXjEv0qcPxSFjsdWxHiPI5WBAhtJajAw3cMk7zg6qdv+Xm3qI1csK4APrJxif51gaMXs/jLv9yqAlxhLwDn8pmEtpYhLJpBUAUOuPHjHdzHj70APkJRBQ5fqMZuCy/s8g1rAoR6HgAAq+cO4b5b9H+21JUqEAdbeXCiAnAvo6pEADYQrAgdPF+N10/r/fCGSVwYNycE8JEv3z2Ee6bpV4GfeLoilBZWBQi5DbpeBfTPBd48V419HXyrQBxs5sCZCuBCOVXla/MGMW8qRRXgdy7gyng5I4CPVEXAhgf0q8Df/5vDP866XQVsYV0AlfLnyqyiwmOtg5jbrP+8AKcqoDJOtttg6wKETiYCniaoAnvP5PDWOXl2WBUWAoReBb5xzwDJzyBxWBFyafYH5L1ALMhWAcefuGR7N4KERQVQxccq4AMujgsbATiUQyE9uIw3GwFUcXG28RlXx4OVAKqzgqsH3TdUx4HL7A8wEwDgdXAEeriNLzsBVJEqYBfXjz9LAaQVcgOXW58CLAVIgkiQLr4cb7YCcJwthORwHU+2AgDSCnHFh9anAGsBkiASmMW348tegCSzh2+DxIUkx5Xz7A84IAAgEnDAx/ADjggAiAQ28TX8gEMCJEUk0MP34+eUAElnFd8H0RRJj5srsz/gmACASJAWIYQfcFAAQE8CEWFidI6Ra+EHHBUA0DvYIkFpdI6Li+EHHBYAEAkoCTH8gOMCAPoShC6C7jFwOfyABwIA+oMQqgS639v18AOeCADQSBCKCBTf1YfwAx4JANAMis8iUH03X8IPeCYAQDc4PolA+V18Cj/g6ZvhCoPUtaJde1uF4ORaZmpvK20oBfYt+AW8FKDAlH3LSCQAbgwTZxlMVC1fww94LgBAK0EBbjKYbNV8Dj8ARM27N+cr/VH/DtoA2YJahPGkKYPp8xNfgl+3duLv4X0FKMZENSimXCh1xLBxIu5L+OMQAUClKuBLBSjGdDVwER+DLxWgDJQrRa7jY/DjEus6QCWLXCbkwQf8/v5xchtsBSgmxGrgc/BVEAGKKA6FjzJI6G8mKvxHSMuhKvggQojBj9P+XGnbFEkFqICrVSHE0CdBSYC6tcuCrAIFuMsgob+OyqJNVPw/0gYlx4YQEvjSxG1/gAQnwaFXgXKUCyOFGBL0+Kgu2cs5gGEkvLy54UJYoSxUwucLY4K7xM1lcc69eyJMEFS4SQCpAoKLJJn9Ac0KIBIIHNDJYUkB4lYB3Q8XBF1U8lcq13IOIARNWQGkCgjc0Z39gQoVQCQQuEIRfiBGCyQSCNygCj9g4BxAJBBMQp2v2LN7nBvlxiP3DAlUJAl+nO4ldgVQaYUKSDUQKDAVfkCxBRIJhLQxGX5AoQUqJkk7BEhLJMQn6cSpOkknEgBILgEgIgjl0ekYknQoiQUA9CQARAThY3Rb5SThBzQFAPQlAESEkKE4R0wafoBAAIBGggIig/9QLozohB8gEqAApQgFRAj3MbESqBv8AqQCAGYkEIRiqMIPGLgVgnLnBGE81PkyGlapBgIVpibWVGZrEUFIiumOItV2RUQQ4pJWK22tXxcZhPHYOH9kccIqMoSL7UWT/wPFIy5xN1tTvgAAAABJRU5ErkJggg==" />
   <link rel="apple-touch-icon" href="data:image/png;base64,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" />
-  <link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjogIlx1MDkyZVx1MDk0N1x1MDkzMFx1MDkzZSBcdTA5MmFcdTA5NDhcdTA5MzhcdTA5M2UgXHUyMDE0IFx1MDkxNVx1MDkyZVx1MDkzZVx1MDkwOCBcdTA5MTRcdTA5MzAgXHUwOTE2XHUwOTMwXHUwOTRkXHUwOTFhIFx1MDkxMFx1MDkyYSIsICJzaG9ydF9uYW1lIjogIlx1MDkyZVx1MDk0N1x1MDkzMFx1MDkzZSBcdTA5MzlcdTA5M2ZcdTA5MzhcdTA5M2VcdTA5MmMiLCAic3RhcnRfdXJsIjogIi4iLCAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwgImJhY2tncm91bmRfY29sb3IiOiAiIzBmMTcyYSIsICJ0aGVtZV9jb2xvciI6ICIjMDU5NjY5IiwgImljb25zIjogW3sic3JjIjogImRhdGE6aW1hZ2UvcG5nO2Jhc2U2NCxpVkJPUncwS0dnb0FBQUFOU1VoRVVnQUFBTUFBQUFEQUNBWUFBQUJTM0d3SEFBQU5ja2xFUVZSNG5PMmRXNHhWVnhuSC8zdk9tVFBNalJrdUxVV3c3VUNMVTdBbFlGTWFrS0pwdzBpb0dqWEZTaUNhbXBob2F0SUhLNlNKSVRRbXlvTVBZbXMxTlJSclEweHExSklZNUtGeTBXa0xFV2lnTk5CV0VVYWdDTU13RitiR3pCd2Z5R2tQd3psejl0cnJXM3Q5YTYzdjk5UW13ejc3N1BYL3JlL2JhMTlPQktZMDc5NmN0NzBQQWkxWDJqWkZ0dmRoUEN4MlNNSWVMcmFsc1BiaEVucGhQRFprU1BVREpmUkNYTktTSVpVUGtlQUxTVEV0Z3RHTlMvQUZLa3lKWUdTakVuekJGTlFpVkZGdURKRHdDMmFoemhlcFRTYkMzNytqblhxVFFzclVyVjFHdmsycVNrQ3lFY3JnUytEOWgxSUlYUkcwQmFBSXY0UStYQ2hrMEpGQVN3RGQ4RXZ3aFFLNklpU1ZJTEVBT3VHWDRBdmwwQkVoaVFTSkJFZ2FmZ20rRUpla0lxaEtvQ3hBa3ZCTDhJV2tKQkZCUlFLbDZ3QVNmaUZ0a3VSSEphZXhCWkR3QzdZd0tVR3NVcUVhZmdtK1lBclZscWhTTzBSK0s0U0VYekFKZGI0cUNxQXkrMHY0aFRSUXlWbWwvRTRvZ0lSZjRBcVZCR1VGa1BBTDNLR1FnUHdjUUJCY29xUUFNdnNMcnFCYkJiUXFnSVJmNElCT0RtOFNJTzdzTCtFWE9CRTNqK1B6TGVjQVF0RGNJSURNL29MTEpLa0NXV043SXdBQXVsYm9UeFpUOXRFL1V5dGNSMWtBbWYxTFF4RjAxVzJMR0RmVHY2TmQ2WDZoajI0VWt2WkhEWk9CVDRvSWNaMjRBbHhwMnhRcFZZRFF3ODh4OU1VVTcxL0lNcWhVQVRrSHFBRDMwSmREWkloSEJNUnJmMEtiL1YwTi9rU0VKa0tjS2lBVm9BZ2ZRMStNVklXYkVRSGdmL0JMVWZqT29Zc1E2MHF3eisxUGlPRXZ4dWZ2SHllM3dWWUFud2RlbFpDclFUYTAxNW5iQ0g2dVpXYmlmenQ4Nmp6aG5reE1pQ0lFVlFGTWgxOG42S3JiTkNsRzE0cjJZQ1NJS2xVQUgvcC9rOEUzRVhwVlRNcmdnd2dUTFlkNlh3Rk1oSjlENklzcDNoOXFHWHl2Qmw0TFFCbCticUV2aHdrWmZKYkFTd0ZDREg0cEN2dE9JWUt2SjhqZVBSRkdGZjVjeTB5bncxOE01WGZ4YmZuWUt3RW9Cc2VuNEkrSDZydjVKSUUzQXVnT2lzL0JIdy9GZC9WRkFpOEVvQWgvaUlnRUhnaWdNd2doemZybDBEMEdya3ZndEFDNjRSYytKbFFKbkJWQXdrOVBpQkk0S1VEU2d5MHRUMlYwanBHTEVqZ25nRTc0aGZpRUlvRlRBa2o0MHlVRUNad1NJQWtTZmoxOFAzN09DSkJrVnZGOThOSWl5WEYwcFFvNElZQ0UzejYrU3NCZUFBay9IM3lVZ0wwQXFrajR6ZUxiOFdYOVBJRHE3R0Z5Y1A3VG5jSHc2SVEvT3M2YVRGVWVjNXRIU2JhVmE1bXA5SXdCNXdkcTJBckFxWFNlN2N0ZzRmYnBHQm16dlNmSldkTTZpSmRXZFZ2N2ZLNFNlTk1DbVp6OW56dGM1M1Q0QWVEN2kvdEp0K2RMSzhSU0FFNnRUOTl3aEplTzFScmJmaG9zbXpXTXhUT3VrVzlYOWJoenF1b0ZXQXFnZ3VtWmFOdXhXdlFPdTl2N0E4Q1R4TE4vTWE1WEFuWUNjSm9sUnNhQVh4NnBzNzBiV3JRMGplTFJ1VU8yZCtNak9JMHZ3RXdBVHEwUEFQenh2VW5vNk0wWS9RelRmSGRSUDZvTUZ6Q1hXeUZXQXFpUVJ1bjkrU0czWi8vSk5YbDhjOEZBS3AvbGFpdkVSZ0JPc3dJQTdPL0k0ZTMvVmR2ZURTMis5ZWtCTk9SNHZ2dVl5M2l6dlE0d0VXbk1Obk9hUjdIbjhjdXgvallQb0h1b0NsMkRFZDd0ekdKL1J3Ny8vTEFhWTBUWmEya2F4YllFYS9pdFUwZG9kaUFtcWhmSU9PQ2tBR2t3dTNFVXN4dVRYems5ZVRtTHplME5lTzJER3UxOU9kV2R3VmdlZVBBVDlFdVpvY09pQlZJcGg2NzBtcCthT29JZFg3eUNIeTN0STluZWM0ZmRPQjlSR1I4T2JSQUxBWHhtNDVLcldFZHdJcnI3VkEydU9YNDFtaVBXQmZCeDloL1Bsb2Y2dEU5RyswY2lITDdneGttNVMxVkF6Z0ZpOHQ3bExBWTFicVo4K1BaaDdmT0JQNzgvQ2JYWlpDTGxxb0RXYWVtZUZMdUFNd0xZblAzUDlHUncvOHZUTUdwNVJYSHJvVHBzVFhodFl1MzhRYnpZbHQ3ZG9LNnNDRmx0Z1d5WHY3ZzhmNlRPZXZoMWVYTFJWZHU3VUJhYk9iQitEc0NkbnFFSTI5OXgrMjdRNWJPSHNmQldhWDlLNFlRQU50dWYzeHl0UTUvamQ0TlNQd3NRRnhjV0xhd0o0RUw3YzIwTWVPRnROOWJmeTNGWDh5aFd6ZUZ6TjJnNWJPWEJpUXBnaTFkUFRNSzVQcmNQMGZjV203OGIxR1hZajY3Tk1ycjFjTDIxejZhZ3FTYVBkZlBUdVJ1MEhOemJJUFlDMk9KdnAzTTRkdEdaVmVLU1BIRnZQK3FySFYrK01veVZFWGFoLzU4L2ZRUnZydXNrMjk0cngydnh2T2JUWmI5ZTJZUDdibzEvUTl5Y0pwclhvS1NGalRkSHNKN2liSmJQMitySGNGczkzYzAzZTg3a3RQNTlmWFVlYTFvSGtjdTRONk56dmlnbUxWQUsvTzU0TGQ3dDFKdHJ2blRYa0pQaDU0NElZSmdUblZsczJOZW92WjN2TExTemx1ODdJb0JCM2poYmpaV3ZUa0gza040NjVCZGFodkRBVEhrWXhnU3N6d0ZjNU9xMUNPMW5jOWgrckpia2FiRDY2angrOXZsZWdqMFRTcEc2QUM2c0FCWFQwWnZCVTY5UDNNSVVuZ251SElod3VvZnVKYnFaQ05pMnFodDNPcmFhbzBQYUswRnNLd0NYQ3lpOXd4SCtla3AvSmxjbEF2Q0xSM3BZdmRSS0I2NHJRV3dGQ0ptbW1qeGViT3ZHYWsvQ3p4a1JnQm5MWncvamhaVTlhQW1vN2JHSkNNQ0UrZE5HOE94bis1eTRjOU1uUkFDTE5GVG44WlY1ZzFpL1lCRExaZzNiM3AwZ2tlc0FGaG5MWDE4OXVqSVlRYTd4MmtFRXNFai9TSVNkSDlSZ3pjNW1MSDFsR280NDh0b1RueEFCbUhEMFloYWYrLzFVNTMrUHdEVkVBRWFNakFGUDcyM0VzMjgwMk42VllCQUJHTExsUUQxKzVmaXp5SzRncTBBVmFLak80NUU3U3EvUWpPYUI3cUVJSDE3TmtEODcvTU85amJqM2xoRlpIVEtNQ0ZDQjJ5ZVA0cld2ZGxYOHUwc0RWZGoxN3hwc08xYUxnK2YxVDJaSDg4QzNkMDNHZ2ZXZGFLcVJOU0pUU0F0RXhQVGFNYXhmTUlBOWoxL0d0bFhkSk0vaWR2Um04TXgrL1djSmhQS0lBQWI0ZXVzZ2RqM1doVWFDbnlmNjdUczBGVVVvalFoZ2lNL011SWFYVjNjam8zbG5kQjdBRC9aSUZUQUZXd0U0M2pxcnlzbzdoL0RVL2ZvdnBUMTBvWnJrNFJxYmNCM1AxQVZJKzdVWHRubm13YXU0ZTRyK25aMmIyeHZJZm5TUE0ybm5nMjBGOElWSjJUeCt2Rnova2NhVGw3UDR3OGxKQkhza0ZDTUNwTUNqYzRkSWZ1Rnh5OEg2SUtwQW1vZ0FLYkdKNE5jaVQzUm04YWYzcFFwUUlnS2t4RU9mSE1iU1dRUlY0RUM5M0RwTkNHc0J1SzRjSkdYakV2MHFjUHhTRmpzZFd4SGlQSTVXQkFodEphakF3M2NNazd6ZzZxZHYrWG0zcUkxY3NLNEFQckp4aWY1MWdhTVhzL2pMdjl5cUFseGhMd0RuOHBtRXRwWWhMSnBCVUFVT3VQSGpIZHpIajcwQVBrSlJCUTVmcU1adUN5L3M4ZzFyQW9SNkhnQUFxK2NPNGI1YjlIKzIxSlVxRUFkYmVYQ2lBbkF2bzZwRUFEWVFyQWdkUEYrTjEwL3IvZkNHU1Z3WU55Y0U4SkV2M3oyRWU2YnBWNEdmZUxvaWxCWldCUWk1RGJwZUJmVFBCZDQ4VjQxOUhYeXJRQnhzNXNDWkN1QkNPVlhsYS9NR01XOHFSUlhnZHk3Z3luZzVJNENQVkVYQWhnZjBxOERmLzV2RFA4NjZYUVZzWVYwQWxmTG55cXlpd21PdGc1amJyUCs4QUtjcW9ESk90dHRnNndLRVRpWUNuaWFvQW52UDVQRFdPWGwyV0JVV0FvUmVCYjV4endESnp5QnhXQkZ5YWZZSDVMMUFMTWhXQWNlZnVHUjdONEtFUlFWUXhjY3E0QU11amdzYkFUaVVReUU5dUl3M0d3RlVjWEcyOFJsWHg0T1ZBS3F6Z3FzSDNUZFV4NEhMN0E4d0V3RGdkWEFFZXJpTkx6c0JWSkVxWUJmWGp6OUxBYVFWY2dPWFc1OENMQVZJZ2tpUUxyNGNiN1lDY0p3dGhPUndIVSsyQWdEU0NuSEZoOWFuQUdzQmtpQVNtTVczNDh0ZWdDU3poMitEeElVa3g1WHo3QTg0SUFBZ0VuREF4L0FEamdnQWlBUTI4VFg4Z0VNQ0pFVWswTVAzNCtlVUFFbG5GZDhIMFJSSmo1c3Jzei9nbUFDQVNKQVdJWVFmY0ZBQVFFOENFV0ZpZEk2UmErRUhIQlVBMER2WUlrRnBkSTZMaStFSEhCWUFFQWtvQ1RIOGdPTUNBUG9TaEM2QzdqRndPZnlBQndJQStvTVFxZ1M2Mzl2MThBT2VDQURRU0JDS0NCVGYxWWZ3QXg0SkFOQU1pczhpVUgwM1g4SVBlQ1lBUURjNFBvbEErVjE4Q2ovZzZadmhDb1BVdGFKZGUxdUY0T1JhWm1wdksyMG9CZll0K0FXOEZLREFsSDNMU0NRQWJnd1RaeGxNVkMxZnd3OTRMZ0JBSzBFQmJqS1liTlY4RGo4QVJNMjdOK2NyL1ZIL0R0b0EyWUphaFBHa0tZUHA4eE5mZ2wrM2R1THY0WDBGS01aRU5TaW1YQ2gxeExCeEl1NUwrT01RQVVDbEt1QkxCU2pHZERWd0VSK0RMeFdnREpRclJhN2pZL0RqRXVzNlFDV0xYQ2Jrd1FmOC92NXhjaHRzQlNnbXhHcmdjL0JWRUFHS0tBNkZqekpJNkc4bUt2eEhTTXVoS3ZnZ1FvakJqOVArWEduYkZFa0ZxSUNyVlNIRTBDZEJTWUM2dGN1Q3JBSUZ1TXNnb2IrT3lxSk5WUHcvMGdZbHg0WVFFdmpTeEcxL2dBUW53YUZYZ1hLVUN5T0ZHQkwwK0tndTJjczVnR0Vrdkx5NTRVSllvU3hVd3VjTFk0Szd4TTFsY2M2OWV5Sk1FRlM0U1FDcEFvS0xKSm45QWMwS0lCSUlITkRKWVVrQjRsWUIzUThYQkYxVThsY3ExM0lPSUFSTldRR2tDZ2pjMFozOWdRb1ZRQ1FRdUVJUmZpQkdDeVFTQ055Z0NqOWc0QnhBSkJCTVFwMnYyTE43bkJ2bHhpUDNEQWxVSkFsK25PNGxkZ1ZRYVlVS1NEVVFLREFWZmtDeEJSSUpoTFF4R1g1QW9RVXFKa2s3QkVoTEpNUW42Y1NwT2trbkVnQklMZ0VnSWdqbDBla1lrblFvaVFVQTlDUUFSQVRoWTNSYjVTVGhCelFGQVBRbEFFU0VrS0U0UjB3YWZvQkFBSUJHZ2dJaWcvOVFMb3pvaEI4Z0VxQUFwUWdGUkFqM01iRVNxQnY4QXFRQ0FHWWtFSVJpcU1JUEdMZ1ZnbkxuQkdFODFQa3lHbGFwQmdJVnBpYldWR1pyRVVGSWl1bU9JdFYyUlVRUTRwSldLMjJ0WHhjWmhQSFlPSDlrY2NJcU1vU0w3VVdUL3dQRkl5NXhOMXRUdmdBQUFBQkpSVTVFcmtKZ2dnPT0iLCAic2l6ZXMiOiAiMTkyeDE5MiIsICJ0eXBlIjogImltYWdlL3BuZyIsICJwdXJwb3NlIjogImFueSBtYXNrYWJsZSJ9XX0=" />
-  <title>मेरा हिसाब — कमाई और खर्च ट्रैकर</title>
+
+  <!-- OneSignal Push Notification SDK (Clean & Auto-Prompt) -->
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(async function(OneSignal) {
+      await OneSignal.init({
+        appId: "6c8928da-3cd5-4a6a-9ba0-28100912b3e5",
+        notifyButton: { enable: false }
+      });
+      try {
+        await OneSignal.Notifications.requestPermission();
+      } catch (e) {
+        console.log("OneSignal prompt info:", e);
+      }
+    });
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js').catch(() => {});
+    }
+  </script>
+
   <style>
     :root {
-      /* --- Buttons Animation --- */
-.big-btn {
-    transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s ease !important;
-}
-.big-btn:active {
-    transform: scale(0.92) !important;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
-}
-
-/* --- Modal (Popup) Animation --- */
-@keyframes popIn {
-    0% { transform: translate(-50%, -50%) scale(0.7); opacity: 0; }
-    80% { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
-    100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-}
-.modal {
-    /* ध्यान दें: अगर आपके मॉडल की क्लास कुछ और है तो उसे यहाँ बदल लें */
-    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards !important;
-}
       --bg: #f1f5f9;
       --surface: #ffffff;
       --surface-soft: #f8fafc;
@@ -100,12 +63,8 @@
       --gold: #f59e0b;
       --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
       --radius: 20px;
-   html, body {
-        overflow-x: hidden !important;
-        width: 100vw;
-        margin: 0;
-        padding: 0;
     }
+
     [data-theme="dark"] {
       --bg: #0b1120;
       --surface: #1e293b;
@@ -126,11 +85,19 @@
       font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans Devanagari', sans-serif;
     }
 
+    html, body {
+      overflow-x: hidden !important;
+      width: 100vw;
+      max-width: 100vw;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
-      padding-bottom: 96px;
+      padding-bottom: 185px; /* Extra space so bottom ad & nav bar never hide content */
       transition: background 0.25s ease, color 0.25s ease;
     }
 
@@ -138,6 +105,40 @@
       max-width: 480px;
       margin: 0 auto;
       padding: 14px 14px 28px;
+    }
+
+    /* =====================================================
+       UNIVERSAL CONTINUOUS + CLICK ANIMATIONS FOR BUTTONS
+       ===================================================== */
+    @keyframes continuousBreath {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-2px) scale(1.02); }
+    }
+
+    @keyframes actionFloat {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-4px) scale(1.03); }
+    }
+
+    @keyframes incomeGlow {
+      0%, 100% { box-shadow: 0 8px 20px -4px rgba(5, 150, 105, 0.45); }
+      50% { box-shadow: 0 12px 28px 2px rgba(16, 185, 129, 0.75); }
+    }
+
+    @keyframes expenseGlow {
+      0%, 100% { box-shadow: 0 8px 20px -4px rgba(225, 29, 72, 0.45); }
+      50% { box-shadow: 0 12px 28px 2px rgba(244, 63, 94, 0.75); }
+    }
+
+    button, .magic-btn, .cat-option, .filter-chip, .amt-chip {
+      transition: transform 0.14s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease, filter 0.15s ease !important;
+      user-select: none;
+    }
+
+    /* Universal Click Bounce Effect on Every Button */
+    button:active, .magic-btn:active, .cat-option:active, .filter-chip:active, .amt-chip:active {
+      transform: scale(0.88) translateY(2px) !important;
+      filter: brightness(1.12);
     }
 
     /* Top App Header */
@@ -160,6 +161,7 @@
       height: 44px;
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(5, 150, 105, 0.3);
+      animation: continuousBreath 2.5s infinite ease-in-out;
     }
 
     .brand-title h1 {
@@ -192,6 +194,7 @@
       display: flex;
       align-items: center;
       gap: 5px;
+      animation: continuousBreath 3s infinite ease-in-out;
     }
 
     /* Hero Wallet Card */
@@ -310,21 +313,18 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      transition: transform 0.12s ease, box-shadow 0.2s ease;
-    }
-
-    .big-btn:active {
-      transform: scale(0.96);
+      position: relative;
+      overflow: hidden;
     }
 
     .btn-income {
       background: var(--income-grad);
-      box-shadow: 0 8px 20px -4px rgba(5, 150, 105, 0.45);
+      animation: actionFloat 2.2s infinite ease-in-out, incomeGlow 2.2s infinite ease-in-out;
     }
 
     .btn-expense {
       background: var(--expense-grad);
-      box-shadow: 0 8px 20px -4px rgba(225, 29, 72, 0.45);
+      animation: actionFloat 2.2s infinite ease-in-out 0.4s, expenseGlow 2.2s infinite ease-in-out 0.4s;
     }
 
     /* Visual Savings & Ratio Bar Card */
@@ -383,7 +383,7 @@
       display: flex;
       gap: 8px;
       overflow-x: auto;
-      padding-bottom: 6px;
+      padding: 4px 2px 8px;
       margin-bottom: 12px;
       scrollbar-width: none;
     }
@@ -398,13 +398,14 @@
       font-weight: 700;
       cursor: pointer;
       white-space: nowrap;
-      transition: all 0.15s;
+      animation: continuousBreath 3.2s infinite ease-in-out;
     }
 
     .filter-chip.active {
       background: #059669;
       color: #ffffff;
       border-color: #059669;
+      box-shadow: 0 4px 12px rgba(5, 150, 105, 0.35);
     }
 
     .date-filter-box {
@@ -468,7 +469,6 @@
       border-radius: 16px;
       background: var(--surface-soft);
       border: 1px solid var(--border);
-      transition: transform 0.12s;
     }
 
     .tx-left {
@@ -488,13 +488,8 @@
       flex-shrink: 0;
     }
 
-    .tx-emoji.income {
-      background: var(--income-light);
-    }
-
-    .tx-emoji.expense {
-      background: var(--expense-light);
-    }
+    .tx-emoji.income { background: var(--income-light); }
+    .tx-emoji.expense { background: var(--expense-light); }
 
     .tx-details h4 {
       font-size: 0.95rem;
@@ -519,13 +514,8 @@
       text-align: right;
     }
 
-    .tx-amount.income {
-      color: var(--income);
-    }
-
-    .tx-amount.expense {
-      color: var(--expense);
-    }
+    .tx-amount.income { color: var(--income); }
+    .tx-amount.expense { color: var(--expense); }
 
     .tx-del {
       border: none;
@@ -543,9 +533,7 @@
     }
 
     /* Category Chart Bars */
-    .cat-bar-item {
-      margin-bottom: 12px;
-    }
+    .cat-bar-item { margin-bottom: 12px; }
 
     .cat-bar-top {
       display: flex;
@@ -578,12 +566,10 @@
       display: none;
       align-items: flex-end;
       justify-content: center;
-      z-index: 100;
+      z-index: 2147483647;
     }
 
-    .modal-backdrop.open {
-      display: flex;
-    }
+    .modal-backdrop.open { display: flex; }
 
     .modal-sheet {
       background: var(--surface);
@@ -642,15 +628,10 @@
       font-size: 0.84rem;
       font-weight: 700;
       cursor: pointer;
+      animation: continuousBreath 2.6s infinite ease-in-out;
     }
 
-    .amt-chip:active {
-      transform: scale(0.95);
-    }
-
-    .form-group {
-      margin-bottom: 14px;
-    }
+    .form-group { margin-bottom: 14px; }
 
     .form-group label {
       display: block;
@@ -692,7 +673,6 @@
       cursor: pointer;
       font-size: 0.82rem;
       font-weight: 700;
-      transition: all 0.15s;
     }
 
     .cat-option span {
@@ -704,6 +684,7 @@
     .cat-option.selected {
       border-color: #059669;
       background: var(--income-light);
+      animation: continuousBreath 2s infinite ease-in-out;
     }
 
     .save-entry-btn {
@@ -718,21 +699,23 @@
       margin-top: 6px;
     }
 
-    /* Bottom Navigation Bar */
+    /* =======================================================
+       BOTTOM NAVIGATION BAR (SABSE UPAR / FRONT LAYER PAR)
+       ======================================================= */
     .bottom-nav {
       position: fixed;
       bottom: 0;
       left: 0;
       right: 0;
       background: var(--surface);
-      border-top: 1px solid var(--border);
+      border-top: 2px solid var(--border);
       display: flex;
       justify-content: space-around;
-      padding: 8px 10px 14px;
+      padding: 8px 10px 12px;
       max-width: 480px;
       margin: 0 auto;
-      z-index: 50;
-      box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.06);
+      z-index: 2147483645 !important; /* Hamesha Ad se upar rahega */
+      box-shadow: 0 -6px 25px rgba(0, 0, 0, 0.15);
       border-radius: 20px 20px 0 0;
     }
 
@@ -753,6 +736,7 @@
 
     .nav-item span.nav-icon {
       font-size: 1.25rem;
+      animation: continuousBreath 2.8s infinite ease-in-out;
     }
 
     .nav-item.active {
@@ -760,13 +744,8 @@
       background: var(--income-light);
     }
 
-    .view-section {
-      display: none;
-    }
-
-    .view-section.active {
-      display: block;
-    }
+    .view-section { display: none; }
+    .view-section.active { display: block; }
 
     .guide-step {
       display: flex;
@@ -779,22 +758,9 @@
       margin-bottom: 10px;
     }
 
-    .step-num {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      background: #059669;
-      color: #ffffff;
-      font-weight: 800;
-      font-size: 0.9rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
     .toast-msg {
       position: fixed;
-      bottom: 88px;
+      bottom: 140px;
       left: 50%;
       transform: translateX(-50%);
       background: #0f172a;
@@ -804,10 +770,111 @@
       font-size: 0.86rem;
       font-weight: 700;
       box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-      z-index: 200;
+      z-index: 2147483647;
       display: none;
       max-width: 90%;
       text-align: center;
+    }
+
+    /* Magic Button Animation */
+    .magic-btn {
+      display: inline-block;
+      background: linear-gradient(45deg, #ff007a, #ff8a00);
+      color: #ffffff !important;
+      font-size: 18px;
+      font-weight: 800;
+      padding: 15px 35px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(255, 0, 122, 0.4);
+      animation: glowingPulse 1.5s infinite alternate, gentleBounce 2s infinite;
+      border: 2px solid white;
+    }
+
+    @keyframes glowingPulse {
+      0% { box-shadow: 0 0 10px rgba(255,0,122,0.5); }
+      100% { box-shadow: 0 0 25px rgba(255,138,0,0.9), 0 0 40px rgba(255,0,122,0.6); }
+    }
+
+    @keyframes gentleBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    /* Download Button & Floating Money CSS */
+    .download-container {
+      position: relative;
+      text-align: center;
+      margin: 25px auto 15px auto;
+      padding: 30px 10px;
+      width: 100%;
+    }
+
+    .super-download-btn {
+      background: linear-gradient(90deg, #ffcc00 0%, #ff6600 100%);
+      border: 3px solid #ffffff;
+      border-radius: 50px;
+      padding: 16px 35px;
+      font-size: 18px;
+      font-weight: 900;
+      color: #fff;
+      text-transform: uppercase;
+      box-shadow: 0 0 15px rgba(255, 204, 0, 0.8), 0 0 30px rgba(255, 102, 0, 0.6);
+      animation: heartbeat 1.2s infinite;
+      position: relative;
+      z-index: 10;
+      cursor: pointer;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.06); }
+    }
+
+    .floating-money {
+      position: absolute;
+      font-size: 28px;
+      font-weight: bold;
+      opacity: 0;
+      animation: floatUp 2.5s infinite ease-in-out;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .symbol-1 { left: 20%; color: #ffd700; animation-delay: 0s; }
+    .symbol-2 { left: 40%; color: #28a745; animation-delay: 0.6s; }
+    .symbol-3 { left: 60%; color: #ffd700; animation-delay: 1.2s; }
+    .symbol-4 { left: 80%; color: #28a745; animation-delay: 1.8s; }
+
+    @keyframes floatUp {
+      0% { bottom: 10px; opacity: 1; transform: translateY(0) scale(1); }
+      100% { bottom: 110px; opacity: 0; transform: translateY(-70px) scale(1.5); }
+    }
+
+    /* Loot Store Card Styles */
+    .loot-card {
+      background: #1a1a2e;
+      border: 1px solid #00ffcc;
+      color: #fff;
+      padding: 15px 10px;
+      border-radius: 12px;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 255, 204, 0.15);
+      animation: continuousBreath 2.4s infinite ease-in-out;
+    }
+
+    .loot-price {
+      color: #ffcc00;
+      font-size: 16px;
+      margin-top: 4px;
+      font-weight: 900;
+    }
+
+    @keyframes pulseBtn {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 15px rgba(255,0,127,0.8); }
+      50% { transform: scale(1.07); box-shadow: 0 0 25px rgba(255,170,0,1); }
     }
   </style>
 </head>
@@ -816,15 +883,15 @@
     <!-- Top Header -->
     <div class="top-bar">
       <div class="brand-row">
-        <img src="data:image/png;base64,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" alt="App Icon" class="app-logo" onclick="checkSecretUnlock()" style="cursor: pointer;" />
-<div class="brand-title">
+        <img src="data:image/png;base64,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" alt="App Icon" class="app-logo" onclick="playSound('click'); checkSecretUnlock();" style="cursor: pointer;" />
+        <div class="brand-title">
           <h1>मेरा हिसाब ₹</h1>
           <p id="dayOneSub">Day 1 से आज तक का पूरा रिकॉर्ड</p>
         </div>
       </div>
       <div class="top-actions">
-        <button class="icon-pill-btn" onclick="switchView('install', document.getElementById('nav-install'))">📲 आइकन लगाएं</button>
-        <button class="icon-pill-btn" onclick="toggleTheme()" id="themeBtn">🌙</button>
+        <button class="icon-pill-btn" onclick="playSound('click'); switchView('install', document.getElementById('nav-install'))">📲 आइकन लगाएं</button>
+        <button class="icon-pill-btn" onclick="playSound('click'); toggleTheme()" id="themeBtn">🌙</button>
       </div>
     </div>
 
@@ -854,41 +921,34 @@
 
     <!-- Big Tactile Buttons -->
     <div class="big-action-row">
-      <button class="big-btn btn-income" onclick="openEntryModal('income'); playSound('income');">
-    ➕ कमाई जोड़ें
-</button>
+      <button class="big-btn btn-income" onclick="playSound('income'); openEntryModal('income');">
+        ➕ कमाई जोड़ें
       </button>
-      <button class="big-btn btn-expense" onclick="openEntryModal('expense'); playSound('expense');">
-    ➖ खर्च जोड़ें
-</button>
+      <button class="big-btn btn-expense" onclick="playSound('expense'); openEntryModal('expense');">
+        ➖ खर्च जोड़ें
       </button>
     </div>
-   <!-- 👑 Abdullah's Secret Video Dashboard -->
-<div id="abdullahSection" style="display: none; background: #1a1a2e; color: white; padding: 15px; border-radius: 12px; margin: 15px 0; border: 2px solid #a64dff; box-shadow: 0 4px 15px rgba(166, 77, 255, 0.3);">
-    <h3 style="margin-top: 0; color: #d9b3ff; text-align: center;">👑 Abdullah's Video Dashboard</h3>
-    
-    <input type="text" id="videoDetails" placeholder="Video ki details (Insta/YT)..." style="width: 100%; margin-bottom: 10px; padding: 10px; border-radius: 6px; border: none;">
-    
-    <select id="videoCategory" style="width: 100%; margin-bottom: 10px; padding: 10px; border-radius: 6px; border: none; font-weight: bold;">
+
+    <!-- 👑 Abdullah's Secret Video Dashboard -->
+    <div id="abdullahSection" style="display: none; background: #1a1a2e; color: white; padding: 15px; border-radius: 12px; margin: 15px 0; border: 2px solid #a64dff; box-shadow: 0 4px 15px rgba(166, 77, 255, 0.3);">
+      <h3 style="margin-top: 0; color: #d9b3ff; text-align: center;">👑 Abdullah's Video Dashboard</h3>
+      <input type="text" id="videoDetails" placeholder="Video ki details (Insta/YT)..." style="width: 100%; margin-bottom: 10px; padding: 10px; border-radius: 6px; border: none;" />
+      <select id="videoCategory" style="width: 100%; margin-bottom: 10px; padding: 10px; border-radius: 6px; border: none; font-weight: bold;">
         <option value="Expencive bissnuss">💎 Expencive business</option>
         <option value="low class bissnuss">📉 low class business</option>
-    </select>
-    
-    <input type="number" id="videoEarnings" placeholder="Kitne paise aaye? (₹)" style="width: 100%; margin-bottom: 10px; padding: 10px; border-radius: 6px; border: none;">
-    
-    <button onclick="addAbdullahVideo()" style="width: 100%; background: #a64dff; color: white; padding: 12px; font-weight: 900; border-radius: 6px; border: none; font-size: 16px;">
+      </select>
+      <input type="number" id="videoEarnings" placeholder="Kitne paise aaye? (₹)" style="width: 100%; margin-bottom: 10px; padding: 10px; border-radius: 6px; border: none;" />
+      <button onclick="addAbdullahVideo()" style="width: 100%; background: #a64dff; color: white; padding: 12px; font-weight: 900; border-radius: 6px; border: none; font-size: 16px; cursor: pointer;">
         ➕ Video Income ADD
-    </button>
-
-    <div style="margin-top: 15px; font-size: 1.1rem; text-align: center; background: rgba(0,0,0,0.5); padding: 10px; border-radius: 6px;">
-        <strong>Aaj ki Total Video Kamayi: </strong> <br>
+      </button>
+      <div style="margin-top: 15px; font-size: 1.1rem; text-align: center; background: rgba(0,0,0,0.5); padding: 10px; border-radius: 6px;">
+        <strong>Aaj ki Total Video Kamayi: </strong> <br />
         <span id="abdullahTotal" style="color: #00ff88; font-size: 1.5rem; font-weight: bold;">₹0</span>
+      </div>
     </div>
-</div>
-<!-- Secret Dashboard End -->
+
     <!-- VIEW 1: HOME & TIMELINE -->
     <div id="view-home" class="view-section active">
-      <!-- Income vs Expense Ratio Meter -->
       <div class="panel">
         <div class="panel-header">
           <div class="panel-title">📊 कमाई बनाम खर्च ग्राफ़</div>
@@ -911,21 +971,22 @@
         </div>
 
         <div class="filter-row">
-          <button class="filter-chip active" onclick="setFilter('all', this)">सभी (All)</button>
-          <button class="filter-chip" onclick="setFilter('income', this)">🟢 सिर्फ कमाई</button>
-          <button class="filter-chip" onclick="setFilter('expense', this)">🔴 सिर्फ खर्च</button>
+          <button class="filter-chip active" onclick="playSound('click'); setFilter('all', this)">सभी (All)</button>
+          <button class="filter-chip" onclick="playSound('income'); setFilter('income', this)">🟢 सिर्फ कमाई</button>
+          <button class="filter-chip" onclick="playSound('expense'); setFilter('expense', this)">🔴 सिर्फ खर्च</button>
         </div>
 
         <div class="date-filter-box">
-          <input type="date" id="filterDateInput" onchange="applyDateFilter()" />
-          <button class="clear-date-btn" onclick="clearDateFilter()">सभी तारीखें</button>
-          <button class="clear-date-btn" style="color:var(--expense);" onclick="askClearAll()">🗑️ रीसेट</button>
+          <input type="date" id="filterDateInput" onchange="playSound('click'); applyDateFilter()" />
+          <button class="clear-date-btn" onclick="playSound('click'); clearDateFilter()">सभी तारीखें</button>
+          <button class="clear-date-btn" style="color:var(--expense);" onclick="playSound('expense'); askClearAll()">🗑️ रीसेट</button>
         </div>
+
         <div id="confirmClearBox" style="display:none;background:var(--expense-light);border:1px solid var(--expense);padding:12px;border-radius:12px;margin-bottom:12px;text-align:center;">
           <p style="font-size:0.85rem;font-weight:700;margin-bottom:8px;">क्या आप वाकई सारा हिसाब मिटाकर ₹0 करना चाहते हैं?</p>
           <div style="display:flex;gap:8px;justify-content:center;">
-            <button class="clear-date-btn" style="background:var(--expense);color:#fff;border:none;" onclick="confirmClearAll()">हाँ, सब मिटाएं</button>
-            <button class="clear-date-btn" onclick="cancelClearAll()">नहीं</button>
+            <button class="clear-date-btn" style="background:var(--expense);color:#fff;border:none;" onclick="playSound('expense'); confirmClearAll()">हाँ, सब मिटाएं</button>
+            <button class="clear-date-btn" onclick="playSound('click'); cancelClearAll()">नहीं</button>
           </div>
         </div>
 
@@ -956,53 +1017,45 @@
         <p style="font-size:0.84rem;color:var(--muted);margin-bottom:12px;">
           आपका सारा हिसाब आपके फोन में सुरक्षित सेव रहता है। आप जब चाहें इसे Excel/CSV फाइल में भी डाउनलोड कर सकते हैं:
         </p>
-        <button class="big-btn btn-income" style="width:100%;" onclick="exportCSV()">
+        <button class="big-btn btn-income" style="width:100%;" onclick="playSound('income'); exportCSV()">
           📥 पूरा हिसाब डाउनलोड करें (CSV)
         </button>
       </div>
     </div>
 
-   <!-- VIEW 3: HOME SCREEN ICON GUIDE -->
-<div id="view-install" class="view-section">
-  <div class="guide-step">
-   <div>
-     <div class="download-container">
-    <span class="floating-money symbol-1">₹</span>
-    <span class="floating-money symbol-2">$</span>
-    <span class="floating-money symbol-3">₹</span>
-    <span class="floating-money symbol-4">$</span>
-    
-    <button class="super-download-btn" onclick="triggerNativeInstall(); playSound('income');">
-          📲 Direct Install App
-        </button>
+    <!-- VIEW 3: HOME SCREEN ICON GUIDE -->
+    <div id="view-install" class="view-section">
+      <div class="panel">
+        <div class="panel-header">
+          <div class="panel-title">📲 फोन की होम स्क्रीन पर ऐप लगाएं</div>
+        </div>
+        <div class="download-container">
+          <span class="floating-money symbol-1">₹</span>
+          <span class="floating-money symbol-2">$</span>
+          <span class="floating-money symbol-3">₹</span>
+          <span class="floating-money symbol-4">$</span>
+          <button class="super-download-btn" onclick="playSound('income'); triggerNativeInstall();">
+            📲 Direct Install App
+          </button>
+        </div>
       </div>
     </div>
+
+    <!-- Smart Link / Magic Button -->
+    <div style="text-align: center; margin: 28px 0 20px 0;">
+      <a href="https://arwf.org/4/28bea390be879b68d9caf067e1c0ffc8" target="_blank" class="magic-btn" onclick="playSound('loot')">
+        🎁 आज का सरप्राइज़ (Tap Here) ✨
+      </a>
+      <p style="font-size: 12px; color: #888; margin-top: 8px;">Support the developer & unlock magic!</p>
+    </div>
   </div>
-
-</div>
-
-  <!-- Bottom Navigation -->
-  <nav class="bottom-nav">
-    <button class="nav-item active" id="nav-home" onclick="switchView('home', this)">
-      <span class="nav-icon">🏠</span>
-      <span>होम और हिसाब</span>
-    </button>
-    <button class="nav-item" id="nav-stats" onclick="switchView('stats', this)">
-      <span class="nav-icon">📊</span>
-      <span>ग्राफ़ और रिपोर्ट</span>
-    </button>
-    <button class="nav-item" id="nav-install" onclick="switchView('install', this)">
-      <span class="nav-icon">📲</span>
-      <span>फोन आइकन </span>
-    </button>
-  </nav>
 
   <!-- Slide-Up Entry Modal -->
   <div class="modal-backdrop" id="entryModal">
     <div class="modal-sheet">
       <div class="sheet-header">
         <h3 id="modalTitle">➕ नई कमाई जोड़ें</h3>
-        <button class="close-btn" onclick="closeEntryModal()">✕</button>
+        <button class="close-btn" onclick="playSound('click'); closeEntryModal()">✕</button>
       </div>
 
       <div class="form-group">
@@ -1013,11 +1066,11 @@
       <div class="form-group">
         <label>राशि (₹ Amount) — नीचे बटन से भी चुन सकते हैं</label>
         <div class="quick-amounts">
-          <button type="button" class="amt-chip" onclick="addQuickAmt(50)">+₹50</button>
-          <button type="button" class="amt-chip" onclick="addQuickAmt(100)">+₹100</button>
-          <button type="button" class="amt-chip" onclick="addQuickAmt(500)">+₹500</button>
-          <button type="button" class="amt-chip" onclick="addQuickAmt(1000)">+₹1,000</button>
-          <button type="button" class="amt-chip" onclick="addQuickAmt(5000)">+₹5,000</button>
+          <button type="button" class="amt-chip" onclick="playSound('income'); addQuickAmt(50)">+₹50</button>
+          <button type="button" class="amt-chip" onclick="playSound('income'); addQuickAmt(100)">+₹100</button>
+          <button type="button" class="amt-chip" onclick="playSound('income'); addQuickAmt(500)">+₹500</button>
+          <button type="button" class="amt-chip" onclick="playSound('income'); addQuickAmt(1000)">+₹1,000</button>
+          <button type="button" class="amt-chip" onclick="playSound('income'); addQuickAmt(5000)">+₹5,000</button>
         </div>
         <input type="number" id="entryAmount" class="form-input amount-input-big" placeholder="₹ 0" inputmode="numeric" />
       </div>
@@ -1039,64 +1092,228 @@
   </div>
 
   <div id="appToast" class="toast-msg"></div>
-  <script>
-   // Secret Unlock Logic for Abdullah
-let titleTapCount = 0;
 
-function checkSecretUnlock() {
-    titleTapCount++;
-    if(titleTapCount === 5) {
-        let pass = prompt("Enter Secret Passcode:");
-        if(pass === "abdullah") {
-            // Password sahi hone par feature hamesha ke liye unlock kar do
-            localStorage.setItem("isAbdullahVIP", "true");
-            document.getElementById("abdullahSection").style.display = "block";
-            alert("Welcome Boss! Video Dashboard Unlocked.");
+  <!-- =================================================================
+       1. SINGLE FLOATING ₹99 LOOT STORE BUTTON (No Duplicate! Bottom 132px)
+       ================================================================= -->
+  <button onclick="playSound('loot'); openLootStore();" style="position: fixed; bottom: 132px; right: 15px; z-index: 2147483644; background: linear-gradient(135deg, #ff007f, #ffaa00); color: #fff; border: 2px solid #fff; border-radius: 50px; padding: 10px 18px; font-weight: 900; font-size: 14px; cursor: pointer; animation: pulseBtn 1.2s infinite;">
+    🎁 ₹99 Loot Store
+  </button>
+
+  <!-- =================================================================
+       2. FULL SCREEN LOOT STORE MODAL
+       ================================================================= -->
+  <div id="lootStoreModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 10, 20, 0.98); z-index: 2147483647; overflow-y: auto; padding: 20px; box-sizing: border-box;">
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; padding-bottom: 12px; margin-bottom: 15px;">
+      <h3 style="margin: 0; color: #00ffcc; font-size: 20px;">🔥 Student ₹99 Loot Store</h3>
+      <button onclick="playSound('click'); closeLootStore();" style="background: #ff4757; color: #fff; border: none; padding: 6px 14px; border-radius: 6px; font-weight: bold; cursor: pointer;">✖ Band Karein</button>
+    </div>
+
+    <p style="color: #00ffcc; text-align: center; font-size: 15px; font-weight: bold; margin-bottom: 15px;">
+      ⚡ Kisi bhi deal par tap karein — Pehle Sponsor Ad khulega, fir 3 second me Flipkart deal unlock ho jayegi!
+    </p>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+      <button onclick="playSound('loot'); startAdThenFlipkart('https://fktr.in/USkFso9', 'https://asiafilm.org/4/c5064e247fe2b7da30eb4003946c5f40')" class="loot-card">
+        <div style="font-size: 28px;">🎧</div>
+        <div style="margin-top: 5px;">TWS Earbuds</div>
+        <div class="loot-price">₹99 Only</div>
+      </button>
+
+      <button onclick="playSound('loot'); startAdThenFlipkart('https://fktr.in/BakOoqi', 'https://asiafilm.org/4/c8adaff60d7b00056e516f39ce44b77c')" class="loot-card">
+        <div style="font-size: 28px;">👟</div>
+        <div style="margin-top: 5px;">Stylish Sneakers</div>
+        <div class="loot-price">₹149 Only</div>
+      </button>
+
+      <button onclick="playSound('loot'); startAdThenFlipkart('https://fktr.in/057SbFG', 'https://asiafilm.org/4/29aae566767dfa0c40872316922d3ced')" class="loot-card">
+        <div style="font-size: 28px;">⌚</div>
+        <div style="margin-top: 5px;">Smartwatches</div>
+        <div class="loot-price">₹199 Only</div>
+      </button>
+
+      <button onclick="playSound('loot'); startAdThenFlipkart('https://fktr.in/OMi2SKL', 'https://asiafilm.org/4/618f98aafe328a7d00b5e1953dc3c49f')" class="loot-card">
+        <div style="font-size: 28px;">🎒</div>
+        <div style="margin-top: 5px;">College Bags</div>
+        <div class="loot-price">₹129 Only</div>
+      </button>
+
+      <button id="mysteryBtn" onclick="playSound('loot'); viralUnlock();" class="loot-card" style="grid-column: span 2; background: linear-gradient(90deg, #25D366, #128C7E); border: 2px solid #fff;">
+        <div style="font-size: 22px;">🔒 ₹99 SECRET LOOT (LOCKED)</div>
+        <div style="font-size: 13px; color: #fff; margin-top: 4px;">👉 Unlock karne ke liye WhatsApp Group me Share karein!</div>
+      </button>
+    </div>
+
+    <div id="dealTimerBox" style="display: none; margin-top: 20px; background: #1e1e2f; border: 2px dashed #00ffcc; padding: 15px; border-radius: 10px; text-align: center; color: #fff;">
+      <h4 id="timerText" style="margin: 0; color: #ffcc00; font-size: 16px;">⏳ Ad dikhaya ja raha hai... Deal 3 second me khulegi!</h4>
+    </div>
+  </div>
+
+  <!-- =================================================================
+       3. ADSTERRA BANNER AD (Bottom Nav ke theek upar: bottom 66px)
+       ================================================================= -->
+  <div style="position: fixed; bottom: 66px; left: 0; width: 100%; max-height: 56px; z-index: 2147483640; text-align: center; background: transparent; pointer-events: none; overflow: hidden;">
+    <div style="display: inline-block; pointer-events: auto; background: #1a1a2e; padding: 2px; border-radius: 6px; box-shadow: 0 -2px 10px rgba(0,0,0,0.4);">
+      <script type="text/javascript">
+        atOptions = {
+          'key' : '4708e5cb58f7a3a7ee6e8c46d62ce263',
+          'format' : 'iframe',
+          'height' : 50,
+          'width' : 300,
+          'params' : {}
+        };
+      </script>
+      <script type="text/javascript" src="https://bicea.org/22/4708e5cb58f7a3a7ee6e8c46d62ce263"></script>
+    </div>
+  </div>
+
+  <!-- =================================================================
+       4. BOTTOM NAVIGATION BAR (SABSE UPAR / FRONT LAYER PAR: z-index MAX)
+       ================================================================= -->
+  <nav class="bottom-nav">
+    <button class="nav-item active" id="nav-home" onclick="playSound('click'); switchView('home', this)">
+      <span class="nav-icon">🏠</span>
+      <span>होम और हिसाब</span>
+    </button>
+    <button class="nav-item" id="nav-stats" onclick="playSound('click'); switchView('stats', this)">
+      <span class="nav-icon">📊</span>
+      <span>ग्राफ़ और रिपोर्ट</span>
+    </button>
+    <button class="nav-item" id="nav-install" onclick="playSound('click'); switchView('install', this)">
+      <span class="nav-icon">📲</span>
+      <span>फोन आइकन</span>
+    </button>
+  </nav>
+
+  <!-- =================================================================
+       MAIN JAVASCRIPT (100% CLEAN & WORKING SOUND + LOGIC)
+       ================================================================= -->
+  <script>
+    // 🔊 1. MULTI-SOUND ENGINE (Income, Expense/Debit, Loot, Click)
+    let sharedAudioCtx = null;
+    function getAudioCtx() {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContext) return null;
+      if (!sharedAudioCtx) sharedAudioCtx = new AudioContext();
+      if (sharedAudioCtx.state === 'suspended') sharedAudioCtx.resume();
+      return sharedAudioCtx;
+    }
+
+    function playSound(type) {
+      try {
+        const ctx = getAudioCtx();
+        if (!ctx) return;
+        const now = ctx.currentTime;
+
+        if (type === 'income') {
+          // 🪙 मीठी डबल-सिक्के (Double Coin Chime) की आवाज़
+          const osc1 = ctx.createOscillator();
+          const gain1 = ctx.createGain();
+          osc1.type = 'sine';
+          osc1.frequency.setValueAtTime(987.77, now); // B5
+          osc1.frequency.setValueAtTime(1318.51, now + 0.08); // E6
+          gain1.gain.setValueAtTime(0.25, now);
+          gain1.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
+          osc1.connect(gain1);
+          gain1.connect(ctx.destination);
+          osc1.start(now);
+          osc1.stop(now + 0.35);
+        } else if (type === 'expense') {
+          // 📉 खर्च / डेबिट (Debit Swoop Down) की अलग भारी आवाज़
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(440, now);
+          osc.frequency.exponentialRampToValueAtTime(140, now + 0.22);
+          gain.gain.setValueAtTime(0.28, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.23);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now);
+          osc.stop(now + 0.23);
+        } else if (type === 'loot') {
+          // 🎁 सरप्राइज़ / लूट बॉक्स (Exciting Treasure Sound)
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(659.25, now);
+          osc.frequency.setValueAtTime(880, now + 0.07);
+          osc.frequency.setValueAtTime(1318.51, now + 0.14);
+          gain.gain.setValueAtTime(0.25, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.38);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now);
+          osc.stop(now + 0.38);
         } else {
-            alert("Wrong Passcode!");
+          // 👆 बाकी सभी बटन्स के लिए क्रिस्प पॉप-क्लिक (Pop Click)
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(520, now);
+          osc.frequency.exponentialRampToValueAtTime(780, now + 0.06);
+          gain.gain.setValueAtTime(0.18, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.07);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now);
+          osc.stop(now + 0.07);
+        }
+      } catch (e) {}
+    }
+
+    // 👑 2. ABDULLAH SECRET VIP DASHBOARD LOGIC
+    let titleTapCount = 0;
+    function checkSecretUnlock() {
+      titleTapCount++;
+      if (titleTapCount === 5) {
+        let pass = prompt("Enter Secret Passcode:");
+        if (pass === "abdullah") {
+          localStorage.setItem("isAbdullahVIP", "true");
+          document.getElementById("abdullahSection").style.display = "block";
+          playSound('income');
+          alert("Welcome Boss! Video Dashboard Unlocked.");
+        } else {
+          playSound('expense');
+          alert("Wrong Passcode!");
         }
         titleTapCount = 0;
+      }
     }
-}
 
-// Abdullah ki Total Kamayi ka Logic
-let abdullahTotalIncome = localStorage.getItem("abdullahTotal") ? parseInt(localStorage.getItem("abdullahTotal")) : 0;
+    let abdullahTotalIncome = localStorage.getItem("abdullahTotal") ? parseInt(localStorage.getItem("abdullahTotal")) : 0;
 
-function updateAbdullahUI() {
-    if(localStorage.getItem("isAbdullahVIP") === "true") {
+    function updateAbdullahUI() {
+      if (localStorage.getItem("isAbdullahVIP") === "true") {
         document.getElementById("abdullahSection").style.display = "block";
+      }
+      document.getElementById("abdullahTotal").innerText = "₹" + abdullahTotalIncome;
     }
-    document.getElementById("abdullahTotal").innerText = "₹" + abdullahTotalIncome;
-}
 
-function addAbdullahVideo() {
-    let details = document.getElementById("videoDetails").value;
-    let category = document.getElementById("videoCategory").value;
-    let amount = parseInt(document.getElementById("videoEarnings").value);
+    function addAbdullahVideo() {
+      let details = document.getElementById("videoDetails").value;
+      let category = document.getElementById("videoCategory").value;
+      let amount = parseInt(document.getElementById("videoEarnings").value);
 
-    if(!details || isNaN(amount) || amount <= 0) {
+      if (!details || isNaN(amount) || amount <= 0) {
+        playSound('expense');
         alert("Pehle video ki details aur paise sahi daalo!");
         return;
+      }
+
+      abdullahTotalIncome += amount;
+      localStorage.setItem("abdullahTotal", abdullahTotalIncome);
+      playSound('income');
+      updateAbdullahUI();
+
+      document.getElementById("videoDetails").value = "";
+      document.getElementById("videoEarnings").value = "";
+      alert(`Success! ${category} ka paisa jud gaya.`);
     }
 
-    // Total Update karna
-    abdullahTotalIncome += amount;
-    localStorage.setItem("abdullahTotal", abdullahTotalIncome);
-    
-    // Yahan aap chaho to ise main history me bhi push karwa sakte ho
-    if(typeof playSound === 'function') playSound('income');
-    
-    updateAbdullahUI();
-    
-    // Fields clear karna
-    document.getElementById("videoDetails").value = "";
-    document.getElementById("videoEarnings").value = "";
-    
-    alert(`Success! ${category} ka paisa jud gaya.`);
-}
+    document.addEventListener("DOMContentLoaded", updateAbdullahUI);
 
-// Page load hote hi UI update karein
-document.addEventListener("DOMContentLoaded", updateAbdullahUI);
+    // 📊 3. SMARTHISAB CORE APP LOGIC
     function showToast(msg) {
       const t = document.getElementById('appToast');
       if (!t) return;
@@ -1105,6 +1322,7 @@ document.addEventListener("DOMContentLoaded", updateAbdullahUI);
       clearTimeout(window.__toastTimer);
       window.__toastTimer = setTimeout(() => { t.style.display = 'none'; }, 3500);
     }
+
     const STORAGE_KEY = 'mera_hisab_clean_v2';
 
     const CATEGORIES = {
@@ -1139,16 +1357,11 @@ document.addEventListener("DOMContentLoaded", updateAbdullahUI);
       return `${yyyy}-${mm}-${dd}`;
     }
 
-    // Start 100% empty (₹0) so only the user's real entries from Day 1 appear
     let transactions = [];
     try {
       localStorage.removeItem('mera_hisab_transactions_v1');
       const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved) {
-        transactions = JSON.parse(saved);
-      } else {
-        transactions = [];
-      }
+      transactions = saved ? JSON.parse(saved) : [];
     } catch (e) {
       transactions = [];
     }
@@ -1219,6 +1432,7 @@ document.addEventListener("DOMContentLoaded", updateAbdullahUI);
         div.className = 'cat-option' + (selectedCategory.id === cat.id ? ' selected' : '');
         div.innerHTML = `<span>${cat.icon}</span>${cat.name}`;
         div.onclick = () => {
+          playSound('click');
           selectedCategory = cat;
           renderCategoryOptions();
         };
@@ -1232,9 +1446,12 @@ document.addEventListener("DOMContentLoaded", updateAbdullahUI);
       const note = document.getElementById('entryNote').value.trim() || selectedCategory.name;
 
       if (isNaN(amt) || amt <= 0) {
+        playSound('expense');
         showToast('⚠️ कृपया सही राशि (₹) दर्ज करें!');
         return;
       }
+
+      playSound(currentMode === 'income' ? 'income' : 'expense');
 
       transactions.unshift({
         id: Date.now(),
@@ -1252,6 +1469,7 @@ document.addEventListener("DOMContentLoaded", updateAbdullahUI);
     }
 
     function deleteTransaction(id) {
+      playSound('expense');
       transactions = transactions.filter(t => t.id !== id);
       saveToStorage();
       renderAll();
@@ -1313,7 +1531,6 @@ document.addEventListener("DOMContentLoaded", updateAbdullahUI);
         document.getElementById('sinceBadge').textContent = `📅 Day 1: अपनी पहली एंट्री से शुरुआत करें`;
       }
 
-      // Ratio Bar
       const sumBoth = totalIn + totalOut;
       const inPct = sumBoth === 0 ? 50 : Math.round((totalIn / sumBoth) * 100);
       const outPct = 100 - inPct;
@@ -1324,7 +1541,6 @@ document.addEventListener("DOMContentLoaded", updateAbdullahUI);
       const savingsPct = totalIn > 0 ? Math.max(0, Math.round(((totalIn - totalOut) / totalIn) * 100)) : 0;
       document.getElementById('savingsRateBadge').textContent = `${savingsPct}% बचत`;
 
-      // Filter transactions for timeline
       const filtered = transactions.filter(t => {
         if (currentFilter !== 'all' && t.type !== currentFilter) return false;
         if (filterDate && t.date !== filterDate) return false;
@@ -1333,7 +1549,6 @@ document.addEventListener("DOMContentLoaded", updateAbdullahUI);
 
       document.getElementById('entryCountBadge').textContent = `${filtered.length} एंट्री`;
 
-      // Group by Date
       const groups = {};
       filtered.forEach(t => {
         if (!groups[t.date]) groups[t.date] = [];
@@ -1373,15 +1588,15 @@ document.addEventListener("DOMContentLoaded", updateAbdullahUI);
                   <div class="tx-left">
                     <div class="tx-emoji ${item.type}">${item.icon || (item.type === 'income' ? '💰' : '💸')}</div>
                     <div class="tx-details">
-                      <h4>${item.note}</h4>
-                      <p>${item.category}</p>
+                      <h4>\${item.note}</h4>
+                      <p>\${item.category}</p>
                     </div>
                   </div>
                   <div class="tx-right">
-                    <div class="tx-amount ${item.type}">
+                    <div class="tx-amount \${item.type}">
                       ${item.type === 'income' ? '+' : '-'}${formatINR(item.amount)}
                     </div>
-                    <button class="tx-del" title="हटाएं" onclick="deleteTransaction(${item.id})">🗑️</button>
+                    <button class="tx-del" title="हटाएं" onclick="deleteTransaction(\${item.id})">🗑️</button>
                   </div>
                 </div>
               `).join('')}
@@ -1482,6 +1697,7 @@ document.addEventListener("DOMContentLoaded", updateAbdullahUI);
       a.click();
     }
 
+    // 📲 4. PWA DIRECT INSTALL LOGIC
     let deferredPrompt = null;
     window.addEventListener('beforeinstallprompt', (e) => {
       e.preventDefault();
@@ -1491,335 +1707,62 @@ document.addEventListener("DOMContentLoaded", updateAbdullahUI);
     function triggerNativeInstall() {
       if (deferredPrompt) {
         deferredPrompt.prompt();
+        deferredPrompt.userChoice.then(() => { deferredPrompt = null; });
       } else {
         showToast('📲 ऊपर कोने में 3 डॉट्स (⋮) दबाकर "Add to Home screen" चुनें!');
       }
     }
 
-    renderAll();
-  </script>
-<script>
-  atOptions = {
-    'key' : '4708e5cb58f7a3a7ee6e8c46d62ce263',
-    'format' : 'iframe',
-    'height' : 90,
-    'width' : 728,
-    'params' : {}
-  };
-</script>
-<script>
-  html, body {
-    overflow-x: hidden !important;
-    max-width: 100vw;
-}
-function playSound(type) {
-    const AudioContext = window.AudioContext || window.webkitAudioContext;
-    if (!AudioContext) return;
-    const ctx = new AudioContext();
-    const osc = ctx.createOscillator();
-    const gainNode = ctx.createGain();
-
-    osc.connect(gainNode);
-    gainNode.connect(ctx.destination);
-
-    if (type === 'income') {
-        // कमाई के लिए (सिक्के जैसी मीठी और तेज़ आवाज़)
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(800, ctx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(1500, ctx.currentTime + 0.1);
-    } else if (type === 'expense') {
-        // खर्च के लिए (नीचे जाती हुई भारी आवाज़)
-        osc.type = 'triangle';
-        osc.frequency.setValueAtTime(400, ctx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(150, ctx.currentTime + 0.15);
-    } else {
-        // नॉर्मल बटन के लिए (हल्का क्लिक)
-        osc.type = 'square';
-        osc.frequency.setValueAtTime(300, ctx.currentTime);
-    }
-
-    gainNode.gain.setValueAtTime(0.2, ctx.currentTime);
-    gainNode.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.1);
-    
-    osc.start();
-    osc.stop(ctx.currentTime + 0.15);
-}
-</script>
-<!-- Smart Link / Magic Button Start -->
-<div style="text-align: center; margin: 40px 0 20px 0;">
-    <a href="https://arwf.org/4/28bea390be879b68d9caf067e1c0ffc8" target="_blank" class="magic-btn" onclick="playSound('income')">
-        🎁 आज का सरप्राइज़ (Tap Here) ✨
-    </a>
-    <p style="font-size: 12px; color: #888; margin-top: 8px;">Support the developer & unlock magic!</p>
-</div>
-
-<style>
-/* Magic Button Animation */
-.magic-btn {
-    display: inline-block;
-    background: linear-gradient(45deg, #ff007a, #ff8a00);
-    color: #ffffff !important;
-    font-size: 18px;
-    font-weight: 800;
-    padding: 15px 35px;
-    border-radius: 50px;
-    text-decoration: none;
-    box-shadow: 0 4px 15px rgba(255, 0, 122, 0.4);
-    animation: glowingPulse 1.5s infinite alternate, gentleBounce 2s infinite;
-    transition: transform 0.15s;
-    border: 2px solid white;
-}
-
-.magic-btn:active {
-    transform: scale(0.9) !important;
-}
-
-@keyframes glowingPulse {
-    0% { box-shadow: 0 0 10px rgba(255,0,122,0.5); }
-    100% { box-shadow: 0 0 25px rgba(255,138,0,0.9), 0 0 40px rgba(255,0,122,0.6); }
-}
-
-@keyframes gentleBounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
-}
-  /* Download Button & Floating Money CSS */
-.download-container {
-    position: relative;
-    text-align: center;
-    margin: 40px auto 20px auto;
-    padding: 30px 10px;
-    width: 100%;
-}
-
-.super-download-btn {
-    background: linear-gradient(90deg, #ffcc00 0%, #ff6600 100%);
-    border: 3px solid #ffffff;
-    border-radius: 50px;
-    padding: 16px 35px;
-    font-size: 20px;
-    font-weight: 900;
-    color: #fff;
-    text-transform: uppercase;
-    box-shadow: 0 0 15px rgba(255, 204, 0, 0.8), 0 0 30px rgba(255, 102, 0, 0.6);
-    animation: heartbeat 1.2s infinite;
-    position: relative;
-    z-index: 10;
-}
-
-.super-download-btn:active {
-    transform: scale(0.9);
-}
-
-@keyframes heartbeat {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
-
-/* Floating symbols animation */
-.floating-money {
-    position: absolute;
-    font-size: 28px;
-    font-weight: bold;
-    opacity: 0;
-    animation: floatUp 2.5s infinite ease-in-out;
-    z-index: 1;
-}
-
-.symbol-1 { left: 25%; color: #ffd700; animation-delay: 0s; }
-.symbol-2 { left: 45%; color: #28a745; animation-delay: 0.6s; }
-.symbol-3 { left: 65%; color: #ffd700; animation-delay: 1.2s; }
-.symbol-4 { left: 85%; color: #28a745; animation-delay: 1.8s; }
-
-@keyframes floatUp {
-    0% { bottom: 10px; opacity: 1; transform: translateY(0) scale(1); }
-    100% { bottom: 120px; opacity: 0; transform: translateY(-80px) scale(1.5); }
-}
-  let deferredPrompt;
-window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault();
-    deferredPrompt = e;
-});
-
-function installAppNow() {
-    // Button dabate hi pehle sikke ki aawaz aayegi
-    if(typeof playSound === 'function') {
-        playSound('income'); 
-    }
-    
-    // Install popup laane ka code
-    if (deferredPrompt) {
-        deferredPrompt.prompt();
-        deferredPrompt.userChoice.then((choiceResult) => {
-            deferredPrompt = null;
-        });
-    } else {
-        // Agar browser direct support nahi karta to ye chalega
-        alert("🎉 App install karne ke liye:\n\n1. Apne browser ke menu (3-dots ⋮) par click karein.\n2. 'Add to Home screen' ya 'Install App' par click karein!");
-    }
-}
-</style>
-<!-- 🎁 1. FLOATING BOTTOM LOOT BUTTON (100% Working Click Fix) -->
-<button onclick="document.getElementById('lootStoreModal').style.display='block'" style="position: fixed; bottom: 75px; right: 15px; z-index: 999998; pointer-events: auto; background: linear-gradient(135deg, #ff007f, #ffaa00); color: #fff; border: 2px solid #fff; border-radius: 50px; padding: 10px 18px; font-weight: 900; font-size: 14px; box-shadow: 0 0 15px rgba(255,0,127,0.8); cursor: pointer; animation: pulseBtn 1.2s infinite;">
-    🎁 ₹99 Loot Store
-</button>
-
-<!-- 🔥 2. FULL SCREEN LOOT STORE MODAL -->
-<div id="lootStoreModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 10, 20, 0.98); z-index: 999999; overflow-y: auto; padding: 20px; box-sizing: border-box; font-family: sans-serif;">
-    
-    <!-- Top Header -->
-    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; padding-bottom: 12px; margin-bottom: 15px;">
-        <h3 style="margin: 0; color: #00ffcc; font-size: 20px;">🔥 Student ₹99 Loot Store</h3>
-        <button onclick="document.getElementById('lootStoreModal').style.display='none'" style="background: #ff4757; color: #fff; border: none; padding: 6px 14px; border-radius: 6px; font-weight: bold; cursor: pointer;">✖ Band Karein</button>
-    </div>
-
-    <p style="color: #00ffcc; text-align: center; font-size: 17px; font-weight: bold; margin-bottom: 15px;">
-        ⚡ Kisi bhi deal par tap karein — Pehle Sponsor Ad khulega, fir 3 second me Flipkart deal unlock ho jayegi!
-    </p>
-
-    <!-- 5 Products with Dedicated Ad Links + Flipkart Links -->
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-        
-        <!-- Button 1: Ad Link 1 + Flipkart Link 1 -->
-        <button onclick="startAdThenFlipkart('https://fktr.in/USkFso9', 'https://asiafilm.org/4/c5064e247fe2b7da30eb4003946c5f40')" class="loot-card">
-            <div style="font-size: 28px;">🎧</div>
-            <div style="margin-top: 5px;">TWS Earbuds</div>
-            <div class="loot-price">₹99 Only</div>
-        </button>
-
-        <!-- Button 2: Ad Link 2 + Flipkart Link 2 -->
-        <button onclick="startAdThenFlipkart('https://fktr.in/BakOoqi', 'https://asiafilm.org/4/c8adaff60d7b00056e516f39ce44b77c')" class="loot-card">
-            <div style="font-size: 28px;">👟</div>
-            <div style="margin-top: 5px;">Stylish Sneakers</div>
-            <div class="loot-price">₹149 Only</div>
-        </button>
-
-        <!-- Button 3: Ad Link 3 + Flipkart Link 3 -->
-        <button onclick="startAdThenFlipkart('https://fktr.in/057SbFG', 'https://asiafilm.org/4/29aae566767dfa0c40872316922d3ced')" class="loot-card">
-            <div style="font-size: 28px;">⌚</div>
-            <div style="margin-top: 5px;">Smartwatches</div>
-            <div class="loot-price">₹199 Only</div>
-        </button>
-
-        <!-- Button 4: Ad Link 4 + Flipkart Link 4 -->
-        <button onclick="startAdThenFlipkart('https://fktr.in/OMi2SKL', 'https://asiafilm.org/4/618f98aafe328a7d00b5e1953dc3c49f')" class="loot-card">
-            <div style="font-size: 28px;">🎒</div>
-            <div style="margin-top: 5px;">College Bags</div>
-            <div class="loot-price">₹129 Only</div>
-        </button>
-
-        <!-- 🔒 Button 5: VIRAL WHATSAPP SHARE LOCK (Ad Link 5 + Flipkart Link 5) -->
-        <button id="mysteryBtn" onclick="viralUnlock()" class="loot-card" style="grid-column: span 2; background: linear-gradient(90deg, #25D366, #128C7E); border: 2px solid #fff;">
-            <div style="font-size: 22px;">🔒 ₹99 SECRET LOOT (LOCKED)</div>
-            <div style="font-size: 13px; color: #fff; margin-top: 4px;">👉 Unlock karne ke liye 5 WhatsApp Group me Share karein!</div>
-        </button>
-
-    </div>
-
-    <!-- ⏳ 3-Second Countdown Box -->
-    <div id="dealTimerBox" style="display: none; margin-top: 20px; background: #1e1e2f; border: 2px dashed #00ffcc; padding: 15px; border-radius: 10px; text-align: center; color: #fff;">
-        <h4 id="timerText" style="margin: 0; color: #ffcc00; font-size: 16px;">⏳ Ad dikhaya ja raha hai... Deal 3 second me khulegi!</h4>
-    </div>
-</div>
-
-<style>
-    .loot-card {
-        background: #1a1a2e;
-        border: 1px solid #00ffcc;
-        color: #fff;
-        padding: 15px 10px;
-        border-radius: 12px;
-        font-weight: bold;
-        font-size: 14px;
-        cursor: pointer;
-        box-shadow: 0 4px 12px rgba(0, 255, 204, 0.15);
-        transition: transform 0.15s ease;
-    }
-    .loot-card:active {
-        transform: scale(0.95);
-    }
-    .loot-price {
-        color: #ffcc00;
-        font-size: 16px;
-        margin-top: 4px;
-        font-weight: 900;
-    }
-    @keyframes pulseBtn {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.06); }
-        100% { transform: scale(1); }
-    }
-</style>
-
-<script>
+    // 🎁 5. ₹99 LOOT STORE + WHATSAPP LOCK LOGIC
     let isShared = false;
 
     function openLootStore() {
-        document.getElementById('lootStoreModal').style.display = 'block';
+      document.getElementById('lootStoreModal').style.display = 'block';
     }
 
     function closeLootStore() {
-        document.getElementById('lootStoreModal').style.display = 'none';
+      document.getElementById('lootStoreModal').style.display = 'none';
     }
 
     function viralUnlock() {
-        if (!isShared) {
-            let viralText = "🔥 Bhai is website par Students ke liye ₹99 me Earbuds, Shoes aur Smartwatches mil rahe hain + Pocket money hisab app bilkul free! Jaldi check kar: https://ayan4shaikh5.github.io/SmartHisab/";
-            window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(viralText), '_blank');
-            
-            setTimeout(function() {
-                isShared = true;
-                const btn = document.getElementById('mysteryBtn');
-                btn.style.background = "linear-gradient(90deg, #ff007f, #ff7700)";
-                btn.innerHTML = '<div style="font-size: 24px;">🔓 MEGA DEAL UNLOCKED!</div><div style="font-size: 13px; color: #fff; margin-top: 4px;">Tap here to claim now!</div>';
-            }, 3000);
-        } else {
-            startAdThenFlipkart('https://fktr.in/agCxj0l', 'https://asiafilm.org/4/b6048dc25e2ae00de05b8cad8354bd17');
-        }
+      if (!isShared) {
+        let viralText = "🔥 Bhai is website par Students ke liye ₹99 me Earbuds, Shoes aur Smartwatches mil rahe hain + Pocket money hisab app bilkul free! Jaldi check kar: https://ayan4shaikh5.github.io/SmartHisab/";
+        window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(viralText), '_blank');
+
+        setTimeout(function() {
+          isShared = true;
+          const btn = document.getElementById('mysteryBtn');
+          btn.style.background = "linear-gradient(90deg, #ff007f, #ff7700)";
+          btn.innerHTML = '<div style="font-size: 24px;">🔓 MEGA DEAL UNLOCKED!</div><div style="font-size: 13px; color: #fff; margin-top: 4px;">Tap here to claim now!</div>';
+        }, 3000);
+      } else {
+        startAdThenFlipkart('https://fktr.in/agCxj0l', 'https://asiafilm.org/4/b6048dc25e2ae00de05b8cad8354bd17');
+      }
     }
 
     function startAdThenFlipkart(flipkartUrl, adUrl) {
-        window.open(adUrl, '_blank');
+      window.open(adUrl, '_blank');
 
-        const timerBox = document.getElementById('dealTimerBox');
-        const timerText = document.getElementById('timerText');
-        timerBox.style.display = 'block';
+      const timerBox = document.getElementById('dealTimerBox');
+      const timerText = document.getElementById('timerText');
+      timerBox.style.display = 'block';
 
-        let secondsLeft = 3;
-        timerText.innerText = "⏳ Deal unlock ho rahi hai... " + secondsLeft + "s";
+      let secondsLeft = 3;
+      timerText.innerText = "⏳ Deal unlock ho rahi hai... " + secondsLeft + "s";
 
-        const countdown = setInterval(function() {
-            secondsLeft--;
-            if (secondsLeft > 0) {
-                timerText.innerText = "⏳ Deal unlock ho rahi hai... " + secondsLeft + "s";
-            } else {
-                clearInterval(countdown);
-                timerText.innerText = "✅ Redirecting to Flipkart...";
-                window.location.href = flipkartUrl;
-            }
-        }, 1000);
+      const countdown = setInterval(function() {
+        secondsLeft--;
+        if (secondsLeft > 0) {
+          timerText.innerText = "⏳ Deal unlock ho rahi hai... " + secondsLeft + "s";
+        } else {
+          clearInterval(countdown);
+          timerText.innerText = "✅ Redirecting to Flipkart...";
+          window.location.href = flipkartUrl;
+        }
+      }, 1000);
     }
-</script>
-<!-- 1. FLOATING ₹99 LOOT STORE BUTTON (Sabse Upar: bottom 130px) -->
-<button onclick="document.getElementById('lootStoreModal').style.display='block'" style="position: fixed; bottom: 130px; right: 15px; z-index: 2147483647; background: linear-gradient(135deg, #ff007f, #ffaa00); color: #fff; border: 2px solid #fff; border-radius: 50px; padding: 10px 18px; font-weight: 900; font-size: 14px; box-shadow: 0 0 15px rgba(255,0,127,0.8); cursor: pointer;">
-  🎁 ₹99 Loot Store
-</button>
 
-<!-- 2. ADSTERRA BANNER AD (Sabse Aage / Front me aur Bottom Nav ke Upar: bottom 65px) -->
-<div style="position: fixed; bottom: 65px; left: 0; width: 100%; z-index: 2147483646; text-align: center; background: transparent; pointer-events: none;">
-  <div style="display: inline-block; pointer-events: auto; background: #1a1a2e; padding: 2px; border-radius: 6px; box-shadow: 0 -2px 10px rgba(0,0,0,0.5);">
-    <script type="text/javascript">
-      atOptions = {
-        'key' : '4708e5cb58f7a3a7ee6e8c46d62ce263',
-        'format' : 'iframe',
-        'height' : 50,
-        'width' : 300,
-        'params' : {}
-      };
-    </script>
-    <script type="text/javascript" src="https://bicea.org/22/4708e5cb58f7a3a7ee6e8c46d62ce263"></script>
-  </div>
-</div>
+    renderAll();
+  </script>
 </body>
 </html>
