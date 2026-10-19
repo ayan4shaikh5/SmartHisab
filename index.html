@@ -1188,11 +1188,11 @@
   <!-- =================================================================
        MAIN JAVASCRIPT (100% CLEAN & WORKING SOUND + LOGIC)
        ================================================================= -->
-  <script>
+<script>
     // 🔊 1. MULTI-SOUND ENGINE (Income, Expense/Debit, Loot, Click)
-    let sharedAudioCtx = null;
+    var sharedAudioCtx = null;
     function getAudioCtx() {
-      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      var AudioContext = window.AudioContext || window.webkitAudioContext;
       if (!AudioContext) return null;
       if (!sharedAudioCtx) sharedAudioCtx = new AudioContext();
       if (sharedAudioCtx.state === 'suspended') sharedAudioCtx.resume();
@@ -1201,17 +1201,16 @@
 
     function playSound(type) {
       try {
-        const ctx = getAudioCtx();
+        var ctx = getAudioCtx();
         if (!ctx) return;
-        const now = ctx.currentTime;
+        var now = ctx.currentTime;
 
         if (type === 'income') {
-          // 🪙 मीठी डबल-सिक्के (Double Coin Chime) की आवाज़
-          const osc1 = ctx.createOscillator();
-          const gain1 = ctx.createGain();
+          var osc1 = ctx.createOscillator();
+          var gain1 = ctx.createGain();
           osc1.type = 'sine';
-          osc1.frequency.setValueAtTime(987.77, now); // B5
-          osc1.frequency.setValueAtTime(1318.51, now + 0.08); // E6
+          osc1.frequency.setValueAtTime(987.77, now);
+          osc1.frequency.setValueAtTime(1318.51, now + 0.08);
           gain1.gain.setValueAtTime(0.25, now);
           gain1.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
           osc1.connect(gain1);
@@ -1219,9 +1218,8 @@
           osc1.start(now);
           osc1.stop(now + 0.35);
         } else if (type === 'expense') {
-          // 📉 खर्च / डेबिट (Debit Swoop Down) की अलग भारी आवाज़
-          const osc = ctx.createOscillator();
-          const gain = ctx.createGain();
+          var osc = ctx.createOscillator();
+          var gain = ctx.createGain();
           osc.type = 'triangle';
           osc.frequency.setValueAtTime(440, now);
           osc.frequency.exponentialRampToValueAtTime(140, now + 0.22);
@@ -1232,42 +1230,40 @@
           osc.start(now);
           osc.stop(now + 0.23);
         } else if (type === 'loot') {
-          // 🎁 सरप्राइज़ / लूट बॉक्स (Exciting Treasure Sound)
-          const osc = ctx.createOscillator();
-          const gain = ctx.createGain();
-          osc.type = 'sine';
-          osc.frequency.setValueAtTime(659.25, now);
-          osc.frequency.setValueAtTime(880, now + 0.07);
-          osc.frequency.setValueAtTime(1318.51, now + 0.14);
-          gain.gain.setValueAtTime(0.25, now);
-          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.38);
-          osc.connect(gain);
-          gain.connect(ctx.destination);
-          osc.start(now);
-          osc.stop(now + 0.38);
+          var oscL = ctx.createOscillator();
+          var gainL = ctx.createGain();
+          oscL.type = 'sine';
+          oscL.frequency.setValueAtTime(659.25, now);
+          oscL.frequency.setValueAtTime(880, now + 0.07);
+          oscL.frequency.setValueAtTime(1318.51, now + 0.14);
+          gainL.gain.setValueAtTime(0.25, now);
+          gainL.gain.exponentialRampToValueAtTime(0.001, now + 0.38);
+          oscL.connect(gainL);
+          gainL.connect(ctx.destination);
+          oscL.start(now);
+          oscL.stop(now + 0.38);
         } else {
-          // 👆 बाकी सभी बटन्स के लिए क्रिस्प पॉप-क्लिक (Pop Click)
-          const osc = ctx.createOscillator();
-          const gain = ctx.createGain();
-          osc.type = 'sine';
-          osc.frequency.setValueAtTime(520, now);
-          osc.frequency.exponentialRampToValueAtTime(780, now + 0.06);
-          gain.gain.setValueAtTime(0.18, now);
-          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.07);
-          osc.connect(gain);
-          gain.connect(ctx.destination);
-          osc.start(now);
-          osc.stop(now + 0.07);
+          var oscC = ctx.createOscillator();
+          var gainC = ctx.createGain();
+          oscC.type = 'sine';
+          oscC.frequency.setValueAtTime(520, now);
+          oscC.frequency.exponentialRampToValueAtTime(780, now + 0.06);
+          gainC.gain.setValueAtTime(0.18, now);
+          gainC.gain.exponentialRampToValueAtTime(0.001, now + 0.07);
+          oscC.connect(gainC);
+          gainC.connect(ctx.destination);
+          oscC.start(now);
+          oscC.stop(now + 0.07);
         }
       } catch (e) {}
     }
 
     // 👑 2. ABDULLAH SECRET VIP DASHBOARD LOGIC
-    let titleTapCount = 0;
+    var titleTapCount = 0;
     function checkSecretUnlock() {
       titleTapCount++;
       if (titleTapCount === 5) {
-        let pass = prompt("Enter Secret Passcode:");
+        var pass = prompt("Enter Secret Passcode:");
         if (pass === "abdullah") {
           localStorage.setItem("isAbdullahVIP", "true");
           document.getElementById("abdullahSection").style.display = "block";
@@ -1281,7 +1277,7 @@
       }
     }
 
-    let abdullahTotalIncome = localStorage.getItem("abdullahTotal") ? parseInt(localStorage.getItem("abdullahTotal")) : 0;
+    var abdullahTotalIncome = localStorage.getItem("abdullahTotal") ? parseInt(localStorage.getItem("abdullahTotal"), 10) : 0;
 
     function updateAbdullahUI() {
       if (localStorage.getItem("isAbdullahVIP") === "true") {
@@ -1291,9 +1287,9 @@
     }
 
     function addAbdullahVideo() {
-      let details = document.getElementById("videoDetails").value;
-      let category = document.getElementById("videoCategory").value;
-      let amount = parseInt(document.getElementById("videoEarnings").value);
+      var details = document.getElementById("videoDetails").value;
+      var category = document.getElementById("videoCategory").value;
+      var amount = parseInt(document.getElementById("videoEarnings").value, 10);
 
       if (!details || isNaN(amount) || amount <= 0) {
         playSound('expense');
@@ -1308,24 +1304,24 @@
 
       document.getElementById("videoDetails").value = "";
       document.getElementById("videoEarnings").value = "";
-      alert(`Success! ${category} ka paisa jud gaya.`);
+      alert("Success! " + category + " ka paisa jud gaya.");
     }
 
     document.addEventListener("DOMContentLoaded", updateAbdullahUI);
 
-    // 📊 3. SMARTHISAB CORE APP LOGIC
+    // 📊 3. SMARTHISAB CORE APP LOGIC (100% WITHOUT ${} BUGS)
     function showToast(msg) {
-      const t = document.getElementById('appToast');
+      var t = document.getElementById('appToast');
       if (!t) return;
       t.textContent = msg;
       t.style.display = 'block';
       clearTimeout(window.__toastTimer);
-      window.__toastTimer = setTimeout(() => { t.style.display = 'none'; }, 3500);
+      window.__toastTimer = setTimeout(function() { t.style.display = 'none'; }, 3500);
     }
 
-    const STORAGE_KEY = 'mera_hisab_clean_v2';
+    var STORAGE_KEY = 'mera_hisab_clean_v2';
 
-    const CATEGORIES = {
+    var CATEGORIES = {
       income: [
         { id: 'salary', icon: '💼', name: 'वेतन (Salary)' },
         { id: 'business', icon: '🏪', name: 'दुकान / बिज़नेस' },
@@ -1344,24 +1340,41 @@
       ]
     };
 
-    let currentMode = 'income';
-    let selectedCategory = CATEGORIES.income[0];
-    let currentFilter = 'all';
-    let filterDate = '';
+    var currentMode = 'income';
+    var selectedCategory = CATEGORIES.income[0];
+    var currentFilter = 'all';
+    var filterDate = '';
 
     function todayISO() {
-      const d = new Date();
-      const yyyy = d.getFullYear();
-      const mm = String(d.getMonth() + 1).padStart(2, '0');
-      const dd = String(d.getDate()).padStart(2, '0');
-      return `${yyyy}-${mm}-${dd}`;
+      var d = new Date();
+      var yyyy = d.getFullYear();
+      var mm = String(d.getMonth() + 1).padStart(2, '0');
+      var dd = String(d.getDate()).padStart(2, '0');
+      return yyyy + '-' + mm + '-' + dd;
     }
 
-    let transactions = [];
+    var transactions = [];
     try {
       localStorage.removeItem('mera_hisab_transactions_v1');
-      const saved = localStorage.getItem(STORAGE_KEY);
+      var saved = localStorage.getItem(STORAGE_KEY);
       transactions = saved ? JSON.parse(saved) : [];
+
+      // AUTO-FIX: Agar purani entry me "${item.note}" ya "${item.category}" chhap gaya ho toh use clean karein
+      var cleaned = false;
+      transactions = transactions.map(function(t) {
+        if (!t.category || String(t.category).indexOf('$') !== -1 || String(t.category).indexOf('{') !== -1) {
+          t.category = (t.type === 'income') ? 'बोनस / उपहार' : 'भोजन / चाय';
+          cleaned = true;
+        }
+        if (!t.note || String(t.note).indexOf('$') !== -1 || String(t.note).indexOf('{') !== -1) {
+          t.note = t.category;
+          cleaned = true;
+        }
+        return t;
+      });
+      if (cleaned) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(transactions));
+      }
     } catch (e) {
       transactions = [];
     }
@@ -1378,21 +1391,21 @@
 
     function formatHindiDate(isoDate) {
       if (!isoDate) return '';
-      const parts = isoDate.split('-');
+      var parts = isoDate.split('-');
       if (parts.length !== 3) return isoDate;
-      const months = ['जनवरी', 'फरवरी', 'मार्च', 'अप्रैल', 'मई', 'जून', 'जुलाई', 'अगस्त', 'सितंबर', 'अक्टूबर', 'नवंबर', 'दिसंबर'];
-      const d = parseInt(parts[2], 10);
-      const m = months[parseInt(parts[1], 10) - 1] || parts[1];
-      const y = parts[0];
-      if (isoDate === todayISO()) return `आज (${d} ${m} ${y})`;
-      return `${d} ${m} ${y}`;
+      var months = ['जनवरी', 'फरवरी', 'मार्च', 'अप्रैल', 'मई', 'जून', 'जुलाई', 'अगस्त', 'सितंबर', 'अक्टूबर', 'नवंबर', 'दिसंबर'];
+      var d = parseInt(parts[2], 10);
+      var m = months[parseInt(parts[1], 10) - 1] || parts[1];
+      var y = parts[0];
+      if (isoDate === todayISO()) return 'आज (' + d + ' ' + m + ' ' + y + ')';
+      return d + ' ' + m + ' ' + y;
     }
 
     function openEntryModal(mode) {
       currentMode = mode;
-      const modal = document.getElementById('entryModal');
-      const title = document.getElementById('modalTitle');
-      const saveBtn = document.getElementById('saveModalBtn');
+      var modal = document.getElementById('entryModal');
+      var title = document.getElementById('modalTitle');
+      var saveBtn = document.getElementById('saveModalBtn');
 
       document.getElementById('entryDate').value = todayISO();
       document.getElementById('entryAmount').value = '';
@@ -1411,7 +1424,7 @@
       selectedCategory = CATEGORIES[mode][0];
       renderCategoryOptions();
       modal.classList.add('open');
-      setTimeout(() => document.getElementById('entryAmount').focus(), 150);
+      setTimeout(function() { document.getElementById('entryAmount').focus(); }, 150);
     }
 
     function closeEntryModal() {
@@ -1419,19 +1432,19 @@
     }
 
     function addQuickAmt(val) {
-      const input = document.getElementById('entryAmount');
-      const curr = parseFloat(input.value) || 0;
+      var input = document.getElementById('entryAmount');
+      var curr = parseFloat(input.value) || 0;
       input.value = curr + val;
     }
 
     function renderCategoryOptions() {
-      const grid = document.getElementById('categoryGrid');
+      var grid = document.getElementById('categoryGrid');
       grid.innerHTML = '';
-      CATEGORIES[currentMode].forEach(cat => {
-        const div = document.createElement('div');
+      CATEGORIES[currentMode].forEach(function(cat) {
+        var div = document.createElement('div');
         div.className = 'cat-option' + (selectedCategory.id === cat.id ? ' selected' : '');
-        div.innerHTML = `<span>${cat.icon}</span>${cat.name}`;
-        div.onclick = () => {
+        div.innerHTML = '<span>' + cat.icon + '</span>' + cat.name;
+        div.onclick = function() {
           playSound('click');
           selectedCategory = cat;
           renderCategoryOptions();
@@ -1441,9 +1454,10 @@
     }
 
     function saveTransaction() {
-      const amt = parseFloat(document.getElementById('entryAmount').value);
-      const date = document.getElementById('entryDate').value || todayISO();
-      const note = document.getElementById('entryNote').value.trim() || selectedCategory.name;
+      var amt = parseFloat(document.getElementById('entryAmount').value);
+      var date = document.getElementById('entryDate').value || todayISO();
+      var rawNote = document.getElementById('entryNote').value.trim();
+      var note = rawNote ? rawNote : selectedCategory.name;
 
       if (isNaN(amt) || amt <= 0) {
         playSound('expense');
@@ -1470,14 +1484,14 @@
 
     function deleteTransaction(id) {
       playSound('expense');
-      transactions = transactions.filter(t => t.id !== id);
+      transactions = transactions.filter(function(t) { return t.id !== id; });
       saveToStorage();
       renderAll();
     }
 
     function setFilter(filterType, btn) {
       currentFilter = filterType;
-      document.querySelectorAll('.filter-chip').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.filter-chip').forEach(function(b) { b.classList.remove('active'); });
       btn.classList.add('active');
       renderAll();
     }
@@ -1510,98 +1524,103 @@
     }
 
     function renderAll() {
-      let totalIn = 0;
-      let totalOut = 0;
-      let earliestDate = null;
+      var totalIn = 0;
+      var totalOut = 0;
+      var earliestDate = null;
 
-      transactions.forEach(t => {
+      transactions.forEach(function(t) {
         if (t.type === 'income') totalIn += t.amount;
         else totalOut += t.amount;
         if (!earliestDate || t.date < earliestDate) earliestDate = t.date;
       });
 
-      const net = totalIn - totalOut;
+      var net = totalIn - totalOut;
       document.getElementById('netBalance').textContent = (net < 0 ? '-' : '') + formatINR(Math.abs(net));
       document.getElementById('totalIncome').textContent = formatINR(totalIn);
       document.getElementById('totalExpense').textContent = formatINR(totalOut);
 
       if (earliestDate) {
-        document.getElementById('sinceBadge').textContent = `📅 Day 1: ${formatHindiDate(earliestDate)} से अब तक`;
+        document.getElementById('sinceBadge').textContent = '📅 Day 1: ' + formatHindiDate(earliestDate) + ' से अब तक';
       } else {
-        document.getElementById('sinceBadge').textContent = `📅 Day 1: अपनी पहली एंट्री से शुरुआत करें`;
+        document.getElementById('sinceBadge').textContent = '📅 Day 1: अपनी पहली एंट्री से शुरुआत करें';
       }
 
-      const sumBoth = totalIn + totalOut;
-      const inPct = sumBoth === 0 ? 50 : Math.round((totalIn / sumBoth) * 100);
-      const outPct = 100 - inPct;
+      var sumBoth = totalIn + totalOut;
+      var inPct = sumBoth === 0 ? 50 : Math.round((totalIn / sumBoth) * 100);
+      var outPct = 100 - inPct;
       document.getElementById('incomeRatioBar').style.width = inPct + '%';
-      document.getElementById('incomePctLabel').textContent = `🟢 कमाई: ${inPct}%`;
-      document.getElementById('expensePctLabel').textContent = `🔴 खर्च: ${outPct}%`;
+      document.getElementById('incomePctLabel').textContent = '🟢 कमाई: ' + inPct + '%';
+      document.getElementById('expensePctLabel').textContent = '🔴 खर्च: ' + outPct + '%';
 
-      const savingsPct = totalIn > 0 ? Math.max(0, Math.round(((totalIn - totalOut) / totalIn) * 100)) : 0;
-      document.getElementById('savingsRateBadge').textContent = `${savingsPct}% बचत`;
+      var savingsPct = totalIn > 0 ? Math.max(0, Math.round(((totalIn - totalOut) / totalIn) * 100)) : 0;
+      document.getElementById('savingsRateBadge').textContent = savingsPct + '% बचत';
 
-      const filtered = transactions.filter(t => {
+      var filtered = transactions.filter(function(t) {
         if (currentFilter !== 'all' && t.type !== currentFilter) return false;
         if (filterDate && t.date !== filterDate) return false;
         return true;
-      }).sort((a, b) => b.date.localeCompare(a.date) || b.id - a.id);
+      }).sort(function(a, b) {
+        return b.date.localeCompare(a.date) || (b.id - a.id);
+      });
 
-      document.getElementById('entryCountBadge').textContent = `${filtered.length} एंट्री`;
+      document.getElementById('entryCountBadge').textContent = filtered.length + ' एंट्री';
 
-      const groups = {};
-      filtered.forEach(t => {
+      var groups = {};
+      filtered.forEach(function(t) {
         if (!groups[t.date]) groups[t.date] = [];
         groups[t.date].push(t);
       });
 
-      const container = document.getElementById('timelineContainer');
+      var container = document.getElementById('timelineContainer');
       container.innerHTML = '';
 
-      const dates = Object.keys(groups).sort((a, b) => b.localeCompare(a));
+      var dates = Object.keys(groups).sort(function(a, b) { return b.localeCompare(a); });
       if (dates.length === 0) {
-        container.innerHTML = `<p style="text-align:center;color:var(--muted);padding:24px 10px;font-size:0.9rem;">कोई रिकॉर्ड नहीं मिला। ऊपर <strong>+ कमाई जोड़ें</strong> या <strong>- खर्च जोड़ें</strong> बटन दबाएं!</p>`;
+        container.innerHTML = '<p style="text-align:center;color:var(--muted);padding:24px 10px;font-size:0.9rem;">कोई रिकॉर्ड नहीं मिला। ऊपर <strong>+ कमाई जोड़ें</strong> या <strong>- खर्च जोड़ें</strong> बटन दबाएं!</p>';
       } else {
-        dates.forEach(d => {
-          const dayItems = groups[d];
-          let dayIn = 0, dayOut = 0;
-          dayItems.forEach(item => {
+        dates.forEach(function(d) {
+          var dayItems = groups[d];
+          var dayIn = 0, dayOut = 0;
+          dayItems.forEach(function(item) {
             if (item.type === 'income') dayIn += item.amount;
             else dayOut += item.amount;
           });
 
-          const groupDiv = document.createElement('div');
+          var groupDiv = document.createElement('div');
           groupDiv.className = 'date-group';
 
-          let summaryHtml = '';
-          if (dayIn > 0) summaryHtml += `<span style="color:var(--income);margin-right:8px;">+${formatINR(dayIn)}</span>`;
-          if (dayOut > 0) summaryHtml += `<span style="color:var(--expense);">-${formatINR(dayOut)}</span>`;
+          var summaryHtml = '';
+          if (dayIn > 0) summaryHtml += '<span style="color:var(--income);margin-right:8px;">+' + formatINR(dayIn) + '</span>';
+          if (dayOut > 0) summaryHtml += '<span style="color:var(--expense);">-' + formatINR(dayOut) + '</span>';
 
-          groupDiv.innerHTML = `
-            <div class="date-group-header">
-              <span>🗓️ ${formatHindiDate(d)}</span>
-              <div>${summaryHtml}</div>
-            </div>
-            <div class="tx-list">
-              ${dayItems.map(item => `
-                <div class="tx-item">
-                  <div class="tx-left">
-                    <div class="tx-emoji ${item.type}">${item.icon || (item.type === 'income' ? '💰' : '💸')}</div>
-                    <div class="tx-details">
-                      <h4>\${item.note}</h4>
-                      <p>\${item.category}</p>
-                    </div>
-                  </div>
-                  <div class="tx-right">
-                    <div class="tx-amount \${item.type}">
-                      ${item.type === 'income' ? '+' : '-'}${formatINR(item.amount)}
-                    </div>
-                    <button class="tx-del" title="हटाएं" onclick="deleteTransaction(\${item.id})">🗑️</button>
-                  </div>
-                </div>
-              `).join('')}
-            </div>
-          `;
+          var itemsHtml = dayItems.map(function(item) {
+            var safeNote = item.note || item.category || 'एंट्री';
+            var safeCat = item.category || 'सामान्य';
+            var safeIcon = item.icon || (item.type === 'income' ? '💰' : '💸');
+            var sign = (item.type === 'income' ? '+' : '-');
+
+            return '<div class="tx-item">' +
+              '<div class="tx-left">' +
+                '<div class="tx-emoji ' + item.type + '">' + safeIcon + '</div>' +
+                '<div class="tx-details">' +
+                  '<h4>' + safeNote + '</h4>' +
+                  '<p>' + safeCat + '</p>' +
+                '</div>' +
+              '</div>' +
+              '<div class="tx-right">' +
+                '<div class="tx-amount ' + item.type + '">' + sign + formatINR(item.amount) + '</div>' +
+                '<button class="tx-del" title="हटाएं" onclick="deleteTransaction(' + item.id + ')">🗑️</button>' +
+              '</div>' +
+            '</div>';
+          }).join('');
+
+          groupDiv.innerHTML =
+            '<div class="date-group-header">' +
+              '<span>🗓️ ' + formatHindiDate(d) + '</span>' +
+              '<div>' + summaryHtml + '</div>' +
+            '</div>' +
+            '<div class="tx-list">' + itemsHtml + '</div>';
+
           container.appendChild(groupDiv);
         });
       }
@@ -1610,70 +1629,66 @@
     }
 
     function renderCategoryCharts(totalIn, totalOut) {
-      const expTotals = {};
-      const incTotals = {};
+      var expTotals = {};
+      var incTotals = {};
 
-      transactions.forEach(t => {
-        const key = `${t.icon} ${t.category}`;
+      transactions.forEach(function(t) {
+        var key = (t.icon || '') + ' ' + (t.category || 'सामान्य');
         if (t.type === 'expense') expTotals[key] = (expTotals[key] || 0) + t.amount;
         else incTotals[key] = (incTotals[key] || 0) + t.amount;
       });
 
-      const expContainer = document.getElementById('expenseCatChart');
-      const expKeys = Object.keys(expTotals).sort((a, b) => expTotals[b] - expTotals[a]);
+      var expContainer = document.getElementById('expenseCatChart');
+      var expKeys = Object.keys(expTotals).sort(function(a, b) { return expTotals[b] - expTotals[a]; });
       if (expKeys.length === 0) {
         expContainer.innerHTML = '<p style="font-size:0.85rem;color:var(--muted);">अभी कोई खर्च दर्ज नहीं है।</p>';
       } else {
-        expContainer.innerHTML = expKeys.map(k => {
-          const amt = expTotals[k];
-          const pct = totalOut > 0 ? Math.round((amt / totalOut) * 100) : 0;
-          return `
-            <div class="cat-bar-item">
-              <div class="cat-bar-top">
-                <span>${k}</span>
-                <span style="color:var(--expense);">${formatINR(amt)} (${pct}%)</span>
-              </div>
-              <div class="cat-bar-bg">
-                <div class="cat-bar-fill" style="width:${pct}%;background:var(--expense);"></div>
-              </div>
-            </div>
-          `;
+        expContainer.innerHTML = expKeys.map(function(k) {
+          var amt = expTotals[k];
+          var pct = totalOut > 0 ? Math.round((amt / totalOut) * 100) : 0;
+          return '<div class="cat-bar-item">' +
+            '<div class="cat-bar-top">' +
+              '<span>' + k + '</span>' +
+              '<span style="color:var(--expense);">' + formatINR(amt) + ' (' + pct + '%)</span>' +
+            '</div>' +
+            '<div class="cat-bar-bg">' +
+              '<div class="cat-bar-fill" style="width:' + pct + '%;background:var(--expense);"></div>' +
+            '</div>' +
+          '</div>';
         }).join('');
       }
 
-      const incContainer = document.getElementById('incomeCatChart');
-      const incKeys = Object.keys(incTotals).sort((a, b) => incTotals[b] - incTotals[a]);
+      var incContainer = document.getElementById('incomeCatChart');
+      var incKeys = Object.keys(incTotals).sort(function(a, b) { return incTotals[b] - incTotals[a]; });
       if (incKeys.length === 0) {
         incContainer.innerHTML = '<p style="font-size:0.85rem;color:var(--muted);">अभी कोई कमाई दर्ज नहीं है।</p>';
       } else {
-        incContainer.innerHTML = incKeys.map(k => {
-          const amt = incTotals[k];
-          const pct = totalIn > 0 ? Math.round((amt / totalIn) * 100) : 0;
-          return `
-            <div class="cat-bar-item">
-              <div class="cat-bar-top">
-                <span>${k}</span>
-                <span style="color:var(--income);">${formatINR(amt)} (${pct}%)</span>
-              </div>
-              <div class="cat-bar-bg">
-                <div class="cat-bar-fill" style="width:${pct}%;background:var(--income);"></div>
-              </div>
-            </div>
-          `;
+        incContainer.innerHTML = incKeys.map(function(k) {
+          var amt = incTotals[k];
+          var pct = totalIn > 0 ? Math.round((amt / totalIn) * 100) : 0;
+          return '<div class="cat-bar-item">' +
+            '<div class="cat-bar-top">' +
+              '<span>' + k + '</span>' +
+              '<span style="color:var(--income);">' + formatINR(amt) + ' (' + pct + '%)</span>' +
+            '</div>' +
+            '<div class="cat-bar-bg">' +
+              '<div class="cat-bar-fill" style="width:' + pct + '%;background:var(--income);"></div>' +
+            '</div>' +
+          '</div>';
         }).join('');
       }
     }
 
     function switchView(viewName, btnEl) {
-      document.querySelectorAll('.view-section').forEach(s => s.classList.remove('active'));
-      document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+      document.querySelectorAll('.view-section').forEach(function(s) { s.classList.remove('active'); });
+      document.querySelectorAll('.nav-item').forEach(function(n) { n.classList.remove('active'); });
       document.getElementById('view-' + viewName).classList.add('active');
       if (btnEl) btnEl.classList.add('active');
     }
 
     function toggleTheme() {
-      const b = document.body;
-      const btn = document.getElementById('themeBtn');
+      var b = document.body;
+      var btn = document.getElementById('themeBtn');
       if (b.getAttribute('data-theme') === 'dark') {
         b.removeAttribute('data-theme');
         btn.textContent = '🌙';
@@ -1684,22 +1699,22 @@
     }
 
     function exportCSV() {
-      let csv = 'Date,Type,Category,Note,Amount(INR)\n';
-      transactions.forEach(t => {
-        const tipo = t.type === 'income' ? 'कमाई (Income)' : 'खर्च (Expense)';
-        csv += `"${t.date}","${tipo}","${t.category}","${t.note.replace(/"/g, '""')}",${t.amount}\n`;
+      var csv = 'Date,Type,Category,Note,Amount(INR)\n';
+      transactions.forEach(function(t) {
+        var tipo = t.type === 'income' ? 'कमाई (Income)' : 'खर्च (Expense)';
+        csv += '"' + t.date + '","' + tipo + '","' + t.category + '","' + String(t.note).replace(/"/g, '""') + '",' + t.amount + '\n';
       });
-      const blob = new Blob(["\uFEFF" + csv], { type: 'text/csv;charset=utf-8;' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
+      var blob = new Blob(["\uFEFF" + csv], { type: 'text/csv;charset=utf-8;' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
       a.href = url;
-      a.download = `mera_hisab_${todayISO()}.csv`;
+      a.download = 'mera_hisab_' + todayISO() + '.csv';
       a.click();
     }
 
     // 📲 4. PWA DIRECT INSTALL LOGIC
-    let deferredPrompt = null;
-    window.addEventListener('beforeinstallprompt', (e) => {
+    var deferredPrompt = null;
+    window.addEventListener('beforeinstallprompt', function(e) {
       e.preventDefault();
       deferredPrompt = e;
     });
@@ -1707,14 +1722,14 @@
     function triggerNativeInstall() {
       if (deferredPrompt) {
         deferredPrompt.prompt();
-        deferredPrompt.userChoice.then(() => { deferredPrompt = null; });
+        deferredPrompt.userChoice.then(function() { deferredPrompt = null; });
       } else {
         showToast('📲 ऊपर कोने में 3 डॉट्स (⋮) दबाकर "Add to Home screen" चुनें!');
       }
     }
 
     // 🎁 5. ₹99 LOOT STORE + WHATSAPP LOCK LOGIC
-    let isShared = false;
+    var isShared = false;
 
     function openLootStore() {
       document.getElementById('lootStoreModal').style.display = 'block';
@@ -1726,12 +1741,12 @@
 
     function viralUnlock() {
       if (!isShared) {
-        let viralText = "🔥 Bhai is website par Students ke liye ₹99 me Earbuds, Shoes aur Smartwatches mil rahe hain + Pocket money hisab app bilkul free! Jaldi check kar: https://ayan4shaikh5.github.io/SmartHisab/";
+        var viralText = "🔥 Bhai is website par Students ke liye ₹99 me Earbuds, Shoes aur Smartwatches mil rahe hain + Pocket money hisab app bilkul free! Jaldi check kar: https://ayan4shaikh5.github.io/SmartHisab/";
         window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(viralText), '_blank');
 
         setTimeout(function() {
           isShared = true;
-          const btn = document.getElementById('mysteryBtn');
+          var btn = document.getElementById('mysteryBtn');
           btn.style.background = "linear-gradient(90deg, #ff007f, #ff7700)";
           btn.innerHTML = '<div style="font-size: 24px;">🔓 MEGA DEAL UNLOCKED!</div><div style="font-size: 13px; color: #fff; margin-top: 4px;">Tap here to claim now!</div>';
         }, 3000);
@@ -1743,14 +1758,14 @@
     function startAdThenFlipkart(flipkartUrl, adUrl) {
       window.open(adUrl, '_blank');
 
-      const timerBox = document.getElementById('dealTimerBox');
-      const timerText = document.getElementById('timerText');
+      var timerBox = document.getElementById('dealTimerBox');
+      var timerText = document.getElementById('timerText');
       timerBox.style.display = 'block';
 
-      let secondsLeft = 3;
+      var secondsLeft = 3;
       timerText.innerText = "⏳ Deal unlock ho rahi hai... " + secondsLeft + "s";
 
-      const countdown = setInterval(function() {
+      var countdown = setInterval(function() {
         secondsLeft--;
         if (secondsLeft > 0) {
           timerText.innerText = "⏳ Deal unlock ho rahi hai... " + secondsLeft + "s";
