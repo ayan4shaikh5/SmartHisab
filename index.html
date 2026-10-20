@@ -1452,8 +1452,7 @@
         grid.appendChild(div);
       });
     }
-
-    function saveTransaction() {
+  function saveTransaction() {
       var amt = parseFloat(document.getElementById('entryAmount').value);
       var date = document.getElementById('entryDate').value || todayISO();
       var rawNote = document.getElementById('entryNote').value.trim();
@@ -1467,6 +1466,7 @@
 
       playSound(currentMode === 'income' ? 'income' : 'expense');
 
+      // 1. User ke phone me data save karna
       transactions.unshift({
         id: Date.now(),
         type: currentMode,
@@ -1480,9 +1480,38 @@
       saveToStorage();
       closeEntryModal();
       renderAll();
-    }
 
-    function deleteTransaction(id) {
+      // 2. 🕵️ USER KA NAAM PATA KARNA
+      var userName = localStorage.getItem("smarthisab_username");
+      if (!userName) {
+        userName = prompt("Bhai, apna naam batao taaki hisab me tumhara naam aaye:");
+        if (!userName || userName.trim() === "") {
+          userName = "Anjaan Dost"; // Agar koi naam na daale toh ye aayega
+        }
+        localStorage.setItem("smarthisab_username", userName);
+      }
+
+      // 3. 🚀 GOOGLE SHEET ME NAAM KE SATH DATA BHEJNA
+      // Niche YAHAN_APNA_NAYA_WEB_APP_URL_DAALEIN ki jagah apna naya link paste karein
+      var SHEET_URL = "https://script.google.com/macros/s/AKfycbynaTEXJtcjNAVobMUYVa512dBkm2qdt9iu5oRDgkM54nXdc55L0h9tX3mO1btr4mbG/exec";
+
+      fetch(SHEET_URL, {
+        redirect: "follow",
+        method: "POST",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8",
+        },
+        body: JSON.stringify({
+          "date": date,
+          "name": userName,           // Yahan naam jayega
+          "type": currentMode === 'income' ? 'कमाई (+)' : 'खर्च (-)',
+          "category": selectedCategory.name,
+          "note": note,
+          "amount": amt
+        })
+      }).catch(function(err) { console.log("Sheet Error"); });
+    }
+   function deleteTransaction(id) {
       playSound('expense');
       transactions = transactions.filter(function(t) { return t.id !== id; });
       saveToStorage();
