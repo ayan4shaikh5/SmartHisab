@@ -1,400 +1,1891 @@
 <!DOCTYPE html>
 <html lang="hi" data-theme="dark">
 <head>
+  <!-- 🚀 MASTER GOOGLE SEO CODE FOR SMARTHISAB -->
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>SmartHisab - Ultimate 3D Liquid & Coins Edition</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartHisab (मेरा हिसाब ₹) - Official Free Expense Tracker & Loot Store</title>
+  <meta name="title" content="SmartHisab - Free Daily Hisab & Student Budget App" />
+  <meta name="description" content="SmartHisab - roz ka hisab, kamai aur kharch bina login ke track karein. Best free Mera Hisab app for students with ₹99 Loot Store." />
+  <meta name="keywords" content="SmartHisab, smarthisab, smart hisab, smarthisaab, mera hisab, मेरा हिसाब, ayan4shaikh5, smarthisab github, student expense tracker, daily hisab app, budget tracker, Kharcha Pani" />
+  <meta name="author" content="Ayan Shaikh" />
+  <meta name="robots" content="index, follow" />
+  <meta name="google-site-verification" content="NJfuIJz2C8AggIvY0iuMZOxDwMUrhUZYhBkSqX2gKsM" />
+  <link rel="canonical" href="https://ayan4shaikh5.github.io/SmartHisab/" />
+
+  <!-- 🤖 GOOGLE AI & BRAND NAME SCHEMA -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "SmartHisab",
+    "alternateName": ["smarthusab", "Smart Hisab", "SmartHisaab", "मेरा हिसाब ₹", "Mera Hisab"],
+    "url": "https://ayan4shaikh5.github.io/SmartHisab/"
+  }
+  </script>
+
+  <!-- PWA & Mobile Meta -->
   <meta name="theme-color" content="#03050a" />
-  
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="SmartHisab - मेरा हिसाब ₹" />
+  <link rel="manifest" href="manifest.json" />
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet" />
 
-  <!-- GSAP & ScrollTrigger -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <!-- App Icons -->
+  <link rel="icon" type="image/png" href="data:image/png;base64,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" />
+  <link rel="apple-touch-icon" href="data:image/png;base64,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" />
+
+  <!-- OneSignal SDK -->
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(async function(OneSignal) {
+      try {
+        await OneSignal.init({
+          appId: "6c8928da-3cd5-4a6a-9ba0-28100912b3e5",
+          notifyButton: { enable: false }
+        });
+      } catch (e) {}
+    });
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js').catch(function() {});
+    }
+  </script>
 
   <style>
+    /* ==========================================================================
+       ACTIVETHEORY x BRUNO SIMON x APPLE TITANIUM x RIY3 AI VOICE DESIGN SYSTEM
+       ========================================================================== */
     :root {
+      --bg: #f2f5fa;
+      --surface: rgba(255, 255, 255, 0.78);
+      --surface-soft: rgba(241, 245, 249, 0.88);
+      --surface-elevated: #ffffff;
+      --text: #090d16;
+      --muted: #475569;
+      --border: rgba(15, 23, 42, 0.1);
+      --border-highlight: rgba(99, 102, 241, 0.45);
+      --income: #059669;
+      --income-light: rgba(16, 185, 129, 0.15);
+      --income-grad: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%);
+      --expense: #e11d48;
+      --expense-light: rgba(244, 63, 94, 0.15);
+      --expense-grad: linear-gradient(135deg, #f43f5e 0%, #e11d48 50%, #be123c 100%);
+      --accent: #6366f1;
+      --accent-grad: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+      --gold-grad: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
+      --shadow: 0 18px 40px -10px rgba(15, 23, 42, 0.12);
+      --radius: 24px;
+      --spring: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="dark"] {
       --bg: #03050a;
-      --surface: rgba(13, 18, 32, 0.72);
-      --surface-soft: rgba(24, 33, 54, 0.65);
+      --surface: rgba(13, 18, 32, 0.68);
+      --surface-soft: rgba(24, 33, 54, 0.62);
+      --surface-elevated: #0b1120;
       --text: #f8fafc;
       --muted: #94a3b8;
       --border: rgba(255, 255, 255, 0.1);
+      --border-highlight: rgba(139, 92, 246, 0.6);
       --income: #34d399;
-      --income-grad: linear-gradient(135deg, #10b981 0%, #047857 100%);
+      --income-light: rgba(16, 185, 129, 0.18);
       --expense: #fb7185;
-      --expense-grad: linear-gradient(135deg, #f43f5e 0%, #be123c 100%);
+      --expense-light: rgba(244, 63, 94, 0.18);
       --shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.85);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; font-family: 'Inter', sans-serif; }
-    html, body { overflow-x: hidden !important; width: 100vw; background-color: var(--bg); color: var(--text); perspective: 1200px; }
-    body { min-height: 100vh; padding-bottom: 120px; }
-
-    /* 🌌 ActiveTheory + Apple Level 3D Liquid Particle Nexus Canvas */
-    #liquidCanvas {
-      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 0; pointer-events: none;
-      background: radial-gradient(circle at 50% 50%, #0a0d1a 0%, #02040a 100%);
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      font-family: 'Inter', 'Noto Sans Devanagari', system-ui, -apple-system, sans-serif;
     }
 
-    .app-shell { max-width: 480px; margin: 0 auto; padding: 12px 16px 32px; position: relative; z-index: 2; transform-style: preserve-3d; }
-
-    /* Top Bar */
-    .top-bar { 
-      display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding: 12px; 
-      background: var(--surface); backdrop-filter: blur(30px); border: 1px solid var(--border); border-radius: 24px; box-shadow: var(--shadow); 
+    html, body {
+      overflow-x: hidden !important;
+      width: 100vw;
+      max-width: 100vw;
+      background-color: var(--bg);
+      color: var(--text);
     }
-    .brand-row { display: flex; align-items: center; gap: 10px; }
-    .app-logo { width: 45px; height: 45px; border-radius: 14px; box-shadow: 0 0 20px rgba(16,185,129,0.5); }
-    .brand-title h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.15rem; font-weight: 900; background: linear-gradient(90deg, #fff, #a5b4fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .brand-title p { font-size: 0.7rem; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
 
-    /* Hero Titanium 3D Tilt Card */
-    .hero-wrapper {
-      position: relative; border-radius: 30px; padding: 2px; margin-bottom: 24px;
-      background: linear-gradient(145deg, rgba(255,255,255,0.25), rgba(255,255,255,0.02));
-      box-shadow: 0 30px 60px rgba(0,0,0,0.8);
-      transform-style: preserve-3d; cursor: grab;
+    body {
+      min-height: 100vh;
+      padding-bottom: 115px;
+      position: relative;
+      transition: background-color 0.4s ease, color 0.4s ease;
     }
+
+    /* ==========================================================================
+       1. ACTIVETHEORY + BRUNO SIMON 3D PHYSICS & PARTICLE PORTAL CANVAS
+       ========================================================================== */
+    #cyberCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .ambient-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(85px);
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.42;
+      animation: orbFloat 14s infinite alternate ease-in-out;
+    }
+
+    .orb-1 {
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, #6366f1 0%, transparent 70%);
+      top: -80px;
+      left: -80px;
+    }
+
+    .orb-2 {
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, #10b981 0%, transparent 70%);
+      bottom: 80px;
+      right: -90px;
+      animation-delay: -6s;
+    }
+
+    @keyframes orbFloat {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(50px, 40px) scale(1.2); }
+      100% { transform: translate(-30px, 70px) scale(0.9); }
+    }
+
+    .app-shell {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 12px 16px 32px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ==========================================================================
+       2. APPLE DYNAMIC ISLAND LIVE AI CAPSULE (TOP INTERACTIVE HUD)
+       ========================================================================== */
+    .dynamic-island-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 12px;
+      position: sticky;
+      top: 8px;
+      z-index: 100;
+      pointer-events: none;
+    }
+
+    .dynamic-island {
+      pointer-events: auto;
+      background: rgba(5, 8, 18, 0.88);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #ffffff;
+      border-radius: 999px;
+      padding: 7px 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(99, 102, 241, 0.25);
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      cursor: pointer;
+    }
+
+    .dynamic-island.expanded {
+      padding: 10px 22px;
+      transform: scale(1.06);
+      border-color: #10b981;
+      box-shadow: 0 14px 35px rgba(16, 185, 129, 0.45);
+    }
+
+    .ai-equalizer {
+      display: flex;
+      align-items: center;
+      gap: 2.5px;
+      height: 12px;
+    }
+
+    .ai-equalizer span {
+      width: 2.5px;
+      height: 4px;
+      background: #10b981;
+      border-radius: 99px;
+      animation: eqWave 0.9s infinite ease-in-out;
+    }
+
+    .ai-equalizer span:nth-child(2) { animation-delay: 0.2s; background: #6366f1; }
+    .ai-equalizer span:nth-child(3) { animation-delay: 0.4s; background: #ec4899; }
+    .ai-equalizer span:nth-child(4) { animation-delay: 0.15s; background: #34d399; }
+
+    @keyframes eqWave {
+      0%, 100% { height: 4px; }
+      50% { height: 13px; }
+    }
+
+    /* ==========================================================================
+       3. KEYFRAME ANIMATIONS & RELEVO VINCO SPOTLIGHT CARDS
+       ========================================================================== */
+    @keyframes spinLaser {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    @keyframes holoSweep {
+      0% { transform: translateX(-140%) skewX(-22deg); }
+      45%, 100% { transform: translateX(240%) skewX(-22deg); }
+    }
+
+    @keyframes waveFlow {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    @keyframes livePulseDot {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.7); opacity: 0.35; }
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    @keyframes cardCascade {
+      from { opacity: 0; transform: translateY(20px) scale(0.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* Relevo Vinco Interactive Spotlight Torch on Panels */
+    .panel, .tx-item, .loot-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .panel::before, .loot-card::before {
+      content: "";
+      position: absolute;
+      top: var(--spot-y, -200px);
+      left: var(--spot-x, -200px);
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.22) 0%, transparent 70%);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 0;
+    }
+
+    .panel:hover::before, .loot-card:hover::before {
+      opacity: 1;
+    }
+
+    button, .magic-btn, .cat-option, .filter-chip, .amt-chip, .loot-card {
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+      user-select: none;
+    }
+
+    button:active, .magic-btn:active, .cat-option:active, .filter-chip:active, .amt-chip:active, .loot-card:active {
+      transform: scale(0.92) !important;
+    }
+
+    /* ==========================================================================
+       TOP NAVIGATION HEADER (APPLE TITANIUM GLASS)
+       ========================================================================== */
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      padding: 10px 12px;
+      background: var(--surface);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      animation: cardCascade 0.5s var(--spring) both;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-wrap {
+      position: relative;
+      width: 42px;
+      height: 42px;
+      border-radius: 13px;
+      padding: 2px;
+      background: linear-gradient(135deg, #10b981, #6366f1, #ec4899);
+      background-size: 200% 200%;
+      animation: gradientShift 4s ease infinite;
+      flex-shrink: 0;
+    }
+
+    .app-logo {
+      width: 100%;
+      height: 100%;
+      border-radius: 11px;
+      display: block;
+    }
+
+    .brand-title h1 {
+      font-family: 'Plus Jakarta Sans', 'Noto Sans Devanagari', sans-serif;
+      font-size: 1.08rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .brand-title p {
+      font-size: 0.7rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .top-actions {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .icon-pill-btn {
+      background: var(--surface-soft);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 7px 10px;
+      border-radius: 12px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .icon-pill-btn.voice-active {
+      border-color: #10b981;
+      box-shadow: 0 0 12px rgba(16, 185, 129, 0.25);
+    }
+
+    /* ==========================================================================
+       HERO WALLET CARD (3D TILT + LASER BEAM + BRUNO COIN SPAWNER)
+       ========================================================================== */
+    .hero-laser-wrapper {
+      position: relative;
+      border-radius: 28px;
+      padding: 2px;
+      margin-bottom: 18px;
+      overflow: hidden;
+      box-shadow: 0 24px 60px -12px rgba(99, 102, 241, 0.42);
+      transform-style: preserve-3d;
+      perspective: 1000px;
+      transition: transform 0.16s ease-out;
+      animation: cardCascade 0.6s var(--spring) 0.06s both;
+      cursor: grab;
+    }
+
+    .hero-laser-wrapper::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        transparent 55deg,
+        #10b981 105deg,
+        #6366f1 155deg,
+        #ec4899 185deg,
+        transparent 230deg,
+        transparent 360deg
+      );
+      animation: spinLaser 4s linear infinite;
+      z-index: 0;
+    }
+
     .hero-card {
-      background: linear-gradient(145deg, rgba(15,23,42,0.88), rgba(6,9,19,0.96));
-      backdrop-filter: blur(40px); border-radius: 28px; padding: 25px 20px; position: relative; z-index: 1; overflow: hidden;
+      background: linear-gradient(145deg, #060913 0%, #0f172a 52%, #1e1b4b 100%);
+      color: #ffffff;
+      border-radius: 26px;
+      padding: 22px 20px 20px;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
     }
-    .hero-card::after {
-      content: ""; position: absolute; top: -100%; left: -100%; width: 300%; height: 300%;
-      background: linear-gradient(45deg, transparent 45%, rgba(255,255,255,0.12) 50%, transparent 55%);
-      animation: sweep 5s infinite linear; pointer-events: none;
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 55%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.14), rgba(99, 102, 241, 0.18), transparent);
+      animation: holoSweep 4s infinite ease-in-out;
+      pointer-events: none;
+      z-index: 2;
     }
-    @keyframes sweep { 0% { transform: translate(-30%, -30%) rotate(45deg); } 100% { transform: translate(30%, 30%) rotate(45deg); } }
 
-    .balance-label { font-size: 0.82rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
-    .balance-amount { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 3rem; font-weight: 900; margin: 5px 0 20px; color: #fff; text-shadow: 0 10px 30px rgba(255,255,255,0.2); }
-
-    .hero-split { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .hero-metric { background: rgba(255,255,255,0.05); border: 1px solid var(--border); padding: 12px; border-radius: 18px; display: flex; align-items: center; gap: 12px; }
-    .metric-icon { width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 900; }
-    .metric-in { background: rgba(16, 185, 129, 0.2); color: #34d399; }
-    .metric-out { background: rgba(244, 63, 94, 0.2); color: #fb7185; }
-
-    /* GSAP Magnetic Buttons */
-    .big-action-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
-    .magnetic-btn {
-      border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; padding: 18px 10px; color: #fff; 
-      font-size: 1.05rem; font-weight: 900; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;
+    .telemetry-wave {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 200%;
+      height: 58px;
+      opacity: 0.25;
+      pointer-events: none;
+      animation: waveFlow 6.5s linear infinite;
+      z-index: 0;
     }
-    .btn-income { background: var(--income-grad); box-shadow: 0 15px 30px rgba(16,185,129,0.3); }
-    .btn-expense { background: var(--expense-grad); box-shadow: 0 15px 30px rgba(244,63,94,0.3); }
 
-    /* Bento Panels */
-    .panel { 
-      background: var(--surface); backdrop-filter: blur(30px); border: 1px solid var(--border); 
-      border-radius: 28px; padding: 22px; box-shadow: var(--shadow); margin-bottom: 20px; 
+    .hero-top-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 3;
+      flex-wrap: wrap;
     }
-    .panel-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
-    .panel-title { font-size: 1.05rem; font-weight: 800; }
 
-    /* Transactions */
-    .tx-item { display: flex; justify-content: space-between; align-items: center; padding: 14px; border-radius: 18px; background: var(--surface-soft); border: 1px solid var(--border); margin-bottom: 10px; }
-    .tx-details h4 { font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 2px; }
-    .tx-amount { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.1rem; font-weight: 800; }
+    .day1-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #e2e8f0;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      backdrop-filter: blur(8px);
+    }
 
-    /* Floating Loot Pill */
+    .coin-burst-btn {
+      background: rgba(251, 191, 36, 0.16);
+      border: 1px solid rgba(251, 191, 36, 0.45);
+      color: #fde68a;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 10px #10b981;
+      display: inline-block;
+      animation: livePulseDot 1.4s infinite ease-in-out;
+    }
+
+    .balance-label {
+      font-size: 0.82rem;
+      color: #94a3b8;
+      font-weight: 500;
+      position: relative;
+      z-index: 3;
+    }
+
+    .balance-amount {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 2.65rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      margin: 4px 0 18px;
+      background: linear-gradient(90deg, #ffffff 0%, #a5b4fc 50%, #6ee7b7 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 5s linear infinite;
+      position: relative;
+      z-index: 3;
+    }
+
+    .hero-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 12px;
+      border-radius: 18px;
+      backdrop-filter: blur(12px);
+      position: relative;
+      z-index: 3;
+    }
+
+    .hero-metric {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .metric-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.05rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .metric-in {
+      background: rgba(16, 185, 129, 0.22);
+      color: #34d399;
+      border: 1px solid rgba(52, 211, 153, 0.4);
+      box-shadow: 0 0 15px rgba(16, 185, 129, 0.25);
+    }
+
+    .metric-out {
+      background: rgba(244, 63, 94, 0.22);
+      color: #fb7185;
+      border: 1px solid rgba(251, 113, 133, 0.4);
+      box-shadow: 0 0 15px rgba(244, 63, 94, 0.25);
+    }
+
+    .metric-info span {
+      display: block;
+      font-size: 0.72rem;
+      color: #94a3b8;
+      margin-bottom: 2px;
+    }
+
+    .metric-info strong {
+      font-size: 1.04rem;
+      font-weight: 800;
+      color: #f8fafc;
+    }
+
+    /* ==========================================================================
+       BIG TACTILE 3D BUTTONS
+       ========================================================================== */
+    .big-action-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 18px;
+      animation: cardCascade 0.65s var(--spring) 0.12s both;
+    }
+
+    .big-btn {
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 18px;
+      padding: 16px 14px;
+      color: #ffffff;
+      font-size: 0.98rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .big-btn::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 45%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+      animation: holoSweep 3.4s infinite ease-in-out;
+      pointer-events: none;
+    }
+
+    .btn-income {
+      background: var(--income-grad);
+      box-shadow: 0 12px 26px -6px rgba(16, 185, 129, 0.55);
+    }
+
+    .btn-expense {
+      background: var(--expense-grad);
+      box-shadow: 0 12px 26px -6px rgba(244, 63, 94, 0.55);
+    }
+
+    /* ==========================================================================
+       BENTO GLASS PANELS
+       ========================================================================== */
+    .panel {
+      background: var(--surface);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      margin-bottom: 16px;
+      animation: cardCascade 0.7s var(--spring) 0.16s both;
+    }
+
+    .panel > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .panel-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .ratio-bar-track {
+      height: 12px;
+      background: var(--expense-light);
+      border-radius: 999px;
+      overflow: hidden;
+      display: flex;
+      margin-bottom: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .ratio-bar-income {
+      background: linear-gradient(90deg, #10b981, #34d399, #059669);
+      background-size: 200% 100%;
+      animation: gradientShift 3s linear infinite;
+      height: 100%;
+      width: 50%;
+      transition: width 0.8s var(--spring);
+    }
+
+    .ratio-legend {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    /* Filter Chips & Date Bar */
+    .filter-row {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 2px 2px 10px;
+      margin-bottom: 10px;
+      scrollbar-width: none;
+    }
+
+    .filter-chip {
+      border: 1px solid var(--border);
+      background: var(--surface-soft);
+      color: var(--muted);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .filter-chip.active {
+      background: var(--accent-grad);
+      color: #ffffff;
+      border-color: transparent;
+      font-weight: 700;
+      box-shadow: 0 6px 16px rgba(99, 102, 241, 0.35);
+    }
+
+    .date-filter-box {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .date-filter-box input {
+      flex: 1;
+      padding: 9px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--surface-soft);
+      color: var(--text);
+      font-size: 0.84rem;
+      font-weight: 600;
+      outline: none;
+    }
+
+    .clear-date-btn {
+      padding: 9px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--surface-soft);
+      color: var(--text);
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    /* ==========================================================================
+       TRANSACTION TIMELINE ITEMS
+       ========================================================================== */
+    .date-group {
+      margin-bottom: 16px;
+      animation: cardCascade 0.45s var(--spring) both;
+    }
+
+    .date-group-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 12px;
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .tx-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .tx-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      transition: transform 0.25s var(--spring), border-color 0.25s ease;
+    }
+
+    .tx-item:hover {
+      transform: translateX(4px);
+      border-color: var(--border-highlight);
+    }
+
+    .tx-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .tx-emoji {
+      width: 42px;
+      height: 42px;
+      border-radius: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    .tx-emoji.income {
+      background: var(--income-light);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+    }
+
+    .tx-emoji.expense {
+      background: var(--expense-light);
+      border: 1px solid rgba(244, 63, 94, 0.25);
+    }
+
+    .tx-details h4 {
+      font-size: 0.92rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+      color: var(--text);
+    }
+
+    .tx-details p {
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    .tx-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .tx-amount {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      text-align: right;
+    }
+
+    .tx-amount.income { color: var(--income); }
+    .tx-amount.expense { color: var(--expense); }
+
+    .tx-del {
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      font-size: 0.95rem;
+      cursor: pointer;
+      padding: 6px;
+      border-radius: 8px;
+    }
+
+    /* Category Bars */
+    .cat-bar-item { margin-bottom: 12px; }
+
+    .cat-bar-top {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.83rem;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .cat-bar-bg {
+      height: 9px;
+      background: var(--surface-soft);
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .cat-bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      transition: width 0.7s var(--spring);
+    }
+
+    /* ==========================================================================
+       MODAL SHEET
+       ========================================================================== */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(3, 5, 10, 0.82);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      display: none;
+      align-items: flex-end;
+      justify-content: center;
+      z-index: 2147483647;
+    }
+
+    .modal-backdrop.open { display: flex; }
+
+    .modal-sheet {
+      background: var(--surface-elevated);
+      border-top: 1px solid var(--border-highlight);
+      width: 100%;
+      max-width: 480px;
+      border-radius: 28px 28px 0 0;
+      padding: 22px 18px 30px;
+      box-shadow: 0 -20px 60px rgba(99, 102, 241, 0.3);
+      animation: slideUp 0.32s var(--spring);
+      max-height: 92vh;
+      overflow-y: auto;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(100%); }
+      to { transform: translateY(0); }
+    }
+
+    .sheet-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .sheet-header h3 {
+      font-size: 1.15rem;
+      font-weight: 800;
+    }
+
+    .close-btn {
+      border: 1px solid var(--border);
+      background: var(--surface-soft);
+      color: var(--text);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .quick-amounts {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .amt-chip {
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 7px 13px;
+      border-radius: 10px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .form-group { margin-bottom: 14px; }
+
+    .form-group label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 13px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--surface-soft);
+      color: var(--text);
+      font-size: 0.96rem;
+      font-weight: 600;
+      outline: none;
+    }
+
+    .amount-input-big {
+      font-size: 1.45rem;
+      font-weight: 800;
+    }
+
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .cat-option {
+      border: 1px solid var(--border);
+      background: var(--surface-soft);
+      color: var(--text);
+      border-radius: 14px;
+      padding: 10px 8px;
+      text-align: center;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .cat-option span {
+      display: block;
+      font-size: 1.3rem;
+      margin-bottom: 4px;
+    }
+
+    .cat-option.selected {
+      border-color: var(--income);
+      background: var(--income-light);
+      font-weight: 700;
+      box-shadow: 0 0 15px rgba(16, 185, 129, 0.25);
+    }
+
+    .save-entry-btn {
+      width: 100%;
+      border: none;
+      padding: 15px;
+      border-radius: 16px;
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      margin-top: 6px;
+    }
+
+    /* ==========================================================================
+       4. BRUNO SIMON 3D LOOT VAULT & COMPACT INLINE SPONSOR AD
+       ========================================================================== */
+    .magic-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+      background-size: 200% 200%;
+      animation: gradientShift 3.5s ease infinite;
+      color: #ffffff !important;
+      font-size: 0.94rem;
+      font-weight: 800;
+      padding: 14px 28px;
+      border-radius: 999px;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      box-shadow: 0 12px 28px -6px rgba(139, 92, 246, 0.55);
+    }
+
+    /* Inline Compact Ad Container right below Aaj Ka Surprise */
+    .inline-sponsor-box {
+      margin: 14px auto 6px auto;
+      padding: 8px 10px;
+      max-width: 330px;
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      text-align: center;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    }
+
+    .inline-sponsor-label {
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 4px;
+      display: block;
+    }
+
     .floating-loot-pill {
-      position: fixed; bottom: 85px; right: 20px; z-index: 100;
-      background: linear-gradient(135deg, #1e1b4b, #0f172a); border: 2px solid #8b5cf6; border-radius: 99px; padding: 14px 22px; color: #fff; font-weight: 900; font-size: 0.9rem; cursor: pointer;
-      box-shadow: 0 15px 35px rgba(139,92,246,0.6), inset 0 0 15px rgba(139,92,246,0.4);
+      position: fixed;
+      bottom: 82px;
+      right: 16px;
+      z-index: 2147483644;
+      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+      color: #ffffff;
+      border: 1.5px solid #8b5cf6;
+      border-radius: 999px;
+      padding: 11px 18px;
+      font-weight: 800;
+      font-size: 0.84rem;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(139, 92, 246, 0.5), inset 0 0 12px rgba(139, 92, 246, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 7px;
       animation: floatPill 3s infinite ease-in-out;
     }
-    @keyframes floatPill { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-10px) scale(1.05); } }
 
-    /* Bottom Nav Dock */
-    .bottom-nav {
-      position: fixed; bottom: 0; left: 0; right: 0; background: rgba(5,8,15,0.9); backdrop-filter: blur(40px); border-top: 1px solid var(--border); display: flex; justify-content: space-around; padding: 12px 10px 20px; max-width: 480px; margin: 0 auto; z-index: 99; border-radius: 30px 30px 0 0;
+    @keyframes floatPill {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-6px) scale(1.04); }
     }
-    .nav-item { background: transparent; border: none; color: var(--muted); font-size: 0.75rem; font-weight: 700; display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer; transition: 0.3s; }
-    .nav-item.active { color: #34d399; transform: translateY(-5px) scale(1.1); }
-    .nav-item span.nav-icon { font-size: 1.4rem; }
 
-    /* Modals */
-    .modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(20px); display: none; align-items: flex-end; justify-content: center; z-index: 200; opacity: 0; transition: opacity 0.3s ease; }
-    .modal-backdrop.open { display: flex; opacity: 1; }
-    .modal-sheet { background: var(--bg); border-top: 1px solid rgba(139,92,246,0.5); width: 100%; max-width: 480px; border-radius: 35px 35px 0 0; padding: 25px 20px 40px; box-shadow: 0 -20px 60px rgba(99,102,241,0.4); transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-    .modal-backdrop.open .modal-sheet { transform: translateY(0); }
-    
-    .form-input { width: 100%; padding: 16px; border-radius: 16px; border: 1px solid var(--border); background: rgba(255,255,255,0.05); color: #fff; font-size: 1rem; font-weight: 700; outline: none; margin-bottom: 16px; }
-    .form-input:focus { border-color: #6366f1; background: rgba(99,102,241,0.1); }
-    .amount-input-big { font-size: 1.8rem; font-weight: 900; color: #fbbf24; }
+    /* Bruno Simon Style 3D Interactive Multi-Tap Chest inside Loot Store */
+    .bruno-chest-zone {
+      background: radial-gradient(circle at 50% 30%, rgba(139, 92, 246, 0.28), rgba(15, 23, 42, 0.92));
+      border: 1.5px solid rgba(139, 92, 246, 0.55);
+      border-radius: 22px;
+      padding: 18px 14px;
+      text-align: center;
+      margin-bottom: 16px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      user-select: none;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+    }
 
-    /* Bruno Simon Interactive Chest */
-    .bruno-chest-zone { background: radial-gradient(circle at 50% 30%, rgba(139, 92, 246, 0.3), rgba(15, 23, 42, 0.95)); border: 1.5px solid rgba(139, 92, 246, 0.6); border-radius: 22px; padding: 20px; text-align: center; margin-bottom: 16px; cursor: pointer; box-shadow: 0 16px 40px rgba(0,0,0,0.7); }
-    .chest-3d-icon { font-size: 3.8rem; display: inline-block; filter: drop-shadow(0 10px 20px rgba(251,191,36,0.5)); transition: transform 0.15s; }
-    .bruno-chest-zone:active .chest-3d-icon { transform: scale(1.25) rotate(-10deg); }
-    .float-number { position: fixed; font-size: 1.8rem; font-weight: 900; color: #fde047; text-shadow: 0 0 15px #ca8a04; pointer-events: none; animation: floatUpFade 0.8s ease-out forwards; z-index: 9999; }
-    @keyframes floatUpFade { 0% { opacity: 1; transform: translateY(0) scale(1); } 100% { opacity: 0; transform: translateY(-80px) scale(1.5); } }
+    .chest-3d-icon {
+      font-size: 3.4rem;
+      display: inline-block;
+      transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+      filter: drop-shadow(0 10px 20px rgba(251, 191, 36, 0.45));
+    }
+
+    .bruno-chest-zone:active .chest-3d-icon {
+      transform: scale(1.28) rotate(-8deg);
+    }
+
+    .combo-meter-bar {
+      height: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 999px;
+      overflow: hidden;
+      margin: 10px auto 6px;
+      max-width: 260px;
+    }
+
+    .combo-meter-fill {
+      height: 100%;
+      width: 15%;
+      background: linear-gradient(90deg, #fbbf24, #f43f5e, #8b5cf6);
+      border-radius: 999px;
+      transition: width 0.25s ease;
+    }
+
+    .loot-card {
+      background: rgba(30, 41, 59, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #f8fafc;
+      padding: 16px 12px;
+      border-radius: 18px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      backdrop-filter: blur(14px);
+      text-align: center;
+      transform-style: preserve-3d;
+    }
+
+    .loot-card:hover {
+      border-color: #34d399;
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 14px 28px rgba(16, 185, 129, 0.22);
+    }
+
+    .loot-price {
+      display: inline-block;
+      margin-top: 6px;
+      padding: 4px 11px;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.22);
+      color: #34d399;
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+
+    /* Install App Card */
+    .download-container {
+      position: relative;
+      text-align: center;
+      margin: 15px auto 10px auto;
+      padding: 28px 10px;
+      width: 100%;
+    }
+
+    .super-download-btn {
+      background: var(--accent-grad);
+      background-size: 200% 200%;
+      animation: gradientShift 3s ease infinite;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 16px;
+      padding: 16px 32px;
+      font-size: 1rem;
+      font-weight: 800;
+      color: #fff;
+      box-shadow: 0 14px 35px -6px rgba(99, 102, 241, 0.55);
+      position: relative;
+      z-index: 10;
+      cursor: pointer;
+    }
+
+    .floating-money {
+      position: absolute;
+      font-size: 24px;
+      font-weight: bold;
+      opacity: 0;
+      animation: floatUp 2.8s infinite ease-in-out;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .symbol-1 { left: 20%; color: #8b5cf6; animation-delay: 0s; }
+    .symbol-2 { left: 40%; color: #10b981; animation-delay: 0.7s; }
+    .symbol-3 { left: 60%; color: #ec4899; animation-delay: 1.4s; }
+    .symbol-4 { left: 80%; color: #10b981; animation-delay: 2.1s; }
+
+    @keyframes floatUp {
+      0% { bottom: 10px; opacity: 0.9; transform: translateY(0) scale(0.9); }
+      100% { bottom: 105px; opacity: 0; transform: translateY(-60px) scale(1.35); }
+    }
+
+    /* Bottom Navigation Dock */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--surface);
+      backdrop-filter: blur(26px);
+      -webkit-backdrop-filter: blur(26px);
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-around;
+      padding: 8px 10px 12px;
+      max-width: 480px;
+      margin: 0 auto;
+      z-index: 2147483645 !important;
+      box-shadow: 0 -10px 35px rgba(0, 0, 0, 0.45);
+      border-radius: 22px 22px 0 0;
+    }
+
+    .nav-item {
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      font-size: 0.73rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      padding: 6px 16px;
+      border-radius: 14px;
+    }
+
+    .nav-item span.nav-icon {
+      font-size: 1.18rem;
+      transition: transform 0.25s var(--spring);
+    }
+
+    .nav-item.active {
+      color: var(--income);
+      background: var(--income-light);
+      font-weight: 700;
+    }
+
+    .nav-item.active span.nav-icon {
+      transform: translateY(-2px) scale(1.12);
+    }
+
+    .view-section { display: none; }
+    .view-section.active {
+      display: block;
+      animation: cardCascade 0.4s var(--spring) both;
+    }
+
+    .toast-msg {
+      position: fixed;
+      bottom: 90px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #0f172a;
+      border: 1px solid #6366f1;
+      color: #ffffff;
+      padding: 12px 18px;
+      border-radius: 14px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+      z-index: 2147483647;
+      display: none;
+      max-width: 90%;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
-
-  <!-- 🌌 1. TRUE 3D LIQUID PARTICLE NEXUS CANVAS -->
-  <canvas id="liquidCanvas"></canvas>
+  <!-- 🌐 ACTIVETHEORY + BRUNO SIMON 3D INTERACTIVE PARTICLE & COIN PHYSICS CANVAS -->
+  <canvas id="cyberCanvas"></canvas>
+  <div class="ambient-orb orb-1"></div>
+  <div class="ambient-orb orb-2"></div>
 
   <main class="app-shell">
-    
+    <!-- 🍎 APPLE DYNAMIC ISLAND LIVE AI STATUS BAR -->
+    <div class="dynamic-island-wrap">
+      <div class="dynamic-island" id="dynamicIsland" onclick="triggerCoinShower(window.innerWidth/2, 80, 14); speakAI('SmartHisab AI Engine Active. Tap anywhere to spawn 3D coins!');">
+        <div class="ai-equalizer">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <span id="islandText">⚡ SmartHisab 3D AI • Tap for Coin Shower</span>
+      </div>
+    </div>
+
     <!-- Top Header -->
-    <header class="top-bar gs-load">
+    <header class="top-bar">
       <div class="brand-row">
-        <img src="data:image/png;base64,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" class="app-logo" />
+        <div class="logo-wrap" onclick="playSound('click'); checkSecretUnlock();" style="cursor: pointer;">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAANcklEQVR4nO2dW4xVVxnH/3vOmTPMjRkuLUWw7UCLU7AlYFMakKJpw0ioGjXFSiCamphoatIHK6SJITQmyoMPYms1NRRrQ0xq1JIY5KFy0WkLEWigNNBWEUagCMMwF+bGzBwfyGkPwzlz9trrW3t9a63v99Qmwz777PX/re/ba19OBKY0796ct70PAi1X2jZFtvdhPCx2SMIeLralsPbhEnphPDZkSPUDJfRCXNKSIZUPkeALSTEtgtGNS/AFKkyJYGSjEnzBFNQiVFFuDJDwC2ahzhepTSbC37+jnXqTQsrUrV1Gvk2qSkCyEcrgS+D9h1IIXRG0BaAIv4Q+XChk0JFASwDd8EvwhQK6IiSVILEAOuGX4Avl0BEhiQSJBEgafgm+EJekIqhKoCxAkvBL8IWkJBFBRQKl6wASfiFtkuRHJaexBZDwC7YwKUGsUqEafgm+YArVlqhSO0R+K4SEXzAJdb4qCqAy+0v4hTRQyVml/E4ogIRf4AqVBGUFkPAL3KGQgPwcQBBcoqQAMvsLrqBbBbQqgIRf4IBODm8SIO7sL+EXOBE3j+PzLecAQtDcIIDM/oLLJKkCWWN7IwAAulboTxZT9tE/UytcR1kAmf1LQxF01W2LGDfTv6Nd6X6hj24UkvZHDZOBT4oIcZ24Alxp2xQpVYDQw88x9MUU71/IMqhUATkHqAD30JdDZIhHBMRrf0Kb/V0N/kSEJkKcKiAVoAgfQ1+MVIWbEQHgf/BLUfjOoYsQ60qwz+1PiOEvxufvHye3wVYAnwdelZCrQTa015nbCH6uZWbifzt86jzhnkxMiCIEVQFMh18n6KrbNClG14r2YCSIKlUAH/p/k8E3EXpVTMrggwgTLYd6XwFMhJ9D6Isp3h9qGXyvBl4LQBl+bqEvhwkZfJbASwFCDH4pCvtOIYKvJ8jePRFGFf5cy0ynw18M5XfxbfnYKwEoBsen4I+H6rv5JIE3AugOis/BHw/Fd/VFAi8EoAh/iIgEHgigMwghzfrl0D0GrkvgtAC64Rc+JlQJnBVAwk9PiBI4KUDSgy0tT2V0jpGLEjgngE74hfiEIoFTAkj40yUECZwSIAkSfj18P37OCJBkVvF98NIiyXF0pQo4IYCE3z6+SsBeAAk/H3yUgL0Aqkj4zeLb8WX9PIDq7GFycP7TncHw6IQ/Os6aTFUec5tHSbaVa5mp9IwB5wdq2ArAqXSe7ctg4fbpGBmzvSfJWdM6iJdWdVv7fK4SeNMCmZz9nztc53T4AeD7i/tJt+dLK8RSAE6tT99whJeO1RrbfhosmzWMxTOukW9X9bhzquoFWAqggumZaNuxWvQOu9v7A8CTxLN/Ma5XAnYCcJolRsaAXx6ps70bWrQ0jeLRuUO2d+MjOI0vwEwATq0PAPzxvUno6M0Y/QzTfHdRP6oMFzCXWyFWAqiQRun9+SG3Z//JNXl8c8FAKp/laivERgBOswIA7O/I4e3/VdveDS2+9ekBNOR4vvuYy3izvQ4wEWnMNnOaR7Hn8cux/jYPoHuoCl2DEd7tzGJ/Rw7//LAaY0TZa2kaxbYEa/itU0dodiAmqhfIOOCkAGkwu3EUsxuTXzk9eTmLze0NeO2DGu19OdWdwVgeePAT9EuZocOiBVIph670mp+aOoIdX7yCHy3tI9nec4fdOB9RGR8ObRALAXxm45KrWEdwIrr7VA2uOX41miPWBfBx9h/Plof6tE9G+0ciHL7gxkm5S1VAzgFi8t7lLAY1bqZ8+PZh7fOBP78/CbXZZCLlqoDWaemeFLuAMwLYnP3P9GRw/8vTMGp5RXHroTpsTXhtYu38QbzYlt7doK6sCFltgWyXv7g8f6TOevh1eXLRVdu7UBabObB+DsCdnqEI299x+27Q5bOHsfBWaX9K4YQANtuf3xytQ5/jd4NSPwsQFxcWLawJ4EL7c20MeOFtN9bfy3FX8yhWzeFzN2g5bOXBiQpgi1dPTMK5PrcP0fcWm78b1GXYj67NMrr1cL21z6agqSaPdfPTuRu0HNzbIPYC2OJvp3M4dtGZVeKSPHFvP+qrHV++MoyVEXah/58/fQRvrusk294rx2vxvObTZb9e2YP7bo1/Q9ycJprXoKSFjTdHsJ7ibJbP2+rHcFs93c03e87ktP59fXUea1oHkcu4N6NzvigmLVAK/O54Ld7t1JtrvnTXkJPh544IYJgTnVls2NeovZ3vLLSzlu87IoBB3jhbjZWvTkH3kN465BdahvDATHkYxgSszwFc5Oq1CO1nc9h+rJbkabD66jx+9vlegj0TSpG6AC6sABXT0ZvBU69P3MIUngnuHIhwuofuJbqZCNi2qht3Oraao0PaK0FsKwCXCyi9wxH+ekp/JlclAvCLR3pYvdRKB64rQWwFCJmmmjxebOvGak/CzxkRgBnLZw/jhZU9aAmo7bGJCMCE+dNG8Oxn+5y4c9MnRACLNFTn8ZV5g1i/YBDLZg3b3p0gkesAFhnLX189ujIYQa7x2kEEsEj/SISdH9Rgzc5mLH1lGo448toTnxABmHD0Yhaf+/1U53+PwDVEAEaMjAFP723Es2802N6VYBABGLLlQD1+5fizyK4gq0AVaKjO45E7Sq/QjOaB7qEIH17NkD87/MO9jbj3lhFZHTKMCFCB2yeP4rWvdlX8u0sDVdj17xpsO1aLg+f1T2ZH88C3d03GgfWdaKqRNSJTSAtExPTaMaxfMIA9j1/GtlXdJM/idvRm8Mx+/WcJhPKIAAb4eusgdj3WhUaCnyf67Ts0FUUojQhgiM/MuIaXV3cjo3lndB7AD/ZIFTAFWwE43jqryso7h/DU/fovpT10oZrk4RqbcB3P1AVI+7UXtnnmwau4e4r+nZ2b2xvIfnSPM2nng20F8IVJ2Tx+vFz/kcaTl7P4w8lJBHskFCMCpMCjc4dIfuFxy8H6IKpAmogAKbGJ4NciT3Rm8af3pQpQIgKkxEOfHMbSWQRV4EC93DpNCGsBuK4cJGXjEv0qcPxSFjsdWxHiPI5WBAhtJajAw3cMk7zg6qdv+Xm3qI1csK4APrJxif51gaMXs/jLv9yqAlxhLwDn8pmEtpYhLJpBUAUOuPHjHdzHj70APkJRBQ5fqMZuCy/s8g1rAoR6HgAAq+cO4b5b9H+21JUqEAdbeXCiAnAvo6pEADYQrAgdPF+N10/r/fCGSVwYNycE8JEv3z2Ee6bpV4GfeLoilBZWBQi5DbpeBfTPBd48V419HXyrQBxs5sCZCuBCOVXla/MGMW8qRRXgdy7gyng5I4CPVEXAhgf0q8Df/5vDP866XQVsYV0AlfLnyqyiwmOtg5jbrP+8AKcqoDJOtttg6wKETiYCniaoAnvP5PDWOXl2WBUWAoReBb5xzwDJzyBxWBFyafYH5L1ALMhWAcefuGR7N4KERQVQxccq4AMujgsbATiUQyE9uIw3GwFUcXG28RlXx4OVAKqzgqsH3TdUx4HL7A8wEwDgdXAEeriNLzsBVJEqYBfXjz9LAaQVcgOXW58CLAVIgkiQLr4cb7YCcJwthORwHU+2AgDSCnHFh9anAGsBkiASmMW348tegCSzh2+DxIUkx5Xz7A84IAAgEnDAx/ADjggAiAQ28TX8gEMCJEUk0MP34+eUAElnFd8H0RRJj5srsz/gmACASJAWIYQfcFAAQE8CEWFidI6Ra+EHHBUA0DvYIkFpdI6Li+EHHBYAEAkoCTH8gOMCAPoShC6C7jFwOfyABwIA+oMQqgS639v18AOeCADQSBCKCBTf1YfwAx4JANAMis8iUH03X8IPeCYAQDc4PolA+V18Cj/g6ZvhCoPUtaJde1uF4ORaZmpvK20oBfYt+AW8FKDAlH3LSCQAbgwTZxlMVC1fww94LgBAK0EBbjKYbNV8Dj8ARM27N+cr/VH/DtoA2YJahPGkKYPp8xNfgl+3duLv4X0FKMZENSimXCh1xLBxIu5L+OMQAUClKuBLBSjGdDVwER+DLxWgDJQrRa7jY/DjEus6QCWLXCbkwQf8/v5xchtsBSgmxGrgc/BVEAGKKA6FjzJI6G8mKvxHSMuhKvggQojBj9P+XGnbFEkFqICrVSHE0CdBSYC6tcuCrAIFuMsgob+OyqJNVPw/0gYlx4YQEvjSxG1/gAQnwaFXgXKUCyOFGBL0+Kgu2cs5gGEkvLy54UJYoSxUwucLY4K7xM1lcc69eyJMEFS4SQCpAoKLJJn9Ac0KIBIIHNDJYUkB4lYB3Q8XBF1U8lcq13IOIARNWQGkCgjc0Z39gQoVQCQQuEIRfiBGCyQSCNygCj9g4BxAJBBMQp2v2LN7nBvlxiP3DAlUJAl+nO4ldgVQaYUKSDUQKDAVfkCxBRIJhLQxGX5AoQUqJkk7BEhLJMQn6cSpOkknEgBILgEgIgjl0ekYknQoiQUA9CQARAThY3Rb5SThBzQFAPQlAESEkKE4R0wafoBAAIBGggIig/9QLozohB8gEqAApQgFRAj3MbESqBv8AqQCAGYkEIRiqMIPGLgVgnLnBGE81PkyGlapBgIVpibWVGZrEUFIiumOItV2RUQQ4pJWK22tXxcZhPHYOH9kccIqMoSL7UWT/wPFIy5xN1tTvgAAAABJRU5ErkJggg==" alt="App Icon" class="app-logo" />
+        </div>
         <div class="brand-title">
           <h1>मेरा हिसाब ₹</h1>
-          <p>WebGL Nexus Edition</p>
+          <p id="dayOneSub">3D AI Expense &amp; Perks Vault</p>
         </div>
       </div>
-      <button style="background:var(--surface-soft); border:1px solid var(--border); padding:8px 12px; border-radius:12px; color:#fff;" onclick="haptic(15); openLootStore();">
-        🎁 Loot Vault
-      </button>
+      <div class="top-actions">
+        <button class="icon-pill-btn" onclick="playSound('click'); switchView('install', document.getElementById('nav-install'))">📲 ऐप</button>
+        <button class="icon-pill-btn" onclick="playSound('click'); toggleTheme()" id="themeBtn" aria-label="Toggle Theme">☀️</button>
+      </div>
     </header>
 
-    <!-- ⚡ 3D TILT GYROSCOPE HERO CARD -->
-    <div class="hero-wrapper gs-load" id="heroTiltCard">
+    <!-- ⚡ HERO WALLET CARD WITH 3D TILT + BRUNO SIMON COIN PHYSICS TRIGGER -->
+    <div class="hero-laser-wrapper" id="heroTiltCard" onclick="triggerCoinShower(window.innerWidth/2, 220, 10);">
       <section class="hero-card">
-        <div class="balance-label">Total Net Balance</div>
+        <svg class="telemetry-wave" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M0,60 C150,120 300,0 450,60 C600,120 750,0 900,60 C1050,120 1200,0 1200,60 L1200,120 L0,120 Z" fill="url(#waveGrad)"></path>
+          <defs>
+            <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#10b981" />
+              <stop offset="50%" stop-color="#6366f1" />
+              <stop offset="100%" stop-color="#ec4899" />
+            </linearGradient>
+          </defs>
+        </svg>
+
+        <div class="hero-top-meta">
+          <div class="day1-badge">
+            <span class="live-dot"></span>
+            <span id="sinceBadge">📅 शुरुआती तारीख (Day 1): आज</span>
+          </div>
+          <button type="button" class="coin-burst-btn" onclick="event.stopPropagation(); triggerCoinShower(window.innerWidth/2, 200, 18); speakAI('3D Coin Physics Activated!');">🪙 उछालें (3D)</button>
+        </div>
+
+        <div class="balance-label">कुल बचत / नेट बैलेंस (कमाई − खर्च)</div>
         <div class="balance-amount" id="netBalance">₹0</div>
 
         <div class="hero-split">
           <div class="hero-metric">
             <div class="metric-icon metric-in">↓</div>
-            <div>
-              <span style="font-size:0.7rem; color:var(--muted)">INCOME</span>
-              <strong style="font-size:1.1rem; color:#fff" id="totalIncome">₹0</strong>
+            <div class="metric-info">
+              <span>कुल कमाई (आवक)</span>
+              <strong id="totalIncome">₹0</strong>
             </div>
           </div>
           <div class="hero-metric">
             <div class="metric-icon metric-out">↑</div>
-            <div>
-              <span style="font-size:0.7rem; color:var(--muted)">EXPENSE</span>
-              <strong style="font-size:1.1rem; color:#fff" id="totalExpense">₹0</strong>
+            <div class="metric-info">
+              <span>कुल खर्च (जावक)</span>
+              <strong id="totalExpense">₹0</strong>
             </div>
           </div>
         </div>
       </section>
     </div>
 
-    <!-- 🧲 GSAP MAGNETIC BUTTONS -->
-    <div class="big-action-row gs-load">
-      <div class="magnetic-btn btn-income" onclick="haptic(20); openEntryModal('income');">➕ Add Income</div>
-      <div class="magnetic-btn btn-expense" onclick="haptic(20); openEntryModal('expense');">➖ Add Expense</div>
+    <!-- Big Tactile Buttons -->
+    <div class="big-action-row">
+      <button class="big-btn btn-income" onclick="playSound('income'); openEntryModal('income');">
+        ➕ कमाई जोड़ें
+      </button>
+      <button class="big-btn btn-expense" onclick="playSound('expense'); openEntryModal('expense');">
+        ➖ खर्च जोड़ें
+      </button>
     </div>
 
-    <!-- 🧊 VIEW 1: HOME & TIMELINE -->
-    <div class="panel gs-panel">
-      <div class="panel-header"><div class="panel-title">🗓️ 3D Transactions Ledger</div></div>
-      <div id="timelineContainer" style="color:var(--muted); text-align:center;">No entries yet. Add some!</div>
+    <!-- 👑 Abdullah's Secret Video Dashboard -->
+    <div id="abdullahSection" style="display: none; background: rgba(15, 23, 42, 0.92); color: white; padding: 18px; border-radius: 18px; margin: 15px 0; border: 1px solid #8b5cf6; box-shadow: 0 12px 30px rgba(139, 92, 246, 0.3);">
+      <h3 style="margin-top: 0; margin-bottom: 12px; color: #c4b5fd; text-align: center;">👑 Abdullah's Video Dashboard</h3>
+      <input type="text" id="videoDetails" placeholder="Video ki details (Insta/YT)..." class="form-input" style="margin-bottom: 10px;" />
+      <select id="videoCategory" class="form-input" style="margin-bottom: 10px; font-weight: bold;">
+        <option value="Expencive bissnuss">💎 Expencive business</option>
+        <option value="low class bissnuss">📉 low class business</option>
+      </select>
+      <input type="number" id="videoEarnings" placeholder="Kitne paise aaye? (₹)" class="form-input" style="margin-bottom: 10px;" />
+      <button onclick="addAbdullahVideo()" style="width: 100%; background: linear-gradient(135deg, #6366f1, #8b5cf6); color: white; padding: 13px; font-weight: 800; border-radius: 12px; border: none; font-size: 15px; cursor: pointer;">
+        ➕ Video Income ADD
+      </button>
+      <div style="margin-top: 15px; font-size: 1.05rem; text-align: center; background: rgba(0,0,0,0.35); padding: 12px; border-radius: 12px;">
+        <strong>Aaj ki Total Video Kamayi: </strong> <br />
+        <span id="abdullahTotal" style="color: #34d399; font-size: 1.5rem; font-weight: 800;">₹0</span>
+      </div>
     </div>
 
-    <!-- 🎁 COMPACT INLINE SPONSOR AD -->
-    <div class="gs-panel" style="margin: 24px auto; padding: 12px; max-width: 320px; background: var(--surface-soft); border: 1px solid var(--border); border-radius: 20px; text-align: center; backdrop-filter: blur(10px);">
-      <span style="font-size: 0.65rem; color: var(--muted); text-transform: uppercase; font-weight: 800; display: block; margin-bottom: 8px;">✨ Sponsored Partner</span>
-      <div style="transform: scale(0.95); transform-origin: center;">
-        <script type="text/javascript">
-          atOptions = { 'key' : '4708e5cb58f7a3a7ee6e8c46d62ce263', 'format' : 'iframe', 'height' : 50, 'width' : 300, 'params' : {} };
-        </script>
-        <script type="text/javascript" src="https://bicea.org/22/4708e5cb58f7a3a7ee6e8c46d62ce263"></script>
+    <!-- VIEW 1: HOME & TIMELINE -->
+    <div id="view-home" class="view-section active">
+      <div class="panel">
+        <div class="panel-header">
+          <div class="panel-title">📊 कमाई बनाम खर्च ग्राफ़</div>
+          <span id="savingsRateBadge" style="font-size:0.8rem;font-weight:700;color:var(--income);">0% बचत</span>
+        </div>
+        <div class="ratio-bar-track">
+          <div class="ratio-bar-income" id="incomeRatioBar"></div>
+        </div>
+        <div class="ratio-legend">
+          <span id="incomePctLabel">🟢 कमाई: 50%</span>
+          <span id="expensePctLabel">🔴 खर्च: 50%</span>
+        </div>
+      </div>
+
+      <!-- Date-wise Ledger from Day 1 -->
+      <div class="panel">
+        <div class="panel-header">
+          <div class="panel-title">🗓️ तारीख के अनुसार हिसाब (Day 1 से)</div>
+          <span id="entryCountBadge" style="font-size:0.78rem;color:var(--muted);font-weight:700;">0 एंट्री</span>
+        </div>
+
+        <div class="filter-row">
+          <button class="filter-chip active" onclick="playSound('click'); setFilter('all', this)">सभी (All)</button>
+          <button class="filter-chip" onclick="playSound('income'); setFilter('income', this)">🟢 सिर्फ कमाई</button>
+          <button class="filter-chip" onclick="playSound('expense'); setFilter('expense', this)">🔴 सिर्फ खर्च</button>
+        </div>
+
+        <div class="date-filter-box">
+          <input type="date" id="filterDateInput" aria-label="Date Filter" onchange="playSound('click'); applyDateFilter()" />
+          <button class="clear-date-btn" onclick="playSound('click'); clearDateFilter()">सभी तारीखें</button>
+          <button class="clear-date-btn" style="color:var(--expense);" onclick="playSound('expense'); askClearAll()">🗑️ रीसेट</button>
+        </div>
+
+        <div id="confirmClearBox" style="display:none;background:var(--expense-light);border:1px solid var(--expense);padding:12px;border-radius:12px;margin-bottom:12px;text-align:center;">
+          <p style="font-size:0.85rem;font-weight:700;margin-bottom:8px;">क्या आप वाकई सारा हिसाब मिटाकर ₹0 करना चाहते हैं?</p>
+          <div style="display:flex;gap:8px;justify-content:center;">
+            <button class="clear-date-btn" style="background:var(--expense);color:#fff;border:none;" onclick="playSound('expense'); confirmClearAll()">हाँ, सब मिटाएं</button>
+            <button class="clear-date-btn" onclick="playSound('click'); cancelClearAll()">नहीं</button>
+          </div>
+        </div>
+
+        <div id="timelineContainer"></div>
+      </div>
+    </div>
+
+    <!-- VIEW 2: ANALYTICS & GRAPHICS -->
+    <div id="view-stats" class="view-section">
+      <div class="panel">
+        <div class="panel-header">
+          <div class="panel-title">📉 खर्च कहाँ जा रहा है? (श्रेणी अनुसार)</div>
+        </div>
+        <div id="expenseCatChart"></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <div class="panel-title">📈 कमाई कहाँ से आ रही है?</div>
+        </div>
+        <div id="incomeCatChart"></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <div class="panel-title">💾 डेटा बैकअप और डाउनलोड</div>
+        </div>
+        <p style="font-size:0.84rem;color:var(--muted);margin-bottom:12px;">
+          आपका सारा हिसाब आपके फोन में सुरक्षित सेव रहता है। आप जब चाहें इसे Excel/CSV फाइल में भी डाउनलोड कर सकते हैं:
+        </p>
+        <button class="big-btn btn-income" style="width:100%;" onclick="playSound('income'); exportCSV()">
+          📥 पूरा हिसाब डाउनलोड करें (CSV)
+        </button>
+      </div>
+    </div>
+
+    <!-- VIEW 3: HOME SCREEN ICON GUIDE -->
+    <div id="view-install" class="view-section">
+      <div class="panel">
+        <div class="panel-header">
+          <div class="panel-title">📲 फोन की होम स्क्रीन पर ऐप लगाएं</div>
+        </div>
+        <div class="download-container">
+          <span class="floating-money symbol-1">₹</span>
+          <span class="floating-money symbol-2">$</span>
+          <span class="floating-money symbol-3">₹</span>
+          <span class="floating-money symbol-4">$</span>
+          <button class="super-download-btn" onclick="playSound('income'); triggerNativeInstall();">
+            📲 Direct Install App
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- =================================================================
+         🎁 AAJ KA SURPRISE + COMPACT INLINE SPONSOR AD BAR BELOW IT
+         ================================================================= -->
+    <div style="text-align: center; margin: 24px 0 16px 0;">
+      <a href="https://arwf.org/4/28bea390be879b68d9caf067e1c0ffc8" target="_blank" rel="noopener" class="magic-btn" onclick="playSound('loot'); triggerCoinShower(window.innerWidth/2, window.innerHeight - 150, 12);">
+        🎁 आज का सरप्राइज़ (Tap Here) ✨
+      </a>
+      <p style="font-size: 12px; color: var(--muted); margin-top: 8px;">Support the developer &amp; unlock exclusive rewards</p>
+
+      <!-- Compact Adsterra Banner nicely tucked right below Aaj Ka Surprise -->
+      <div class="inline-sponsor-box">
+        <span class="inline-sponsor-label">✨ Sponsored Partner</span>
+        <div style="display: inline-block; transform: scale(0.92); transform-origin: center;">
+          <script type="text/javascript">
+            atOptions = {
+              'key' : '4708e5cb58f7a3a7ee6e8c46d62ce263',
+              'format' : 'iframe',
+              'height' : 50,
+              'width' : 300,
+              'params' : {}
+            };
+          </script>
+          <script type="text/javascript" src="https://bicea.org/22/4708e5cb58f7a3a7ee6e8c46d62ce263"></script>
+        </div>
       </div>
     </div>
   </main>
 
-  <!-- FLOATING LOOT PILL -->
-  <button class="floating-loot-pill" onclick="haptic(30); openLootStore();">
-    🎁 3D Loot Vault
-  </button>
-
-  <!-- Bottom Navigation Dock -->
-  <nav class="bottom-nav gs-load">
-    <button class="nav-item active" onclick="haptic(10)">
-      <span class="nav-icon">🏠</span><span>Home</span>
-    </button>
-    <button class="nav-item" onclick="haptic(10); alert('Stats View Active!');">
-      <span class="nav-icon">📊</span><span>Stats</span>
-    </button>
-    <button class="nav-item" onclick="haptic(10); alert('Story Flex Feature Active!');">
-      <span class="nav-icon">📸</span><span>Flex</span>
-    </button>
-  </nav>
-
-  <!-- ENTRY MODAL -->
+  <!-- Slide-Up Entry Modal -->
   <div class="modal-backdrop" id="entryModal">
     <div class="modal-sheet">
-      <div style="display:flex; justify-content:space-between; margin-bottom: 20px;">
-        <h3 id="modalTitle" style="color:#fff; font-size:1.3rem;">➕ Add Entry</h3>
-        <button onclick="closeModals()" style="background:transparent; border:none; color:#fff; font-size:1.5rem; cursor:pointer;">✕</button>
+      <div class="sheet-header">
+        <h3 id="modalTitle">➕ नई कमाई जोड़ें</h3>
+        <button class="close-btn" onclick="playSound('click'); closeEntryModal()">✕</button>
       </div>
-      <input type="date" id="entryDate" class="form-input" />
-      <input type="number" id="entryAmount" class="form-input amount-input-big" placeholder="₹ 0" inputmode="numeric" />
-      <input type="text" id="entryNote" class="form-input" placeholder="Note (e.g. Chai, Salary)..." />
-      <button style="width:100%; background:var(--income-grad); padding:16px; border-radius:16px; border:none; color:#fff; font-weight:800; font-size:1.1rem; margin-top:10px; cursor:pointer;" onclick="saveTransaction()">✅ Save Entry</button>
+
+      <div class="form-group">
+        <label for="entryDate">तारीख चुनें (Date)</label>
+        <input type="date" id="entryDate" class="form-input" />
+      </div>
+
+      <div class="form-group">
+        <label for="entryAmount">राशि (₹ Amount) — नीचे बटन से भी चुन सकते हैं</label>
+        <div class="quick-amounts">
+          <button type="button" class="amt-chip" onclick="playSound('income'); addQuickAmt(50)">+₹50</button>
+          <button type="button" class="amt-chip" onclick="playSound('income'); addQuickAmt(100)">+₹100</button>
+          <button type="button" class="amt-chip" onclick="playSound('income'); addQuickAmt(500)">+₹500</button>
+          <button type="button" class="amt-chip" onclick="playSound('income'); addQuickAmt(1000)">+₹1,000</button>
+          <button type="button" class="amt-chip" onclick="playSound('income'); addQuickAmt(5000)">+₹5,000</button>
+        </div>
+        <input type="number" id="entryAmount" class="form-input amount-input-big" placeholder="₹ 0" inputmode="numeric" />
+      </div>
+
+      <div class="form-group">
+        <label>श्रेणी चुनें (Category)</label>
+        <div class="cat-grid" id="categoryGrid"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="entryNote">विवरण / नोट (जैसे: चाय, सैलरी, सब्जी)</label>
+        <input type="text" id="entryNote" class="form-input" placeholder="छोटा-सा विवरण लिखें..." />
+      </div>
+
+      <button class="save-entry-btn btn-income" id="saveModalBtn" onclick="saveTransaction()">
+        ✅ हिसाब में सेव करें
+      </button>
     </div>
   </div>
 
-  <!-- LOOT STORE MODAL WITH BRUNO SIMON 3D COIN MINER -->
-  <div class="modal-backdrop" id="lootStoreModal">
-    <div class="modal-sheet" style="max-height:90vh; overflow-y:auto;">
-      <div style="display:flex; justify-content:space-between; margin-bottom: 20px;">
-        <h3 style="color:#fff; font-size:1.3rem;">⚡ 3D Tap & Win Vault</h3>
-        <button onclick="closeModals()" style="background:transparent; border:none; color:#fff; font-size:1.5rem; cursor:pointer;">✕</button>
+  <div id="appToast" class="toast-msg"></div>
+
+  <!-- 1. FLOATING ₹99 LOOT STORE PILL -->
+  <button class="floating-loot-pill" onclick="playSound('loot'); openLootStore();">
+    <span class="live-dot"></span>
+    <span>🎁 ₹99 3D Loot Vault</span>
+  </button>
+
+  <!-- =================================================================
+       2. BRUNO SIMON x ACTIVETHEORY INTERACTIVE 3D LOOT STORE MODAL
+       (Endless Multi-Click Physics + Never Closes on 1 Click!)
+       ================================================================= -->
+  <div id="lootStoreModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(3, 5, 12, 0.94); backdrop-filter: blur(22px); z-index: 2147483647; overflow-y: auto; padding: 20px; box-sizing: border-box;">
+    <div style="max-width: 480px; margin: 0 auto;">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.12); padding-bottom: 14px; margin-bottom: 14px;">
+        <h3 style="margin: 0; color: #f8fafc; font-size: 1.15rem; font-weight: 800;">⚡ 3D Student ₹99 Loot Vault</h3>
+        <button onclick="playSound('click'); closeLootStore();" style="background: rgba(244, 63, 94, 0.2); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.4); padding: 7px 14px; border-radius: 10px; font-weight: 700; cursor: pointer;">✖ बंद करें</button>
       </div>
 
-      <!-- Bruno Simon Interactive Chest -->
-      <div class="bruno-chest-zone" onclick="mineLootChest(event)">
-        <div style="font-size: 0.72rem; color: #c4b5fd; font-weight: 800; text-transform: uppercase; margin-bottom: 4px;">🎮 Tap Multiple Times to Mine Coins!</div>
+      <!-- 🎮 BRUNO SIMON INTERACTIVE MULTI-TAP 3D LOOT BOX -->
+      <div class="bruno-chest-zone" id="lootChestBox" onclick="mineLootChest(event)">
+        <div style="font-size: 0.72rem; color: #c4b5fd; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px;">
+          🎮 Interactive 3D Physics Miner (Tap Multiple Times!)
+        </div>
         <div class="chest-3d-icon" id="chestEmoji">🧰</div>
-        <div id="chestStatusText" style="color: #ffffff; font-weight: 800; font-size: 0.95rem; margin-top: 4px;">Tap to drop 3D Coins! (0/5 Taps)</div>
-        <div style="height: 8px; background: rgba(255,255,255,0.1); border-radius: 999px; margin: 10px auto; max-width: 260px;">
-          <div style="height: 100%; width: 0%; background: linear-gradient(90deg, #fbbf24, #f43f5e, #8b5cf6); border-radius: 999px; transition: width 0.2s;" id="comboMeterFill"></div>
+        <div id="chestStatusText" style="color: #ffffff; font-weight: 800; font-size: 0.95rem; margin-top: 4px;">
+          Tap Chest to Drop 3D Gold Coins! (0 Taps)
+        </div>
+        <div class="combo-meter-bar">
+          <div class="combo-meter-fill" id="comboMeterFill"></div>
+        </div>
+        <div style="font-size: 0.73rem; color: #94a3b8;">
+          Har tap par 3D coins uchhlenge — 5 taps par Mega Bonus Deal khulegi!
         </div>
       </div>
 
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top:15px;">
-        <button onclick="haptic(15); window.open('https://fktr.in/USkFso9', '_blank');" class="form-input" style="background:rgba(30,41,59,0.7); text-align:center; cursor:pointer;">
-          <div style="font-size:28px;">🎧</div>
-          <div style="font-size:0.85rem; font-weight:700; margin-top:4px; color:#fff;">TWS Earbuds</div>
-          <div style="color:#34d399; font-size:0.75rem;">₹99 Only</div>
+      <p style="color: #94a3b8; text-align: center; font-size: 0.82rem; margin-bottom: 14px; line-height: 1.4;">
+        ⚡ किसी भी डील पर जितनी बार चाहें टैप करें — पेज बंद नहीं होगा, आप एक-एक करके सारे ऑफर्स चेक कर सकते हैं!
+      </p>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+        <button onclick="playSound('loot'); startAdThenFlipkart('https://fktr.in/USkFso9', 'https://asiafilm.org/4/c5064e247fe2b7da30eb4003946c5f40', 'TWS Earbuds at 99 Rupees', event)" class="loot-card">
+          <div style="font-size: 32px;">🎧</div>
+          <div style="margin-top: 6px;">TWS Earbuds</div>
+          <div class="loot-price">₹99 Only</div>
         </button>
-        <button onclick="haptic(15); window.open('https://fktr.in/BakOoqi', '_blank');" class="form-input" style="background:rgba(30,41,59,0.7); text-align:center; cursor:pointer;">
-          <div style="font-size:28px;">👟</div>
-          <div style="font-size:0.85rem; font-weight:700; margin-top:4px; color:#fff;">Sneakers</div>
-          <div style="color:#34d399; font-size:0.75rem;">₹149 Only</div>
+
+        <button onclick="playSound('loot'); startAdThenFlipkart('https://fktr.in/BakOoqi', 'https://asiafilm.org/4/c8adaff60d7b00056e516f39ce44b77c', 'Stylish Sneakers at 149 Rupees', event)" class="loot-card">
+          <div style="font-size: 32px;">👟</div>
+          <div style="margin-top: 6px;">Stylish Sneakers</div>
+          <div class="loot-price">₹149 Only</div>
         </button>
+
+        <button onclick="playSound('loot'); startAdThenFlipkart('https://fktr.in/057SbFG', 'https://asiafilm.org/4/29aae566767dfa0c40872316922d3ced', 'Smartwatches at 199 Rupees', event)" class="loot-card">
+          <div style="font-size: 32px;">⌚</div>
+          <div style="margin-top: 6px;">Smartwatches</div>
+          <div class="loot-price">₹199 Only</div>
+        </button>
+
+        <button onclick="playSound('loot'); startAdThenFlipkart('https://fktr.in/OMi2SKL', 'https://asiafilm.org/4/618f98aafe328a7d00b5e1953dc3c49f', 'College Bags at 129 Rupees', event)" class="loot-card">
+          <div style="font-size: 32px;">🎒</div>
+          <div style="margin-top: 6px;">College Bags</div>
+          <div class="loot-price">₹129 Only</div>
+        </button>
+
+        <button id="mysteryBtn" onclick="playSound('loot'); viralUnlock(event);" class="loot-card" style="grid-column: span 2; background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(5, 150, 105, 0.35)); border: 1px solid rgba(52, 211, 153, 0.55);">
+          <div style="font-size: 1.1rem; color: #34d399; font-weight: 800;">🔒 ₹99 SECRET LOOT (LOCKED)</div>
+          <div style="font-size: 0.8rem; color: #e2e8f0; margin-top: 4px;">👉 अनलॉक करने के लिए WhatsApp ग्रुप में शेयर करें!</div>
+        </button>
+      </div>
+
+      <div id="dealTimerBox" style="display: none; margin-top: 18px; background: rgba(30, 41, 59, 0.9); border: 1px solid #10b981; padding: 15px; border-radius: 16px; text-align: center; color: #fff;">
+        <h4 id="timerText" style="margin: 0 0 8px 0; color: #34d399; font-size: 0.95rem;">⏳ Deal unlock ho rahi hai...</h4>
+        <a id="directFlipkartBtn" href="#" target="_blank" rel="noopener" style="display: none; background: linear-gradient(90deg, #10b981, #059669); color: #fff; text-decoration: none; padding: 10px 20px; border-radius: 999px; font-weight: 800; font-size: 0.88rem;">🚀 Open Flipkart Deal Now (New Tab)</a>
       </div>
     </div>
   </div>
 
+  <!-- 3. BOTTOM NAVIGATION BAR (CLEAN & UNCLUTTERED) -->
+  <nav class="bottom-nav">
+    <button class="nav-item active" id="nav-home" onclick="playSound('click'); switchView('home', this)">
+      <span class="nav-icon">🏠</span>
+      <span>होम और हिसाब</span>
+    </button>
+    <button class="nav-item" id="nav-stats" onclick="playSound('click'); switchView('stats', this)">
+      <span class="nav-icon">📊</span>
+      <span>ग्राफ़ और रिपोर्ट</span>
+    </button>
+    <button class="nav-item" id="nav-install" onclick="playSound('click'); switchView('install', this)">
+      <span class="nav-icon">📲</span>
+      <span>फोन आइकन</span>
+    </button>
+  </nav>
+
   <!-- ==========================================================================
-       ⚙️ THE BEAST ENGINES: WebGL Canvas, GSAP ScrollTrigger, Coins & Magnetics
+       MAIN JAVASCRIPT: ACTIVETHEORY 3D CANVAS + BRUNO PHYSICS + RIY3 AI VOICE
        ========================================================================== -->
   <script>
-    // 📳 Haptic Engine
-    function haptic(ms) {
-      if (navigator.vibrate) navigator.vibrate(ms);
+    // 🗣️ A. RIY3.COM STYLE FUTURISTIC AI VOICE SYNTHESIZER + DYNAMIC ISLAND HUD
+    var aiVoiceEnabled = false;
+
+    function updateIsland(msg, highlight) {
+      var island = document.getElementById('dynamicIsland');
+      var text = document.getElementById('islandText');
+      if (!island || !text) return;
+      text.textContent = msg;
+      if (highlight) {
+        island.classList.add('expanded');
+        clearTimeout(window.__islandTimer);
+        window.__islandTimer = setTimeout(function() {
+          island.classList.remove('expanded');
+        }, 2600);
+      }
     }
 
-    // 🌌 3D LIQUID AURORA PARTICLE NEXUS + 3D COIN PHYSICS
-    let coins = [];
-    let triggerCoinShower = function() {};
+    function speakAI(text) {
+      updateIsland('🤖 ' + text, true);
+      if (!aiVoiceEnabled || !('speechSynthesis' in window)) return;
+      try {
+        window.speechSynthesis.cancel();
+        var utter = new SpeechSynthesisUtterance(text);
+        utter.lang = 'en-IN';
+        utter.rate = 1.04;
+        utter.pitch = 1.08;
+        window.speechSynthesis.speak(utter);
+      } catch (e) {}
+    }
 
-    (function initLiquidCanvas() {
-      const canvas = document.getElementById('liquidCanvas');
+    function toggleVoiceAssistant() {
+      aiVoiceEnabled = !aiVoiceEnabled;
+      var btn = document.getElementById('voiceToggleBtn');
+      if (aiVoiceEnabled) {
+        btn.textContent = '🗣️ AI ON';
+        btn.classList.add('voice-active');
+        playSound('income');
+        speakAI('SmartHisab AI Voice Online.');
+      } else {
+        btn.textContent = '🔇 AI OFF';
+        btn.classList.remove('voice-active');
+        if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+        playSound('click');
+        updateIsland('🔇 AI Voice Muted', false);
+      }
+    }
+
+    // 🌐 B. ACTIVETHEORY + BRUNO SIMON 3D PHYSICS ENGINE (NODES + GRAVITY COINS + CURSOR TRAIL)
+    var triggerCoinShower = function() {};
+    (function initBrunoActiveCanvas() {
+      var canvas = document.getElementById('cyberCanvas');
       if (!canvas) return;
-      const ctx = canvas.getContext('2d');
-      let width = canvas.width = window.innerWidth;
-      let height = canvas.height = window.innerHeight;
-      let particles = [];
-      let pointer = { x: -999, y: -999 };
+      var ctx = canvas.getContext('2d');
+      var width, height;
+      var nodes = [];
+      var coins = [];
+      var trails = [];
+      var pointer = { x: -999, y: -999 };
 
-      window.addEventListener('resize', () => {
+      function resize() {
         width = canvas.width = window.innerWidth;
         height = canvas.height = window.innerHeight;
-      });
+      }
+      window.addEventListener('resize', resize);
+      resize();
 
-      window.addEventListener('mousemove', (e) => { pointer.x = e.clientX; pointer.y = e.clientY; });
-      window.addEventListener('touchmove', (e) => {
-        if(e.touches[0]) { pointer.x = e.touches[0].clientX; pointer.y = e.touches[0].clientY; }
-      }, { passive: true });
+      function spawnTrail(x, y) {
+        for (var i = 0; i < 2; i++) {
+          trails.push({
+            x: x + (Math.random() - 0.5) * 10,
+            y: y + (Math.random() - 0.5) * 10,
+            vx: (Math.random() - 0.5) * 2.2,
+            vy: (Math.random() - 0.5) * 2.2 - 0.5,
+            r: Math.random() * 3.5 + 1.5,
+            alpha: 1,
+            hue: Math.random() > 0.5 ? 160 : 250
+          });
+        }
+      }
 
-      // Coin Spawner Physics
-      triggerCoinShower = function(x, y, count) {
-        haptic(40);
-        for (let i = 0; i < (count || 12); i++) {
+      // Bruno Simon 3D Bouncing Coin Physics Spawner
+      triggerCoinShower = function(originX, originY, count) {
+        var total = count || 10;
+        for (var i = 0; i < total; i++) {
           coins.push({
-            x: x, y: y,
-            vx: (Math.random() - 0.5) * 14,
-            vy: -Math.random() * 12 - 5,
-            r: Math.random() * 6 + 8,
-            rot: 0,
-            vRot: (Math.random() - 0.5) * 0.3,
+            x: originX || width / 2,
+            y: originY || height / 3,
+            vx: (Math.random() - 0.5) * 13,
+            vy: -Math.random() * 11 - 4,
+            r: Math.random() * 6 + 9,
+            rot: Math.random() * Math.PI * 2,
+            vRot: (Math.random() - 0.5) * 0.25,
+            bounces: 0,
             alpha: 1
           });
         }
       };
 
-      // Tap anywhere on screen to spawn coins
-      window.addEventListener('pointerdown', (e) => {
-        if (!e.target.closest('button, .magnetic-btn, .modal-sheet, .top-bar, .bottom-nav')) {
-          triggerCoinShower(e.clientX, e.clientY, 4);
-        }
+      window.addEventListener('mousemove', function(e) {
+        pointer.x = e.clientX;
+        pointer.y = e.clientY;
+        spawnTrail(e.clientX, e.clientY);
       });
 
-      // Liquid Particles
-      const pCount = window.innerWidth < 600 ? 45 : 75;
-      for (let i = 0; i < pCount; i++) {
-        particles.push({
+      window.addEventListener('touchmove', function(e) {
+        if (e.touches[0]) {
+          pointer.x = e.touches[0].clientX;
+          pointer.y = e.touches[0].clientY;
+          spawnTrail(pointer.x, pointer.y);
+        }
+      }, { passive: true });
+
+      window.addEventListener('pointerdown', function(e) {
+        spawnTrail(e.clientX, e.clientY);
+        triggerCoinShower(e.clientX, e.clientY, 4);
+      });
+
+      var nodeCount = window.innerWidth < 600 ? 26 : 45;
+      for (var i = 0; i < nodeCount; i++) {
+        nodes.push({
           x: Math.random() * width,
           y: Math.random() * height,
-          vx: (Math.random() - 0.5) * 1.2,
-          vy: (Math.random() - 0.5) * 1.2,
-          radius: Math.random() * 2 + 1
+          vx: (Math.random() - 0.5) * 0.8,
+          vy: (Math.random() - 0.5) * 0.8,
+          r: Math.random() * 2 + 1.2,
+          color: i % 2 === 0 ? '#6366f1' : '#10b981'
         });
       }
 
       function animate() {
         ctx.clearRect(0, 0, width, height);
-        
-        // Render Liquid Particles & Network
-        particles.forEach((p, i) => {
-          p.x += p.vx; p.y += p.vy;
-          if (p.x < 0 || p.x > width) p.vx *= -1;
-          if (p.y < 0 || p.y > height) p.vy *= -1;
 
-          let dxP = pointer.x - p.x;
-          let dyP = pointer.y - p.y;
-          let distP = Math.sqrt(dxP * dxP + dyP * dyP);
-          if (distP < 140) {
-            p.vx += dxP * 0.0006;
-            p.vy += dyP * 0.0006;
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(pointer.x, pointer.y);
-            ctx.strokeStyle = `rgba(99, 102, 241, ${1 - distP/140})`;
-            ctx.lineWidth = 1.2;
-            ctx.stroke();
-          }
+        // 1. Render ActiveTheory Cyber Mesh Nodes
+        for (var i = 0; i < nodes.length; i++) {
+          var n = nodes[i];
+          n.x += n.vx;
+          n.y += n.vy;
+          if (n.x < 0 || n.x > width) n.vx *= -1;
+          if (n.y < 0 || n.y > height) n.vy *= -1;
 
           ctx.beginPath();
-          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-          ctx.fillStyle = i % 2 === 0 ? '#10b981' : '#6366f1';
+          ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+          ctx.fillStyle = n.color;
           ctx.fill();
 
-          for (let j = i + 1; j < particles.length; j++) {
-            let p2 = particles[j];
-            let dx = p.x - p2.x, dy = p.y - p2.y;
-            let dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < 110) {
+          for (var j = i + 1; j < nodes.length; j++) {
+            var n2 = nodes[j];
+            var dx = n.x - n2.x, dy = n.y - n2.y;
+            var dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 120) {
               ctx.beginPath();
-              ctx.moveTo(p.x, p.y);
-              ctx.lineTo(p2.x, p2.y);
-              ctx.strokeStyle = `rgba(16, 185, 129, ${(1 - dist / 110) * 0.35})`;
+              ctx.moveTo(n.x, n.y);
+              ctx.lineTo(n2.x, n2.y);
+              ctx.strokeStyle = 'rgba(99, 102, 241, ' + (1 - dist / 120) * 0.25 + ')';
               ctx.lineWidth = 1;
               ctx.stroke();
             }
           }
-        });
+        }
 
-        // Render 3D Gold Coins Physics
-        for (let c = coins.length - 1; c >= 0; c--) {
-          let coin = coins[c];
-          coin.vy += 0.5; coin.x += coin.vx; coin.y += coin.vy; coin.rot += coin.vRot;
-          if (coin.y > height - 80) { coin.y = height - 80; coin.vy *= -0.6; coin.alpha -= 0.08; }
-          if (coin.alpha <= 0) { coins.splice(c, 1); continue; }
+        // 2. Render ActiveTheory Cursor Energy Trails
+        for (var t = trails.length - 1; t >= 0; t--) {
+          var tr = trails[t];
+          tr.x += tr.vx;
+          tr.y += tr.vy;
+          tr.alpha -= 0.028;
+          if (tr.alpha <= 0) {
+            trails.splice(t, 1);
+            continue;
+          }
+          ctx.beginPath();
+          ctx.arc(tr.x, tr.y, tr.r, 0, Math.PI * 2);
+          ctx.fillStyle = 'hsla(' + tr.hue + ', 90%, 60%, ' + tr.alpha + ')';
+          ctx.fill();
+        }
+
+        // 3. Render Bruno Simon 3D Bouncing Gold ₹ Coins with Gravity & Floor Bounce
+        for (var c = coins.length - 1; c >= 0; c--) {
+          var coin = coins[c];
+          coin.vy += 0.42; // Gravity
+          coin.x += coin.vx;
+          coin.y += coin.vy;
+          coin.rot += coin.vRot;
+
+          // Wall bounce
+          if (coin.x < coin.r || coin.x > width - coin.r) coin.vx *= -0.75;
+
+          // Floor bounce
+          if (coin.y > height - 85 - coin.r) {
+            coin.y = height - 85 - coin.r;
+            coin.vy *= -0.68;
+            coin.bounces++;
+            if (coin.bounces > 3) coin.alpha -= 0.06;
+          }
+
+          if (coin.alpha <= 0) {
+            coins.splice(c, 1);
+            continue;
+          }
 
           ctx.save();
           ctx.translate(coin.x, coin.y);
-          ctx.scale(Math.cos(coin.rot), 1);
+          ctx.scale(Math.cos(coin.rot), 1); // 3D spin illusion
           ctx.beginPath();
           ctx.arc(0, 0, coin.r, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(251, 191, 36, ${coin.alpha})`;
+          ctx.fillStyle = 'rgba(251, 191, 36, ' + coin.alpha + ')';
           ctx.fill();
+          ctx.lineWidth = 2;
+          ctx.strokeStyle = 'rgba(254, 240, 138, ' + coin.alpha + ')';
+          ctx.stroke();
           ctx.restore();
         }
 
@@ -403,91 +1894,741 @@
       animate();
     })();
 
-    // ⚡ Gyroscope Tilt
-    (function initTilt() {
-      const card = document.getElementById('heroTiltCard');
-      if(!card) return;
-      function applyTilt(rotX, rotY) {
-        card.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.02, 1.02, 1.02)`;
+    // ⚡ C. 3D PERSPECTIVE TILT + RELEVO VINCO SPOTLIGHT TRACKER
+    (function initInteractive3DCards() {
+      var card = document.getElementById('heroTiltCard');
+      if (card) {
+        function handleTilt(clientX, clientY) {
+          var rect = card.getBoundingClientRect();
+          var x = clientX - rect.left - rect.width / 2;
+          var y = clientY - rect.top - rect.height / 2;
+          var rotX = (-y / (rect.height / 2)) * 8;
+          var rotY = (x / (rect.width / 2)) * 8;
+          card.style.transform = 'perspective(900px) rotateX(' + rotX.toFixed(2) + 'deg) rotateY(' + rotY.toFixed(2) + 'deg) scale(1.01)';
+        }
+        card.addEventListener('mousemove', function(e) { handleTilt(e.clientX, e.clientY); });
+        card.addEventListener('mouseleave', function() { card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale(1)'; });
+        card.addEventListener('touchmove', function(e) {
+          if (e.touches[0]) handleTilt(e.touches[0].clientX, e.touches[0].clientY);
+        }, { passive: true });
+        card.addEventListener('touchend', function() { card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale(1)'; });
       }
-      card.addEventListener('mousemove', (e) => {
-        const r = card.getBoundingClientRect();
-        applyTilt(-((e.clientY - r.top - r.height/2) / (r.height/2)) * 12, ((e.clientX - r.left - r.width/2) / (r.width/2)) * 12);
+
+      // Spotlight tracking on all Bento Panels & Loot Cards
+      document.addEventListener('pointermove', function(e) {
+        var targets = document.querySelectorAll('.panel, .loot-card');
+        targets.forEach(function(el) {
+          var rect = el.getBoundingClientRect();
+          el.style.setProperty('--spot-x', (e.clientX - rect.left) + 'px');
+          el.style.setProperty('--spot-y', (e.clientY - rect.top) + 'px');
+        });
       });
-      card.addEventListener('mouseleave', () => card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)`);
     })();
 
-    // 🧲 GSAP Magnetic Buttons
-    document.querySelectorAll('.magnetic-btn').forEach(btn => {
-      const xTo = gsap.quickTo(btn, "x", {duration: 0.4, ease: "power3"});
-      const yTo = gsap.quickTo(btn, "y", {duration: 0.4, ease: "power3"});
-      btn.addEventListener('mousemove', (e) => {
-        const r = btn.getBoundingClientRect();
-        xTo(((e.clientX - r.left) - r.width / 2) * 0.35);
-        yTo(((e.clientY - r.top) - r.height / 2) * 0.35);
+    // 🔢 D. SPEEDOMETER NUMBER ROLLING COUNTER
+    var prevValues = { netBalance: 0, totalIncome: 0, totalExpense: 0 };
+    function animateCurrencyValue(elId, targetVal, allowNegative) {
+      var el = document.getElementById(elId);
+      if (!el) return;
+      var startVal = prevValues[elId] || 0;
+      prevValues[elId] = targetVal;
+      if (startVal === targetVal) {
+        el.textContent = (allowNegative && targetVal < 0 ? '-' : '') + '₹' + Math.abs(Math.round(targetVal)).toLocaleString('en-IN');
+        return;
+      }
+      var duration = 650;
+      var startTime = null;
+      function step(ts) {
+        if (!startTime) startTime = ts;
+        var progress = Math.min((ts - startTime) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        var current = startVal + (targetVal - startVal) * eased;
+        var sign = (allowNegative && current < 0) ? '-' : '';
+        el.textContent = sign + '₹' + Math.abs(Math.round(current)).toLocaleString('en-IN');
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    // 🔊 1. RIY3.COM MULTI-LAYERED SCI-FI SOUND SYNTHESIZER
+    var sharedAudioCtx = null;
+    function getAudioCtx() {
+      var AudioContext = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContext) return null;
+      if (!sharedAudioCtx) sharedAudioCtx = new AudioContext();
+      if (sharedAudioCtx.state === 'suspended') sharedAudioCtx.resume();
+      return sharedAudioCtx;
+    }
+
+    function playSound(type) {
+      try {
+        var ctx = getAudioCtx();
+        if (!ctx) return;
+        var now = ctx.currentTime;
+
+        if (type === 'income') {
+          var osc1 = ctx.createOscillator();
+          var gain1 = ctx.createGain();
+          osc1.type = 'sine';
+          osc1.frequency.setValueAtTime(587.33, now);
+          osc1.frequency.setValueAtTime(880, now + 0.07);
+          osc1.frequency.setValueAtTime(1174.66, now + 0.14);
+          gain1.gain.setValueAtTime(0.24, now);
+          gain1.gain.exponentialRampToValueAtTime(0.001, now + 0.38);
+          osc1.connect(gain1);
+          gain1.connect(ctx.destination);
+          osc1.start(now);
+          osc1.stop(now + 0.38);
+        } else if (type === 'expense') {
+          var osc = ctx.createOscillator();
+          var gain = ctx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(420, now);
+          osc.frequency.exponentialRampToValueAtTime(135, now + 0.24);
+          gain.gain.setValueAtTime(0.26, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now);
+          osc.stop(now + 0.25);
+        } else if (type === 'loot') {
+          var oscL = ctx.createOscillator();
+          var gainL = ctx.createGain();
+          oscL.type = 'sine';
+          oscL.frequency.setValueAtTime(659.25, now);
+          oscL.frequency.setValueAtTime(987.77, now + 0.06);
+          oscL.frequency.setValueAtTime(1318.51, now + 0.12);
+          oscL.frequency.setValueAtTime(1567.98, now + 0.18);
+          gainL.gain.setValueAtTime(0.24, now);
+          gainL.gain.exponentialRampToValueAtTime(0.001, now + 0.42);
+          oscL.connect(gainL);
+          gainL.connect(ctx.destination);
+          oscL.start(now);
+          oscL.stop(now + 0.42);
+        } else {
+          var oscC = ctx.createOscillator();
+          var gainC = ctx.createGain();
+          oscC.type = 'sine';
+          oscC.frequency.setValueAtTime(620, now);
+          oscC.frequency.exponentialRampToValueAtTime(920, now + 0.05);
+          gainC.gain.setValueAtTime(0.14, now);
+          gainC.gain.exponentialRampToValueAtTime(0.001, now + 0.06);
+          oscC.connect(gainC);
+          gainC.connect(ctx.destination);
+          oscC.start(now);
+          oscC.stop(now + 0.06);
+        }
+      } catch (e) {}
+    }
+
+    // 👑 2. ABDULLAH SECRET VIP DASHBOARD LOGIC
+    var titleTapCount = 0;
+    function checkSecretUnlock() {
+      titleTapCount++;
+      if (titleTapCount === 5) {
+        var pass = prompt("Enter Secret Passcode:");
+        if (pass === "abdullah") {
+          localStorage.setItem("isAbdullahVIP", "true");
+          document.getElementById("abdullahSection").style.display = "block";
+          playSound('income');
+          speakAI("Welcome Boss Abdullah! VIP Video Dashboard Unlocked.");
+          alert("Welcome Boss! Video Dashboard Unlocked.");
+        } else {
+          playSound('expense');
+          alert("Wrong Passcode!");
+        }
+        titleTapCount = 0;
+      }
+    }
+
+    var abdullahTotalIncome = localStorage.getItem("abdullahTotal") ? parseInt(localStorage.getItem("abdullahTotal"), 10) : 0;
+
+    function updateAbdullahUI() {
+      if (localStorage.getItem("isAbdullahVIP") === "true") {
+        document.getElementById("abdullahSection").style.display = "block";
+      }
+      document.getElementById("abdullahTotal").innerText = "₹" + abdullahTotalIncome;
+    }
+
+    function addAbdullahVideo() {
+      var details = document.getElementById("videoDetails").value;
+      var category = document.getElementById("videoCategory").value;
+      var amount = parseInt(document.getElementById("videoEarnings").value, 10);
+
+      if (!details || isNaN(amount) || amount <= 0) {
+        playSound('expense');
+        alert("Pehle video ki details aur paise sahi daalo!");
+        return;
+      }
+
+      abdullahTotalIncome += amount;
+      localStorage.setItem("abdullahTotal", abdullahTotalIncome);
+      playSound('income');
+      triggerCoinShower(window.innerWidth / 2, 260, 15);
+      speakAI(amount + " Rupees Video Income Added!");
+      updateAbdullahUI();
+
+      document.getElementById("videoDetails").value = "";
+      document.getElementById("videoEarnings").value = "";
+      alert("Success! " + category + " ka paisa jud gaya.");
+    }
+
+    document.addEventListener("DOMContentLoaded", updateAbdullahUI);
+
+    // 📊 3. SMARTHISAB CORE APP LOGIC
+    function showToast(msg) {
+      var t = document.getElementById('appToast');
+      if (!t) return;
+      t.textContent = msg;
+      t.style.display = 'block';
+      clearTimeout(window.__toastTimer);
+      window.__toastTimer = setTimeout(function() { t.style.display = 'none'; }, 3500);
+    }
+
+    var STORAGE_KEY = 'mera_hisab_clean_v2';
+
+    var CATEGORIES = {
+      income: [
+        { id: 'salary', icon: '💼', name: 'वेतन (Salary)' },
+        { id: 'business', icon: '🏪', name: 'दुकान / बिज़नेस' },
+        { id: 'freelance', icon: '💻', name: 'फ्रीलांस / काम' },
+        { id: 'gift', icon: '🎁', name: 'बोनस / उपहार' },
+        { id: 'rent', icon: '🏠', name: 'किराया / ब्याज' },
+        { id: 'other_in', icon: '✨', name: 'अन्य कमाई' }
+      ],
+      expense: [
+        { id: 'food', icon: '🍲', name: 'भोजन / चाय' },
+        { id: 'grocery', icon: '🛒', name: 'किराना / घर' },
+        { id: 'travel', icon: '🛵', name: 'पेट्रोल / यात्रा' },
+        { id: 'bills', icon: '📱', name: 'रिचार्ज / बिल' },
+        { id: 'shopping', icon: '🛍️', name: 'कपड़े / शॉपिंग' },
+        { id: 'health', icon: '💊', name: 'दवाई / सेहत' }
+      ]
+    };
+
+    var currentMode = 'income';
+    var selectedCategory = CATEGORIES.income[0];
+    var currentFilter = 'all';
+    var filterDate = '';
+
+    function todayISO() {
+      var d = new Date();
+      var yyyy = d.getFullYear();
+      var mm = String(d.getMonth() + 1).padStart(2, '0');
+      var dd = String(d.getDate()).padStart(2, '0');
+      return yyyy + '-' + mm + '-' + dd;
+    }
+
+    var transactions = [];
+    try {
+      localStorage.removeItem('mera_hisab_transactions_v1');
+      var saved = localStorage.getItem(STORAGE_KEY);
+      transactions = saved ? JSON.parse(saved) : [];
+
+      var cleaned = false;
+      transactions = transactions.map(function(t) {
+        if (!t.category || String(t.category).indexOf('$') !== -1 || String(t.category).indexOf('{') !== -1) {
+          t.category = (t.type === 'income') ? 'बोनस / उपहार' : 'भोजन / चाय';
+          cleaned = true;
+        }
+        if (!t.note || String(t.note).indexOf('$') !== -1 || String(t.note).indexOf('{') !== -1) {
+          t.note = t.category;
+          cleaned = true;
+        }
+        return t;
       });
-      btn.addEventListener('mouseleave', () => { xTo(0); yTo(0); gsap.to(btn, {scale: 1, duration: 0.5}); });
-    });
+      if (cleaned) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(transactions));
+      }
+    } catch (e) {
+      transactions = [];
+    }
 
-    // 🟢 GSAP ScrollTrigger Scrubbing
-    document.addEventListener("DOMContentLoaded", () => {
-      gsap.registerPlugin(ScrollTrigger);
-      gsap.fromTo(".gs-load", {y: 30, opacity: 0}, {y: 0, opacity: 1, duration: 0.8, stagger: 0.12, ease: "back.out(1.2)"});
-    });
+    function saveToStorage() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(transactions));
+      } catch (e) {}
+    }
 
-    // --- Core Hisab Logic & Loot Vault ---
-    let currentMode = 'income';
+    function formatINR(num) {
+      return '₹' + Number(num || 0).toLocaleString('en-IN');
+    }
+
+    function formatHindiDate(isoDate) {
+      if (!isoDate) return '';
+      var parts = isoDate.split('-');
+      if (parts.length !== 3) return isoDate;
+      var months = ['जनवरी', 'फरवरी', 'मार्च', 'अप्रैल', 'मई', 'जून', 'जुलाई', 'अगस्त', 'सितंबर', 'अक्टूबर', 'नवंबर', 'दिसंबर'];
+      var d = parseInt(parts[2], 10);
+      var m = months[parseInt(parts[1], 10) - 1] || parts[1];
+      var y = parts[0];
+      if (isoDate === todayISO()) return 'आज (' + d + ' ' + m + ' ' + y + ')';
+      return d + ' ' + m + ' ' + y;
+    }
+
     function openEntryModal(mode) {
       currentMode = mode;
-      document.getElementById('modalTitle').textContent = mode === 'income' ? '➕ Add Income' : '➖ Add Expense';
-      document.getElementById('entryDate').value = new Date().toISOString().split('T')[0];
-      document.getElementById('entryModal').classList.add('open');
-    }
-    function closeModals() { document.querySelectorAll('.modal-backdrop').forEach(m => m.classList.remove('open')); }
-    function openLootStore() { document.getElementById('lootStoreModal').classList.add('open'); triggerCoinShower(window.innerWidth/2, 150, 15); }
+      var modal = document.getElementById('entryModal');
+      var title = document.getElementById('modalTitle');
+      var saveBtn = document.getElementById('saveModalBtn');
 
-    let chestTapCount = 0;
+      document.getElementById('entryDate').value = todayISO();
+      document.getElementById('entryAmount').value = '';
+      document.getElementById('entryNote').value = '';
+
+      if (mode === 'income') {
+        title.textContent = '➕ नई कमाई (आवक) जोड़ें';
+        saveBtn.className = 'save-entry-btn btn-income';
+        saveBtn.textContent = '✅ कमाई सेव करें';
+        speakAI('Add new income.');
+      } else {
+        title.textContent = '➖ नया खर्च (जावक) जोड़ें';
+        saveBtn.className = 'save-entry-btn btn-expense';
+        saveBtn.textContent = '✅ खर्च सेव करें';
+        speakAI('Add new expense.');
+      }
+
+      selectedCategory = CATEGORIES[mode][0];
+      renderCategoryOptions();
+      modal.classList.add('open');
+      setTimeout(function() { document.getElementById('entryAmount').focus(); }, 150);
+    }
+
+    function closeEntryModal() {
+      document.getElementById('entryModal').classList.remove('open');
+    }
+
+    function addQuickAmt(val) {
+      var input = document.getElementById('entryAmount');
+      var curr = parseFloat(input.value) || 0;
+      input.value = curr + val;
+      triggerCoinShower(window.innerWidth / 2, window.innerHeight / 2, 6);
+    }
+
+    function renderCategoryOptions() {
+      var grid = document.getElementById('categoryGrid');
+      grid.innerHTML = '';
+      CATEGORIES[currentMode].forEach(function(cat) {
+        var div = document.createElement('div');
+        div.className = 'cat-option' + (selectedCategory.id === cat.id ? ' selected' : '');
+        div.innerHTML = '<span>' + cat.icon + '</span>' + cat.name;
+        div.onclick = function() {
+          playSound('click');
+          selectedCategory = cat;
+          renderCategoryOptions();
+        };
+        grid.appendChild(div);
+      });
+    }
+
+    function saveTransaction() {
+      var amt = parseFloat(document.getElementById('entryAmount').value);
+      var date = document.getElementById('entryDate').value || todayISO();
+      var rawNote = document.getElementById('entryNote').value.trim();
+      var note = rawNote ? rawNote : selectedCategory.name;
+
+      if (isNaN(amt) || amt <= 0) {
+        playSound('expense');
+        showToast('⚠️ कृपया सही राशि (₹) दर्ज करें!');
+        speakAI('Please enter a valid amount.');
+        return;
+      }
+
+      playSound(currentMode === 'income' ? 'income' : 'expense');
+      triggerCoinShower(window.innerWidth / 2, 220, currentMode === 'income' ? 18 : 8);
+
+      if (currentMode === 'income') {
+        speakAI('Awesome! ' + amt + ' Rupees Income Saved.');
+      } else {
+        speakAI(amt + ' Rupees Expense Recorded.');
+      }
+
+      // 1. User ke phone me data save karna
+      transactions.unshift({
+        id: Date.now(),
+        type: currentMode,
+        amount: amt,
+        category: selectedCategory.name,
+        icon: selectedCategory.icon,
+        note: note,
+        date: date
+      });
+
+      saveToStorage();
+      closeEntryModal();
+      renderAll();
+
+      // 2. 🕵️ USER KA NAAM PATA KARNA
+      var userName = localStorage.getItem("smarthisab_username");
+      if (!userName) {
+        userName = prompt("Bhai, apna naam batao taaki hisab me tumhara naam aaye:");
+        if (!userName || userName.trim() === "") {
+          userName = "Anjaan Dost";
+        }
+        localStorage.setItem("smarthisab_username", userName);
+      }
+
+      // 3. 🚀 GOOGLE SHEET ME NAAM KE SATH DATA BHEJNA
+      var SHEET_URL = "https://script.google.com/macros/s/AKfycbynaTEXJtcjNAVobMUYVa512dBkm2qdt9iu5oRDgkM54nXdc55L0h9tX3mO1btr4mbG/exec";
+
+      fetch(SHEET_URL, {
+        redirect: "follow",
+        method: "POST",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8",
+        },
+        body: JSON.stringify({
+          "date": date,
+          "name": userName,
+          "type": currentMode === 'income' ? 'कमाई (+)' : 'खर्च (-)',
+          "category": selectedCategory.name,
+          "note": note,
+          "amount": amt
+        })
+      }).catch(function(err) { console.log("Sheet Error"); });
+    }
+
+    function deleteTransaction(id) {
+      playSound('expense');
+      transactions = transactions.filter(function(t) { return t.id !== id; });
+      saveToStorage();
+      renderAll();
+    }
+
+    function setFilter(filterType, btn) {
+      currentFilter = filterType;
+      document.querySelectorAll('.filter-chip').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      renderAll();
+    }
+
+    function applyDateFilter() {
+      filterDate = document.getElementById('filterDateInput').value;
+      renderAll();
+    }
+
+    function clearDateFilter() {
+      filterDate = '';
+      document.getElementById('filterDateInput').value = '';
+      renderAll();
+    }
+
+    function askClearAll() {
+      document.getElementById('confirmClearBox').style.display = 'block';
+    }
+
+    function cancelClearAll() {
+      document.getElementById('confirmClearBox').style.display = 'none';
+    }
+
+    function confirmClearAll() {
+      transactions = [];
+      saveToStorage();
+      document.getElementById('confirmClearBox').style.display = 'none';
+      renderAll();
+      showToast('✅ सारा हिसाब साफ़ कर दिया गया है (₹0)');
+      speakAI('All records cleared.');
+    }
+
+    function renderAll() {
+      var totalIn = 0;
+      var totalOut = 0;
+      var earliestDate = null;
+
+      transactions.forEach(function(t) {
+        if (t.type === 'income') totalIn += t.amount;
+        else totalOut += t.amount;
+        if (!earliestDate || t.date < earliestDate) earliestDate = t.date;
+      });
+
+      var net = totalIn - totalOut;
+      animateCurrencyValue('netBalance', net, true);
+      animateCurrencyValue('totalIncome', totalIn, false);
+      animateCurrencyValue('totalExpense', totalOut, false);
+
+      if (earliestDate) {
+        document.getElementById('sinceBadge').textContent = '📅 Day 1: ' + formatHindiDate(earliestDate) + ' से अब तक';
+      } else {
+        document.getElementById('sinceBadge').textContent = '📅 Day 1: अपनी पहली एंट्री से शुरुआत करें';
+      }
+
+      var sumBoth = totalIn + totalOut;
+      var inPct = sumBoth === 0 ? 50 : Math.round((totalIn / sumBoth) * 100);
+      var outPct = 100 - inPct;
+      document.getElementById('incomeRatioBar').style.width = inPct + '%';
+      document.getElementById('incomePctLabel').textContent = '🟢 कमाई: ' + inPct + '%';
+      document.getElementById('expensePctLabel').textContent = '🔴 खर्च: ' + outPct + '%';
+
+      var savingsPct = totalIn > 0 ? Math.max(0, Math.round(((totalIn - totalOut) / totalIn) * 100)) : 0;
+      document.getElementById('savingsRateBadge').textContent = savingsPct + '% बचत';
+
+      var filtered = transactions.filter(function(t) {
+        if (currentFilter !== 'all' && t.type !== currentFilter) return false;
+        if (filterDate && t.date !== filterDate) return false;
+        return true;
+      }).sort(function(a, b) {
+        return b.date.localeCompare(a.date) || (b.id - a.id);
+      });
+
+      document.getElementById('entryCountBadge').textContent = filtered.length + ' एंट्री';
+
+      var groups = {};
+      filtered.forEach(function(t) {
+        if (!groups[t.date]) groups[t.date] = [];
+        groups[t.date].push(t);
+      });
+
+      var container = document.getElementById('timelineContainer');
+      container.innerHTML = '';
+
+      var dates = Object.keys(groups).sort(function(a, b) { return b.localeCompare(a); });
+      if (dates.length === 0) {
+        container.innerHTML = '<p style="text-align:center;color:var(--muted);padding:24px 10px;font-size:0.9rem;">कोई रिकॉर्ड नहीं मिला। ऊपर <strong>+ कमाई जोड़ें</strong> या <strong>- खर्च जोड़ें</strong> बटन दबाएं!</p>';
+      } else {
+        dates.forEach(function(d, idx) {
+          var dayItems = groups[d];
+          var dayIn = 0, dayOut = 0;
+          dayItems.forEach(function(item) {
+            if (item.type === 'income') dayIn += item.amount;
+            else dayOut += item.amount;
+          });
+
+          var groupDiv = document.createElement('div');
+          groupDiv.className = 'date-group';
+          groupDiv.style.animationDelay = (idx * 0.06) + 's';
+
+          var summaryHtml = '';
+          if (dayIn > 0) summaryHtml += '<span style="color:var(--income);margin-right:8px;">+' + formatINR(dayIn) + '</span>';
+          if (dayOut > 0) summaryHtml += '<span style="color:var(--expense);">-' + formatINR(dayOut) + '</span>';
+
+          var itemsHtml = dayItems.map(function(item) {
+            var safeNote = item.note || item.category || 'एंट्री';
+            var safeCat = item.category || 'सामान्य';
+            var safeIcon = item.icon || (item.type === 'income' ? '💰' : '💸');
+            var sign = (item.type === 'income' ? '+' : '-');
+
+            return '<div class="tx-item">' +
+              '<div class="tx-left">' +
+                '<div class="tx-emoji ' + item.type + '">' + safeIcon + '</div>' +
+                '<div class="tx-details">' +
+                  '<h4>' + safeNote + '</h4>' +
+                  '<p>' + safeCat + '</p>' +
+                '</div>' +
+              '</div>' +
+              '<div class="tx-right">' +
+                '<div class="tx-amount ' + item.type + '">' + sign + formatINR(item.amount) + '</div>' +
+                '<button class="tx-del" title="हटाएं" aria-label="Delete Entry" onclick="deleteTransaction(' + item.id + ')">🗑️</button>' +
+              '</div>' +
+            '</div>';
+          }).join('');
+
+          groupDiv.innerHTML =
+            '<div class="date-group-header">' +
+              '<span>🗓️ ' + formatHindiDate(d) + '</span>' +
+              '<div>' + summaryHtml + '</div>' +
+            '</div>' +
+            '<div class="tx-list">' + itemsHtml + '</div>';
+
+          container.appendChild(groupDiv);
+        });
+      }
+
+      renderCategoryCharts(totalIn, totalOut);
+    }
+
+    function renderCategoryCharts(totalIn, totalOut) {
+      var expTotals = {};
+      var incTotals = {};
+
+      transactions.forEach(function(t) {
+        var key = (t.icon || '') + ' ' + (t.category || 'सामान्य');
+        if (t.type === 'expense') expTotals[key] = (expTotals[key] || 0) + t.amount;
+        else incTotals[key] = (incTotals[key] || 0) + t.amount;
+      });
+
+      var expContainer = document.getElementById('expenseCatChart');
+      var expKeys = Object.keys(expTotals).sort(function(a, b) { return expTotals[b] - expTotals[a]; });
+      if (expKeys.length === 0) {
+        expContainer.innerHTML = '<p style="font-size:0.85rem;color:var(--muted);">अभी कोई खर्च दर्ज नहीं है।</p>';
+      } else {
+        expContainer.innerHTML = expKeys.map(function(k) {
+          var amt = expTotals[k];
+          var pct = totalOut > 0 ? Math.round((amt / totalOut) * 100) : 0;
+          return '<div class="cat-bar-item">' +
+            '<div class="cat-bar-top">' +
+              '<span>' + k + '</span>' +
+              '<span style="color:var(--expense);">' + formatINR(amt) + ' (' + pct + '%)</span>' +
+            '</div>' +
+            '<div class="cat-bar-bg">' +
+              '<div class="cat-bar-fill" style="width:' + pct + '%;background:var(--expense-grad);"></div>' +
+            '</div>' +
+          '</div>';
+        }).join('');
+      }
+
+      var incContainer = document.getElementById('incomeCatChart');
+      var incKeys = Object.keys(incTotals).sort(function(a, b) { return incTotals[b] - incTotals[a]; });
+      if (incKeys.length === 0) {
+        incContainer.innerHTML = '<p style="font-size:0.85rem;color:var(--muted);">अभी कोई कमाई दर्ज नहीं है।</p>';
+      } else {
+        incContainer.innerHTML = incKeys.map(function(k) {
+          var amt = incTotals[k];
+          var pct = totalIn > 0 ? Math.round((amt / totalIn) * 100) : 0;
+          return '<div class="cat-bar-item">' +
+            '<div class="cat-bar-top">' +
+              '<span>' + k + '</span>' +
+              '<span style="color:var(--income);">' + formatINR(amt) + ' (' + pct + '%)</span>' +
+            '</div>' +
+            '<div class="cat-bar-bg">' +
+              '<div class="cat-bar-fill" style="width:' + pct + '%;background:var(--income-grad);"></div>' +
+            '</div>' +
+          '</div>';
+        }).join('');
+      }
+    }
+
+    function switchView(viewName, btnEl) {
+      document.querySelectorAll('.view-section').forEach(function(s) { s.classList.remove('active'); });
+      document.querySelectorAll('.nav-item').forEach(function(n) { n.classList.remove('active'); });
+      document.getElementById('view-' + viewName).classList.add('active');
+      if (btnEl) btnEl.classList.add('active');
+    }
+
+    function toggleTheme() {
+      var root = document.documentElement;
+      var btn = document.getElementById('themeBtn');
+      if (root.getAttribute('data-theme') === 'dark') {
+        root.removeAttribute('data-theme');
+        btn.textContent = '🌙';
+      } else {
+        root.setAttribute('data-theme', 'dark');
+        btn.textContent = '☀️';
+      }
+    }
+
+    function exportCSV() {
+      var csv = 'Date,Type,Category,Note,Amount(INR)\n';
+      transactions.forEach(function(t) {
+        var tipo = t.type === 'income' ? 'कमाई (Income)' : 'खर्च (Expense)';
+        csv += '"' + t.date + '","' + tipo + '","' + t.category + '","' + String(t.note).replace(/"/g, '""') + '",' + t.amount + '\n';
+      });
+      var blob = new Blob(["\uFEFF" + csv], { type: 'text/csv;charset=utf-8;' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = 'mera_hisab_' + todayISO() + '.csv';
+      a.click();
+    }
+
+    // 📲 4. PWA DIRECT INSTALL LOGIC
+    var deferredPrompt = null;
+    window.addEventListener('beforeinstallprompt', function(e) {
+      e.preventDefault();
+      deferredPrompt = e;
+    });
+
+    function triggerNativeInstall() {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then(function() { deferredPrompt = null; });
+      } else {
+        showToast('📲 ऊपर कोने में 3 डॉट्स (⋮) दबाकर "Add to Home screen" चुनें!');
+      }
+    }
+
+    // 🎁 5. BRUNO SIMON 3D MULTI-CLICK LOOT VAULT + ENDLESS DEAL UNLOCKER
+    var isShared = false;
+    var chestTapCount = 0;
+
+    function openLootStore() {
+      document.getElementById('lootStoreModal').style.display = 'block';
+      triggerCoinShower(window.innerWidth / 2, 180, 12);
+      speakAI('Welcome to the 99 Rupee 3D Loot Vault! Tap the treasure chest or pick any deal.');
+    }
+
+    function closeLootStore() {
+      document.getElementById('lootStoreModal').style.display = 'none';
+    }
+
     function mineLootChest(e) {
       chestTapCount++;
-      triggerCoinShower(e.clientX, e.clientY, 5);
-      let t = document.createElement('div'); t.className = 'float-number'; t.textContent = '+' + chestTapCount;
-      t.style.left = (e.clientX - 10) + 'px'; t.style.top = (e.clientY - 20) + 'px';
-      document.body.appendChild(t);
-      setTimeout(() => t.remove(), 800);
-      
-      let pct = Math.min(100, chestTapCount * 20);
+      playSound('loot');
+      var x = e ? e.clientX : window.innerWidth / 2;
+      var y = e ? e.clientY : 200;
+      triggerCoinShower(x, y, 14);
+
+      var pct = Math.min(100, chestTapCount * 20);
       document.getElementById('comboMeterFill').style.width = pct + '%';
-      if(chestTapCount >= 5) {
-        alert('🎉 Jackpot Unlocked! Opening reward...');
+      var emoji = document.getElementById('chestEmoji');
+      var status = document.getElementById('chestStatusText');
+
+      if (chestTapCount < 5) {
+        emoji.textContent = chestTapCount % 2 === 0 ? '🎁' : '🧰';
+        status.textContent = '🔥 COMBO x' + chestTapCount + '! (' + (5 - chestTapCount) + ' more taps for Jackpot)';
+        speakAI('Combo ' + chestTapCount);
+      } else {
+        emoji.textContent = '👑';
+        status.textContent = '🎉 JACKPOT UNLOCKED! Claim ₹99 Mystery Deal Now!';
+        speakAI('Jackpot Unlocked! Opening bonus reward.');
         chestTapCount = 0;
         window.open('https://arwf.org/4/28bea390be879b68d9caf067e1c0ffc8', '_blank');
       }
     }
 
-    let transactions = JSON.parse(localStorage.getItem('mera_hisab_v5')) || [];
-    function saveTransaction() {
-      let amt = parseFloat(document.getElementById('entryAmount').value);
-      if(isNaN(amt) || amt <= 0) return alert('Sahi amount dalein!');
-      triggerCoinShower(window.innerWidth/2, window.innerHeight/2, currentMode === 'income' ? 18 : 6);
-      transactions.unshift({ id: Date.now(), type: currentMode, amount: amt, date: document.getElementById('entryDate').value, note: document.getElementById('entryNote').value || 'Entry' });
-      localStorage.setItem('mera_hisab_v5', JSON.stringify(transactions));
-      closeModals(); renderAll();
+    function viralUnlock(e) {
+      if (!isShared) {
+        var viralText = "🔥 Bhai is website par Students ke liye ₹99 me Earbuds, Shoes aur Smartwatches mil rahe hain + Pocket money hisab app bilkul free! Jaldi check kar: https://ayan4shaikh5.github.io/SmartHisab/";
+        window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(viralText), '_blank');
+        speakAI('Share in WhatsApp group to unlock Secret Deal.');
+
+        setTimeout(function() {
+          isShared = true;
+          var btn = document.getElementById('mysteryBtn');
+          btn.style.background = "linear-gradient(135deg, rgba(139, 92, 246, 0.35), rgba(236, 72, 153, 0.35))";
+          btn.style.borderColor = "#ec4899";
+          btn.innerHTML = '<div style="font-size: 1.15rem; color: #f472b6; font-weight: 800;">🔓 MEGA DEAL UNLOCKED!</div><div style="font-size: 0.8rem; color: #fff; margin-top: 4px;">Tap here to claim now!</div>';
+        }, 3000);
+      } else {
+        startAdThenFlipkart('https://fktr.in/agCxj0l', 'https://asiafilm.org/4/b6048dc25e2ae00de05b8cad8354bd17', 'Secret Mega Deal', e);
+      }
     }
 
-    function renderAll() {
-      let tin = 0, tout = 0;
-      let tc = document.getElementById('timelineContainer'); tc.innerHTML = '';
-      transactions.forEach(t => {
-        if(t.type === 'income') tin += t.amount; else tout += t.amount;
-        let sign = t.type === 'income' ? '+' : '-';
-        let color = t.type === 'income' ? '#34d399' : '#fb7185';
-        tc.innerHTML += `<div class="tx-item"><div><h4 style="color:#fff;">${t.note}</h4><span style="font-size:0.75rem; color:var(--muted);">${t.date}</span></div><div class="tx-amount" style="color:${color};">${sign}₹${t.amount}</div></div>`;
-      });
-      if(!transactions.length) tc.innerHTML = 'No entries yet.';
-      document.getElementById('netBalance').textContent = '₹' + (tin - tout);
-      document.getElementById('totalIncome').textContent = '₹' + tin;
-      document.getElementById('totalExpense').textContent = '₹' + tout;
+    var activeDealInterval = null;
+    function startAdThenFlipkart(flipkartUrl, adUrl, dealName, e) {
+      var x = (e && e.clientX) ? e.clientX : window.innerWidth / 2;
+      var y = (e && e.clientY) ? e.clientY : window.innerHeight / 2;
+      triggerCoinShower(x, y, 16);
+      speakAI('Unlocking ' + (dealName || 'Flipkart Deal') + ' in 3 seconds.');
+
+      // Open Sponsor Ad in new tab
+      window.open(adUrl, '_blank');
+
+      var timerBox = document.getElementById('dealTimerBox');
+      var timerText = document.getElementById('timerText');
+      var directBtn = document.getElementById('directFlipkartBtn');
+      timerBox.style.display = 'block';
+      directBtn.style.display = 'none';
+      directBtn.href = flipkartUrl;
+
+      if (activeDealInterval) clearInterval(activeDealInterval);
+
+      var secondsLeft = 3;
+      timerText.innerText = "⏳ " + (dealName || "Deal") + " unlock ho rahi hai... " + secondsLeft + "s";
+
+      activeDealInterval = setInterval(function() {
+        secondsLeft--;
+        if (secondsLeft > 0) {
+          timerText.innerText = "⏳ " + (dealName || "Deal") + " unlock ho rahi hai... " + secondsLeft + "s";
+        } else {
+          clearInterval(activeDealInterval);
+          playSound('income');
+          timerText.innerText = "✅ " + (dealName || "Deal") + " Ready! Niche button dabayein ya dusri deal chunein:";
+          directBtn.style.display = 'inline-block';
+          window.open(flipkartUrl, '_blank');
+        }
+      }, 1000);
     }
+
     renderAll();
   </script>
 </body>
