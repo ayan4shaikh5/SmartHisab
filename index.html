@@ -2,32 +2,30 @@
 <html lang="hi" data-theme="dark">
 <head>
   <!-- ==========================================================================
-       🚀 1. SEO & META TAGS (MASTER GOOGLE SEO CODE)
+       🚀 1. SEO & META TAGS
        ========================================================================== -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   
-  <title>SmartHisab (मेरा हिसाब ₹) - Official Free Expense Tracker & Loot Store</title>
+  <title>SmartHisab (मेरा हिसाब ₹) - Official Free Expense Tracker</title>
   <meta name="title" content="SmartHisab - Free Daily Hisab & Student Budget App" />
-  <meta name="description" content="SmartHisab - roz ka hisab, udhaar vasooli, aur daily budget bina login track karein. Includes WhatsApp Vasooli Bot & ₹99 Loot Store." />
-  <meta name="keywords" content="SmartHisab, smarthisab, smart hisab, smarthisaab, mera hisab, मेरा हिसाब, ayan4shaikh5, student expense tracker, daily hisab app, budget tracker, Kharcha Pani" />
+  <meta name="description" content="SmartHisab - roz ka hisab, udhaar vasooli, aur daily budget track karein. Includes WhatsApp Vasooli Bot & 3D Physics Loot Store." />
+  <meta name="keywords" content="SmartHisab, smarthisab, mera hisab, ayan4shaikh5, student expense tracker, daily hisab app" />
   <meta name="author" content="Ayan Shaikh" />
   <meta name="robots" content="index, follow" />
   <meta name="google-site-verification" content="NJfuIJz2C8AggIvY0iuMZOxDwMUrhUZYhBkSqX2gKsM" />
   <link rel="canonical" href="https://ayan4shaikh5.github.io/SmartHisab/" />
 
-  <!-- 🤖 GOOGLE AI & BRAND NAME SCHEMA -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "SmartHisab",
-    "alternateName": ["smarthusab", "Smart Hisab", "SmartHisaab", "मेरा हिसाब ₹", "Mera Hisab"],
+    "alternateName": ["smarthusab", "Smart Hisab", "Mera Hisab"],
     "url": "https://ayan4shaikh5.github.io/SmartHisab/"
   }
   </script>
 
-  <!-- PWA & Mobile Meta (App Install Support) -->
   <meta name="theme-color" content="#03050a" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -66,7 +64,7 @@
   </script>
 
   <!-- ==========================================================================
-       💅 4. MASTER CSS SYLESHEET (Uncompressed & Formatted)
+       💅 4. MASTER CSS SYLESHEET
        ========================================================================== -->
   <style>
     /* ----- Root Variables & Themes ----- */
@@ -134,7 +132,7 @@
       transition: background-color 0.4s ease, color 0.4s ease; 
     }
 
-    /* ----- 3D Canvas Background ----- */
+    /* ----- 🌐 3D CYBER CANVAS BACKGROUND ----- */
     #cyberCanvas { 
       position: fixed; 
       top: 0; 
@@ -143,6 +141,40 @@
       height: 100vh; 
       z-index: 0; 
       pointer-events: none; 
+      opacity: 0.9; /* 75% perfection glow */
+    }
+
+    .ambient-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.55;
+      animation: orbFloat 14s infinite alternate ease-in-out;
+    }
+
+    .orb-1 {
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, #6366f1 0%, transparent 70%);
+      top: -80px;
+      left: -80px;
+    }
+
+    .orb-2 {
+      width: 340px;
+      height: 340px;
+      background: radial-gradient(circle, #10b981 0%, transparent 70%);
+      bottom: 80px;
+      right: -90px;
+      animation-delay: -7s;
+    }
+
+    @keyframes orbFloat {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(60px, 45px) scale(1.2); }
+      100% { transform: translate(-40px, 80px) scale(0.9); }
     }
     
     /* Main App Container */
@@ -173,6 +205,11 @@
     @keyframes spinLaser { 
       0% { transform: translate(-50%, -50%) rotate(0deg); } 
       100% { transform: translate(-50%, -50%) rotate(360deg); } 
+    }
+
+    @keyframes waveFlow {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
 
     /* Interactive Buttons Bounce Effect */
@@ -208,7 +245,7 @@
     .top-actions { display: flex; gap: 6px; }
     .icon-pill-btn { background: var(--surface-soft); color: var(--text); border: 1px solid var(--border); padding: 8px 12px; border-radius: 12px; font-size: 0.8rem; font-weight: 700; cursor: pointer; }
 
-    /* ----- Hero Card 3D Titanium ----- */
+    /* ----- ⚡ Hero Card 3D Titanium + Gyroscope ----- */
     .hero-laser-wrapper { 
       position: relative; 
       border-radius: 28px; 
@@ -255,6 +292,19 @@
       animation: holoSweep 4s infinite ease-in-out; 
       pointer-events: none; 
       z-index: 2; 
+    }
+
+    /* Live Telemetry Wave inside Hero Card */
+    .telemetry-wave {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 200%;
+      height: 60px;
+      opacity: 0.25;
+      pointer-events: none;
+      animation: waveFlow 6.5s linear infinite;
+      z-index: 0;
     }
     
     .hero-top-meta { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 3; margin-bottom: 12px; }
@@ -554,6 +604,8 @@
        🌌 3D PARTICLE & PHYSICS CANVAS BACKGROUND
        ========================================================================== -->
   <canvas id="cyberCanvas"></canvas>
+  <div class="ambient-orb orb-1"></div>
+  <div class="ambient-orb orb-2"></div>
 
   <!-- ==========================================================================
        📱 MAIN APPLICATION SHELL
@@ -577,9 +629,21 @@
       </div>
     </header>
 
-    <!-- ⚡ 3D TILT GYROSCOPE HERO CARD -->
+    <!-- ⚡ 3D TILT GYROSCOPE HERO CARD WITH LIVE WAVE -->
     <div class="hero-laser-wrapper" id="heroTiltCard">
       <section class="hero-card">
+        <!-- Animated Live Telemetry Wave inside Hero Card -->
+        <svg class="telemetry-wave" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M0,60 C150,120 300,0 450,60 C600,120 750,0 900,60 C1050,120 1200,0 1200,60 L1200,120 L0,120 Z" fill="url(#waveGrad)"></path>
+          <defs>
+            <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#10b981" />
+              <stop offset="50%" stop-color="#6366f1" />
+              <stop offset="100%" stop-color="#ec4899" />
+            </linearGradient>
+          </defs>
+        </svg>
+
         <div class="hero-top-meta">
           <div class="day1-badge">
             <span id="userLevelRank" style="color:#fbbf24; font-weight:800;">🌱 Starter</span>
@@ -622,8 +686,8 @@
 
     <!-- ➕➖ Big Tactile Income / Expense Buttons -->
     <div class="big-action-row">
-      <button class="big-btn btn-income" onclick="playSound('income'); openEntryModal('income');">➕ कमाई जोड़ें</button>
-      <button class="big-btn btn-expense" onclick="playSound('expense'); openEntryModal('expense');">➖ खर्च जोड़ें</button>
+      <button class="big-btn btn-income" onclick="playSound('click'); openEntryModal('income');">➕ कमाई जोड़ें</button>
+      <button class="big-btn btn-expense" onclick="playSound('click'); openEntryModal('expense');">➖ खर्च जोड़ें</button>
     </div>
 
     <!-- 👑 Abdullah's Secret Video Dashboard (Hidden by Default) -->
@@ -671,13 +735,13 @@
         <!-- Filtering -->
         <div class="filter-row">
           <button class="filter-chip active" onclick="playSound('click'); setFilter('all', this)">सभी (All)</button>
-          <button class="filter-chip" onclick="playSound('income'); setFilter('income', this)">🟢 सिर्फ कमाई</button>
-          <button class="filter-chip" onclick="playSound('expense'); setFilter('expense', this)">🔴 सिर्फ खर्च</button>
+          <button class="filter-chip" onclick="playSound('click'); setFilter('income', this)">🟢 सिर्फ कमाई</button>
+          <button class="filter-chip" onclick="playSound('click'); setFilter('expense', this)">🔴 सिर्फ खर्च</button>
         </div>
         <div class="date-filter-box">
           <input type="date" id="filterDateInput" onchange="playSound('click'); applyDateFilter()" />
           <button class="clear-date-btn" onclick="playSound('click'); clearDateFilter()">सभी तारीखें</button>
-          <button class="clear-date-btn" style="color:var(--expense);" onclick="playSound('expense'); askClearAll()">🗑️ रीसेट</button>
+          <button class="clear-date-btn" style="color:var(--expense);" onclick="playSound('click'); askClearAll()">🗑️ रीसेट</button>
         </div>
         <!-- Timeline Ledger -->
         <div id="timelineContainer"></div>
@@ -696,7 +760,7 @@
       </div>
       <div class="panel">
         <div class="panel-header"><div class="panel-title">💾 डेटा बैकअप (Download)</div></div>
-        <button class="big-btn btn-income" style="width:100%;" onclick="playSound('income'); exportCSV()">
+        <button class="big-btn btn-income" style="width:100%;" onclick="playSound('click'); exportCSV()">
           📥 Excel/CSV डाउनलोड करें
         </button>
       </div>
@@ -707,7 +771,7 @@
       <div class="panel">
         <div class="panel-header"><div class="panel-title">📲 फोन की होम स्क्रीन पर लगाएं</div></div>
         <div style="text-align: center; padding: 20px;">
-          <button class="big-btn btn-income" onclick="playSound('income'); triggerNativeInstall();" style="width:100%;">
+          <button class="big-btn btn-income" onclick="playSound('click'); triggerNativeInstall();" style="width:100%;">
             📲 Install SmartHisab App
           </button>
         </div>
@@ -720,7 +784,7 @@
         🎁 आज का सरप्राइज़ (Tap Here)
       </a>
       
-      <!-- Compact Adsterra Ad Unit (Bottom Fixed se hata kar yahan Inline kar diya) -->
+      <!-- Compact Adsterra Ad Unit -->
       <div style="margin: 16px auto 0 auto; padding: 8px; max-width: 320px; background: var(--surface-soft); border: 1px solid var(--border); border-radius: 16px; text-align: center;">
         <span style="font-size: 0.65rem; color: var(--muted); text-transform: uppercase; font-weight: 800; display: block; margin-bottom: 4px;">✨ Sponsored Partner</span>
         <div style="transform: scale(0.95); transform-origin: center;">
@@ -802,7 +866,7 @@
         <button onclick="playSound('click'); closeModals();" style="background: rgba(244, 63, 94, 0.2); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.4); padding: 7px 14px; border-radius: 10px; font-weight: 700; cursor: pointer;">✖ बंद करें</button>
       </div>
 
-      <!-- 🎮 Tap-to-Mine Chest Area -->
+      <!-- 🎮 Tap-to-Mine Area -->
       <div class="bruno-chest-zone" id="lootChestBox" onclick="mineLootChest(event)">
         <div style="font-size: 0.72rem; color: #c4b5fd; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px;">🎮 Tap Multiple Times to Mine Coins!</div>
         <div class="chest-3d-icon" id="chestEmoji">🧰</div>
@@ -819,36 +883,26 @@
         <button onclick="playSound('loot'); startAdThenFlipkart('https://fktr.in/BakOoqi', 'https://asiafilm.org/4/c8adaff60d7b00056e516f39ce44b77c', event)" class="loot-card" style="background: rgba(30, 41, 59, 0.72); border: 1px solid rgba(255, 255, 255, 0.14); color: #f8fafc; padding: 16px 12px; border-radius: 18px; font-weight: 700;">
           <div style="font-size: 32px;">👟</div><div style="margin-top: 6px;">Sneakers</div><div style="color: #34d399; font-size: 0.8rem; margin-top:4px;">₹149 Only</div>
         </button>
-        <!-- Viral WhatsApp Unlock Deal -->
-        <button id="mysteryBtn" onclick="playSound('loot'); viralUnlock(event);" class="loot-card" style="grid-column: span 2; background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(5, 150, 105, 0.35)); border: 1px solid rgba(52, 211, 153, 0.55);">
-          <div style="font-size: 1.1rem; color: #34d399; font-weight: 800;">🔒 ₹99 SECRET LOOT (LOCKED)</div>
-          <div style="font-size: 0.8rem; color: #e2e8f0; margin-top: 4px;">👉 अनलॉक करने के लिए WhatsApp ग्रुप में शेयर करें!</div>
-        </button>
       </div>
     </div>
   </div>
 
-  <!-- Floating Loot Pill (Bottom Right) -->
   <button class="icon-pill-btn" onclick="playSound('loot'); document.getElementById('lootStoreModal').style.display='flex';" style="position: fixed; bottom: 82px; right: 16px; z-index: 2147483644; background: linear-gradient(135deg, #0f172a, #1e1b4b); color: #fff; border: 1.5px solid #8b5cf6; padding: 11px 18px; border-radius: 99px; box-shadow: 0 10px 30px rgba(139,92,246,0.5);">
     🎁 ₹99 3D Vault
   </button>
 
-  <!-- 📱 Bottom Navigation Dock -->
   <nav class="bottom-nav">
     <button class="nav-item active" id="nav-home" onclick="playSound('click'); switchView('home', this)">🏠<span>होम</span></button>
     <button class="nav-item" id="nav-stats" onclick="playSound('click'); switchView('stats', this)">📊<span>रिपोर्ट</span></button>
     <button class="nav-item" id="nav-install" onclick="playSound('click'); switchView('install', this)">📲<span>ऐप</span></button>
   </nav>
 
-  <!-- Global App Toast Notification -->
-  <div id="appToast" class="toast-msg"></div>
-
   <!-- ==========================================================================
-       ⚙️ MAIN JAVASCRIPT LOGIC (Uncompressed & Heavily Commented)
+       ⚙️ MAIN JAVASCRIPT LOGIC (Professional Sounds + 75% Cyber Background)
        ========================================================================== -->
   <script>
     // --------------------------------------------------------
-    // 1. Audio Engine (Plays mechanical UI sounds)
+    // 1. Professional Audio Engine
     // --------------------------------------------------------
     var sharedAudioCtx = null;
     function getAudioCtx() {
@@ -865,32 +919,100 @@
         if (!ctx) return;
         var now = ctx.currentTime, osc = ctx.createOscillator(), gain = ctx.createGain();
         osc.connect(gain); gain.connect(ctx.destination);
-        if (type === 'income' || type === 'loot') {
-          osc.type = 'sine'; osc.frequency.setValueAtTime(type==='loot'?659.25:987.77, now);
-          osc.frequency.setValueAtTime(1318.51, now + 0.1);
-          gain.gain.setValueAtTime(0.2, now); gain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
+        
+        if (type === 'click') {
+          // Professional soft tick
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(800, now);
+          osc.frequency.exponentialRampToValueAtTime(1200, now + 0.04);
+          gain.gain.setValueAtTime(0.15, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+          osc.start(now); osc.stop(now + 0.05);
+        } else if (type === 'income') {
+          // Sleek success chime
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(600, now);
+          osc.frequency.setValueAtTime(1200, now + 0.1);
+          gain.gain.setValueAtTime(0.2, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
           osc.start(now); osc.stop(now + 0.3);
-        } else {
-          osc.type = 'triangle'; osc.frequency.setValueAtTime(400, now); osc.frequency.exponentialRampToValueAtTime(100, now + 0.2);
-          gain.gain.setValueAtTime(0.2, now); gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
-          osc.start(now); osc.stop(now + 0.2);
+        } else if (type === 'expense') {
+          // Soft muted thud
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(300, now);
+          osc.frequency.exponentialRampToValueAtTime(100, now + 0.15);
+          gain.gain.setValueAtTime(0.2, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.15);
+          osc.start(now); osc.stop(now + 0.15);
+        } else if (type === 'loot') {
+          // Magic shimmer
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(880, now);
+          osc.frequency.setValueAtTime(1318.51, now + 0.08);
+          osc.frequency.setValueAtTime(1760, now + 0.16);
+          gain.gain.setValueAtTime(0.15, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.4);
+          osc.start(now); osc.stop(now + 0.4);
         }
       } catch (e) {}
     }
 
     // --------------------------------------------------------
-    // 2. 3D Canvas Physics Engine (Golden Coins & Gyroscope)
+    // 2. 75% Cyber Background & Physics Engine (Connecting lines + Cursor Trails + Coins)
     // --------------------------------------------------------
     var coins = [];
+    var trails = [];
+    var nodes = [];
+    
     (function initPhysics() {
       var canvas = document.getElementById('cyberCanvas');
       if (!canvas) return;
       var ctx = canvas.getContext('2d');
       var width = canvas.width = window.innerWidth, height = canvas.height = window.innerHeight;
+      var pointer = { x: -999, y: -999 };
+
+      // Initialize AI Nodes (75% complexity density)
+      var nodeCount = window.innerWidth < 600 ? 30 : 50;
+      for (var i = 0; i < nodeCount; i++) {
+        nodes.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 0.9,
+          vy: (Math.random() - 0.5) * 0.9,
+          r: Math.random() * 2 + 1.2,
+          color: i % 2 === 0 ? '#6366f1' : '#10b981'
+        });
+      }
+
+      function spawnTrail(x, y) {
+        for (var i = 0; i < 2; i++) {
+          trails.push({
+            x: x + (Math.random() - 0.5) * 10,
+            y: y + (Math.random() - 0.5) * 10,
+            vx: (Math.random() - 0.5) * 2.2,
+            vy: (Math.random() - 0.5) * 2.2 - 0.5,
+            r: Math.random() * 3.5 + 1.5,
+            alpha: 1,
+            hue: Math.random() > 0.5 ? 160 : 250
+          });
+        }
+      }
+
+      // Track cursor / touch for trails & node connections
+      window.addEventListener('mousemove', function(e) {
+        pointer.x = e.clientX; pointer.y = e.clientY;
+        spawnTrail(e.clientX, e.clientY);
+      });
+      window.addEventListener('touchmove', function(e) {
+        if (e.touches[0]) {
+          pointer.x = e.touches[0].clientX; pointer.y = e.touches[0].clientY;
+          spawnTrail(pointer.x, pointer.y);
+        }
+      }, { passive: true });
       
       // Global function to trigger the 3D coin shower
       window.triggerCoinShower = function(x, y, count) {
-        if (navigator.vibrate) navigator.vibrate(40); // Haptic Feedback (Phone vibrates)
+        if (navigator.vibrate) navigator.vibrate(40);
         for (var i = 0; i < (count || 10); i++) {
           coins.push({ 
             x: x, y: y, 
@@ -904,9 +1026,50 @@
         }
       };
 
-      // Draw and animate coins
       function animate() {
         ctx.clearRect(0, 0, width, height);
+
+        // A. Draw Nodes & Connecting Lines (The 75% ActiveTheory vibe)
+        for (var i = 0; i < nodes.length; i++) {
+          var n = nodes[i];
+          n.x += n.vx; n.y += n.vy;
+          if (n.x < 0 || n.x > width) n.vx *= -1;
+          if (n.y < 0 || n.y > height) n.vy *= -1;
+
+          ctx.beginPath();
+          ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+          ctx.fillStyle = n.color;
+          ctx.fill();
+
+          for (var j = i + 1; j < nodes.length; j++) {
+            var n2 = nodes[j];
+            var dx = n.x - n2.x, dy = n.y - n2.y;
+            var dist = Math.sqrt(dx * dx + dy * dy);
+            // Connect nodes
+            if (dist < 130) {
+              ctx.beginPath();
+              ctx.moveTo(n.x, n.y);
+              ctx.lineTo(n2.x, n2.y);
+              ctx.strokeStyle = 'rgba(99, 102, 241, ' + (1 - dist / 130) * 0.35 + ')';
+              ctx.lineWidth = 1.2;
+              ctx.stroke();
+            }
+          }
+        }
+
+        // B. Draw Cursor Energy Trails
+        for (var t = trails.length - 1; t >= 0; t--) {
+          var tr = trails[t];
+          tr.x += tr.vx; tr.y += tr.vy;
+          tr.alpha -= 0.03;
+          if (tr.alpha <= 0) { trails.splice(t, 1); continue; }
+          ctx.beginPath();
+          ctx.arc(tr.x, tr.y, tr.r, 0, Math.PI * 2);
+          ctx.fillStyle = 'hsla(' + tr.hue + ', 90%, 60%, ' + tr.alpha + ')';
+          ctx.fill();
+        }
+
+        // C. Draw Coins
         for (var c = coins.length - 1; c >= 0; c--) {
           var coin = coins[c];
           coin.vy += 0.5; // Gravity
@@ -914,19 +1077,17 @@
           coin.y += coin.vy; 
           coin.rot += coin.vRot;
           
-          // Floor bounce
           if (coin.y > height - 100) { 
             coin.y = height - 100; 
             coin.vy *= -0.6; 
             coin.alpha -= 0.08; 
           }
           
-          // Remove dead coins
           if (coin.alpha <= 0) { coins.splice(c, 1); continue; }
           
           ctx.save(); 
           ctx.translate(coin.x, coin.y); 
-          ctx.scale(Math.cos(coin.rot), 1); // 3D spin illusion
+          ctx.scale(Math.cos(coin.rot), 1);
           ctx.beginPath(); 
           ctx.arc(0, 0, coin.r, 0, Math.PI * 2); 
           ctx.fillStyle = 'rgba(251, 191, 36, ' + coin.alpha + ')'; 
@@ -943,7 +1104,6 @@
         if(card) card.style.transform = 'perspective(900px) rotateX(' + rotX + 'deg) rotateY(' + rotY + 'deg) scale(1.02)';
       }
       
-      // Phone Gyroscope (if available)
       if (window.DeviceOrientationEvent) {
         window.addEventListener('deviceorientation', function(e) {
           if (!e.gamma || !e.beta) return;
@@ -953,7 +1113,6 @@
         });
       }
       
-      // Mouse Tilt (for PC testing)
       if(card) {
         card.addEventListener('mousemove', function(e) {
           var r = card.getBoundingClientRect();
@@ -1021,17 +1180,14 @@
     }
 
     // --------------------------------------------------------
-    // 6. Tap to Mine Loot Chest (Notcoin Style Physics)
+    // 6. Tap to Mine Loot Chest
     // --------------------------------------------------------
     var chestTapCount = 0;
-    var isShared = false;
-
     function mineLootChest(e) {
       chestTapCount++;
       playSound('loot');
       triggerCoinShower(e.clientX, e.clientY, 5);
       
-      // Floating +1 Text effect
       var t = document.createElement('div'); 
       t.className = 'float-number'; 
       t.textContent = '+' + chestTapCount;
@@ -1040,7 +1196,6 @@
       document.body.appendChild(t);
       setTimeout(function(){ t.remove(); }, 800);
 
-      // Update Combo Meter
       var pct = Math.min(100, chestTapCount * 20);
       document.getElementById('comboMeterFill').style.width = pct + '%';
       
@@ -1048,11 +1203,10 @@
         document.getElementById('chestEmoji').textContent = chestTapCount % 2 === 0 ? '🎁' : '🧰';
         document.getElementById('chestStatusText').textContent = '🔥 COMBO x' + chestTapCount + '! (' + (5 - chestTapCount) + ' more taps)';
       } else {
-        // Jackpot Unlocked
         document.getElementById('chestEmoji').textContent = '👑';
         document.getElementById('chestStatusText').textContent = '🎉 JACKPOT! Claim Mega Deal!';
         chestTapCount = 0;
-        window.open('https://arwf.org/4/28bea390be879b68d9caf067e1c0ffc8', '_blank'); // Surprise URL
+        window.open('https://arwf.org/4/28bea390be879b68d9caf067e1c0ffc8', '_blank');
       }
     }
 
@@ -1062,29 +1216,11 @@
       setTimeout(function(){ window.open(flipUrl, '_blank'); }, 2000);
     }
 
-    function viralUnlock(e) {
-      if (!isShared) {
-        var viralText = "🔥 Bhai is website par Students ke liye ₹99 me Earbuds, Shoes aur Smartwatches mil rahe hain + Pocket money hisab app bilkul free! Jaldi check kar: https://ayan4shaikh5.github.io/SmartHisab/";
-        window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(viralText), '_blank');
-
-        setTimeout(function() {
-          isShared = true;
-          var btn = document.getElementById('mysteryBtn');
-          btn.style.background = "linear-gradient(135deg, rgba(139, 92, 246, 0.35), rgba(236, 72, 153, 0.35))";
-          btn.style.borderColor = "#ec4899";
-          btn.innerHTML = '<div style="font-size: 1.15rem; color: #f472b6; font-weight: 800;">🔓 MEGA DEAL UNLOCKED!</div><div style="font-size: 0.8rem; color: #fff; margin-top: 4px;">Tap here to claim now!</div>';
-        }, 3000);
-      } else {
-        startAdThenFlipkart('https://fktr.in/agCxj0l', 'https://asiafilm.org/4/b6048dc25e2ae00de05b8cad8354bd17', e);
-      }
-    }
-
     // --------------------------------------------------------
     // 7. Core SmartHisab Expense/Income Logic
     // --------------------------------------------------------
     var STORAGE_KEY = 'mera_hisab_clean_v2';
     
-    // Fully Expanded Category Array
     var CATEGORIES = {
       income: [
         { id: 'salary', icon: '💼', name: 'वेतन (Salary)' }, 
@@ -1109,10 +1245,9 @@
     
     var transactions = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
 
-    // Open Modal for adding transactions
     function openEntryModal(mode) {
       currentMode = mode; 
-      document.getElementById('modalTitle').textContent = mode === 'income' ? '➕ कमाई' : '➖ खर्च';
+      document.getElementById('modalTitle').textContent = mode === 'income' ? '➕ नई कमाई' : '➖ नया खर्च';
       
       var today = new Date();
       var yyyy = today.getFullYear();
@@ -1139,7 +1274,6 @@
         d.onclick = function() { 
           playSound('click'); 
           selectedCategory = cat; 
-          // Highlight selected
           Array.from(grid.children).forEach(function(child) { child.style.borderColor = 'var(--border)'; });
           d.style.borderColor = mode === 'income' ? '#10b981' : '#f43f5e';
         };
@@ -1149,7 +1283,6 @@
       document.getElementById('entryModal').classList.add('open');
     }
 
-    // Google Sheets Web App URL for Tracking
     var SHEET_URL = "https://script.google.com/macros/s/AKfycbynaTEXJtcjNAVobMUYVa512dBkm2qdt9iu5oRDgkM54nXdc55L0h9tX3mO1btr4mbG/exec";
 
     function saveTransaction() {
@@ -1165,7 +1298,6 @@
       var dateVal = document.getElementById('entryDate').value;
       var noteVal = document.getElementById('entryNote').value.trim() || selectedCategory.name;
 
-      // 1. Save locally to phone
       transactions.unshift({ 
         id: Date.now(), 
         type: currentMode, 
@@ -1177,7 +1309,6 @@
       });
       localStorage.setItem(STORAGE_KEY, JSON.stringify(transactions));
       
-      // 2. Secret Name Prompt for Google Sheets tracking
       var userName = localStorage.getItem("smarthisab_username");
       if (!userName) {
         userName = prompt("Bhai, apna naam batao taaki hisab me tumhara naam aaye:");
@@ -1185,7 +1316,6 @@
         localStorage.setItem("smarthisab_username", userName);
       }
 
-      // 3. Send data to Google Sheets silently
       fetch(SHEET_URL, {
         redirect: "follow",
         method: "POST",
@@ -1239,7 +1369,6 @@
       }
     }
 
-    // Main UI Render Function
     function renderAll() {
       var tin = 0, tout = 0;
       
@@ -1256,21 +1385,17 @@
       
       var net = tin - tout;
       
-      // Update Balance UI
       document.getElementById('netBalance').textContent = '₹' + net;
       document.getElementById('totalIncome').textContent = '₹' + tin;
       document.getElementById('totalExpense').textContent = '₹' + tout;
       
-      // Update Rank Badge
       var rank = net > 2000 ? '👑 Pocket Money King' : (net > 500 ? '💎 Smart Saver' : '🌱 Starter');
       var rColor = net > 2000 ? '#fbbf24' : (net > 500 ? '#34d399' : '#94a3b8');
       document.getElementById('userLevelRank').innerHTML = '<span style="color:'+rColor+'">'+rank+'</span>';
 
-      // Ratio Bar
       var pct = tin + tout === 0 ? 50 : Math.round((tin / (tin + tout)) * 100);
       document.getElementById('incomeRatioBar').style.width = pct + '%';
       
-      // Render Timeline
       document.getElementById('entryCountBadge').textContent = filtered.length + ' एंट्री';
       var tc = document.getElementById('timelineContainer'); 
       tc.innerHTML = '';
@@ -1299,7 +1424,6 @@
       renderCategoryCharts(tin, tout);
     }
 
-    // Chart Rendering
     function renderCategoryCharts(totalIn, totalOut) {
       var expTotals = {}, incTotals = {};
 
