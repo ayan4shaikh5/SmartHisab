@@ -1001,6 +1001,14 @@
           spawnTrail(pointer.x, pointer.y);
         }
       }, { passive: true });
+      // 🔥 JAHAN BHI TAP KARO WAHAN SE 3D COINS UCHHLENGE!
+      window.addEventListener('pointerdown', function(e) {
+        // e.target check karta hai ki kisi button par tap na hua ho, 
+        // taaki double coins na nikle
+        if(!e.target.closest('button, .action-chip, .loot-card, .viral-action-btn')) {
+          triggerCoinShower(e.clientX, e.clientY, 4); // Har tap par 4 coins
+        }
+      });
       
       // Global function to trigger the 3D coin shower
       window.triggerCoinShower = function(x, y, count) {
