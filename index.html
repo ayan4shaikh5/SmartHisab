@@ -1338,7 +1338,6 @@
         </div>
       </div>
       <div class="top-actions">
-        <button class="icon-pill-btn voice-active" id="voiceToggleBtn" onclick="toggleVoiceAssistant()" title="Riy3 Style AI Voice">🗣️ AI ON</button>
         <button class="icon-pill-btn" onclick="playSound('click'); switchView('install', document.getElementById('nav-install'))">📲 ऐप</button>
         <button class="icon-pill-btn" onclick="playSound('click'); toggleTheme()" id="themeBtn" aria-label="Toggle Theme">☀️</button>
       </div>
@@ -1678,7 +1677,7 @@
        ========================================================================== -->
   <script>
     // 🗣️ A. RIY3.COM STYLE FUTURISTIC AI VOICE SYNTHESIZER + DYNAMIC ISLAND HUD
-    var aiVoiceEnabled = true;
+    var aiVoiceEnabled = false;
 
     function updateIsland(msg, highlight) {
       var island = document.getElementById('dynamicIsland');
