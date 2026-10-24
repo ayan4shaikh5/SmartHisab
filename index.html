@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>SmartHisab - 3D Liquid AI Edition</title>
+  <title>SmartHisab - Ultimate 3D Liquid & Coins Edition</title>
   <meta name="theme-color" content="#03050a" />
   
   <!-- Google Fonts -->
@@ -11,18 +11,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet" />
 
-  <!-- 🟢 GSAP & ScrollTrigger -->
+  <!-- GSAP & ScrollTrigger -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
   <style>
     :root {
       --bg: #03050a;
-      --surface: rgba(13, 18, 32, 0.65);
-      --surface-soft: rgba(24, 33, 54, 0.55);
+      --surface: rgba(13, 18, 32, 0.72);
+      --surface-soft: rgba(24, 33, 54, 0.65);
       --text: #f8fafc;
       --muted: #94a3b8;
-      --border: rgba(255, 255, 255, 0.08);
+      --border: rgba(255, 255, 255, 0.1);
       --income: #34d399;
       --income-grad: linear-gradient(135deg, #10b981 0%, #047857 100%);
       --expense: #fb7185;
@@ -34,7 +34,7 @@
     html, body { overflow-x: hidden !important; width: 100vw; background-color: var(--bg); color: var(--text); perspective: 1200px; }
     body { min-height: 100vh; padding-bottom: 120px; }
 
-    /* 🌌 Liquid Aurora Particle Nexus */
+    /* 🌌 ActiveTheory + Apple Level 3D Liquid Particle Nexus Canvas */
     #liquidCanvas {
       position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 0; pointer-events: none;
       background: radial-gradient(circle at 50% 50%, #0a0d1a 0%, #02040a 100%);
@@ -45,23 +45,22 @@
     /* Top Bar */
     .top-bar { 
       display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding: 12px; 
-      background: var(--surface); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); 
-      border: 1px solid var(--border); border-radius: 24px; box-shadow: var(--shadow); 
+      background: var(--surface); backdrop-filter: blur(30px); border: 1px solid var(--border); border-radius: 24px; box-shadow: var(--shadow); 
     }
     .brand-row { display: flex; align-items: center; gap: 10px; }
-    .app-logo { width: 45px; height: 45px; border-radius: 14px; box-shadow: 0 0 20px rgba(99,102,241,0.4); }
+    .app-logo { width: 45px; height: 45px; border-radius: 14px; box-shadow: 0 0 20px rgba(16,185,129,0.5); }
     .brand-title h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.15rem; font-weight: 900; background: linear-gradient(90deg, #fff, #a5b4fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     .brand-title p { font-size: 0.7rem; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
 
-    /* Hero Titanium Card */
+    /* Hero Titanium 3D Tilt Card */
     .hero-wrapper {
       position: relative; border-radius: 30px; padding: 2px; margin-bottom: 24px;
-      background: linear-gradient(145deg, rgba(255,255,255,0.2), rgba(255,255,255,0.02));
+      background: linear-gradient(145deg, rgba(255,255,255,0.25), rgba(255,255,255,0.02));
       box-shadow: 0 30px 60px rgba(0,0,0,0.8);
       transform-style: preserve-3d; cursor: grab;
     }
     .hero-card {
-      background: linear-gradient(145deg, rgba(15,23,42,0.85), rgba(6,9,19,0.95));
+      background: linear-gradient(145deg, rgba(15,23,42,0.88), rgba(6,9,19,0.96));
       backdrop-filter: blur(40px); border-radius: 28px; padding: 25px 20px; position: relative; z-index: 1; overflow: hidden;
     }
     .hero-card::after {
@@ -71,14 +70,14 @@
     }
     @keyframes sweep { 0% { transform: translate(-30%, -30%) rotate(45deg); } 100% { transform: translate(30%, 30%) rotate(45deg); } }
 
-    .balance-label { font-size: 0.85rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+    .balance-label { font-size: 0.82rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
     .balance-amount { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 3rem; font-weight: 900; margin: 5px 0 20px; color: #fff; text-shadow: 0 10px 30px rgba(255,255,255,0.2); }
 
     .hero-split { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .hero-metric { background: rgba(255,255,255,0.05); border: 1px solid var(--border); padding: 12px; border-radius: 18px; display: flex; align-items: center; gap: 12px; }
     .metric-icon { width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 900; }
-    .metric-in { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16,185,129,0.3); }
-    .metric-out { background: rgba(244, 63, 94, 0.15); color: #fb7185; border: 1px solid rgba(244,63,94,0.3); }
+    .metric-in { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+    .metric-out { background: rgba(244, 63, 94, 0.2); color: #fb7185; }
 
     /* GSAP Magnetic Buttons */
     .big-action-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
@@ -89,7 +88,7 @@
     .btn-income { background: var(--income-grad); box-shadow: 0 15px 30px rgba(16,185,129,0.3); }
     .btn-expense { background: var(--expense-grad); box-shadow: 0 15px 30px rgba(244,63,94,0.3); }
 
-    /* GSAP Panel Targets */
+    /* Bento Panels */
     .panel { 
       background: var(--surface); backdrop-filter: blur(30px); border: 1px solid var(--border); 
       border-radius: 28px; padding: 22px; box-shadow: var(--shadow); margin-bottom: 20px; 
@@ -99,14 +98,24 @@
 
     /* Transactions */
     .tx-item { display: flex; justify-content: space-between; align-items: center; padding: 14px; border-radius: 18px; background: var(--surface-soft); border: 1px solid var(--border); margin-bottom: 10px; }
+    .tx-details h4 { font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 2px; }
     .tx-amount { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.1rem; font-weight: 800; }
+
+    /* Floating Loot Pill */
+    .floating-loot-pill {
+      position: fixed; bottom: 85px; right: 20px; z-index: 100;
+      background: linear-gradient(135deg, #1e1b4b, #0f172a); border: 2px solid #8b5cf6; border-radius: 99px; padding: 14px 22px; color: #fff; font-weight: 900; font-size: 0.9rem; cursor: pointer;
+      box-shadow: 0 15px 35px rgba(139,92,246,0.6), inset 0 0 15px rgba(139,92,246,0.4);
+      animation: floatPill 3s infinite ease-in-out;
+    }
+    @keyframes floatPill { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-10px) scale(1.05); } }
 
     /* Bottom Nav Dock */
     .bottom-nav {
-      position: fixed; bottom: 0; left: 0; right: 0; background: rgba(5,8,15,0.85); backdrop-filter: blur(40px); border-top: 1px solid var(--border); display: flex; justify-content: space-around; padding: 12px 10px 20px; max-width: 480px; margin: 0 auto; z-index: 99; border-radius: 30px 30px 0 0;
+      position: fixed; bottom: 0; left: 0; right: 0; background: rgba(5,8,15,0.9); backdrop-filter: blur(40px); border-top: 1px solid var(--border); display: flex; justify-content: space-around; padding: 12px 10px 20px; max-width: 480px; margin: 0 auto; z-index: 99; border-radius: 30px 30px 0 0;
     }
     .nav-item { background: transparent; border: none; color: var(--muted); font-size: 0.75rem; font-weight: 700; display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer; transition: 0.3s; }
-    .nav-item.active { color: #6366f1; transform: translateY(-5px) scale(1.1); }
+    .nav-item.active { color: #34d399; transform: translateY(-5px) scale(1.1); }
     .nav-item span.nav-icon { font-size: 1.4rem; }
 
     /* Modals */
@@ -118,11 +127,18 @@
     .form-input { width: 100%; padding: 16px; border-radius: 16px; border: 1px solid var(--border); background: rgba(255,255,255,0.05); color: #fff; font-size: 1rem; font-weight: 700; outline: none; margin-bottom: 16px; }
     .form-input:focus { border-color: #6366f1; background: rgba(99,102,241,0.1); }
     .amount-input-big { font-size: 1.8rem; font-weight: 900; color: #fbbf24; }
+
+    /* Bruno Simon Interactive Chest */
+    .bruno-chest-zone { background: radial-gradient(circle at 50% 30%, rgba(139, 92, 246, 0.3), rgba(15, 23, 42, 0.95)); border: 1.5px solid rgba(139, 92, 246, 0.6); border-radius: 22px; padding: 20px; text-align: center; margin-bottom: 16px; cursor: pointer; box-shadow: 0 16px 40px rgba(0,0,0,0.7); }
+    .chest-3d-icon { font-size: 3.8rem; display: inline-block; filter: drop-shadow(0 10px 20px rgba(251,191,36,0.5)); transition: transform 0.15s; }
+    .bruno-chest-zone:active .chest-3d-icon { transform: scale(1.25) rotate(-10deg); }
+    .float-number { position: fixed; font-size: 1.8rem; font-weight: 900; color: #fde047; text-shadow: 0 0 15px #ca8a04; pointer-events: none; animation: floatUpFade 0.8s ease-out forwards; z-index: 9999; }
+    @keyframes floatUpFade { 0% { opacity: 1; transform: translateY(0) scale(1); } 100% { opacity: 0; transform: translateY(-80px) scale(1.5); } }
   </style>
 </head>
 <body>
 
-  <!-- 🌌 True 3D Liquid Particle Nexus -->
+  <!-- 🌌 1. TRUE 3D LIQUID PARTICLE NEXUS CANVAS -->
   <canvas id="liquidCanvas"></canvas>
 
   <main class="app-shell">
@@ -166,19 +182,19 @@
       </section>
     </div>
 
-    <!-- 🧲 4. GSAP MAGNETIC BUTTONS -->
+    <!-- 🧲 GSAP MAGNETIC BUTTONS -->
     <div class="big-action-row gs-load">
       <div class="magnetic-btn btn-income" onclick="haptic(20); openEntryModal('income');">➕ Add Income</div>
       <div class="magnetic-btn btn-expense" onclick="haptic(20); openEntryModal('expense');">➖ Add Expense</div>
     </div>
 
-    <!-- 🧊 VIEW 1: HOME & TIMELINE (ScrollTrigger Targets) -->
+    <!-- 🧊 VIEW 1: HOME & TIMELINE -->
     <div class="panel gs-panel">
       <div class="panel-header"><div class="panel-title">🗓️ 3D Transactions Ledger</div></div>
       <div id="timelineContainer" style="color:var(--muted); text-align:center;">No entries yet. Add some!</div>
     </div>
 
-    <!-- 🎁 COMPACT INLINE SPONSOR AD (Adsterra Banner restored nicely!) -->
+    <!-- 🎁 COMPACT INLINE SPONSOR AD -->
     <div class="gs-panel" style="margin: 24px auto; padding: 12px; max-width: 320px; background: var(--surface-soft); border: 1px solid var(--border); border-radius: 20px; text-align: center; backdrop-filter: blur(10px);">
       <span style="font-size: 0.65rem; color: var(--muted); text-transform: uppercase; font-weight: 800; display: block; margin-bottom: 8px;">✨ Sponsored Partner</span>
       <div style="transform: scale(0.95); transform-origin: center;">
@@ -190,12 +206,17 @@
     </div>
   </main>
 
-  <!-- 📱 3D Bottom Navigation Dock -->
+  <!-- FLOATING LOOT PILL -->
+  <button class="floating-loot-pill" onclick="haptic(30); openLootStore();">
+    🎁 3D Loot Vault
+  </button>
+
+  <!-- Bottom Navigation Dock -->
   <nav class="bottom-nav gs-load">
     <button class="nav-item active" onclick="haptic(10)">
       <span class="nav-icon">🏠</span><span>Home</span>
     </button>
-    <button class="nav-item" onclick="haptic(10); alert('Stats View Coming Soon!');">
+    <button class="nav-item" onclick="haptic(10); alert('Stats View Active!');">
       <span class="nav-icon">📊</span><span>Stats</span>
     </button>
     <button class="nav-item" onclick="haptic(10); alert('Story Flex Feature Active!');">
@@ -208,19 +229,61 @@
     <div class="modal-sheet">
       <div style="display:flex; justify-content:space-between; margin-bottom: 20px;">
         <h3 id="modalTitle" style="color:#fff; font-size:1.3rem;">➕ Add Entry</h3>
-        <button onclick="closeModals()" style="background:transparent; border:none; color:#fff; font-size:1.5rem;">✕</button>
+        <button onclick="closeModals()" style="background:transparent; border:none; color:#fff; font-size:1.5rem; cursor:pointer;">✕</button>
       </div>
       <input type="date" id="entryDate" class="form-input" />
       <input type="number" id="entryAmount" class="form-input amount-input-big" placeholder="₹ 0" inputmode="numeric" />
       <input type="text" id="entryNote" class="form-input" placeholder="Note (e.g. Chai, Salary)..." />
-      <button style="width:100%; background:var(--accent-grad); padding:16px; border-radius:16px; border:none; color:#fff; font-weight:800; font-size:1.1rem; margin-top:10px;" onclick="saveTransaction()">✅ Save Entry</button>
+      <button style="width:100%; background:var(--income-grad); padding:16px; border-radius:16px; border:none; color:#fff; font-weight:800; font-size:1.1rem; margin-top:10px; cursor:pointer;" onclick="saveTransaction()">✅ Save Entry</button>
     </div>
   </div>
 
-  <script>
-    function haptic(ms) { if (navigator.vibrate) navigator.vibrate(ms); }
+  <!-- LOOT STORE MODAL WITH BRUNO SIMON 3D COIN MINER -->
+  <div class="modal-backdrop" id="lootStoreModal">
+    <div class="modal-sheet" style="max-height:90vh; overflow-y:auto;">
+      <div style="display:flex; justify-content:space-between; margin-bottom: 20px;">
+        <h3 style="color:#fff; font-size:1.3rem;">⚡ 3D Tap & Win Vault</h3>
+        <button onclick="closeModals()" style="background:transparent; border:none; color:#fff; font-size:1.5rem; cursor:pointer;">✕</button>
+      </div>
 
-    // Liquid Aurora Particle Nexus Background
+      <!-- Bruno Simon Interactive Chest -->
+      <div class="bruno-chest-zone" onclick="mineLootChest(event)">
+        <div style="font-size: 0.72rem; color: #c4b5fd; font-weight: 800; text-transform: uppercase; margin-bottom: 4px;">🎮 Tap Multiple Times to Mine Coins!</div>
+        <div class="chest-3d-icon" id="chestEmoji">🧰</div>
+        <div id="chestStatusText" style="color: #ffffff; font-weight: 800; font-size: 0.95rem; margin-top: 4px;">Tap to drop 3D Coins! (0/5 Taps)</div>
+        <div style="height: 8px; background: rgba(255,255,255,0.1); border-radius: 999px; margin: 10px auto; max-width: 260px;">
+          <div style="height: 100%; width: 0%; background: linear-gradient(90deg, #fbbf24, #f43f5e, #8b5cf6); border-radius: 999px; transition: width 0.2s;" id="comboMeterFill"></div>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top:15px;">
+        <button onclick="haptic(15); window.open('https://fktr.in/USkFso9', '_blank');" class="form-input" style="background:rgba(30,41,59,0.7); text-align:center; cursor:pointer;">
+          <div style="font-size:28px;">🎧</div>
+          <div style="font-size:0.85rem; font-weight:700; margin-top:4px; color:#fff;">TWS Earbuds</div>
+          <div style="color:#34d399; font-size:0.75rem;">₹99 Only</div>
+        </button>
+        <button onclick="haptic(15); window.open('https://fktr.in/BakOoqi', '_blank');" class="form-input" style="background:rgba(30,41,59,0.7); text-align:center; cursor:pointer;">
+          <div style="font-size:28px;">👟</div>
+          <div style="font-size:0.85rem; font-weight:700; margin-top:4px; color:#fff;">Sneakers</div>
+          <div style="color:#34d399; font-size:0.75rem;">₹149 Only</div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       ⚙️ THE BEAST ENGINES: WebGL Canvas, GSAP ScrollTrigger, Coins & Magnetics
+       ========================================================================== -->
+  <script>
+    // 📳 Haptic Engine
+    function haptic(ms) {
+      if (navigator.vibrate) navigator.vibrate(ms);
+    }
+
+    // 🌌 3D LIQUID AURORA PARTICLE NEXUS + 3D COIN PHYSICS
+    let coins = [];
+    let triggerCoinShower = function() {};
+
     (function initLiquidCanvas() {
       const canvas = document.getElementById('liquidCanvas');
       if (!canvas) return;
@@ -240,90 +303,190 @@
         if(e.touches[0]) { pointer.x = e.touches[0].clientX; pointer.y = e.touches[0].clientY; }
       }, { passive: true });
 
-      for (let i = 0; i < 60; i++) {
+      // Coin Spawner Physics
+      triggerCoinShower = function(x, y, count) {
+        haptic(40);
+        for (let i = 0; i < (count || 12); i++) {
+          coins.push({
+            x: x, y: y,
+            vx: (Math.random() - 0.5) * 14,
+            vy: -Math.random() * 12 - 5,
+            r: Math.random() * 6 + 8,
+            rot: 0,
+            vRot: (Math.random() - 0.5) * 0.3,
+            alpha: 1
+          });
+        }
+      };
+
+      // Tap anywhere on screen to spawn coins
+      window.addEventListener('pointerdown', (e) => {
+        if (!e.target.closest('button, .magnetic-btn, .modal-sheet, .top-bar, .bottom-nav')) {
+          triggerCoinShower(e.clientX, e.clientY, 4);
+        }
+      });
+
+      // Liquid Particles
+      const pCount = window.innerWidth < 600 ? 45 : 75;
+      for (let i = 0; i < pCount; i++) {
         particles.push({
-          x: Math.random() * width, y: Math.random() * height,
-          vx: (Math.random() - 0.5) * 1.5, vy: (Math.random() - 0.5) * 1.5,
-          radius: Math.random() * 2.5 + 1
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 1.2,
+          vy: (Math.random() - 0.5) * 1.2,
+          radius: Math.random() * 2 + 1
         });
       }
 
-      function animateLiquid() {
+      function animate() {
         ctx.clearRect(0, 0, width, height);
+        
+        // Render Liquid Particles & Network
         particles.forEach((p, i) => {
           p.x += p.vx; p.y += p.vy;
           if (p.x < 0 || p.x > width) p.vx *= -1;
           if (p.y < 0 || p.y > height) p.vy *= -1;
 
-          let dxP = pointer.x - p.x, dyP = pointer.y - p.y;
+          let dxP = pointer.x - p.x;
+          let dyP = pointer.y - p.y;
           let distP = Math.sqrt(dxP * dxP + dyP * dyP);
-          if (distP < 150) {
-            p.vx += dxP * 0.0005; p.vy += dyP * 0.0005;
-            ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(pointer.x, pointer.y);
-            ctx.strokeStyle = `rgba(99, 102, 241, ${1 - distP/150})`; ctx.lineWidth = 1.5; ctx.stroke();
+          if (distP < 140) {
+            p.vx += dxP * 0.0006;
+            p.vy += dyP * 0.0006;
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(pointer.x, pointer.y);
+            ctx.strokeStyle = `rgba(99, 102, 241, ${1 - distP/140})`;
+            ctx.lineWidth = 1.2;
+            ctx.stroke();
           }
 
-          ctx.beginPath(); ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-          ctx.fillStyle = i % 2 === 0 ? '#10b981' : '#6366f1'; ctx.fill();
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fillStyle = i % 2 === 0 ? '#10b981' : '#6366f1';
+          ctx.fill();
 
           for (let j = i + 1; j < particles.length; j++) {
             let p2 = particles[j];
-            let dist = Math.sqrt((p.x - p2.x)**2 + (p.y - p2.y)**2);
-            if (dist < 100) {
-              ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p2.x, p2.y);
-              ctx.strokeStyle = `rgba(16, 185, 129, ${(1 - dist / 100) * 0.4})`; ctx.lineWidth = 1; ctx.stroke();
+            let dx = p.x - p2.x, dy = p.y - p2.y;
+            let dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 110) {
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(p2.x, p2.y);
+              ctx.strokeStyle = `rgba(16, 185, 129, ${(1 - dist / 110) * 0.35})`;
+              ctx.lineWidth = 1;
+              ctx.stroke();
             }
           }
         });
-        requestAnimationFrame(animateLiquid);
+
+        // Render 3D Gold Coins Physics
+        for (let c = coins.length - 1; c >= 0; c--) {
+          let coin = coins[c];
+          coin.vy += 0.5; coin.x += coin.vx; coin.y += coin.vy; coin.rot += coin.vRot;
+          if (coin.y > height - 80) { coin.y = height - 80; coin.vy *= -0.6; coin.alpha -= 0.08; }
+          if (coin.alpha <= 0) { coins.splice(c, 1); continue; }
+
+          ctx.save();
+          ctx.translate(coin.x, coin.y);
+          ctx.scale(Math.cos(coin.rot), 1);
+          ctx.beginPath();
+          ctx.arc(0, 0, coin.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(251, 191, 36, ${coin.alpha})`;
+          ctx.fill();
+          ctx.restore();
+        }
+
+        requestAnimationFrame(animate);
       }
-      animateLiquid();
+      animate();
     })();
 
-    // 3D Tilt
+    // ⚡ Gyroscope Tilt
     (function initTilt() {
       const card = document.getElementById('heroTiltCard');
       if(!card) return;
+      function applyTilt(rotX, rotY) {
+        card.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.02, 1.02, 1.02)`;
+      }
       card.addEventListener('mousemove', (e) => {
         const r = card.getBoundingClientRect();
-        const x = e.clientX - r.left - r.width / 2, y = e.clientY - r.top - r.height / 2;
-        card.style.transform = `perspective(1000px) rotateX(${-(y/(r.height/2))*10}deg) rotateY(${(x/(r.width/2))*10}deg) scale3d(1.02, 1.02, 1.02)`;
+        applyTilt(-((e.clientY - r.top - r.height/2) / (r.height/2)) * 12, ((e.clientX - r.left - r.width/2) / (r.width/2)) * 12);
       });
-      card.addEventListener('mouseleave', () => { card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`; });
+      card.addEventListener('mouseleave', () => card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)`);
     })();
 
-    // GSAP ScrollTrigger
-    document.addEventListener("DOMContentLoaded", () => {
-      gsap.registerPlugin(ScrollTrigger);
-      gsap.fromTo(".gs-load", {y: 30, opacity: 0}, {y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: "back.out(1.2)"});
+    // 🧲 GSAP Magnetic Buttons
+    document.querySelectorAll('.magnetic-btn').forEach(btn => {
+      const xTo = gsap.quickTo(btn, "x", {duration: 0.4, ease: "power3"});
+      const yTo = gsap.quickTo(btn, "y", {duration: 0.4, ease: "power3"});
+      btn.addEventListener('mousemove', (e) => {
+        const r = btn.getBoundingClientRect();
+        xTo(((e.clientX - r.left) - r.width / 2) * 0.35);
+        yTo(((e.clientY - r.top) - r.height / 2) * 0.35);
+      });
+      btn.addEventListener('mouseleave', () => { xTo(0); yTo(0); gsap.to(btn, {scale: 1, duration: 0.5}); });
     });
 
-    let transactions = JSON.parse(localStorage.getItem('mera_hisab_v4')) || [];
+    // 🟢 GSAP ScrollTrigger Scrubbing
+    document.addEventListener("DOMContentLoaded", () => {
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.fromTo(".gs-load", {y: 30, opacity: 0}, {y: 0, opacity: 1, duration: 0.8, stagger: 0.12, ease: "back.out(1.2)"});
+    });
+
+    // --- Core Hisab Logic & Loot Vault ---
+    let currentMode = 'income';
     function openEntryModal(mode) {
+      currentMode = mode;
+      document.getElementById('modalTitle').textContent = mode === 'income' ? '➕ Add Income' : '➖ Add Expense';
       document.getElementById('entryDate').value = new Date().toISOString().split('T')[0];
       document.getElementById('entryModal').classList.add('open');
     }
     function closeModals() { document.querySelectorAll('.modal-backdrop').forEach(m => m.classList.remove('open')); }
-    function openLootStore() { alert('Loot Vault opened!'); }
-    
+    function openLootStore() { document.getElementById('lootStoreModal').classList.add('open'); triggerCoinShower(window.innerWidth/2, 150, 15); }
+
+    let chestTapCount = 0;
+    function mineLootChest(e) {
+      chestTapCount++;
+      triggerCoinShower(e.clientX, e.clientY, 5);
+      let t = document.createElement('div'); t.className = 'float-number'; t.textContent = '+' + chestTapCount;
+      t.style.left = (e.clientX - 10) + 'px'; t.style.top = (e.clientY - 20) + 'px';
+      document.body.appendChild(t);
+      setTimeout(() => t.remove(), 800);
+      
+      let pct = Math.min(100, chestTapCount * 20);
+      document.getElementById('comboMeterFill').style.width = pct + '%';
+      if(chestTapCount >= 5) {
+        alert('🎉 Jackpot Unlocked! Opening reward...');
+        chestTapCount = 0;
+        window.open('https://arwf.org/4/28bea390be879b68d9caf067e1c0ffc8', '_blank');
+      }
+    }
+
+    let transactions = JSON.parse(localStorage.getItem('mera_hisab_v5')) || [];
     function saveTransaction() {
       let amt = parseFloat(document.getElementById('entryAmount').value);
-      if(isNaN(amt) || amt <= 0) return alert('Enter amount!');
-      haptic(30);
-      transactions.unshift({ id: Date.now(), amount: amt, date: document.getElementById('entryDate').value, note: document.getElementById('entryNote').value || 'Entry' });
-      localStorage.setItem('mera_hisab_v4', JSON.stringify(transactions));
+      if(isNaN(amt) || amt <= 0) return alert('Sahi amount dalein!');
+      triggerCoinShower(window.innerWidth/2, window.innerHeight/2, currentMode === 'income' ? 18 : 6);
+      transactions.unshift({ id: Date.now(), type: currentMode, amount: amt, date: document.getElementById('entryDate').value, note: document.getElementById('entryNote').value || 'Entry' });
+      localStorage.setItem('mera_hisab_v5', JSON.stringify(transactions));
       closeModals(); renderAll();
     }
 
     function renderAll() {
-      let tot = 0; let tc = document.getElementById('timelineContainer'); tc.innerHTML = '';
+      let tin = 0, tout = 0;
+      let tc = document.getElementById('timelineContainer'); tc.innerHTML = '';
       transactions.forEach(t => {
-        tot += t.amount;
-        tc.innerHTML += `<div class="tx-item"><div><strong>${t.note}</strong><div style="font-size:0.75rem; color:var(--muted);">${t.date}</div></div><div style="font-weight:900; color:#34d399;">+₹${t.amount}</div></div>`;
+        if(t.type === 'income') tin += t.amount; else tout += t.amount;
+        let sign = t.type === 'income' ? '+' : '-';
+        let color = t.type === 'income' ? '#34d399' : '#fb7185';
+        tc.innerHTML += `<div class="tx-item"><div><h4 style="color:#fff;">${t.note}</h4><span style="font-size:0.75rem; color:var(--muted);">${t.date}</span></div><div class="tx-amount" style="color:${color};">${sign}₹${t.amount}</div></div>`;
       });
-      if(transactions.length === 0) tc.innerHTML = 'No entries yet!';
-      document.getElementById('netBalance').textContent = '₹' + tot;
-      document.getElementById('totalIncome').textContent = '₹' + tot;
+      if(!transactions.length) tc.innerHTML = 'No entries yet.';
+      document.getElementById('netBalance').textContent = '₹' + (tin - tout);
+      document.getElementById('totalIncome').textContent = '₹' + tin;
+      document.getElementById('totalExpense').textContent = '₹' + tout;
     }
     renderAll();
   </script>
