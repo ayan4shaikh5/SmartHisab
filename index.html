@@ -3,27 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>SmartHisab - Ultimate 3D Expense Tracker</title>
-  <meta name="theme-color" content="#000000" />
-  <link rel="manifest" href="manifest.json" />
-
+  <title>SmartHisab - 3D Liquid AI Edition</title>
+  <meta name="theme-color" content="#03050a" />
+  
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet" />
 
-  <!-- 🟢 GSAP & ScrollTrigger Libraries (The Magic Ingredients for 3D Animations) -->
+  <!-- 🟢 GSAP & ScrollTrigger -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
   <style>
     /* ==========================================================================
-       EXTREME 3D GLASSMORPHISM & NEON LIGHTING SYSTEM
+       EXTREME 3D GLASSMORPHISM (Perfected)
        ========================================================================== */
     :root {
-      --bg: #02040a;
-      --surface: rgba(10, 15, 30, 0.4);
-      --surface-soft: rgba(20, 25, 45, 0.5);
+      --bg: #03050a;
+      --surface: rgba(13, 18, 32, 0.65);
+      --surface-soft: rgba(24, 33, 54, 0.55);
       --text: #f8fafc;
       --muted: #94a3b8;
       --border: rgba(255, 255, 255, 0.08);
@@ -31,140 +30,127 @@
       --income-grad: linear-gradient(135deg, #10b981 0%, #047857 100%);
       --expense: #fb7185;
       --expense-grad: linear-gradient(135deg, #f43f5e 0%, #be123c 100%);
-      --accent-grad: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
-      --shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.9);
-      --spring: cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy 3D Spring */
+      --shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.85);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; font-family: 'Inter', sans-serif; }
-    html, body { overflow-x: hidden !important; width: 100vw; background-color: var(--bg); color: var(--text); }
-    body { min-height: 100vh; padding-bottom: 115px; perspective: 1000px; /* Enable 3D Space */ }
+    html, body { overflow-x: hidden !important; width: 100vw; background-color: var(--bg); color: var(--text); perspective: 1200px; }
+    body { min-height: 100vh; padding-bottom: 120px; }
 
-    /* 🌌 The 3D WebGL Canvas Background */
-    #spaceCanvas {
+    /* 🌌 BRAND NEW 1: Liquid Aurora Particle Nexus (Smooth & Interactive) */
+    #liquidCanvas {
       position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 0; pointer-events: none;
-      background: radial-gradient(circle at center, #0a0d1a 0%, #02040a 100%);
+      background: radial-gradient(circle at 50% 50%, #0a0d1a 0%, #02040a 100%);
     }
 
-    /* 📱 Main App Shell with 3D Depth */
     .app-shell { max-width: 480px; margin: 0 auto; padding: 12px 16px 32px; position: relative; z-index: 2; transform-style: preserve-3d; }
 
-    /* 🛸 Top Bar (Floating Glass) */
+    /* 🛸 Top Bar */
     .top-bar { 
-      display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; padding: 12px; 
+      display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding: 12px; 
       background: var(--surface); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); 
       border: 1px solid var(--border); border-radius: 24px; box-shadow: var(--shadow); 
-      transform: translateZ(20px); /* Lifted off background */
     }
     .brand-row { display: flex; align-items: center; gap: 10px; }
-    .app-logo { width: 45px; height: 45px; border-radius: 14px; box-shadow: 0 0 20px rgba(16,185,129,0.5); }
-    .brand-title h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.2rem; font-weight: 900; background: linear-gradient(90deg, #fff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .brand-title p { font-size: 0.75rem; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+    .app-logo { width: 45px; height: 45px; border-radius: 14px; box-shadow: 0 0 20px rgba(99,102,241,0.4); }
+    .brand-title h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.15rem; font-weight: 900; background: linear-gradient(90deg, #fff, #a5b4fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .brand-title p { font-size: 0.7rem; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
 
-    /* ⚡ Hero Titanium Card (Full 3D Hover/Gyro) */
+    /* ⚡ Hero Titanium Card */
     .hero-wrapper {
       position: relative; border-radius: 30px; padding: 2px; margin-bottom: 24px;
       background: linear-gradient(145deg, rgba(255,255,255,0.2), rgba(255,255,255,0.02));
-      box-shadow: 0 30px 60px rgba(0,0,0,0.8), inset 0 0 20px rgba(255,255,255,0.05);
-      transform-style: preserve-3d; transition: transform 0.1s linear; cursor: grab;
-      /* GSAP Target Class */
-      opacity: 0; transform: translateY(50px) rotateX(-20deg);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+      transform-style: preserve-3d; cursor: grab;
     }
     .hero-card {
-      background: linear-gradient(145deg, rgba(15,23,42,0.8), rgba(6,9,19,0.9));
+      background: linear-gradient(145deg, rgba(15,23,42,0.85), rgba(6,9,19,0.95));
       backdrop-filter: blur(40px); border-radius: 28px; padding: 25px 20px; position: relative; z-index: 1; overflow: hidden;
     }
-    /* Volumetric Light Sweep */
+    
+    /* Perfected Light Sweep */
     .hero-card::after {
-      content: ""; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-      background: linear-gradient(45deg, transparent 45%, rgba(255,255,255,0.15) 50%, transparent 55%);
-      animation: sweep 4s infinite linear; pointer-events: none;
+      content: ""; position: absolute; top: -100%; left: -100%; width: 300%; height: 300%;
+      background: linear-gradient(45deg, transparent 45%, rgba(255,255,255,0.12) 50%, transparent 55%);
+      animation: sweep 5s infinite linear; pointer-events: none;
     }
     @keyframes sweep { 0% { transform: translate(-30%, -30%) rotate(45deg); } 100% { transform: translate(30%, 30%) rotate(45deg); } }
 
-    .balance-label { font-size: 0.85rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transform: translateZ(30px); }
-    .balance-amount { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 3.2rem; font-weight: 900; margin: 5px 0 20px; color: #fff; text-shadow: 0 10px 30px rgba(255,255,255,0.3); transform: translateZ(50px); } /* Popping out in 3D */
+    .balance-label { font-size: 0.85rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+    .balance-amount { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 3rem; font-weight: 900; margin: 5px 0 20px; color: #fff; text-shadow: 0 10px 30px rgba(255,255,255,0.2); }
 
-    .hero-split { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; transform: translateZ(20px); }
-    .hero-metric { background: rgba(255,255,255,0.05); border: 1px solid var(--border); padding: 12px; border-radius: 18px; display: flex; align-items: center; gap: 12px; backdrop-filter: blur(10px); }
+    .hero-split { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .hero-metric { background: rgba(255,255,255,0.05); border: 1px solid var(--border); padding: 12px; border-radius: 18px; display: flex; align-items: center; gap: 12px; }
     .metric-icon { width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 900; }
-    .metric-in { background: rgba(16, 185, 129, 0.2); color: #34d399; box-shadow: 0 0 20px rgba(16,185,129,0.3); }
-    .metric-out { background: rgba(244, 63, 94, 0.2); color: #fb7185; box-shadow: 0 0 20px rgba(244,63,94,0.3); }
+    .metric-in { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16,185,129,0.3); }
+    .metric-out { background: rgba(244, 63, 94, 0.15); color: #fb7185; border: 1px solid rgba(244,63,94,0.3); }
 
-    /* 🧲 Magnetic Action Buttons */
-    .big-action-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; opacity: 0; }
+    /* 🧲 BRAND NEW 4: GSAP Magnetic Buttons */
+    .big-action-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
     .magnetic-btn {
-      border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; padding: 18px 10px; color: #fff; font-size: 1.05rem; font-weight: 900; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; position: relative; transition: transform 0.3s var(--spring), box-shadow 0.3s ease;
-      transform-style: preserve-3d; /* For GSAP */
+      border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; padding: 18px 10px; color: #fff; 
+      font-size: 1.05rem; font-weight: 900; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;
+      /* CSS transition hatayi, ab GSAP sambhalega */
     }
-    .magnetic-btn:hover { transform: scale(1.05) translateZ(20px); }
-    .magnetic-btn:active { transform: scale(0.9); }
-    .btn-income { background: var(--income-grad); box-shadow: 0 15px 30px rgba(16,185,129,0.4); }
-    .btn-expense { background: var(--expense-grad); box-shadow: 0 15px 30px rgba(244,63,94,0.4); }
+    .btn-income { background: var(--income-grad); box-shadow: 0 15px 30px rgba(16,185,129,0.3); }
+    .btn-expense { background: var(--expense-grad); box-shadow: 0 15px 30px rgba(244,63,94,0.3); }
 
-    /* 🧊 Bento Glass Panels (ScrollTrigger Targets) */
+    /* 🧊 GSAP Panel Targets */
     .panel { 
-      background: var(--surface); backdrop-filter: blur(30px); border: 1px solid var(--border); border-radius: 28px; padding: 22px; box-shadow: var(--shadow); margin-bottom: 20px; 
-      /* Hidden initially for GSAP ScrollTrigger */
-      opacity: 0; transform: translateY(40px) scale(0.95);
+      background: var(--surface); backdrop-filter: blur(30px); border: 1px solid var(--border); 
+      border-radius: 28px; padding: 22px; box-shadow: var(--shadow); margin-bottom: 20px; 
     }
     .panel-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
     .panel-title { font-size: 1.05rem; font-weight: 800; }
 
-    /* 🎁 Floating 3D Loot Pill */
-    .floating-loot-pill {
-      position: fixed; bottom: 85px; right: 20px; z-index: 100;
-      background: linear-gradient(135deg, #1e1b4b, #0f172a); border: 2px solid #8b5cf6; border-radius: 99px; padding: 14px 22px; color: #fff; font-weight: 900; font-size: 0.9rem; cursor: pointer;
-      box-shadow: 0 15px 35px rgba(139,92,246,0.6), inset 0 0 15px rgba(139,92,246,0.4);
-      animation: floatPill 3s infinite ease-in-out;
-    }
-    @keyframes floatPill { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-10px) scale(1.05); } }
+    /* Transactions */
+    .tx-item { display: flex; justify-content: space-between; align-items: center; padding: 14px; border-radius: 18px; background: var(--surface-soft); border: 1px solid var(--border); margin-bottom: 10px; }
+    .tx-emoji { width: 44px; height: 44px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; }
+    .tx-details h4 { font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .tx-amount { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.1rem; font-weight: 800; }
 
     /* 📱 Bottom Nav Dock */
     .bottom-nav {
-      position: fixed; bottom: 0; left: 0; right: 0; background: rgba(5,8,15,0.8); backdrop-filter: blur(40px); border-top: 1px solid var(--border); display: flex; justify-content: space-around; padding: 12px 10px 20px; max-width: 480px; margin: 0 auto; z-index: 99; border-radius: 30px 30px 0 0;
-      transform: translateY(100%); /* Animated by GSAP on load */
+      position: fixed; bottom: 0; left: 0; right: 0; background: rgba(5,8,15,0.85); backdrop-filter: blur(40px); border-top: 1px solid var(--border); display: flex; justify-content: space-around; padding: 12px 10px 20px; max-width: 480px; margin: 0 auto; z-index: 99; border-radius: 30px 30px 0 0;
     }
     .nav-item { background: transparent; border: none; color: var(--muted); font-size: 0.75rem; font-weight: 700; display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer; transition: 0.3s; }
-    .nav-item.active { color: #34d399; transform: translateY(-5px) scale(1.1); }
+    .nav-item.active { color: #6366f1; transform: translateY(-5px) scale(1.1); }
     .nav-item span.nav-icon { font-size: 1.4rem; }
 
-    .view-section { display: none; }
-    .view-section.active { display: block; }
-
-    /* Forms & Modals */
+    /* Forms & Modals (Full Version Retained) */
     .modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(20px); display: none; align-items: flex-end; justify-content: center; z-index: 200; opacity: 0; transition: opacity 0.3s ease; }
     .modal-backdrop.open { display: flex; opacity: 1; }
-    .modal-sheet { background: var(--bg); border-top: 1px solid var(--border-highlight); width: 100%; max-width: 480px; border-radius: 35px 35px 0 0; padding: 25px 20px 40px; box-shadow: 0 -20px 60px rgba(99,102,241,0.4); transform: translateY(100%); transition: transform 0.4s var(--spring); }
+    .modal-sheet { background: var(--bg); border-top: 1px solid var(--border-highlight); width: 100%; max-width: 480px; border-radius: 35px 35px 0 0; padding: 25px 20px 40px; box-shadow: 0 -20px 60px rgba(99,102,241,0.4); transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
     .modal-backdrop.open .modal-sheet { transform: translateY(0); }
     
     .form-input { width: 100%; padding: 16px; border-radius: 16px; border: 1px solid var(--border); background: rgba(255,255,255,0.05); color: #fff; font-size: 1rem; font-weight: 700; outline: none; margin-bottom: 16px; transition: border 0.3s; }
     .form-input:focus { border-color: #6366f1; background: rgba(99,102,241,0.1); }
     .amount-input-big { font-size: 1.8rem; font-weight: 900; color: #fbbf24; }
-
   </style>
 </head>
 <body>
 
-  <!-- 🌌 1. TRUE 3D SPACE CANVAS (Stars & Nebula) -->
-  <canvas id="spaceCanvas"></canvas>
+  <!-- 🌌 1. TRUE 3D LIQUID PARTICLE NEXUS CANVAS -->
+  <canvas id="liquidCanvas"></canvas>
 
   <main class="app-shell">
     
     <!-- 🛸 Top Header -->
-    <header class="top-bar gs-fade-down">
+    <header class="top-bar gs-load">
       <div class="brand-row">
-        <img src="data:image/png;base64,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" alt="Logo" class="app-logo" />
+        <img src="data:image/png;base64,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" class="app-logo" />
         <div class="brand-title">
           <h1>मेरा हिसाब ₹</h1>
-          <p>WebGL 3D Edition</p>
+          <p>WebGL Nexus Edition</p>
         </div>
       </div>
-      <button class="icon-pill-btn" onclick="haptic(15); document.body.setAttribute('data-theme', document.body.getAttribute('data-theme')==='dark'?'':'dark')">☀️</button>
+      <button style="background:var(--surface-soft); border:1px solid var(--border); padding:8px 12px; border-radius:12px; color:#fff;" onclick="haptic(15); openLootStore();">
+        🎁 Loot Vault
+      </button>
     </header>
 
-    <!-- ⚡ 3D TILT GYROSCOPE HERO CARD (Targeted by GSAP) -->
-    <div class="hero-wrapper gs-hero" id="heroTiltCard">
+    <!-- ⚡ 3D TILT GYROSCOPE HERO CARD -->
+    <div class="hero-wrapper gs-load" id="heroTiltCard">
       <section class="hero-card">
         <div class="balance-label">Total Net Balance</div>
         <div class="balance-amount" id="netBalance">₹0</div>
@@ -188,189 +174,768 @@
       </section>
     </div>
 
-    <!-- 🧲 3D Magnetic Action Buttons -->
-    <div class="big-action-row gs-btns">
-      <button class="magnetic-btn btn-income" onclick="haptic(20); openEntryModal('income');">➕ Add Income</button>
-      <button class="magnetic-btn btn-expense" onclick="haptic(20); openEntryModal('expense');">➖ Add Expense</button>
+    <!-- 🧲 4. GSAP MAGNETIC BUTTONS -->
+    <div class="big-action-row gs-load">
+      <div class="magnetic-btn btn-income" onclick="haptic(20); openEntryModal('income');">➕ Add Income</div>
+      <div class="magnetic-btn btn-expense" onclick="haptic(20); openEntryModal('expense');">➖ Add Expense</div>
     </div>
 
     <!-- 🧊 VIEW 1: HOME & TIMELINE (ScrollTrigger Targets) -->
-    <div id="view-home" class="view-section active">
-      <div class="panel gs-panel">
-        <div class="panel-header"><div class="panel-title">📊 Visual Ratio</div></div>
-        <div style="height: 12px; background: rgba(255,255,255,0.05); border-radius: 99px; overflow: hidden; margin-bottom:10px;">
-          <div style="height: 100%; width: 50%; background: var(--income-grad); transition: width 1s var(--spring);" id="incomeRatioBar"></div>
-        </div>
-      </div>
+    <div class="panel gs-panel">
+      <div class="panel-header"><div class="panel-title">🗓️ 3D Transactions Ledger</div></div>
+      <div id="timelineContainer" style="color:var(--muted); text-align:center;">No entries yet. Add some!</div>
+    </div>
 
-      <div class="panel gs-panel">
-        <div class="panel-header"><div class="panel-title">🗓️ 3D Transactions Ledger</div></div>
-        <div id="timelineContainer" style="color:var(--muted); text-align:center; padding: 20px;">No entries yet. Add some!</div>
+    <!-- 🎁 COMPACT INLINE SPONSOR AD -->
+    <div class="gs-panel" style="margin: 24px auto; padding: 12px; max-width: 320px; background: var(--surface-soft); border: 1px solid var(--border); border-radius: 20px; text-align: center; backdrop-filter: blur(10px);">
+      <span style="font-size: 0.65rem; color: var(--muted); text-transform: uppercase; font-weight: 800; display: block; margin-bottom: 8px;">✨ Sponsored Partner</span>
+      <div style="transform: scale(0.95); transform-origin: center;">
+        <script type="text/javascript">
+          atOptions = { 'key' : '4708e5cb58f7a3a7ee6e8c46d62ce263', 'format' : 'iframe', 'height' : 50, 'width' : 300, 'params' : {} };
+        </script>
+        <script type="text/javascript" src="https://bicea.org/22/4708e5cb58f7a3a7ee6e8c46d62ce263"></script>
       </div>
     </div>
   </main>
 
-  <!-- 1. FLOATING 3D LOOT PILL -->
-  <button class="floating-loot-pill" onclick="haptic(30); alert('3D Loot Vault Opening... (Add your Loot Store Logic Here!)');">
-    🎁 3D Loot Vault
-  </button>
-
-  <!-- 📱 3D Bottom Navigation Dock (Animated by GSAP) -->
-  <nav class="bottom-nav gs-nav">
+  <!-- 📱 3D Bottom Navigation Dock -->
+  <nav class="bottom-nav gs-load">
     <button class="nav-item active" onclick="haptic(10)">
       <span class="nav-icon">🏠</span><span>Home</span>
     </button>
-    <button class="nav-item" onclick="haptic(10)">
+    <button class="nav-item" onclick="haptic(10); alert('Stats View Coming Soon!');">
       <span class="nav-icon">📊</span><span>Stats</span>
     </button>
-    <button class="nav-item" onclick="haptic(10)">
+    <button class="nav-item" onclick="haptic(10); alert('Story Flex Feature Active!');">
       <span class="nav-icon">📸</span><span>Flex</span>
     </button>
   </nav>
+
+  <!-- ENTRY MODAL (Kept Functional) -->
+  <div class="modal-backdrop" id="entryModal">
+    <div class="modal-sheet">
+      <div style="display:flex; justify-content:space-between; margin-bottom: 20px;">
+        <h3 id="modalTitle" style="color:#fff; font-size:1.3rem;">➕ Add Entry</h3>
+        <button onclick="closeModals()" style="background:transparent; border:none; color:#fff; font-size:1.5rem;">✕</button>
+      </div>
+      <input type="date" id="entryDate" class="form-input" />
+      <input type="number" id="entryAmount" class="form-input amount-input-big" placeholder="₹ 0" inputmode="numeric" />
+      <input type="text" id="entryNote" class="form-input" placeholder="Note (e.g. Chai, Salary)..." />
+      <button style="width:100%; background:var(--accent-grad); padding:16px; border-radius:16px; border:none; color:#fff; font-weight:800; font-size:1.1rem; margin-top:10px;" onclick="saveTransaction()">✅ Save Entry</button>
+    </div>
+  </div>
 
   <!-- ==========================================================================
        ⚙️ THE BEAST ENGINES: WebGL Canvas, GSAP ScrollTrigger, Haptics & Magnetics
        ========================================================================== -->
   <script>
-    // 📳 1. Advanced Haptic Vibration Engine
+    // 📳 5. Professional Haptic Engine
     function haptic(ms) {
       if (navigator.vibrate) navigator.vibrate(ms);
     }
 
-    // 🌌 2. TRUE 3D SPACE CANVAS (Stars & Nebula Engine)
-    (function initSpaceCanvas() {
-      const canvas = document.getElementById('spaceCanvas');
+    // 🌌 1. TRUE 3D LIQUID AURORA PARTICLE NEXUS (Improved Physics)
+    (function initLiquidCanvas() {
+      const canvas = document.getElementById('liquidCanvas');
       if (!canvas) return;
       const ctx = canvas.getContext('2d');
       let width = canvas.width = window.innerWidth;
       let height = canvas.height = window.innerHeight;
-      let stars = [];
+      let particles = [];
+      let pointer = { x: -999, y: -999 };
 
       window.addEventListener('resize', () => {
         width = canvas.width = window.innerWidth;
         height = canvas.height = window.innerHeight;
       });
 
-      // Generate 150 3D Stars
-      for (let i = 0; i < 150; i++) {
-        stars.push({
+      window.addEventListener('mousemove', (e) => { pointer.x = e.clientX; pointer.y = e.clientY; });
+      window.addEventListener('touchmove', (e) => {
+        if(e.touches[0]) { pointer.x = e.touches[0].clientX; pointer.y = e.touches[0].clientY; }
+      }, { passive: true });
+
+      // Generate Liquid Particles
+      const pCount = window.innerWidth < 600 ? 40 : 80;
+      for (let i = 0; i < pCount; i++) {
+        particles.push({
           x: Math.random() * width,
           y: Math.random() * height,
-          z: Math.random() * 2, // 3D Depth
-          radius: Math.random() * 1.5,
-          alpha: Math.random()
+          vx: (Math.random() - 0.5) * 1.5,
+          vy: (Math.random() - 0.5) * 1.5,
+          radius: Math.random() * 2.5 + 1
         });
       }
 
-      function animateSpace() {
+      function animateLiquid() {
         ctx.clearRect(0, 0, width, height);
-        stars.forEach(star => {
-          // Move stars up to create forward movement illusion
-          star.y -= star.z * 0.5;
-          if (star.y < 0) { star.y = height; star.x = Math.random() * width; }
-          
-          // Twinkle effect
-          star.alpha += (Math.random() - 0.5) * 0.1;
-          star.alpha = Math.max(0.1, Math.min(1, star.alpha));
+        
+        particles.forEach((p, i) => {
+          p.x += p.vx;
+          p.y += p.vy;
 
+          // Bounce off walls organically
+          if (p.x < 0 || p.x > width) p.vx *= -1;
+          if (p.y < 0 || p.y > height) p.vy *= -1;
+
+          // Interactive Cursor Pull
+          let dxP = pointer.x - p.x;
+          let dyP = pointer.y - p.y;
+          let distP = Math.sqrt(dxP * dxP + dyP * dyP);
+          if (distP < 150) {
+            p.vx += dxP * 0.0005;
+            p.vy += dyP * 0.0005;
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(pointer.x, pointer.y);
+            ctx.strokeStyle = `rgba(99, 102, 241, ${1 - distP/150})`;
+            ctx.lineWidth = 1.5;
+            ctx.stroke();
+          }
+
+          // Draw Particle
           ctx.beginPath();
-          ctx.arc(star.x, star.y, star.radius * star.z, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fillStyle = i % 2 === 0 ? '#10b981' : '#6366f1';
           ctx.fill();
+
+          // Connect nearby particles (Liquid Nexus Effect)
+          for (let j = i + 1; j < particles.length; j++) {
+            let p2 = particles[j];
+            let dx = p.x - p2.x;
+            let dy = p.y - p2.y;
+            let dist = Math.sqrt(dx * dx + dy * dy);
+            
+            if (dist < 100) {
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(p2.x, p2.y);
+              ctx.strokeStyle = `rgba(16, 185, 129, ${(1 - dist / 100) * 0.4})`;
+              ctx.lineWidth = 1;
+              ctx.stroke();
+            }
+          }
         });
-        requestAnimationFrame(animateSpace);
+        requestAnimationFrame(animateLiquid);
       }
-      animateSpace();
+      animateLiquid();
     })();
 
-    // ⚡ 3. 3D GYROSCOPE & MOUSE TILT ENGINE (For Hero Card)
+    // ⚡ 3. 3D GYROSCOPE TILT ENGINE (For Hero Card)
     (function initTilt() {
       const card = document.getElementById('heroTiltCard');
       if(!card) return;
 
       function applyTilt(rotX, rotY) {
-        // Extreme 3D Depth transformation
-        card.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.02, 1.02, 1.02) translateZ(30px)`;
+        card.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.02, 1.02, 1.02)`;
       }
 
-      // Mouse Hover Physics
       card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left - rect.width / 2;
         const y = e.clientY - rect.top - rect.height / 2;
-        applyTilt(-(y / (rect.height / 2)) * 15, (x / (rect.width / 2)) * 15);
+        applyTilt(-(y / (rect.height / 2)) * 12, (x / (rect.width / 2)) * 12);
       });
 
       card.addEventListener('mouseleave', () => {
-        card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1) translateZ(0px)`;
+        card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)`;
       });
 
-      // Phone Gyroscope Physics
       if (window.DeviceOrientationEvent) {
         window.addEventListener('deviceorientation', (e) => {
           if (!e.gamma || !e.beta) return;
-          const x = Math.max(-45, Math.min(45, e.gamma)); 
-          const y = Math.max(-45, Math.min(45, e.beta));
-          applyTilt(-(y - 40) * 0.6, x * 0.6);
+          const x = Math.max(-40, Math.min(40, e.gamma)); 
+          const y = Math.max(-40, Math.min(40, e.beta));
+          applyTilt(-(y - 40) * 0.5, x * 0.5);
         });
       }
     })();
 
-    // 🧲 4. MAGNETIC BUTTONS (Cursor pull physics)
+    // 🧲 4. GSAP MAGNETIC BUTTONS (Flawless Physics)
     document.querySelectorAll('.magnetic-btn').forEach(btn => {
+      // Create GSAP quickTo functions for butter-smooth animation
+      const xTo = gsap.quickTo(btn, "x", {duration: 0.4, ease: "power3"});
+      const yTo = gsap.quickTo(btn, "y", {duration: 0.4, ease: "power3"});
+
       btn.addEventListener('mousemove', (e) => {
         const rect = btn.getBoundingClientRect();
         const x = (e.clientX - rect.left) - rect.width / 2;
         const y = (e.clientY - rect.top) - rect.height / 2;
-        // Pull the button towards the cursor
-        btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px) translateZ(20px)`;
+        // Pull strength (x * 0.4)
+        xTo(x * 0.35);
+        yTo(y * 0.35);
       });
       btn.addEventListener('mouseleave', () => {
-        btn.style.transform = `translate(0px, 0px) translateZ(0px)`;
+        xTo(0);
+        yTo(0);
+        gsap.to(btn, {scale: 1, duration: 0.5, ease: "elastic.out(1, 0.3)"});
       });
+      btn.addEventListener('mousedown', () => gsap.to(btn, {scale: 0.9, duration: 0.1}));
+      btn.addEventListener('mouseup', () => gsap.to(btn, {scale: 1.05, duration: 0.3, ease: "elastic.out(1, 0.3)"}));
     });
 
-    // 🟢 5. GSAP & SCROLLTRIGGER ANIMATIONS (The Awwwards Secret)
-    document.addEventListener("DOMContentLoaded", (event) => {
+    // 🟢 2. GSAP & SCROLLTRIGGER ANIMATIONS (The "Scrub" Effect)
+    document.addEventListener("DOMContentLoaded", () => {
       gsap.registerPlugin(ScrollTrigger);
 
-      // Load Animations (When page opens)
+      // A. Initial Page Load Animations
       const tl = gsap.timeline();
-      
-      // Top Bar drops in
-      tl.fromTo(".gs-fade-down", {y: -50, opacity: 0}, {y: 0, opacity: 1, duration: 1, ease: "elastic.out(1, 0.5)"});
-      
-      // Hero Card flips in 3D
-      tl.to(".gs-hero", {opacity: 1, y: 0, rotateX: 0, duration: 1.2, ease: "power4.out"}, "-=0.6");
-      
-      // Action buttons pop up
-      tl.to(".gs-btns", {opacity: 1, duration: 0.5}, "-=0.8");
-      tl.fromTo(".magnetic-btn", {y: 30, scale: 0.8}, {y: 0, scale: 1, stagger: 0.1, duration: 0.8, ease: "back.out(1.7)"}, "-=0.8");
-      
-      // Bottom Nav slides up
-      tl.to(".gs-nav", {y: 0, duration: 0.8, ease: "power3.out"}, "-=1");
+      tl.fromTo(".gs-load", 
+        {y: 40, opacity: 0, rotationX: -10}, 
+        {y: 0, opacity: 1, rotationX: 0, duration: 0.8, stagger: 0.15, ease: "back.out(1.2)"}
+      );
 
-      // ScrollTrigger Animations (When scrolling down)
+      // B. ScrollTrigger Scrubbing (Cards fold in/out dynamically as you scroll)
       gsap.utils.toArray('.gs-panel').forEach(panel => {
-        gsap.to(panel, {
-          scrollTrigger: {
-            trigger: panel,
-            start: "top 90%", // Trigger when top of panel hits 90% of screen
-            toggleActions: "play none none reverse"
-          },
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.8,
-          ease: "back.out(1.2)"
-        });
+        gsap.fromTo(panel, 
+          { y: 80, opacity: 0, scale: 0.9, rotationX: -15 },
+          {
+            y: 0, opacity: 1, scale: 1, rotationX: 0,
+            scrollTrigger: {
+              trigger: panel,
+              start: "top 95%", // Animation starts when panel hits 95% of viewport
+              end: "top 75%",   // Ends when it hits 75%
+              scrub: 1          // The MAGIC: Animation is tied to the scroll wheel (1 sec delay)
+            }
+          }
+        );
       });
     });
 
-    // Simple Open Modal Logic Placeholder
-    function openEntryModal(type) {
-      alert(`Opening ${type} modal in full 3D version...`);
+    // --- Core Hisab Logic ---
+    let currentMode = 'income';
+    function openEntryModal(mode) {
+      currentMode = mode;
+      document.getElementById('modalTitle').textContent = mode === 'income' ? '➕ Add Income' : '➖ Add Expense';
+      document.getElementById('entryDate').value = new Date().toISOString().split('T')[0];
+      document.getElementById('entryModal').classList.add('open');
     }
+
+    function closeModals() {
+      document.querySelectorAll('.modal-backdrop').forEach(m => m.classList.remove('open'));
+    }
+
+    function openLootStore() {
+      haptic(20);
+      alert('Opening 3D Loot Store... (Insert your Loot Box HTML here!)');
+    }
+
+    let transactions = JSON.parse(localStorage.getItem('mera_hisab_v4')) || [];
+    function saveTransaction() {
+      let amt = parseFloat(document.getElementById('entryAmount').value);
+      if(isNaN(amt) || amt <= 0) return alert('Enter valid amount!');
+      
+      haptic(30);
+      transactions.unshift({
+        id: Date.now(), type: currentMode, amount: amt, 
+        date: document.getElementById('entryDate').value,
+        note: document.getElementById('entryNote').value || 'Entry'
+      });
+      localStorage.setItem('mera_hisab_v4', JSON.stringify(transactions));
+      closeModals();
+      renderAll();
+    }
+
+    function renderAll() {
+      let tin = 0, tout = 0;
+      let tc = document.getElementById('timelineContainer');
+      tc.innerHTML = '';
+      
+      transactions.forEach(t => {
+        if(t.type === 'income') tin += t.amount; else tout += t.amount;
+        let sign = t.type === 'income' ? '+' : '-';
+        let color = t.type === 'income' ? '#34d399' : '#fb7185';
+        tc.innerHTML += `
+          <div class="tx-item" style="display:flex; justify-content:space-between; padding:15px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:16px; margin-bottom:10px;">
+            <div>
+              <strong style="color:#fff;">${t.note}</strong>
+              <div style="font-size:0.75rem; color:var(--muted);">${t.date}</div>
+            </div>
+            <div style="font-weight:900; color:${color};">${sign}₹${t.amount}</div>
+          </div>
+        `;
+      });
+
+      if(transactions.length === 0) tc.innerHTML = 'No entries yet. Add some!';
+
+      document.getElementById('netBalance').textContent = '₹' + (tin - tout);
+      document.getElementById('totalIncome').textContent = '₹' + tin;
+      document.getElementById('totalExpense').textContent = '₹' + tout;
+      
+      let pct = tin + tout === 0 ? 50 : (tin / (tin + tout)) * 100;
+      document.getElementById('incomeRatioBar').style.width = pct + '%';
+    }
+
+    renderAll();
+  </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="hi" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>SmartHisab - 3D Liquid AI Edition</title>
+  <meta name="theme-color" content="#03050a" />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- 🟢 GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <style>
+    /* ==========================================================================
+       EXTREME 3D GLASSMORPHISM (Perfected)
+       ========================================================================== */
+    :root {
+      --bg: #03050a;
+      --surface: rgba(13, 18, 32, 0.65);
+      --surface-soft: rgba(24, 33, 54, 0.55);
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --border: rgba(255, 255, 255, 0.08);
+      --income: #34d399;
+      --income-grad: linear-gradient(135deg, #10b981 0%, #047857 100%);
+      --expense: #fb7185;
+      --expense-grad: linear-gradient(135deg, #f43f5e 0%, #be123c 100%);
+      --shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.85);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; font-family: 'Inter', sans-serif; }
+    html, body { overflow-x: hidden !important; width: 100vw; background-color: var(--bg); color: var(--text); perspective: 1200px; }
+    body { min-height: 100vh; padding-bottom: 120px; }
+
+    /* 🌌 BRAND NEW 1: Liquid Aurora Particle Nexus (Smooth & Interactive) */
+    #liquidCanvas {
+      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 0; pointer-events: none;
+      background: radial-gradient(circle at 50% 50%, #0a0d1a 0%, #02040a 100%);
+    }
+
+    .app-shell { max-width: 480px; margin: 0 auto; padding: 12px 16px 32px; position: relative; z-index: 2; transform-style: preserve-3d; }
+
+    /* 🛸 Top Bar */
+    .top-bar { 
+      display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding: 12px; 
+      background: var(--surface); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); 
+      border: 1px solid var(--border); border-radius: 24px; box-shadow: var(--shadow); 
+    }
+    .brand-row { display: flex; align-items: center; gap: 10px; }
+    .app-logo { width: 45px; height: 45px; border-radius: 14px; box-shadow: 0 0 20px rgba(99,102,241,0.4); }
+    .brand-title h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.15rem; font-weight: 900; background: linear-gradient(90deg, #fff, #a5b4fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .brand-title p { font-size: 0.7rem; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+
+    /* ⚡ Hero Titanium Card */
+    .hero-wrapper {
+      position: relative; border-radius: 30px; padding: 2px; margin-bottom: 24px;
+      background: linear-gradient(145deg, rgba(255,255,255,0.2), rgba(255,255,255,0.02));
+      box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+      transform-style: preserve-3d; cursor: grab;
+    }
+    .hero-card {
+      background: linear-gradient(145deg, rgba(15,23,42,0.85), rgba(6,9,19,0.95));
+      backdrop-filter: blur(40px); border-radius: 28px; padding: 25px 20px; position: relative; z-index: 1; overflow: hidden;
+    }
+    
+    /* Perfected Light Sweep */
+    .hero-card::after {
+      content: ""; position: absolute; top: -100%; left: -100%; width: 300%; height: 300%;
+      background: linear-gradient(45deg, transparent 45%, rgba(255,255,255,0.12) 50%, transparent 55%);
+      animation: sweep 5s infinite linear; pointer-events: none;
+    }
+    @keyframes sweep { 0% { transform: translate(-30%, -30%) rotate(45deg); } 100% { transform: translate(30%, 30%) rotate(45deg); } }
+
+    .balance-label { font-size: 0.85rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+    .balance-amount { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 3rem; font-weight: 900; margin: 5px 0 20px; color: #fff; text-shadow: 0 10px 30px rgba(255,255,255,0.2); }
+
+    .hero-split { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .hero-metric { background: rgba(255,255,255,0.05); border: 1px solid var(--border); padding: 12px; border-radius: 18px; display: flex; align-items: center; gap: 12px; }
+    .metric-icon { width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 900; }
+    .metric-in { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16,185,129,0.3); }
+    .metric-out { background: rgba(244, 63, 94, 0.15); color: #fb7185; border: 1px solid rgba(244,63,94,0.3); }
+
+    /* 🧲 BRAND NEW 4: GSAP Magnetic Buttons */
+    .big-action-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+    .magnetic-btn {
+      border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; padding: 18px 10px; color: #fff; 
+      font-size: 1.05rem; font-weight: 900; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;
+      /* CSS transition hatayi, ab GSAP sambhalega */
+    }
+    .btn-income { background: var(--income-grad); box-shadow: 0 15px 30px rgba(16,185,129,0.3); }
+    .btn-expense { background: var(--expense-grad); box-shadow: 0 15px 30px rgba(244,63,94,0.3); }
+
+    /* 🧊 GSAP Panel Targets */
+    .panel { 
+      background: var(--surface); backdrop-filter: blur(30px); border: 1px solid var(--border); 
+      border-radius: 28px; padding: 22px; box-shadow: var(--shadow); margin-bottom: 20px; 
+    }
+    .panel-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+    .panel-title { font-size: 1.05rem; font-weight: 800; }
+
+    /* Transactions */
+    .tx-item { display: flex; justify-content: space-between; align-items: center; padding: 14px; border-radius: 18px; background: var(--surface-soft); border: 1px solid var(--border); margin-bottom: 10px; }
+    .tx-emoji { width: 44px; height: 44px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; }
+    .tx-details h4 { font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .tx-amount { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.1rem; font-weight: 800; }
+
+    /* 📱 Bottom Nav Dock */
+    .bottom-nav {
+      position: fixed; bottom: 0; left: 0; right: 0; background: rgba(5,8,15,0.85); backdrop-filter: blur(40px); border-top: 1px solid var(--border); display: flex; justify-content: space-around; padding: 12px 10px 20px; max-width: 480px; margin: 0 auto; z-index: 99; border-radius: 30px 30px 0 0;
+    }
+    .nav-item { background: transparent; border: none; color: var(--muted); font-size: 0.75rem; font-weight: 700; display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer; transition: 0.3s; }
+    .nav-item.active { color: #6366f1; transform: translateY(-5px) scale(1.1); }
+    .nav-item span.nav-icon { font-size: 1.4rem; }
+
+    /* Forms & Modals (Full Version Retained) */
+    .modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(20px); display: none; align-items: flex-end; justify-content: center; z-index: 200; opacity: 0; transition: opacity 0.3s ease; }
+    .modal-backdrop.open { display: flex; opacity: 1; }
+    .modal-sheet { background: var(--bg); border-top: 1px solid var(--border-highlight); width: 100%; max-width: 480px; border-radius: 35px 35px 0 0; padding: 25px 20px 40px; box-shadow: 0 -20px 60px rgba(99,102,241,0.4); transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+    .modal-backdrop.open .modal-sheet { transform: translateY(0); }
+    
+    .form-input { width: 100%; padding: 16px; border-radius: 16px; border: 1px solid var(--border); background: rgba(255,255,255,0.05); color: #fff; font-size: 1rem; font-weight: 700; outline: none; margin-bottom: 16px; transition: border 0.3s; }
+    .form-input:focus { border-color: #6366f1; background: rgba(99,102,241,0.1); }
+    .amount-input-big { font-size: 1.8rem; font-weight: 900; color: #fbbf24; }
+  </style>
+</head>
+<body>
+
+  <!-- 🌌 1. TRUE 3D LIQUID PARTICLE NEXUS CANVAS -->
+  <canvas id="liquidCanvas"></canvas>
+
+  <main class="app-shell">
+    
+    <!-- 🛸 Top Header -->
+    <header class="top-bar gs-load">
+      <div class="brand-row">
+        <img src="data:image/png;base64,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" class="app-logo" />
+        <div class="brand-title">
+          <h1>मेरा हिसाब ₹</h1>
+          <p>WebGL Nexus Edition</p>
+        </div>
+      </div>
+      <button style="background:var(--surface-soft); border:1px solid var(--border); padding:8px 12px; border-radius:12px; color:#fff;" onclick="haptic(15); openLootStore();">
+        🎁 Loot Vault
+      </button>
+    </header>
+
+    <!-- ⚡ 3D TILT GYROSCOPE HERO CARD -->
+    <div class="hero-wrapper gs-load" id="heroTiltCard">
+      <section class="hero-card">
+        <div class="balance-label">Total Net Balance</div>
+        <div class="balance-amount" id="netBalance">₹0</div>
+
+        <div class="hero-split">
+          <div class="hero-metric">
+            <div class="metric-icon metric-in">↓</div>
+            <div>
+              <span style="font-size:0.7rem; color:var(--muted)">INCOME</span>
+              <strong style="font-size:1.1rem; color:#fff" id="totalIncome">₹0</strong>
+            </div>
+          </div>
+          <div class="hero-metric">
+            <div class="metric-icon metric-out">↑</div>
+            <div>
+              <span style="font-size:0.7rem; color:var(--muted)">EXPENSE</span>
+              <strong style="font-size:1.1rem; color:#fff" id="totalExpense">₹0</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- 🧲 4. GSAP MAGNETIC BUTTONS -->
+    <div class="big-action-row gs-load">
+      <div class="magnetic-btn btn-income" onclick="haptic(20); openEntryModal('income');">➕ Add Income</div>
+      <div class="magnetic-btn btn-expense" onclick="haptic(20); openEntryModal('expense');">➖ Add Expense</div>
+    </div>
+
+    <!-- 🧊 VIEW 1: HOME & TIMELINE (ScrollTrigger Targets) -->
+    <div class="panel gs-panel">
+      <div class="panel-header"><div class="panel-title">🗓️ 3D Transactions Ledger</div></div>
+      <div id="timelineContainer" style="color:var(--muted); text-align:center;">No entries yet. Add some!</div>
+    </div>
+
+    <!-- 🎁 COMPACT INLINE SPONSOR AD -->
+    <div class="gs-panel" style="margin: 24px auto; padding: 12px; max-width: 320px; background: var(--surface-soft); border: 1px solid var(--border); border-radius: 20px; text-align: center; backdrop-filter: blur(10px);">
+      <span style="font-size: 0.65rem; color: var(--muted); text-transform: uppercase; font-weight: 800; display: block; margin-bottom: 8px;">✨ Sponsored Partner</span>
+      <div style="transform: scale(0.95); transform-origin: center;">
+        <script type="text/javascript">
+          atOptions = { 'key' : '4708e5cb58f7a3a7ee6e8c46d62ce263', 'format' : 'iframe', 'height' : 50, 'width' : 300, 'params' : {} };
+        </script>
+        <script type="text/javascript" src="https://bicea.org/22/4708e5cb58f7a3a7ee6e8c46d62ce263"></script>
+      </div>
+    </div>
+  </main>
+
+  <!-- 📱 3D Bottom Navigation Dock -->
+  <nav class="bottom-nav gs-load">
+    <button class="nav-item active" onclick="haptic(10)">
+      <span class="nav-icon">🏠</span><span>Home</span>
+    </button>
+    <button class="nav-item" onclick="haptic(10); alert('Stats View Coming Soon!');">
+      <span class="nav-icon">📊</span><span>Stats</span>
+    </button>
+    <button class="nav-item" onclick="haptic(10); alert('Story Flex Feature Active!');">
+      <span class="nav-icon">📸</span><span>Flex</span>
+    </button>
+  </nav>
+
+  <!-- ENTRY MODAL (Kept Functional) -->
+  <div class="modal-backdrop" id="entryModal">
+    <div class="modal-sheet">
+      <div style="display:flex; justify-content:space-between; margin-bottom: 20px;">
+        <h3 id="modalTitle" style="color:#fff; font-size:1.3rem;">➕ Add Entry</h3>
+        <button onclick="closeModals()" style="background:transparent; border:none; color:#fff; font-size:1.5rem;">✕</button>
+      </div>
+      <input type="date" id="entryDate" class="form-input" />
+      <input type="number" id="entryAmount" class="form-input amount-input-big" placeholder="₹ 0" inputmode="numeric" />
+      <input type="text" id="entryNote" class="form-input" placeholder="Note (e.g. Chai, Salary)..." />
+      <button style="width:100%; background:var(--accent-grad); padding:16px; border-radius:16px; border:none; color:#fff; font-weight:800; font-size:1.1rem; margin-top:10px;" onclick="saveTransaction()">✅ Save Entry</button>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       ⚙️ THE BEAST ENGINES: WebGL Canvas, GSAP ScrollTrigger, Haptics & Magnetics
+       ========================================================================== -->
+  <script>
+    // 📳 5. Professional Haptic Engine
+    function haptic(ms) {
+      if (navigator.vibrate) navigator.vibrate(ms);
+    }
+
+    // 🌌 1. TRUE 3D LIQUID AURORA PARTICLE NEXUS (Improved Physics)
+    (function initLiquidCanvas() {
+      const canvas = document.getElementById('liquidCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let width = canvas.width = window.innerWidth;
+      let height = canvas.height = window.innerHeight;
+      let particles = [];
+      let pointer = { x: -999, y: -999 };
+
+      window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      });
+
+      window.addEventListener('mousemove', (e) => { pointer.x = e.clientX; pointer.y = e.clientY; });
+      window.addEventListener('touchmove', (e) => {
+        if(e.touches[0]) { pointer.x = e.touches[0].clientX; pointer.y = e.touches[0].clientY; }
+      }, { passive: true });
+
+      // Generate Liquid Particles
+      const pCount = window.innerWidth < 600 ? 40 : 80;
+      for (let i = 0; i < pCount; i++) {
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 1.5,
+          vy: (Math.random() - 0.5) * 1.5,
+          radius: Math.random() * 2.5 + 1
+        });
+      }
+
+      function animateLiquid() {
+        ctx.clearRect(0, 0, width, height);
+        
+        particles.forEach((p, i) => {
+          p.x += p.vx;
+          p.y += p.vy;
+
+          // Bounce off walls organically
+          if (p.x < 0 || p.x > width) p.vx *= -1;
+          if (p.y < 0 || p.y > height) p.vy *= -1;
+
+          // Interactive Cursor Pull
+          let dxP = pointer.x - p.x;
+          let dyP = pointer.y - p.y;
+          let distP = Math.sqrt(dxP * dxP + dyP * dyP);
+          if (distP < 150) {
+            p.vx += dxP * 0.0005;
+            p.vy += dyP * 0.0005;
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(pointer.x, pointer.y);
+            ctx.strokeStyle = `rgba(99, 102, 241, ${1 - distP/150})`;
+            ctx.lineWidth = 1.5;
+            ctx.stroke();
+          }
+
+          // Draw Particle
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fillStyle = i % 2 === 0 ? '#10b981' : '#6366f1';
+          ctx.fill();
+
+          // Connect nearby particles (Liquid Nexus Effect)
+          for (let j = i + 1; j < particles.length; j++) {
+            let p2 = particles[j];
+            let dx = p.x - p2.x;
+            let dy = p.y - p2.y;
+            let dist = Math.sqrt(dx * dx + dy * dy);
+            
+            if (dist < 100) {
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(p2.x, p2.y);
+              ctx.strokeStyle = `rgba(16, 185, 129, ${(1 - dist / 100) * 0.4})`;
+              ctx.lineWidth = 1;
+              ctx.stroke();
+            }
+          }
+        });
+        requestAnimationFrame(animateLiquid);
+      }
+      animateLiquid();
+    })();
+
+    // ⚡ 3. 3D GYROSCOPE TILT ENGINE (For Hero Card)
+    (function initTilt() {
+      const card = document.getElementById('heroTiltCard');
+      if(!card) return;
+
+      function applyTilt(rotX, rotY) {
+        card.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.02, 1.02, 1.02)`;
+      }
+
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        applyTilt(-(y / (rect.height / 2)) * 12, (x / (rect.width / 2)) * 12);
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)`;
+      });
+
+      if (window.DeviceOrientationEvent) {
+        window.addEventListener('deviceorientation', (e) => {
+          if (!e.gamma || !e.beta) return;
+          const x = Math.max(-40, Math.min(40, e.gamma)); 
+          const y = Math.max(-40, Math.min(40, e.beta));
+          applyTilt(-(y - 40) * 0.5, x * 0.5);
+        });
+      }
+    })();
+
+    // 🧲 4. GSAP MAGNETIC BUTTONS (Flawless Physics)
+    document.querySelectorAll('.magnetic-btn').forEach(btn => {
+      // Create GSAP quickTo functions for butter-smooth animation
+      const xTo = gsap.quickTo(btn, "x", {duration: 0.4, ease: "power3"});
+      const yTo = gsap.quickTo(btn, "y", {duration: 0.4, ease: "power3"});
+
+      btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = (e.clientX - rect.left) - rect.width / 2;
+        const y = (e.clientY - rect.top) - rect.height / 2;
+        // Pull strength (x * 0.4)
+        xTo(x * 0.35);
+        yTo(y * 0.35);
+      });
+      btn.addEventListener('mouseleave', () => {
+        xTo(0);
+        yTo(0);
+        gsap.to(btn, {scale: 1, duration: 0.5, ease: "elastic.out(1, 0.3)"});
+      });
+      btn.addEventListener('mousedown', () => gsap.to(btn, {scale: 0.9, duration: 0.1}));
+      btn.addEventListener('mouseup', () => gsap.to(btn, {scale: 1.05, duration: 0.3, ease: "elastic.out(1, 0.3)"}));
+    });
+
+    // 🟢 2. GSAP & SCROLLTRIGGER ANIMATIONS (The "Scrub" Effect)
+    document.addEventListener("DOMContentLoaded", () => {
+      gsap.registerPlugin(ScrollTrigger);
+
+      // A. Initial Page Load Animations
+      const tl = gsap.timeline();
+      tl.fromTo(".gs-load", 
+        {y: 40, opacity: 0, rotationX: -10}, 
+        {y: 0, opacity: 1, rotationX: 0, duration: 0.8, stagger: 0.15, ease: "back.out(1.2)"}
+      );
+
+      // B. ScrollTrigger Scrubbing (Cards fold in/out dynamically as you scroll)
+      gsap.utils.toArray('.gs-panel').forEach(panel => {
+        gsap.fromTo(panel, 
+          { y: 80, opacity: 0, scale: 0.9, rotationX: -15 },
+          {
+            y: 0, opacity: 1, scale: 1, rotationX: 0,
+            scrollTrigger: {
+              trigger: panel,
+              start: "top 95%", // Animation starts when panel hits 95% of viewport
+              end: "top 75%",   // Ends when it hits 75%
+              scrub: 1          // The MAGIC: Animation is tied to the scroll wheel (1 sec delay)
+            }
+          }
+        );
+      });
+    });
+
+    // --- Core Hisab Logic ---
+    let currentMode = 'income';
+    function openEntryModal(mode) {
+      currentMode = mode;
+      document.getElementById('modalTitle').textContent = mode === 'income' ? '➕ Add Income' : '➖ Add Expense';
+      document.getElementById('entryDate').value = new Date().toISOString().split('T')[0];
+      document.getElementById('entryModal').classList.add('open');
+    }
+
+    function closeModals() {
+      document.querySelectorAll('.modal-backdrop').forEach(m => m.classList.remove('open'));
+    }
+
+    function openLootStore() {
+      haptic(20);
+      alert('Opening 3D Loot Store... (Insert your Loot Box HTML here!)');
+    }
+
+    let transactions = JSON.parse(localStorage.getItem('mera_hisab_v4')) || [];
+    function saveTransaction() {
+      let amt = parseFloat(document.getElementById('entryAmount').value);
+      if(isNaN(amt) || amt <= 0) return alert('Enter valid amount!');
+      
+      haptic(30);
+      transactions.unshift({
+        id: Date.now(), type: currentMode, amount: amt, 
+        date: document.getElementById('entryDate').value,
+        note: document.getElementById('entryNote').value || 'Entry'
+      });
+      localStorage.setItem('mera_hisab_v4', JSON.stringify(transactions));
+      closeModals();
+      renderAll();
+    }
+
+    function renderAll() {
+      let tin = 0, tout = 0;
+      let tc = document.getElementById('timelineContainer');
+      tc.innerHTML = '';
+      
+      transactions.forEach(t => {
+        if(t.type === 'income') tin += t.amount; else tout += t.amount;
+        let sign = t.type === 'income' ? '+' : '-';
+        let color = t.type === 'income' ? '#34d399' : '#fb7185';
+        tc.innerHTML += `
+          <div class="tx-item" style="display:flex; justify-content:space-between; padding:15px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:16px; margin-bottom:10px;">
+            <div>
+              <strong style="color:#fff;">${t.note}</strong>
+              <div style="font-size:0.75rem; color:var(--muted);">${t.date}</div>
+            </div>
+            <div style="font-weight:900; color:${color};">${sign}₹${t.amount}</div>
+          </div>
+        `;
+      });
+
+      if(transactions.length === 0) tc.innerHTML = 'No entries yet. Add some!';
+
+      document.getElementById('netBalance').textContent = '₹' + (tin - tout);
+      document.getElementById('totalIncome').textContent = '₹' + tin;
+      document.getElementById('totalExpense').textContent = '₹' + tout;
+      
+      let pct = tin + tout === 0 ? 50 : (tin / (tin + tout)) * 100;
+      document.getElementById('incomeRatioBar').style.width = pct + '%';
+    }
+
+    renderAll();
   </script>
 </body>
 </html>
