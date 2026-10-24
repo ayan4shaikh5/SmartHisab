@@ -267,18 +267,23 @@
       z-index: 1; 
       overflow: hidden; 
     }
+  /* ⚡ Premium Fintech Card Border (No Spinning Laser) */
+    .hero-laser-wrapper { 
+      position: relative; 
+      border-radius: 28px; 
+      padding: 1px; /* Patla Titanium/Glass Edge */
+      margin-bottom: 12px; 
+      background: linear-gradient(145deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.1) 100%);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 30px rgba(99, 102, 241, 0.15); /* Deep Aura Shadow */
+      transform-style: preserve-3d; 
+      perspective: 1000px; 
+      transition: transform 0.1s linear; 
+      animation: cardCascade 0.6s var(--spring) 0.06s both; 
+      cursor: grab; 
+    }
     
-    .hero-card::before { 
-      content: ""; 
-      position: absolute; 
-      top: 0; 
-      left: 0; 
-      width: 55%; 
-      height: 100%; 
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.14), rgba(99, 102, 241, 0.18), transparent); 
-      animation: holoSweep 4s infinite ease-in-out; 
-      pointer-events: none; 
-      z-index: 2; 
+    .hero-laser-wrapper::before { 
+      display: none; /* Chakri wali light hamesha ke liye band */ 
     }
 
     /* Live Telemetry Wave inside Hero Card */
