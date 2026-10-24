@@ -20,7 +20,7 @@
 }
 </script>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-site-verification" content="NJfuIJz2C8AggIvY0iuMZOxDwMUrhUZYhBkSqX2gKsM" />
 
   <!-- Google Search SEO Tags -->
@@ -995,7 +995,7 @@
         </div>
 
         <div class="date-filter-box">
-          <input type="date" id="filterDateInput" onchange="playSound('click'); applyDateFilter()" />
+       <input type="date" id="filterDateInput" aria-label="Date Filter" onchange="playSound('click'); applyDateFilter()">
           <button class="clear-date-btn" onclick="playSound('click'); clearDateFilter()">सभी तारीखें</button>
           <button class="clear-date-btn" style="color:var(--expense);" onclick="playSound('expense'); askClearAll()">🗑️ रीसेट</button>
         </div>
