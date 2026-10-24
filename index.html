@@ -65,6 +65,69 @@
 
   <style>
     :root {
+      /* 1. Google Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* 2. Premium Dark Background */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #f8fafc;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+/* 3. Glassmorphism Cards (Total Income/Expense Box) */
+.panel, .app-shell, .modal-content {
+    background: rgba(255, 255, 255, 0.05); /* Halka transparent */
+    backdrop-filter: blur(16px); /* Peeche ka background blur */
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Halka white border */
+    border-radius: 20px; /* Gol kinare */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); /* Soft shadow */
+    padding: 20px;
+}
+
+/* 4. Modern Buttons (No cheap shadows) */
+button, .big-btn {
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-income {
+    background: linear-gradient(90deg, #10b981, #059669);
+    color: white;
+}
+
+.btn-expense {
+    background: linear-gradient(90deg, #ef4444, #dc2626);
+    color: white;
+}
+
+/* Button Hover Effect */
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* 5. Clean Inputs */
+input, select, textarea {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    border-radius: 10px;
+    padding: 12px;
+    font-family: 'Poppins', sans-serif;
+}
+input:focus {
+    outline: none;
+    border-color: #3b82f6; /* Focus par blue glow */
+}
       --bg: #f1f5f9;
       --surface: #ffffff;
       --surface-soft: #f8fafc;
