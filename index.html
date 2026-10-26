@@ -35,7 +35,11 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800;900&family=Space+Mono:wght@700&display=swap" rel="stylesheet" />
+
+  <!-- 🌀 OFFICIAL ATROPOS JS 3D PARALLAX TILT CSS & JS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/atropos@2.0.2/atropos.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/atropos@2.0.2/atropos.min.js" defer></script>
 
   <!-- App Icons -->
   <link rel="icon" type="image/png" href="data:image/png;base64,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" />
@@ -61,7 +65,7 @@
 
   <style>
     /* ==========================================================================
-       ACTIVETHEORY x BRUNO SIMON x APPLE TITANIUM x RIY3 AI VOICE DESIGN SYSTEM
+       ACTIVETHEORY x BRUNO SIMON x ATROPOS 3D x MINECRAFT VOXEL DESIGN SYSTEM
        ========================================================================== */
     :root {
       --bg: #f2f5fa;
@@ -102,6 +106,12 @@
       --shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.85);
     }
 
+    /* 🚨 LOW BATTERY (<20%) RED EMERGENCY UI MODE */
+    body.low-battery-alert {
+      --border-highlight: rgba(244, 63, 94, 0.85);
+      box-shadow: inset 0 0 65px rgba(225, 29, 72, 0.35);
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -126,7 +136,7 @@
     }
 
     /* ==========================================================================
-       1. ACTIVETHEORY + BRUNO SIMON 3D PHYSICS & PARTICLE PORTAL CANVAS
+       1. ACTIVETHEORY + BRUNO SIMON + MINECRAFT VOXEL 3D CANVAS
        ========================================================================== */
     #cyberCanvas {
       position: fixed;
@@ -185,7 +195,7 @@
     .dynamic-island-wrap {
       display: flex;
       justify-content: center;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       position: sticky;
       top: 8px;
       z-index: 100;
@@ -218,6 +228,19 @@
       box-shadow: 0 14px 35px rgba(16, 185, 129, 0.45);
     }
 
+    .dynamic-island.heartbeat-warning {
+      border-color: #f43f5e;
+      box-shadow: 0 0 30px rgba(244, 63, 94, 0.8);
+      animation: lubDubPulse 0.8s infinite;
+    }
+
+    @keyframes lubDubPulse {
+      0%, 100% { transform: scale(1); }
+      15% { transform: scale(1.08); }
+      30% { transform: scale(0.98); }
+      45% { transform: scale(1.05); }
+    }
+
     .ai-equalizer {
       display: flex;
       align-items: center;
@@ -240,6 +263,49 @@
     @keyframes eqWave {
       0%, 100% { height: 4px; }
       50% { height: 13px; }
+    }
+
+    /* 🔋 LIVE BATTERY ROAST BANNER */
+    .battery-roast-banner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 16px;
+      margin-bottom: 14px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      background: rgba(15, 23, 42, 0.78);
+      border: 1px solid rgba(99, 102, 241, 0.4);
+      color: #e2e8f0;
+      backdrop-filter: blur(16px);
+      animation: cardCascade 0.5s var(--spring) both;
+    }
+
+    .battery-roast-banner.critical {
+      background: linear-gradient(135deg, rgba(185, 28, 28, 0.85), rgba(225, 29, 72, 0.85));
+      border: 1.5px solid #fda4af;
+      color: #ffffff;
+      box-shadow: 0 10px 30px rgba(225, 29, 72, 0.5);
+      animation: lubDubPulse 1.4s infinite;
+    }
+
+    .battery-roast-banner.high {
+      background: linear-gradient(135deg, rgba(6, 95, 70, 0.65), rgba(15, 23, 42, 0.85));
+      border-color: rgba(52, 211, 153, 0.55);
+    }
+
+    .battery-cta-pill {
+      background: #fbbf24;
+      color: #090d16;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     /* ==========================================================================
@@ -394,19 +460,20 @@
     }
 
     /* ==========================================================================
-       HERO WALLET CARD (3D TILT + LASER BEAM + BRUNO COIN SPAWNER)
+       🌀 ATROPOS 3D PARALLAX HERO WALLET CARD
        ========================================================================== */
+    .my-hero-atropos {
+      width: 100%;
+      margin-bottom: 18px;
+      border-radius: 28px;
+    }
+
     .hero-laser-wrapper {
       position: relative;
       border-radius: 28px;
       padding: 2px;
-      margin-bottom: 18px;
       overflow: hidden;
       box-shadow: 0 24px 60px -12px rgba(99, 102, 241, 0.42);
-      transform-style: preserve-3d;
-      perspective: 1000px;
-      transition: transform 0.16s ease-out;
-      animation: cardCascade 0.6s var(--spring) 0.06s both;
       cursor: grab;
     }
 
@@ -521,8 +588,8 @@
     }
 
     .balance-amount {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 2.65rem;
+      font-family: 'Space Mono', 'Plus Jakarta Sans', monospace;
+      font-size: 2.55rem;
       font-weight: 900;
       letter-spacing: -0.03em;
       margin: 4px 0 18px;
@@ -588,19 +655,20 @@
     }
 
     .metric-info strong {
-      font-size: 1.04rem;
+      font-family: 'Space Mono', 'Inter', monospace;
+      font-size: 1.02rem;
       font-weight: 800;
       color: #f8fafc;
     }
 
     /* ==========================================================================
-       BIG TACTILE 3D BUTTONS
+       BIG TACTILE 3D BUTTONS + AUKAAT FLEX BAR
        ========================================================================== */
     .big-action-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
-      margin-bottom: 18px;
+      margin-bottom: 12px;
       animation: cardCascade 0.65s var(--spring) 0.12s both;
     }
 
@@ -640,6 +708,31 @@
     .btn-expense {
       background: var(--expense-grad);
       box-shadow: 0 12px 26px -6px rgba(244, 63, 94, 0.55);
+    }
+
+    /* 🔥 VIRAL AUKAAT CARD & RUNAWAY BUTTON ROW */
+    .viral-power-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .aukaat-trigger-btn {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 18px;
+      border: 1.5px solid rgba(251, 191, 36, 0.65);
+      background: linear-gradient(135deg, rgba(17, 24, 39, 0.95) 0%, rgba(88, 28, 135, 0.85) 50%, rgba(190, 24, 93, 0.85) 100%);
+      color: #ffffff;
+      font-size: 0.95rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 12px 28px rgba(236, 72, 153, 0.35);
     }
 
     /* ==========================================================================
@@ -767,7 +860,7 @@
     }
 
     /* ==========================================================================
-       TRANSACTION TIMELINE ITEMS
+       TRANSACTION TIMELINE ITEMS + BILL PHOTO THUMBNAIL
        ========================================================================== */
     .date-group {
       margin-bottom: 16px;
@@ -847,6 +940,24 @@
     .tx-details p {
       font-size: 0.74rem;
       color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .bill-thumb-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(99, 102, 241, 0.18);
+      border: 1px solid rgba(99, 102, 241, 0.45);
+      color: #a5b4fc;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      cursor: pointer;
     }
 
     .tx-right {
@@ -901,7 +1012,7 @@
     }
 
     /* ==========================================================================
-       MODAL SHEET
+       MODAL SHEET & BILL UPLOAD BOX
        ========================================================================== */
     .modal-backdrop {
       position: fixed;
@@ -1035,6 +1146,40 @@
       box-shadow: 0 0 15px rgba(16, 185, 129, 0.25);
     }
 
+    /* 📸 Bill Upload Dropzone */
+    .bill-upload-label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px;
+      border-radius: 14px;
+      border: 1.5px dashed rgba(99, 102, 241, 0.55);
+      background: rgba(99, 102, 241, 0.08);
+      color: var(--text);
+      font-size: 0.84rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .bill-preview-wrap {
+      display: none;
+      margin-top: 8px;
+      position: relative;
+      width: 90px;
+      height: 90px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid #10b981;
+    }
+
+    .bill-preview-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     .save-entry-btn {
       width: 100%;
       border: none;
@@ -1048,8 +1193,36 @@
     }
 
     /* ==========================================================================
-       4. BRUNO SIMON 3D LOOT VAULT & COMPACT INLINE SPONSOR AD
+       4. HTML5 DIGITAL SCRATCH CARD + RUNAWAY BUTTON + HOLO AUKAAT CARD
        ========================================================================== */
+    .scratch-card-box {
+      position: relative;
+      width: 100%;
+      max-width: 340px;
+      height: 115px;
+      margin: 0 auto 12px auto;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 2px solid rgba(251, 191, 36, 0.65);
+      background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 50%, #064e3b 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.55);
+      user-select: none;
+    }
+
+    .scratch-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      z-index: 4;
+      touch-action: none;
+    }
+
     .magic-btn {
       display: inline-flex;
       align-items: center;
@@ -1058,13 +1231,84 @@
       background-size: 200% 200%;
       animation: gradientShift 3.5s ease infinite;
       color: #ffffff !important;
-      font-size: 0.94rem;
+      font-size: 0.92rem;
       font-weight: 800;
-      padding: 14px 28px;
+      padding: 12px 24px;
       border-radius: 999px;
       text-decoration: none;
       border: 1px solid rgba(255, 255, 255, 0.35);
       box-shadow: 0 12px 28px -6px rgba(139, 92, 246, 0.55);
+      z-index: 2;
+    }
+
+    /* 🏃‍♂️ Runaway Button Zone */
+    .runaway-arena {
+      position: relative;
+      height: 76px;
+      margin: 14px 0;
+      border-radius: 18px;
+      border: 1px dashed rgba(251, 191, 36, 0.45);
+      background: rgba(15, 23, 42, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+    }
+
+    .runaway-buy-btn {
+      background: linear-gradient(135deg, #f59e0b, #ef4444);
+      color: #ffffff;
+      border: 2px solid #fde68a;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 8px 22px rgba(239, 68, 68, 0.5);
+      transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+      z-index: 30;
+    }
+
+    /* 🃏 3D HOLOGRAPHIC AUKAAT TRADING CARD (POKEMON / FIFA STYLE) */
+    .holo-trading-card {
+      position: relative;
+      border-radius: 24px;
+      padding: 22px 18px;
+      background: linear-gradient(135deg, #090d16 0%, #1e1b4b 45%, #3b0764 75%, #064e3b 100%);
+      border: 2.5px solid #fbbf24;
+      color: #ffffff;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 35px rgba(251, 191, 36, 0.35);
+      overflow: hidden;
+    }
+
+    .holo-trading-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(115deg, transparent 20%, rgba(255, 255, 255, 0.22) 36%, rgba(99, 102, 241, 0.28) 48%, rgba(236, 72, 153, 0.25) 54%, transparent 70%);
+      background-size: 200% 200%;
+      animation: gradientShift 3.2s linear infinite;
+      pointer-events: none;
+      mix-blend-mode: screen;
+    }
+
+    /* 🛠️ Restore Gravity Floating Button */
+    #restoreGravityBtn {
+      display: none;
+      position: fixed;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2147483647;
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #ffffff;
+      border: 2px solid #ffffff;
+      padding: 12px 24px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 900;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+      cursor: pointer;
     }
 
     /* Inline Compact Ad Container right below Aaj Ka Surprise */
@@ -1310,31 +1554,40 @@
   </style>
 </head>
 <body>
-  <!-- 🌐 ACTIVETHEORY + BRUNO SIMON 3D INTERACTIVE PARTICLE & COIN PHYSICS CANVAS -->
+  <!-- 🌐 ACTIVETHEORY + BRUNO SIMON + MINECRAFT 3D VOXEL CANVAS -->
   <canvas id="cyberCanvas"></canvas>
   <div class="ambient-orb orb-1"></div>
   <div class="ambient-orb orb-2"></div>
 
+  <!-- 🛠️ RESTORE GRAVITY FLOATING BUTTON (Appears when gravity collapses) -->
+  <button id="restoreGravityBtn" onclick="restoreGravitySystem()">🛠️ Gravity ठीक करें (Restore App)</button>
+
   <main class="app-shell">
     <!-- 🍎 APPLE DYNAMIC ISLAND LIVE AI STATUS BAR -->
     <div class="dynamic-island-wrap">
-      <div class="dynamic-island" id="dynamicIsland" onclick="triggerCoinShower(window.innerWidth/2, 80, 14); speakAI('SmartHisab AI Engine Active. Tap anywhere to spawn 3D coins!');">
+      <div class="dynamic-island" id="dynamicIsland" onclick="triggerCoinShower(window.innerWidth/2, 80, 14); triggerVoxelExplosion(window.innerWidth/2, 90); playSound('pop');">
         <div class="ai-equalizer">
           <span></span><span></span><span></span><span></span>
         </div>
-        <span id="islandText">⚡ SmartHisab 3D AI • Tap for Coin Shower</span>
+        <span id="islandText">⚡ SmartHisab 3D AI • Tap for Voxel & Coin Shower</span>
       </div>
     </div>
 
+    <!-- 🔋 LIVE BATTERY ROAST BANNER (Auto-reads navigator.getBattery) -->
+    <div id="batteryRoastBanner" class="battery-roast-banner">
+      <span id="batteryRoastText">🔋 बैटरी चेक हो रही है... हिसाब लिखने के लिए तैयार रहें!</span>
+      <a href="https://fktr.in/USkFso9" target="_blank" rel="noopener" id="batteryPowerbankBtn" class="battery-cta-pill" style="display:none;" onclick="playSound('loot')">⚡ ₹99 Powerbank</a>
+    </div>
+
     <!-- Top Header -->
-    <header class="top-bar">
+    <header class="top-bar physics-item">
       <div class="brand-row">
         <div class="logo-wrap" onclick="playSound('click'); checkSecretUnlock();" style="cursor: pointer;">
           <img src="data:image/png;base64,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" alt="App Icon" class="app-logo" />
         </div>
         <div class="brand-title">
           <h1>मेरा हिसाब ₹</h1>
-          <p id="dayOneSub">3D AI Expense &amp; Perks Vault</p>
+          <p id="dayOneSub">3D AI Expense & Perks Vault</p>
         </div>
       </div>
       <div class="top-actions">
@@ -1343,57 +1596,70 @@
       </div>
     </header>
 
-    <!-- ⚡ HERO WALLET CARD WITH 3D TILT + BRUNO SIMON COIN PHYSICS TRIGGER -->
-    <div class="hero-laser-wrapper" id="heroTiltCard" onclick="triggerCoinShower(window.innerWidth/2, 220, 10);">
-      <section class="hero-card">
-        <svg class="telemetry-wave" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path d="M0,60 C150,120 300,0 450,60 C600,120 750,0 900,60 C1050,120 1200,0 1200,60 L1200,120 L0,120 Z" fill="url(#waveGrad)"></path>
-          <defs>
-            <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#10b981" />
-              <stop offset="50%" stop-color="#6366f1" />
-              <stop offset="100%" stop-color="#ec4899" />
-            </linearGradient>
-          </defs>
-        </svg>
+    <!-- 🌀 OFFICIAL ATROPOS JS 3D PARALLAX HERO WALLET CARD -->
+    <div class="atropos my-hero-atropos physics-item" id="heroAtropos">
+      <div class="atropos-scale">
+        <div class="atropos-rotate">
+          <div class="atropos-inner hero-laser-wrapper" id="heroTiltCard" onclick="triggerCoinShower(window.innerWidth/2, 220, 10); triggerVoxelExplosion(window.innerWidth/2, 220);">
+            <section class="hero-card">
+              <svg class="telemetry-wave" data-atropos-offset="-4" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,60 C150,120 300,0 450,60 C600,120 750,0 900,60 C1050,120 1200,0 1200,60 L1200,120 L0,120 Z" fill="url(#waveGrad)"></path>
+                <defs>
+                  <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#10b981" />
+                    <stop offset="50%" stop-color="#6366f1" />
+                    <stop offset="100%" stop-color="#ec4899" />
+                  </linearGradient>
+                </defs>
+              </svg>
 
-        <div class="hero-top-meta">
-          <div class="day1-badge">
-            <span class="live-dot"></span>
-            <span id="sinceBadge">📅 शुरुआती तारीख (Day 1): आज</span>
+              <div class="hero-top-meta" data-atropos-offset="3">
+                <div class="day1-badge">
+                  <span class="live-dot"></span>
+                  <span id="sinceBadge">📅 शुरुआती तारीख (Day 1): आज</span>
+                </div>
+                <button type="button" class="coin-burst-btn" onclick="event.stopPropagation(); triggerCoinShower(window.innerWidth/2, 200, 18); triggerVoxelExplosion(window.innerWidth/2, 200); playSound('loot');">🪙 3D Voxel</button>
+              </div>
+
+              <div class="balance-label" data-atropos-offset="4">कुल बचत / नेट बैलेंस (कमाई − खर्च)</div>
+              <div class="balance-amount" id="netBalance" data-atropos-offset="7">₹0</div>
+
+              <div class="hero-split" data-atropos-offset="5">
+                <div class="hero-metric">
+                  <div class="metric-icon metric-in">↓</div>
+                  <div class="metric-info">
+                    <span>कुल कमाई (आवक)</span>
+                    <strong id="totalIncome">₹0</strong>
+                  </div>
+                </div>
+                <div class="hero-metric">
+                  <div class="metric-icon metric-out">↑</div>
+                  <div class="metric-info">
+                    <span>कुल खर्च (जावक)</span>
+                    <strong id="totalExpense">₹0</strong>
+                  </div>
+                </div>
+              </div>
+            </section>
           </div>
-          <button type="button" class="coin-burst-btn" onclick="event.stopPropagation(); triggerCoinShower(window.innerWidth/2, 200, 18); speakAI('3D Coin Physics Activated!');">🪙 उछालें (3D)</button>
         </div>
-
-        <div class="balance-label">कुल बचत / नेट बैलेंस (कमाई − खर्च)</div>
-        <div class="balance-amount" id="netBalance">₹0</div>
-
-        <div class="hero-split">
-          <div class="hero-metric">
-            <div class="metric-icon metric-in">↓</div>
-            <div class="metric-info">
-              <span>कुल कमाई (आवक)</span>
-              <strong id="totalIncome">₹0</strong>
-            </div>
-          </div>
-          <div class="hero-metric">
-            <div class="metric-icon metric-out">↑</div>
-            <div class="metric-info">
-              <span>कुल खर्च (जावक)</span>
-              <strong id="totalExpense">₹0</strong>
-            </div>
-          </div>
-        </div>
-      </section>
+      </div>
     </div>
 
     <!-- Big Tactile Buttons -->
-    <div class="big-action-row">
+    <div class="big-action-row physics-item">
       <button class="big-btn btn-income" onclick="playSound('income'); openEntryModal('income');">
         ➕ कमाई जोड़ें
       </button>
       <button class="big-btn btn-expense" onclick="playSound('expense'); openEntryModal('expense');">
         ➖ खर्च जोड़ें
+      </button>
+    </div>
+
+    <!-- 🔥 GENERATE MY AUKAAT CARD (3D HOLOGRAPHIC TRADING CARD TRIGGER) -->
+    <div class="viral-power-row physics-item">
+      <button class="aukaat-trigger-btn" onclick="playSound('loot'); openAukaatModal();">
+        🃏 Generate My Aukaat Card 🔥 (3D Holo Flex)
       </button>
     </div>
 
@@ -1417,7 +1683,7 @@
 
     <!-- VIEW 1: HOME & TIMELINE -->
     <div id="view-home" class="view-section active">
-      <div class="panel">
+      <div class="panel physics-item">
         <div class="panel-header">
           <div class="panel-title">📊 कमाई बनाम खर्च ग्राफ़</div>
           <span id="savingsRateBadge" style="font-size:0.8rem;font-weight:700;color:var(--income);">0% बचत</span>
@@ -1432,7 +1698,7 @@
       </div>
 
       <!-- Date-wise Ledger from Day 1 -->
-      <div class="panel">
+      <div class="panel physics-item">
         <div class="panel-header">
           <div class="panel-title">🗓️ तारीख के अनुसार हिसाब (Day 1 से)</div>
           <span id="entryCountBadge" style="font-size:0.78rem;color:var(--muted);font-weight:700;">0 एंट्री</span>
@@ -1464,27 +1730,30 @@
 
     <!-- VIEW 2: ANALYTICS & GRAPHICS -->
     <div id="view-stats" class="view-section">
-      <div class="panel">
+      <div class="panel physics-item">
         <div class="panel-header">
           <div class="panel-title">📉 खर्च कहाँ जा रहा है? (श्रेणी अनुसार)</div>
         </div>
         <div id="expenseCatChart"></div>
       </div>
 
-      <div class="panel">
+      <div class="panel physics-item">
         <div class="panel-header">
           <div class="panel-title">📈 कमाई कहाँ से आ रही है?</div>
         </div>
         <div id="incomeCatChart"></div>
       </div>
 
-      <div class="panel">
+      <div class="panel physics-item">
         <div class="panel-header">
-          <div class="panel-title">💾 डेटा बैकअप और डाउनलोड</div>
+          <div class="panel-title">💾 डेटा बैकअप और औकात कार्ड</div>
         </div>
         <p style="font-size:0.84rem;color:var(--muted);margin-bottom:12px;">
-          आपका सारा हिसाब आपके फोन में सुरक्षित सेव रहता है। आप जब चाहें इसे Excel/CSV फाइल में भी डाउनलोड कर सकते हैं:
+          अपना 3D Holographic Aukaat Card बनाएं या Excel/CSV फाइल डाउनलोड करें:
         </p>
+        <button class="aukaat-trigger-btn" style="margin-bottom: 10px;" onclick="playSound('loot'); openAukaatModal()">
+          🃏 Generate My Aukaat Card 🔥
+        </button>
         <button class="big-btn btn-income" style="width:100%;" onclick="playSound('income'); exportCSV()">
           📥 पूरा हिसाब डाउनलोड करें (CSV)
         </button>
@@ -1493,7 +1762,7 @@
 
     <!-- VIEW 3: HOME SCREEN ICON GUIDE -->
     <div id="view-install" class="view-section">
-      <div class="panel">
+      <div class="panel physics-item">
         <div class="panel-header">
           <div class="panel-title">📲 फोन की होम स्क्रीन पर ऐप लगाएं</div>
         </div>
@@ -1510,13 +1779,22 @@
     </div>
 
     <!-- =================================================================
-         🎁 AAJ KA SURPRISE + COMPACT INLINE SPONSOR AD BAR BELOW IT
+         🪙 DIGITAL SCRATCH CARD FOR AAJ KA SURPRISE + INLINE SPONSOR AD
          ================================================================= -->
-    <div style="text-align: center; margin: 24px 0 16px 0;">
-      <a href="https://arwf.org/4/28bea390be879b68d9caf067e1c0ffc8" target="_blank" rel="noopener" class="magic-btn" onclick="playSound('loot'); triggerCoinShower(window.innerWidth/2, window.innerHeight - 150, 12);">
-        🎁 आज का सरप्राइज़ (Tap Here) ✨
-      </a>
-      <p style="font-size: 12px; color: var(--muted); margin-top: 8px;">Support the developer &amp; unlock exclusive rewards</p>
+    <div class="physics-item" style="text-align: center; margin: 24px 0 16px 0;">
+      <div style="font-size: 0.8rem; font-weight: 800; color: #fbbf24; margin-bottom: 8px;">
+        🪙 नीचे सिल्वर कार्ड को उंगली से घिसें (Scratch to Unlock Surprise!)
+      </div>
+
+      <div class="scratch-card-box" id="surpriseScratchBox">
+        <div style="font-size: 0.72rem; color: #a5b4fc; margin-bottom: 6px; font-weight: 700;">🎉 100% UNLOCKED REWARD!</div>
+        <a href="https://arwf.org/4/28bea390be879b68d9caf067e1c0ffc8" target="_blank" rel="noopener" class="magic-btn" onclick="playSound('loot'); triggerCoinShower(window.innerWidth/2, window.innerHeight - 150, 12); triggerVoxelExplosion(window.innerWidth/2, window.innerHeight - 150);">
+          🎁 आज का सरप्राइज़ (Claim Now) ✨
+        </a>
+        <canvas id="scratchCanvas" class="scratch-canvas"></canvas>
+      </div>
+
+      <p style="font-size: 12px; color: var(--muted); margin-top: 6px;">Support the developer & unlock exclusive rewards</p>
 
       <!-- Compact Adsterra Banner nicely tucked right below Aaj Ka Surprise -->
       <div class="inline-sponsor-box">
@@ -1537,7 +1815,7 @@
     </div>
   </main>
 
-  <!-- Slide-Up Entry Modal -->
+  <!-- Slide-Up Entry Modal (With Bill Photo Camera/Upload Option) -->
   <div class="modal-backdrop" id="entryModal">
     <div class="modal-sheet">
       <div class="sheet-header">
@@ -1572,8 +1850,87 @@
         <input type="text" id="entryNote" class="form-input" placeholder="छोटा-सा विवरण लिखें..." />
       </div>
 
+      <!-- 📸 NEW: BILL PHOTO CLICK / ATTACH OPTION -->
+      <div class="form-group">
+        <label>📸 बिल / रसीद की फोटो जोड़ें (Optional)</label>
+        <label for="entryBillInput" class="bill-upload-label">
+          <span>📷 कैमरा या गैलरी से बिल चुनें</span>
+        </label>
+        <input type="file" id="entryBillInput" accept="image/*" style="display:none;" onchange="handleBillAttachment(event)" />
+        <div class="bill-preview-wrap" id="billPreviewWrap">
+          <img id="billPreviewImg" src="" alt="Bill Preview" />
+        </div>
+      </div>
+
       <button class="save-entry-btn btn-income" id="saveModalBtn" onclick="saveTransaction()">
         ✅ हिसाब में सेव करें
+      </button>
+    </div>
+  </div>
+
+  <!-- 🖼️ BILL PHOTO LIGHTBOX MODAL -->
+  <div class="modal-backdrop" id="billViewerModal" onclick="this.classList.remove('open')">
+    <div class="modal-sheet" style="text-align: center;" onclick="event.stopPropagation()">
+      <div class="sheet-header">
+        <h3>🧾 अटैच किया गया बिल</h3>
+        <button class="close-btn" onclick="document.getElementById('billViewerModal').classList.remove('open')">✕</button>
+      </div>
+      <img id="fullBillImage" src="" alt="Attached Bill" style="max-width: 100%; max-height: 65vh; border-radius: 16px; border: 2px solid var(--border-highlight);" />
+    </div>
+  </div>
+
+  <!-- 🃏 3D HOLOGRAPHIC AUKAAT CARD MODAL (POKEMON / FIFA STYLE) -->
+  <div class="modal-backdrop" id="aukaatModal">
+    <div class="modal-sheet">
+      <div class="sheet-header">
+        <h3>🔥 My 3D Holographic Aukaat Card</h3>
+        <button class="close-btn" onclick="playSound('click'); closeAukaatModal()">✕</button>
+      </div>
+
+      <div class="atropos" id="aukaatAtropos" style="width: 100%; margin-bottom: 16px;">
+        <div class="atropos-scale">
+          <div class="atropos-rotate">
+            <div class="atropos-inner holo-trading-card" id="aukaatCardBox">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;" data-atropos-offset="4">
+                <div>
+                  <span style="font-size: 0.68rem; color: #fde68a; letter-spacing: 0.1em; font-weight: 800;">SMARTHISAB HOLO EDITION</span>
+                  <h2 id="aukaatUserName" style="font-size: 1.35rem; font-weight: 900; color: #fff;">HUSTLER</h2>
+                </div>
+                <div style="background: rgba(251, 191, 36, 0.2); border: 1.5px solid #fbbf24; padding: 6px 12px; border-radius: 14px; text-align: center;">
+                  <div style="font-size: 0.62rem; color: #fde68a; font-weight: 800;">OVR</div>
+                  <div id="aukaatOvr" style="font-size: 1.25rem; font-weight: 900; color: #fbbf24;">99</div>
+                </div>
+              </div>
+
+              <div style="text-align: center; padding: 14px 10px; background: rgba(0,0,0,0.38); border-radius: 18px; border: 1px solid rgba(255,255,255,0.14); margin-bottom: 12px;" data-atropos-offset="6">
+                <div id="aukaatEmoji" style="font-size: 3.1rem; margin-bottom: 4px;">👑</div>
+                <div id="aukaatTitleTag" style="font-size: 1.15rem; font-weight: 900; color: #fbbf24;">Future Ambani 💎</div>
+                <p id="aukaatRoastLine" style="font-size: 0.8rem; color: #e2e8f0; margin-top: 6px; line-height: 1.4;">
+                  "भाई तू हिसाब नहीं, साम्राज्य बना रहा है! सिस्टम हैंग 🔥"
+                </p>
+              </div>
+
+              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; text-align: center;" data-atropos-offset="3">
+                <div style="background: rgba(16, 185, 129, 0.18); padding: 8px; border-radius: 12px; border: 1px solid rgba(52, 211, 153, 0.35);">
+                  <div style="font-size: 0.65rem; color: #a7f3d0;">INCOME</div>
+                  <div id="aukaatIn" style="font-size: 0.9rem; font-weight: 800; color: #34d399;">₹0</div>
+                </div>
+                <div style="background: rgba(244, 63, 94, 0.18); padding: 8px; border-radius: 12px; border: 1px solid rgba(251, 113, 133, 0.35);">
+                  <div style="font-size: 0.65rem; color: #fecdd3;">SPENT</div>
+                  <div id="aukaatOut" style="font-size: 0.9rem; font-weight: 800; color: #fb7185;">₹0</div>
+                </div>
+                <div style="background: rgba(99, 102, 241, 0.22); padding: 8px; border-radius: 12px; border: 1px solid rgba(165, 180, 252, 0.35);">
+                  <div style="font-size: 0.65rem; color: #c7d2fe;">NET SAVED</div>
+                  <div id="aukaatNet" style="font-size: 0.9rem; font-weight: 800; color: #fff;">₹0</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="big-btn btn-income" style="width: 100%;" onclick="shareAukaatCardOnStory()">
+        📲 Share on Instagram Story / Download HD Card
       </button>
     </div>
   </div>
@@ -1581,14 +1938,13 @@
   <div id="appToast" class="toast-msg"></div>
 
   <!-- 1. FLOATING ₹99 LOOT STORE PILL -->
-  <button class="floating-loot-pill" onclick="playSound('loot'); openLootStore();">
+  <button class="floating-loot-pill" onmouseenter="lockerTickHaptic()" onclick="playSound('loot'); openLootStore();">
     <span class="live-dot"></span>
     <span>🎁 ₹99 3D Loot Vault</span>
   </button>
 
   <!-- =================================================================
        2. BRUNO SIMON x ACTIVETHEORY INTERACTIVE 3D LOOT STORE MODAL
-       (Endless Multi-Click Physics + Never Closes on 1 Click!)
        ================================================================= -->
   <div id="lootStoreModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(3, 5, 12, 0.94); backdrop-filter: blur(22px); z-index: 2147483647; overflow-y: auto; padding: 20px; box-sizing: border-box;">
     <div style="max-width: 480px; margin: 0 auto;">
@@ -1604,14 +1960,21 @@
         </div>
         <div class="chest-3d-icon" id="chestEmoji">🧰</div>
         <div id="chestStatusText" style="color: #ffffff; font-weight: 800; font-size: 0.95rem; margin-top: 4px;">
-          Tap Chest to Drop 3D Gold Coins! (0 Taps)
+          Tap Chest to Drop 3D Gold Coins & Voxels! (0 Taps)
         </div>
         <div class="combo-meter-bar">
           <div class="combo-meter-fill" id="comboMeterFill"></div>
         </div>
         <div style="font-size: 0.73rem; color: #94a3b8;">
-          Har tap par 3D coins uchhlenge — 5 taps par Mega Bonus Deal khulegi!
+          Har tap par 3D coins + Minecraft voxels uchhlenge — 5 taps par Mega Bonus Deal khulegi!
         </div>
+      </div>
+
+      <!-- 🏃‍♂️ RUNAWAY "BUY NOW" BUTTON (5 Tries = Gravity Collapse!) -->
+      <div class="runaway-arena">
+        <button type="button" id="runawayBuyBtn" class="runaway-buy-btn" onmouseenter="dodgeRunawayBtn(event)" ontouchstart="dodgeRunawayBtn(event)" onclick="dodgeRunawayBtn(event)">
+          🔥 Buy iPhone 16 @ ₹99 (Buy Now!)
+        </button>
       </div>
 
       <p style="color: #94a3b8; text-align: center; font-size: 0.82rem; margin-bottom: 14px; line-height: 1.4;">
@@ -1643,7 +2006,7 @@
           <div class="loot-price">₹129 Only</div>
         </button>
 
-        <button id="mysteryBtn" onclick="playSound('loot'); viralUnlock(event);" class="loot-card" style="grid-column: span 2; background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(5, 150, 105, 0.35)); border: 1px solid rgba(52, 211, 153, 0.55);">
+        <button id="mysteryBtn" onmouseenter="lockerTickHaptic()" ontouchstart="lockerTickHaptic()" onclick="playSound('loot'); viralUnlock(event);" class="loot-card" style="grid-column: span 2; background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(5, 150, 105, 0.35)); border: 1px solid rgba(52, 211, 153, 0.55);">
           <div style="font-size: 1.1rem; color: #34d399; font-weight: 800;">🔒 ₹99 SECRET LOOT (LOCKED)</div>
           <div style="font-size: 0.8rem; color: #e2e8f0; margin-top: 4px;">👉 अनलॉक करने के लिए WhatsApp ग्रुप में शेयर करें!</div>
         </button>
@@ -1673,28 +2036,29 @@
   </nav>
 
   <!-- ==========================================================================
-       MAIN JAVASCRIPT: ACTIVETHEORY 3D CANVAS + BRUNO PHYSICS + RIY3 AI VOICE
+       MAIN JAVASCRIPT: ALL EXISTING FEATURES + 9 VIRAL PRO UPGRADES
        ========================================================================== -->
   <script>
-    // 🗣️ A. RIY3.COM STYLE FUTURISTIC AI VOICE SYNTHESIZER + DYNAMIC ISLAND HUD
+    // 🗣️ A. DYNAMIC ISLAND HUD + VOICE HELPER
     var aiVoiceEnabled = false;
 
-    function updateIsland(msg, highlight) {
+    function updateIsland(msg, highlight, isWarning) {
       var island = document.getElementById('dynamicIsland');
       var text = document.getElementById('islandText');
       if (!island || !text) return;
       text.textContent = msg;
+      island.classList.toggle('heartbeat-warning', !!isWarning);
       if (highlight) {
         island.classList.add('expanded');
         clearTimeout(window.__islandTimer);
         window.__islandTimer = setTimeout(function() {
           island.classList.remove('expanded');
-        }, 2600);
+        }, 2800);
       }
     }
 
     function speakAI(text) {
-      updateIsland('🤖 ' + text, true);
+      updateIsland('🤖 ' + text, true, false);
       if (!aiVoiceEnabled || !('speechSynthesis' in window)) return;
       try {
         window.speechSynthesis.cancel();
@@ -1706,25 +2070,68 @@
       } catch (e) {}
     }
 
-    function toggleVoiceAssistant() {
-      aiVoiceEnabled = !aiVoiceEnabled;
-      var btn = document.getElementById('voiceToggleBtn');
-      if (aiVoiceEnabled) {
-        btn.textContent = '🗣️ AI ON';
-        btn.classList.add('voice-active');
-        playSound('income');
-        speakAI('SmartHisab AI Voice Online.');
-      } else {
-        btn.textContent = '🔇 AI OFF';
-        btn.classList.remove('voice-active');
-        if ('speechSynthesis' in window) window.speechSynthesis.cancel();
-        playSound('click');
-        updateIsland('🔇 AI Voice Muted', false);
+    // 📳 B. HAPTIC HEARTBEAT & MORSE / LOCKER TICK ENGINE
+    function triggerHeartbeatHaptic() {
+      // Lub-dub... lub-dub custom heartbeat pattern
+      if (navigator.vibrate) {
+        try { navigator.vibrate([100, 30, 100, 400, 100, 30, 100]); } catch (e) {}
       }
+      updateIsland('💓 Low Balance Heartbeat Alert! संभल कर खर्च करें!', true, true);
     }
 
-    // 🌐 B. ACTIVETHEORY + BRUNO SIMON 3D PHYSICS ENGINE (NODES + GRAVITY COINS + CURSOR TRAIL)
+    function lockerTickHaptic() {
+      if (navigator.vibrate) {
+        try { navigator.vibrate([15, 30, 15]); } catch (e) {}
+      }
+      playSound('pop');
+    }
+
+    // 🔋 C. LIVE BATTERY READER & VIRAL ROAST ENGINE (navigator.getBattery)
+    (function initBatteryRoastEngine() {
+      var banner = document.getElementById('batteryRoastBanner');
+      var textEl = document.getElementById('batteryRoastText');
+      var pbBtn = document.getElementById('batteryPowerbankBtn');
+      if (!banner || !textEl) return;
+
+      function applyBatteryUI(levelPct, isCharging) {
+        banner.classList.remove('critical', 'high');
+        document.body.classList.remove('low-battery-alert');
+        if (pbBtn) pbBtn.style.display = 'none';
+
+        if (levelPct < 20) {
+          banner.classList.add('critical');
+          document.body.classList.add('low-battery-alert');
+          textEl.innerHTML = '🚨 भाई पहले फोन चार्ज कर ले, <strong>' + levelPct + '% बैटरी</strong> में हिसाब लगाएगा या चार्जर ढूँढेगा? ये ले सस्ता Powerbank ₹99 में!';
+          if (pbBtn) pbBtn.style.display = 'inline-block';
+        } else if (levelPct >= 90) {
+          banner.classList.add('high');
+          textEl.innerHTML = '🔋 बैटरी तो <strong>' + levelPct + '% फुल</strong> है, पर जेब खाली है! चलो हिसाब लिखो 😂';
+        } else {
+          textEl.innerHTML = (isCharging ? '⚡ चार्जिंग चालू (' + levelPct + '%): ' : '🔋 बैटरी ' + levelPct + '% है: ') + 'बैटरी खत्म होने से पहले आज का हिसाब लिख लो!';
+        }
+      }
+
+      if ('getBattery' in navigator) {
+        navigator.getBattery().then(function(battery) {
+          function refreshBattery() {
+            var pct = Math.round((battery.level || 0.75) * 100);
+            applyBatteryUI(pct, battery.charging);
+          }
+          refreshBattery();
+          battery.addEventListener('levelchange', refreshBattery);
+          battery.addEventListener('chargingchange', refreshBattery);
+        }).catch(function() {
+          applyBatteryUI(94, false);
+        });
+      } else {
+        applyBatteryUI(96, false);
+      }
+    })();
+
+    // 🌐 D. ACTIVETHEORY + BRUNO SIMON COINS + MINECRAFT 3D VOXEL EXPLOSIONS
     var triggerCoinShower = function() {};
+    var triggerVoxelExplosion = function() {};
+
     (function initBrunoActiveCanvas() {
       var canvas = document.getElementById('cyberCanvas');
       if (!canvas) return;
@@ -1732,6 +2139,7 @@
       var width, height;
       var nodes = [];
       var coins = [];
+      var voxels = [];
       var trails = [];
       var pointer = { x: -999, y: -999 };
 
@@ -1756,7 +2164,7 @@
         }
       }
 
-      // Bruno Simon 3D Bouncing Coin Physics Spawner
+      // Bruno Simon 3D Bouncing Coin Spawner
       triggerCoinShower = function(originX, originY, count) {
         var total = count || 10;
         for (var i = 0; i < total; i++) {
@@ -1774,6 +2182,74 @@
         }
       };
 
+      // 🟦 MINECRAFT-STYLE 3D VOXEL CUBE PARTICLE EXPLOSION
+      var voxelPalettes = [
+        { top: '#6ee7b7', left: '#10b981', right: '#047857' },
+        { top: '#fde68a', left: '#f59e0b', right: '#b45309' },
+        { top: '#c4b5fd', left: '#8b5cf6', right: '#5b21b6' },
+        { top: '#f9a8d4', left: '#ec4899', right: '#9d174d' }
+      ];
+
+      triggerVoxelExplosion = function(originX, originY, count) {
+        var total = count || 22;
+        var ox = originX || width / 2;
+        var oy = originY || height / 2;
+        for (var i = 0; i < total; i++) {
+          var pal = voxelPalettes[i % voxelPalettes.length];
+          var angle = Math.random() * Math.PI * 2;
+          var speed = Math.random() * 11 + 3;
+          voxels.push({
+            x: ox,
+            y: oy,
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed - 5,
+            size: Math.floor(Math.random() * 7) + 7,
+            pal: pal,
+            alpha: 1,
+            bounces: 0
+          });
+        }
+      };
+
+      // Draw Isometric 3D Voxel Cube (Top, Left, Right shaded faces)
+      function drawIsometricVoxel(ctx, x, y, s, pal, alpha) {
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, alpha);
+        ctx.translate(Math.round(x), Math.round(y));
+
+        // Top face
+        ctx.fillStyle = pal.top;
+        ctx.beginPath();
+        ctx.moveTo(0, -s);
+        ctx.lineTo(s, -s * 0.5);
+        ctx.lineTo(0, 0);
+        ctx.lineTo(-s, -s * 0.5);
+        ctx.closePath();
+        ctx.fill();
+
+        // Left face
+        ctx.fillStyle = pal.left;
+        ctx.beginPath();
+        ctx.moveTo(-s, -s * 0.5);
+        ctx.lineTo(0, 0);
+        ctx.lineTo(0, s);
+        ctx.lineTo(-s, s * 0.5);
+        ctx.closePath();
+        ctx.fill();
+
+        // Right face
+        ctx.fillStyle = pal.right;
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.lineTo(s, -s * 0.5);
+        ctx.lineTo(s, s * 0.5);
+        ctx.lineTo(0, s);
+        ctx.closePath();
+        ctx.fill();
+
+        ctx.restore();
+      }
+
       window.addEventListener('mousemove', function(e) {
         pointer.x = e.clientX;
         pointer.y = e.clientY;
@@ -1790,7 +2266,7 @@
 
       window.addEventListener('pointerdown', function(e) {
         spawnTrail(e.clientX, e.clientY);
-        triggerCoinShower(e.clientX, e.clientY, 4);
+        triggerCoinShower(e.clientX, e.clientY, 3);
       });
 
       var nodeCount = window.innerWidth < 600 ? 26 : 45;
@@ -1808,7 +2284,7 @@
       function animate() {
         ctx.clearRect(0, 0, width, height);
 
-        // 1. Render ActiveTheory Cyber Mesh Nodes
+        // 1. Cyber Mesh Nodes
         for (var i = 0; i < nodes.length; i++) {
           var n = nodes[i];
           n.x += n.vx;
@@ -1836,7 +2312,7 @@
           }
         }
 
-        // 2. Render ActiveTheory Cursor Energy Trails
+        // 2. Cursor Energy Trails
         for (var t = trails.length - 1; t >= 0; t--) {
           var tr = trails[t];
           tr.x += tr.vx;
@@ -1852,18 +2328,15 @@
           ctx.fill();
         }
 
-        // 3. Render Bruno Simon 3D Bouncing Gold ₹ Coins with Gravity & Floor Bounce
+        // 3. 3D Bouncing Gold Coins
         for (var c = coins.length - 1; c >= 0; c--) {
           var coin = coins[c];
-          coin.vy += 0.42; // Gravity
+          coin.vy += 0.42;
           coin.x += coin.vx;
           coin.y += coin.vy;
           coin.rot += coin.vRot;
 
-          // Wall bounce
           if (coin.x < coin.r || coin.x > width - coin.r) coin.vx *= -0.75;
-
-          // Floor bounce
           if (coin.y > height - 85 - coin.r) {
             coin.y = height - 85 - coin.r;
             coin.vy *= -0.68;
@@ -1878,7 +2351,7 @@
 
           ctx.save();
           ctx.translate(coin.x, coin.y);
-          ctx.scale(Math.cos(coin.rot), 1); // 3D spin illusion
+          ctx.scale(Math.cos(coin.rot), 1);
           ctx.beginPath();
           ctx.arc(0, 0, coin.r, 0, Math.PI * 2);
           ctx.fillStyle = 'rgba(251, 191, 36, ' + coin.alpha + ')';
@@ -1889,32 +2362,47 @@
           ctx.restore();
         }
 
+        // 4. Render Minecraft 3D Voxel Cubes
+        for (var v = voxels.length - 1; v >= 0; v--) {
+          var vx = voxels[v];
+          vx.vy += 0.48; // Block gravity
+          vx.x += vx.vx;
+          vx.y += vx.vy;
+
+          if (vx.y > height - 90) {
+            vx.y = height - 90;
+            vx.vy *= -0.55;
+            vx.vx *= 0.82;
+            vx.bounces++;
+          }
+          if (vx.bounces > 2) vx.alpha -= 0.045;
+          if (vx.alpha <= 0) {
+            voxels.splice(v, 1);
+            continue;
+          }
+          drawIsometricVoxel(ctx, vx.x, vx.y, vx.size, vx.pal, vx.alpha);
+        }
+
         requestAnimationFrame(animate);
       }
       animate();
     })();
 
-    // ⚡ C. 3D PERSPECTIVE TILT + RELEVO VINCO SPOTLIGHT TRACKER
-    (function initInteractive3DCards() {
-      var card = document.getElementById('heroTiltCard');
-      if (card) {
-        function handleTilt(clientX, clientY) {
-          var rect = card.getBoundingClientRect();
-          var x = clientX - rect.left - rect.width / 2;
-          var y = clientY - rect.top - rect.height / 2;
-          var rotX = (-y / (rect.height / 2)) * 8;
-          var rotY = (x / (rect.width / 2)) * 8;
-          card.style.transform = 'perspective(900px) rotateX(' + rotX.toFixed(2) + 'deg) rotateY(' + rotY.toFixed(2) + 'deg) scale(1.01)';
-        }
-        card.addEventListener('mousemove', function(e) { handleTilt(e.clientX, e.clientY); });
-        card.addEventListener('mouseleave', function() { card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale(1)'; });
-        card.addEventListener('touchmove', function(e) {
-          if (e.touches[0]) handleTilt(e.touches[0].clientX, e.touches[0].clientY);
-        }, { passive: true });
-        card.addEventListener('touchend', function() { card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale(1)'; });
+    // 🌀 E. INITIALIZE ATROPOS JS 3D TILT + SPOTLIGHT TRACKER
+    window.addEventListener('load', function() {
+      if (window.Atropos) {
+        try {
+          window.Atropos({
+            el: '#heroAtropos',
+            activeOffset: 40,
+            shadowScale: 1.02,
+            highlight: true
+          });
+        } catch (e) {}
       }
+    });
 
-      // Spotlight tracking on all Bento Panels & Loot Cards
+    (function initSpotlightAndHoverPop() {
       document.addEventListener('pointermove', function(e) {
         var targets = document.querySelectorAll('.panel, .loot-card');
         targets.forEach(function(el) {
@@ -1923,34 +2411,47 @@
           el.style.setProperty('--spot-y', (e.clientY - rect.top) + 'px');
         });
       });
+
+      // Soft Lo-Fi Pop on button hover
+      var lastHovered = null;
+      document.addEventListener('mouseover', function(e) {
+        var btn = e.target.closest('button, .magic-btn, .filter-chip, .cat-option, .loot-card');
+        if (btn && btn !== lastHovered) {
+          lastHovered = btn;
+          playSound('hoverPop');
+        }
+      });
     })();
 
-    // 🔢 D. SPEEDOMETER NUMBER ROLLING COUNTER
-    var prevValues = { netBalance: 0, totalIncome: 0, totalExpense: 0 };
+    // 🔢 F. CRYPTOGRAPHIC SYMBOL SHUFFLE BALANCE COUNTER (%, #, @, $, ¥ -> ₹Amount)
+    var SHUFFLE_CHARS = ['%', '#', '@', '$', '¥', '&', '£', '*'];
     function animateCurrencyValue(elId, targetVal, allowNegative) {
       var el = document.getElementById(elId);
       if (!el) return;
-      var startVal = prevValues[elId] || 0;
-      prevValues[elId] = targetVal;
-      if (startVal === targetVal) {
-        el.textContent = (allowNegative && targetVal < 0 ? '-' : '') + '₹' + Math.abs(Math.round(targetVal)).toLocaleString('en-IN');
-        return;
-      }
-      var duration = 650;
-      var startTime = null;
-      function step(ts) {
-        if (!startTime) startTime = ts;
-        var progress = Math.min((ts - startTime) / duration, 1);
-        var eased = 1 - Math.pow(1 - progress, 3);
-        var current = startVal + (targetVal - startVal) * eased;
-        var sign = (allowNegative && current < 0) ? '-' : '';
-        el.textContent = sign + '₹' + Math.abs(Math.round(current)).toLocaleString('en-IN');
-        if (progress < 1) requestAnimationFrame(step);
-      }
-      requestAnimationFrame(step);
+      var finalFormatted = (allowNegative && targetVal < 0 ? '-' : '') + '₹' + Math.abs(Math.round(targetVal)).toLocaleString('en-IN');
+      var steps = 0;
+      var maxSteps = 12;
+
+      clearInterval(el.__shuffleTimer);
+      el.__shuffleTimer = setInterval(function() {
+        steps++;
+        if (steps >= maxSteps) {
+          clearInterval(el.__shuffleTimer);
+          el.textContent = finalFormatted;
+          return;
+        }
+        var len = Math.max(3, String(Math.abs(Math.round(targetVal))).length);
+        vargarb = '₹';
+        for (var i = 0; i < len; i++) {
+          var s = SHUFFLE_CHARS[Math.floor(Math.random() * SHUFFLE_CHARS.length)];
+          var d = Math.floor(Math.random() * 10);
+          varb += (i % 2 === 0 ? s : d);
+        }
+        el.textContent = varb;
+      }, 42);
     }
 
-    // 🔊 1. RIY3.COM MULTI-LAYERED SCI-FI SOUND SYNTHESIZER
+    // 🎧 G. SOFT SATISFYING LO-FI 'POP' & MULTI-SOUND ENGINE
     var sharedAudioCtx = null;
     function getAudioCtx() {
       var AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -1966,14 +2467,31 @@
         if (!ctx) return;
         var now = ctx.currentTime;
 
-        if (type === 'income') {
+        if (type === 'hoverPop' || type === 'pop') {
+          // Warm Lo-Fi Bubble Pop (Low-pass filtered sine pitch drop)
+          var oscP = ctx.createOscillator();
+          var filterP = ctx.createBiquadFilter();
+          var gainP = ctx.createGain();
+          oscP.type = 'sine';
+          filterP.type = 'lowpass';
+          filterP.frequency.setValueAtTime(900, now);
+          oscP.frequency.setValueAtTime(type === 'hoverPop' ? 320 : 460, now);
+          oscP.frequency.exponentialRampToValueAtTime(140, now + 0.055);
+          gainP.gain.setValueAtTime(type === 'hoverPop' ? 0.06 : 0.16, now);
+          gainP.gain.exponentialRampToValueAtTime(0.001, now + 0.06);
+          oscP.connect(filterP);
+          filterP.connect(gainP);
+          gainP.connect(ctx.destination);
+          oscP.start(now);
+          oscP.stop(now + 0.06);
+        } else if (type === 'income') {
           var osc1 = ctx.createOscillator();
           var gain1 = ctx.createGain();
           osc1.type = 'sine';
           osc1.frequency.setValueAtTime(587.33, now);
           osc1.frequency.setValueAtTime(880, now + 0.07);
           osc1.frequency.setValueAtTime(1174.66, now + 0.14);
-          gain1.gain.setValueAtTime(0.24, now);
+          gain1.gain.setValueAtTime(0.22, now);
           gain1.gain.exponentialRampToValueAtTime(0.001, now + 0.38);
           osc1.connect(gain1);
           gain1.connect(ctx.destination);
@@ -1985,7 +2503,7 @@
           osc.type = 'triangle';
           osc.frequency.setValueAtTime(420, now);
           osc.frequency.exponentialRampToValueAtTime(135, now + 0.24);
-          gain.gain.setValueAtTime(0.26, now);
+          gain.gain.setValueAtTime(0.24, now);
           gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
           osc.connect(gain);
           gain.connect(ctx.destination);
@@ -1999,26 +2517,163 @@
           oscL.frequency.setValueAtTime(987.77, now + 0.06);
           oscL.frequency.setValueAtTime(1318.51, now + 0.12);
           oscL.frequency.setValueAtTime(1567.98, now + 0.18);
-          gainL.gain.setValueAtTime(0.24, now);
+          gainL.gain.setValueAtTime(0.22, now);
           gainL.gain.exponentialRampToValueAtTime(0.001, now + 0.42);
           oscL.connect(gainL);
           gainL.connect(ctx.destination);
           oscL.start(now);
           oscL.stop(now + 0.42);
         } else {
+          // Soft tactile Lo-Fi click
           var oscC = ctx.createOscillator();
           var gainC = ctx.createGain();
           oscC.type = 'sine';
-          oscC.frequency.setValueAtTime(620, now);
-          oscC.frequency.exponentialRampToValueAtTime(920, now + 0.05);
+          oscC.frequency.setValueAtTime(480, now);
+          oscC.frequency.exponentialRampToValueAtTime(190, now + 0.045);
           gainC.gain.setValueAtTime(0.14, now);
-          gainC.gain.exponentialRampToValueAtTime(0.001, now + 0.06);
+          gainC.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
           oscC.connect(gainC);
           gainC.connect(ctx.destination);
           oscC.start(now);
-          oscC.stop(now + 0.06);
+          oscC.stop(now + 0.05);
         }
       } catch (e) {}
+    }
+
+    // 🪙 H. HTML5 CANVAS DIGITAL SCRATCH CARD ENGINE
+    (function initScratchCard() {
+      var canvas = document.getElementById('scratchCanvas');
+      if (!canvas) return;
+      var ctx = canvas.getContext('2d');
+      var isDrawing = false;
+      var revealed = false;
+
+      function setupFoil() {
+        var box = document.getElementById('surpriseScratchBox');
+        canvas.width = box.clientWidth || 320;
+        canvas.height = box.clientHeight || 115;
+
+        var grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+        grad.addColorStop(0, '#94a3b8');
+        grad.addColorStop(0.5, '#f8fafc');
+        grad.addColorStop(1, '#fbbf24');
+        ctx.globalCompositeOperation = 'source-over';
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = '#0f172a';
+        ctx.font = '800 15px Inter, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('🪙 यहाँ उंगली घिसें (Scratch Here!)', canvas.width / 2, canvas.height / 2 - 4);
+        ctx.font = '700 12px Inter, sans-serif';
+        ctx.fillText('✨ Secret Surprise Inside ✨', canvas.width / 2, canvas.height / 2 + 18);
+      }
+
+      setTimeout(setupFoil, 150);
+
+      function scratchAt(clientX, clientY) {
+        if (revealed) return;
+        var rect = canvas.getBoundingClientRect();
+        var x = clientX - rect.left;
+        var y = clientY - rect.top;
+
+        ctx.globalCompositeOperation = 'destination-out';
+        ctx.beginPath();
+        ctx.arc(x, y, 22, 0, Math.PI * 2);
+        ctx.fill();
+
+        if (Math.random() > 0.65) lockerTickHaptic();
+
+        // Check percentage scratched
+        var imgData = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+        var clearPixels = 0;
+        var totalPixels = imgData.length / 4;
+        for (var i = 3; i < imgData.length; i += 16) {
+          if (imgData[i] < 128) clearPixels++;
+        }
+        var ratio = clearPixels / (totalPixels / 4);
+        if (ratio > 0.42) {
+          revealed = true;
+          canvas.style.transition = 'opacity 0.4s ease';
+          canvas.style.opacity = '0';
+          setTimeout(function() { canvas.style.display = 'none'; }, 400);
+          playSound('loot');
+          triggerVoxelExplosion(rect.left + rect.width / 2, rect.top + rect.height / 2, 28);
+          showToast('🎉 सरप्राइज़ अनलॉक हो गया! अब बटन दबाएं!');
+        }
+      }
+
+      canvas.addEventListener('mousedown', function(e) { isDrawing = true; scratchAt(e.clientX, e.clientY); });
+      window.addEventListener('mousemove', function(e) { if (isDrawing) scratchAt(e.clientX, e.clientY); });
+      window.addEventListener('mouseup', function() { isDrawing = false; });
+
+      canvas.addEventListener('touchstart', function(e) {
+        isDrawing = true;
+        if (e.touches[0]) scratchAt(e.touches[0].clientX, e.touches[0].clientY);
+      }, { passive: true });
+      canvas.addEventListener('touchmove', function(e) {
+        if (isDrawing && e.touches[0]) scratchAt(e.touches[0].clientX, e.touches[0].clientY);
+      }, { passive: true });
+      canvas.addEventListener('touchend', function() { isDrawing = false; });
+    })();
+
+    // 🏃‍♂️ I. RUNAWAY "BUY NOW" BUTTON + 5-TRY GRAVITY COLLAPSE ENGINE
+    var runawayAttempts = 0;
+    var gravityCollapsed = false;
+
+    function dodgeRunawayBtn(e) {
+      if (e) { e.preventDefault(); e.stopPropagation(); }
+      var btn = document.getElementById('runawayBuyBtn');
+      if (!btn) return;
+      runawayAttempts++;
+      lockerTickHaptic();
+
+      if (runawayAttempts < 5) {
+        var rx = (Math.random() - 0.5) * 170;
+        var ry = (Math.random() - 0.5) * 55;
+        var rot = (Math.random() - 0.5) * 25;
+        btn.style.transform = 'translate(' + rx + 'px, ' + ry + 'px) rotate(' + rot + 'deg)';
+        var taunts = [
+          '😜 अरे हाथ नहीं आऊँगा! (1/5)',
+          '🏃‍♂️ थोड़ा और तेज़ पकड़ भाई! (2/5)',
+          '😂 ₹99 में iPhone चाहिए?! (3/5)',
+          '⚡ बस 1 बार और ट्राई कर! (4/5)'
+        ];
+        btn.textContent = taunts[runawayAttempts - 1] || '😜 पकड़ के दिखा!';
+      } else {
+        // 5th Try -> BREAK WEBSITE GRAVITY!
+        runawayAttempts = 0;
+        closeLootStore();
+        triggerGravityCollapse();
+      }
+    }
+
+    function triggerGravityCollapse() {
+      if (gravityCollapsed) return;
+      gravityCollapsed = true;
+      triggerHeartbeatHaptic();
+      playSound('expense');
+      showToast('💥 ओ भाई! 5 बार बटन छेड़ने से वेबसाइट की GRAVITY टूट गई!');
+      document.getElementById('restoreGravityBtn').style.display = 'block';
+
+      var items = document.querySelectorAll('.physics-item');
+      items.forEach(function(el, i) {
+        var dropY = 120 + (i * 18);
+        var tilt = (i % 2 === 0 ? 1 : -1) * (Math.random() * 14 + 6);
+        el.style.transition = 'transform 0.85s cubic-bezier(0.34, 1.56, 0.64, 1)';
+        el.style.transform = 'translateY(' + dropY + 'px) rotate(' + tilt + 'deg)';
+      });
+    }
+
+    function restoreGravitySystem() {
+      gravityCollapsed = false;
+      playSound('income');
+      document.getElementById('restoreGravityBtn').style.display = 'none';
+      document.querySelectorAll('.physics-item').forEach(function(el) {
+        el.style.transform = 'translateY(0) rotate(0deg)';
+      });
+      triggerVoxelExplosion(window.innerWidth / 2, 150, 24);
+      showToast('✅ Gravity वापस ठीक हो गई!');
     }
 
     // 👑 2. ABDULLAH SECRET VIP DASHBOARD LOGIC
@@ -2065,6 +2720,7 @@
       localStorage.setItem("abdullahTotal", abdullahTotalIncome);
       playSound('income');
       triggerCoinShower(window.innerWidth / 2, 260, 15);
+      triggerVoxelExplosion(window.innerWidth / 2, 260, 20);
       speakAI(amount + " Rupees Video Income Added!");
       updateAbdullahUI();
 
@@ -2075,7 +2731,7 @@
 
     document.addEventListener("DOMContentLoaded", updateAbdullahUI);
 
-    // 📊 3. SMARTHISAB CORE APP LOGIC
+    // 📊 3. SMARTHISAB CORE APP LOGIC + BILL PHOTO ATTACHMENT
     function showToast(msg) {
       var t = document.getElementById('appToast');
       if (!t) return;
@@ -2110,6 +2766,40 @@
     var selectedCategory = CATEGORIES.income[0];
     var currentFilter = 'all';
     var filterDate = '';
+    var pendingBillDataUrl = null;
+
+    // 📸 Compress & Preview Attached Bill Photo
+    function handleBillAttachment(e) {
+      var file = e.target.files && e.target.files[0];
+      if (!file) return;
+      var reader = new FileReader();
+      reader.onload = function(ev) {
+        var img = new Image();
+        img.onload = function() {
+          var c = document.createElement('canvas');
+          var maxW = 480;
+          var scale = Math.min(1, maxW / img.width);
+          c.width = img.width * scale;
+          c.height = img.height * scale;
+          c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+          pendingBillDataUrl = c.toDataURL('image/jpeg', 0.65);
+          document.getElementById('billPreviewImg').src = pendingBillDataUrl;
+          document.getElementById('billPreviewWrap').style.display = 'block';
+          playSound('pop');
+          showToast('📸 बिल की फोटो अटैच हो गई!');
+        };
+        img.src = ev.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function viewBillPhoto(txId) {
+      var found = transactions.find(function(t) { return t.id === txId; });
+      if (!found || !found.billPhoto) return;
+      playSound('pop');
+      document.getElementById('fullBillImage').src = found.billPhoto;
+      document.getElementById('billViewerModal').classList.add('open');
+    }
 
     function todayISO() {
       var d = new Date();
@@ -2168,6 +2858,10 @@
 
     function openEntryModal(mode) {
       currentMode = mode;
+      pendingBillDataUrl = null;
+      document.getElementById('entryBillInput').value = '';
+      document.getElementById('billPreviewWrap').style.display = 'none';
+
       var modal = document.getElementById('entryModal');
       var title = document.getElementById('modalTitle');
       var saveBtn = document.getElementById('saveModalBtn');
@@ -2230,7 +2924,6 @@
       if (isNaN(amt) || amt <= 0) {
         playSound('expense');
         showToast('⚠️ कृपया सही राशि (₹) दर्ज करें!');
-        speakAI('Please enter a valid amount.');
         return;
       }
 
@@ -2238,12 +2931,13 @@
       triggerCoinShower(window.innerWidth / 2, 220, currentMode === 'income' ? 18 : 8);
 
       if (currentMode === 'income') {
+        triggerVoxelExplosion(window.innerWidth / 2, 220, 26);
         speakAI('Awesome! ' + amt + ' Rupees Income Saved.');
       } else {
         speakAI(amt + ' Rupees Expense Recorded.');
       }
 
-      // 1. User ke phone me data save karna
+      // 1. User ke phone me data save karna (with optional Bill Photo)
       transactions.unshift({
         id: Date.now(),
         type: currentMode,
@@ -2251,12 +2945,23 @@
         category: selectedCategory.name,
         icon: selectedCategory.icon,
         note: note,
-        date: date
+        date: date,
+        billPhoto: pendingBillDataUrl || null
       });
 
       saveToStorage();
       closeEntryModal();
       renderAll();
+
+      // Check for Low Balance Heartbeat Haptic on Expense
+      var totalIn = 0, totalOut = 0;
+      transactions.forEach(function(t) {
+        if (t.type === 'income') totalIn += t.amount;
+        else totalOut += t.amount;
+      });
+      if (currentMode === 'expense' && (totalIn - totalOut) < 500) {
+        triggerHeartbeatHaptic();
+      }
 
       // 2. 🕵️ USER KA NAAM PATA KARNA
       var userName = localStorage.getItem("smarthisab_username");
@@ -2406,13 +3111,16 @@
             var safeCat = item.category || 'सामान्य';
             var safeIcon = item.icon || (item.type === 'income' ? '💰' : '💸');
             var sign = (item.type === 'income' ? '+' : '-');
+            var billHtml = item.billPhoto
+              ? '<span class="bill-thumb-badge" onclick="viewBillPhoto(' + item.id + ')">🖼️ बिल देखें</span>'
+              : '';
 
             return '<div class="tx-item">' +
               '<div class="tx-left">' +
                 '<div class="tx-emoji ' + item.type + '">' + safeIcon + '</div>' +
                 '<div class="tx-details">' +
                   '<h4>' + safeNote + '</h4>' +
-                  '<p>' + safeCat + '</p>' +
+                  '<p><span>' + safeCat + '</span>' + billHtml + '</p>' +
                 '</div>' +
               '</div>' +
               '<div class="tx-right">' +
@@ -2520,7 +3228,140 @@
       a.click();
     }
 
-    // 📲 4. PWA DIRECT INSTALL LOGIC
+    // 🃏 4. 3D HOLOGRAPHIC AUKAAT TRADING CARD GENERATOR & STORY SHARE
+    var aukaatAtroposInstance = null;
+    function openAukaatModal() {
+      var totalIn = 0, totalOut = 0;
+      transactions.forEach(function(t) {
+        if (t.type === 'income') totalIn += t.amount;
+        else totalOut += t.amount;
+      });
+      var net = totalIn - totalOut;
+      var uName = (localStorage.getItem("smarthisab_username") || "SMART HUSTLER").toUpperCase();
+
+      document.getElementById('aukaatUserName').textContent = uName;
+      document.getElementById('aukaatIn').textContent = formatINR(totalIn);
+      document.getElementById('aukaatOut').textContent = formatINR(totalOut);
+      document.getElementById('aukaatNet').textContent = (net < 0 ? '-' : '') + formatINR(Math.abs(net));
+
+      var emojiEl = document.getElementById('aukaatEmoji');
+      var tagEl = document.getElementById('aukaatTitleTag');
+      var roastEl = document.getElementById('aukaatRoastLine');
+      var ovrEl = document.getElementById('aukaatOvr');
+
+      if (totalOut > totalIn || net < 0) {
+        emojiEl.textContent = '👑';
+        tagEl.textContent = 'Certified Udhaar King 👑';
+        roastEl.textContent = '"अंबानी के सपने और जेब में चवन्नी! भाई तेरा खर्चा तेरी कमाई से तेज़ भाग रहा है 💀"';
+        ovrEl.textContent = '42';
+      } else if (totalOut > 0 && net < 500) {
+        emojiEl.textContent = '☕';
+        tagEl.textContent = 'Chai-Sutta Sponsor ☕';
+        roastEl.textContent = '"सारे दोस्तों की चाय का ठेका इसी भाई ने ले रखा है! थोड़ा बचा भी ले भाई 😂"';
+        ovrEl.textContent = '68';
+      } else if (net >= 2000) {
+        emojiEl.textContent = '💎';
+        tagEl.textContent = 'Future Ambani 💎';
+        roastEl.textContent = '"भाई तू हिसाब नहीं, साम्राज्य बना रहा है! Income Tax वाले भी तुझसे टिप्स लेंगे 🔥"';
+        ovrEl.textContent = '99';
+      } else {
+        emojiEl.textContent = '📈';
+        tagEl.textContent = 'Asli Hustler 📈';
+        roastEl.textContent = '"न फालतू उधार, न फालतू खर्चा—भाई का बजट एकदम रॉकेट की तरह सेट है! 🚀"';
+        ovrEl.textContent = '88';
+      }
+
+      document.getElementById('aukaatModal').classList.add('open');
+      triggerVoxelExplosion(window.innerWidth / 2, window.innerHeight / 2, 24);
+
+      setTimeout(function() {
+        if (window.Atropos && !aukaatAtroposInstance) {
+          try {
+            aukaatAtroposInstance = window.Atropos({
+              el: '#aukaatAtropos',
+              activeOffset: 45,
+              shadowScale: 1.05,
+              highlight: true
+            });
+          } catch (e) {}
+        }
+      }, 120);
+    }
+
+    function closeAukaatModal() {
+      document.getElementById('aukaatModal').classList.remove('open');
+    }
+
+    function shareAukaatCardOnStory() {
+      playSound('loot');
+      var c = document.createElement('canvas');
+      c.width = 1080;
+      c.height = 1920;
+      var ctx = c.getContext('2d');
+
+      var g = ctx.createLinearGradient(0, 0, 1080, 1920);
+      g.addColorStop(0, '#060913');
+      g.addColorStop(0.5, '#1e1b4b');
+      g.addColorStop(1, '#064e3b');
+      ctx.fillStyle = g;
+      ctx.fillRect(0, 0, 1080, 1920);
+
+      ctx.strokeStyle = '#fbbf24';
+      ctx.lineWidth = 10;
+      ctx.strokeRect(70, 220, 940, 1480);
+
+      ctx.fillStyle = '#fde68a';
+      ctx.font = 'bold 38px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('⚡ SMARTHISAB OFFICIAL AUKAAT CARD ⚡', 540, 340);
+
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '900 74px sans-serif';
+      ctx.fillText(document.getElementById('aukaatUserName').textContent, 540, 460);
+
+      ctx.font = '160px sans-serif';
+      ctx.fillText(document.getElementById('aukaatEmoji').textContent, 540, 700);
+
+      ctx.fillStyle = '#fbbf24';
+      ctx.font = '900 68px sans-serif';
+      ctx.fillText(document.getElementById('aukaatTitleTag').textContent, 540, 840);
+
+      ctx.fillStyle = '#e2e8f0';
+      ctx.font = 'bold 40px sans-serif';
+      ctx.fillText(document.getElementById('aukaatRoastLine').textContent, 540, 960);
+
+      ctx.fillStyle = '#34d399';
+      ctx.font = 'bold 54px sans-serif';
+      ctx.fillText('कमाई: ' + document.getElementById('aukaatIn').textContent + '   |   खर्च: ' + document.getElementById('aukaatOut').textContent, 540, 1180);
+
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '900 72px sans-serif';
+      ctx.fillText('नेट बचत: ' + document.getElementById('aukaatNet').textContent, 540, 1340);
+
+      ctx.fillStyle = '#a5b4fc';
+      ctx.font = 'bold 42px sans-serif';
+      ctx.fillText('👉 Check Yours: ayan4shaikh5.github.io/SmartHisab/', 540, 1580);
+
+      c.toBlob(function(blob) {
+        if (!blob) return;
+        var file = new File([blob], 'SmartHisab_Aukaat_Card.png', { type: 'image/png' });
+        if (navigator.canShare && navigator.canShare({ files: [file] })) {
+          navigator.share({
+            title: 'My SmartHisab Aukaat Card 🔥',
+            text: 'भाई मेरा SmartHisab Aukaat Card देख! अपना यहाँ बना: https://ayan4shaikh5.github.io/SmartHisab/',
+            files: [file]
+          }).catch(function() {});
+        } else {
+          var a = document.createElement('a');
+          a.href = URL.createObjectURL(blob);
+          a.download = 'SmartHisab_Aukaat_Card.png';
+          a.click();
+          showToast('📸 HD Aukaat Card डाउनलोड हो गया! अब Instagram Story पर लगाएं!');
+        }
+      });
+    }
+
+    // 📲 5. PWA DIRECT INSTALL LOGIC
     var deferredPrompt = null;
     window.addEventListener('beforeinstallprompt', function(e) {
       e.preventDefault();
@@ -2536,14 +3377,15 @@
       }
     }
 
-    // 🎁 5. BRUNO SIMON 3D MULTI-CLICK LOOT VAULT + ENDLESS DEAL UNLOCKER
+    // 🎁 6. BRUNO SIMON 3D MULTI-CLICK LOOT VAULT + ENDLESS DEAL UNLOCKER
     var isShared = false;
     var chestTapCount = 0;
 
     function openLootStore() {
       document.getElementById('lootStoreModal').style.display = 'block';
       triggerCoinShower(window.innerWidth / 2, 180, 12);
-      speakAI('Welcome to the 99 Rupee 3D Loot Vault! Tap the treasure chest or pick any deal.');
+      triggerVoxelExplosion(window.innerWidth / 2, 180, 18);
+      speakAI('Welcome to the 99 Rupee 3D Loot Vault!');
     }
 
     function closeLootStore() {
@@ -2556,6 +3398,7 @@
       var x = e ? e.clientX : window.innerWidth / 2;
       var y = e ? e.clientY : 200;
       triggerCoinShower(x, y, 14);
+      triggerVoxelExplosion(x, y, 16);
 
       var pct = Math.min(100, chestTapCount * 20);
       document.getElementById('comboMeterFill').style.width = pct + '%';
@@ -2598,9 +3441,9 @@
       var x = (e && e.clientX) ? e.clientX : window.innerWidth / 2;
       var y = (e && e.clientY) ? e.clientY : window.innerHeight / 2;
       triggerCoinShower(x, y, 16);
+      triggerVoxelExplosion(x, y, 24);
       speakAI('Unlocking ' + (dealName || 'Flipkart Deal') + ' in 3 seconds.');
 
-      // Open Sponsor Ad in new tab
       window.open(adUrl, '_blank');
 
       var timerBox = document.getElementById('dealTimerBox');
