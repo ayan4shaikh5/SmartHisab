@@ -1769,69 +1769,6 @@
       max-width: 90%;
       text-align: center;
     }
-    /* ✨ ANIMATED 3D ADSTERRA PARTNER BADGE */
-    .adsterra-partner-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 12px;
-      padding: 6px 14px 6px 8px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, rgba(15, 23, 42, 0.92), rgba(30, 27, 75, 0.92));
-      border: 1px solid rgba(139, 92, 246, 0.55);
-      box-shadow: 0 8px 24px rgba(139, 92, 246, 0.3), inset 0 0 12px rgba(16, 185, 129, 0.15);
-      text-decoration: none;
-      position: relative;
-      overflow: hidden;
-      animation: badgeFloat 3s ease-in-out infinite;
-      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .adsterra-partner-pill::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 45%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
-      animation: holoSweep 3.2s infinite ease-in-out;
-      pointer-events: none;
-    }
-
-    .adsterra-partner-pill:hover {
-      transform: translateY(-3px) scale(1.05);
-      border-color: #10b981;
-      box-shadow: 0 12px 28px rgba(16, 185, 129, 0.45);
-    }
-
-    .adsterra-partner-pill img {
-      width: 80px;
-      height: 30px;
-      border-radius: 6px;
-      display: block;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-    }
-
-    .partner-pill-text {
-      font-size: 0.72rem;
-      font-weight: 800;
-      color: #e2e8f0;
-      text-align: left;
-      line-height: 1.2;
-    }
-
-    .partner-pill-text span {
-      display: block;
-      font-size: 0.62rem;
-      color: #34d399;
-      letter-spacing: 0.04em;
-    }
-
-    @keyframes badgeFloat {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-4px); }
-    }
   </style>
 </head>
 <body>
@@ -2141,16 +2078,6 @@
           </script>
           <script type="text/javascript" src="https://bicea.org/22/4708e5cb58f7a3a7ee6e8c46d62ce263"></script>
         </div>
-      </div>
-    </div>
-    <div>
-        <a href="https://arwf.org/4/28bea390be879b68d9caf067e1c0ffc8" target="<a href="https://beta.publishers.adsterra.com/referral/uyeDrsQ2aK" rel="nofollow">Referral link</a>" rel="nofollow noopener" class="adsterra-partner-pill" onclick="playSound('loot'); triggerCoinShower(window.innerWidth/2, window.innerHeight - 120, 10);">
-          <img alt="banner" src="https://landings-cdn.adsterratech.com/referralBanners/png/80%20x%2030%20px.png" />
-          <div class="partner-pill-text">
-            ⚡ Official Partner
-            <span>Tap for Bonus Loot →</span>
-          </div>
-        </a>
       </div>
     </div>
   </main>
